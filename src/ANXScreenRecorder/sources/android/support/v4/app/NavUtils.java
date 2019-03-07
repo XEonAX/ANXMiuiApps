@@ -6,7 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.media.AudioSystem;
+import android.media.ANXAudioSystem;
 import android.os.Build.VERSION;
 import android.support.annotation.Nullable;
 import android.support.v4.content.IntentCompat;
@@ -51,7 +51,7 @@ public class NavUtils {
         }
 
         public void navigateUpTo(Activity activity, Intent upIntent) {
-            upIntent.addFlags(AudioSystem.DEVICE_OUT_USB_HEADSET);
+            upIntent.addFlags(ANXAudioSystem.DEVICE_OUT_USB_HEADSET);
             activity.startActivity(upIntent);
             activity.finish();
         }

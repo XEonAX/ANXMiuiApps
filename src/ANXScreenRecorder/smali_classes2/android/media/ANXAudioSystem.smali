@@ -1,14 +1,14 @@
-.class public Landroid/media/AudioSystem;
+.class public Landroid/media/ANXAudioSystem;
 .super Ljava/lang/Object;
-.source "AudioSystem.java"
+.source "ANXAudioSystem.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/media/AudioSystem$AudioRecordingCallback;,
-        Landroid/media/AudioSystem$DynamicPolicyCallback;,
-        Landroid/media/AudioSystem$ErrorCallback;
+        Landroid/media/ANXAudioSystem$AudioRecordingCallback;,
+        Landroid/media/ANXAudioSystem$DynamicPolicyCallback;,
+        Landroid/media/ANXAudioSystem$ErrorCallback;
     }
 .end annotation
 
@@ -455,15 +455,15 @@
 
 .field public static final SYNC_EVENT_PRESENTATION_COMPLETE:I = 0x1
 
-.field private static final TAG:Ljava/lang/String; = "AudioSystem"
+.field private static final TAG:Ljava/lang/String; = "ANXAudioSystem"
 
 .field public static final WOULD_BLOCK:I = -0x7
 
-.field private static mErrorCallback:Landroid/media/AudioSystem$ErrorCallback;
+.field private static mErrorCallback:Landroid/media/ANXAudioSystem$ErrorCallback;
 
-.field private static sDynPolicyCallback:Landroid/media/AudioSystem$DynamicPolicyCallback;
+.field private static sDynPolicyCallback:Landroid/media/ANXAudioSystem$DynamicPolicyCallback;
 
-.field private static sRecordingCallback:Landroid/media/AudioSystem$AudioRecordingCallback;
+.field private static sRecordingCallback:Landroid/media/ANXAudioSystem$AudioRecordingCallback;
 
 
 # direct methods
@@ -499,7 +499,7 @@
 
     move-result-object v0
 
-    sput-object v0, Landroid/media/AudioSystem;->STREAM_NAMES:[Ljava/lang/String;
+    sput-object v0, Landroid/media/ANXAudioSystem;->STREAM_NAMES:[Ljava/lang/String;
 
     .line 891
     const/16 v0, 0xc
@@ -508,10 +508,10 @@
 
     fill-array-data v0, :array_2e
 
-    sput-object v0, Landroid/media/AudioSystem;->DEFAULT_STREAM_VOLUME:[I
+    sput-object v0, Landroid/media/ANXAudioSystem;->DEFAULT_STREAM_VOLUME:[I
 
     .line 908
-    sget-object v0, Landroid/media/AudioSystem;->DEFAULT_STREAM_VOLUME:[I
+    sget-object v0, Landroid/media/ANXAudioSystem;->DEFAULT_STREAM_VOLUME:[I
 
     invoke-static {v0}, Landroid/media/AudioServiceInjector;->adjustDefaultStreamVolume([I)V
 
@@ -611,19 +611,19 @@
     const/4 v0, 0x0
 
     .line 281
-    .local v0, "cb":Landroid/media/AudioSystem$DynamicPolicyCallback;
-    const-class v1, Landroid/media/AudioSystem;
+    .local v0, "cb":Landroid/media/ANXAudioSystem$DynamicPolicyCallback;
+    const-class v1, Landroid/media/ANXAudioSystem;
 
     monitor-enter v1
 
     .line 282
     :try_start_4
-    sget-object v2, Landroid/media/AudioSystem;->sDynPolicyCallback:Landroid/media/AudioSystem$DynamicPolicyCallback;
+    sget-object v2, Landroid/media/ANXAudioSystem;->sDynPolicyCallback:Landroid/media/ANXAudioSystem$DynamicPolicyCallback;
 
     if-eqz v2, :cond_b
 
     .line 283
-    sget-object v2, Landroid/media/AudioSystem;->sDynPolicyCallback:Landroid/media/AudioSystem$DynamicPolicyCallback;
+    sget-object v2, Landroid/media/ANXAudioSystem;->sDynPolicyCallback:Landroid/media/ANXAudioSystem$DynamicPolicyCallback;
 
     move-object v0, v2
 
@@ -640,7 +640,7 @@
     if-eqz p0, :cond_27
 
     .line 292
-    const-string v1, "AudioSystem"
+    const-string v1, "ANXAudioSystem"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -662,7 +662,7 @@
 
     .line 289
     :cond_27
-    invoke-interface {v0, p1, p2}, Landroid/media/AudioSystem$DynamicPolicyCallback;->onDynamicPolicyMixStateUpdate(Ljava/lang/String;I)V
+    invoke-interface {v0, p1, p2}, Landroid/media/ANXAudioSystem$DynamicPolicyCallback;->onDynamicPolicyMixStateUpdate(Ljava/lang/String;I)V
 
     .line 290
     nop
@@ -692,19 +692,19 @@
     const/4 v0, 0x0
 
     .line 246
-    .local v0, "errorCallback":Landroid/media/AudioSystem$ErrorCallback;
-    const-class v1, Landroid/media/AudioSystem;
+    .local v0, "errorCallback":Landroid/media/ANXAudioSystem$ErrorCallback;
+    const-class v1, Landroid/media/ANXAudioSystem;
 
     monitor-enter v1
 
     .line 247
     :try_start_4
-    sget-object v2, Landroid/media/AudioSystem;->mErrorCallback:Landroid/media/AudioSystem$ErrorCallback;
+    sget-object v2, Landroid/media/ANXAudioSystem;->mErrorCallback:Landroid/media/ANXAudioSystem$ErrorCallback;
 
     if-eqz v2, :cond_b
 
     .line 248
-    sget-object v2, Landroid/media/AudioSystem;->mErrorCallback:Landroid/media/AudioSystem$ErrorCallback;
+    sget-object v2, Landroid/media/ANXAudioSystem;->mErrorCallback:Landroid/media/ANXAudioSystem$ErrorCallback;
 
     move-object v0, v2
 
@@ -718,7 +718,7 @@
     if-eqz v0, :cond_11
 
     .line 252
-    invoke-interface {v0, p0}, Landroid/media/AudioSystem$ErrorCallback;->onError(I)V
+    invoke-interface {v0, p0}, Landroid/media/ANXAudioSystem$ErrorCallback;->onError(I)V
 
     .line 254
     :cond_11
@@ -982,7 +982,7 @@
     .param p0, "streamType"    # I
 
     .line 888
-    sget-object v0, Landroid/media/AudioSystem;->DEFAULT_STREAM_VOLUME:[I
+    sget-object v0, Landroid/media/ANXAudioSystem;->DEFAULT_STREAM_VOLUME:[I
 
     aget v0, v0, p0
 
@@ -1566,7 +1566,7 @@
     move-result v3
 
     .line 840
-    invoke-static {v0, v1, v2, v3}, Landroid/media/AudioSystem;->native_is_offload_supported(IIII)Z
+    invoke-static {v0, v1, v2, v3}, Landroid/media/ANXAudioSystem;->native_is_offload_supported(IIII)Z
 
     move-result v0
 
@@ -1590,7 +1590,7 @@
 
     .line 950
     .local v0, "forceSingleVolume":Z
-    invoke-static {p0}, Landroid/media/AudioSystem;->getPlatformType(Landroid/content/Context;)I
+    invoke-static {p0}, Landroid/media/ANXAudioSystem;->getPlatformType(Landroid/content/Context;)I
 
     move-result v1
 
@@ -1753,14 +1753,14 @@
     const/4 v0, 0x0
 
     .line 345
-    .local v0, "cb":Landroid/media/AudioSystem$AudioRecordingCallback;
-    const-class v1, Landroid/media/AudioSystem;
+    .local v0, "cb":Landroid/media/ANXAudioSystem$AudioRecordingCallback;
+    const-class v1, Landroid/media/ANXAudioSystem;
 
     monitor-enter v1
 
     .line 346
     :try_start_4
-    sget-object v2, Landroid/media/AudioSystem;->sRecordingCallback:Landroid/media/AudioSystem$AudioRecordingCallback;
+    sget-object v2, Landroid/media/ANXAudioSystem;->sRecordingCallback:Landroid/media/ANXAudioSystem$AudioRecordingCallback;
 
     move-object v0, v2
 
@@ -1787,7 +1787,7 @@
 
     move-object v8, p4
 
-    invoke-interface/range {v3 .. v9}, Landroid/media/AudioSystem$AudioRecordingCallback;->onRecordingConfigurationChanged(IIII[ILjava/lang/String;)V
+    invoke-interface/range {v3 .. v9}, Landroid/media/ANXAudioSystem$AudioRecordingCallback;->onRecordingConfigurationChanged(IIII[ILjava/lang/String;)V
 
     .line 352
     :cond_15
@@ -1825,21 +1825,21 @@
 .method public static native setDeviceConnectionState(IILjava/lang/String;Ljava/lang/String;)I
 .end method
 
-.method public static setDynamicPolicyCallback(Landroid/media/AudioSystem$DynamicPolicyCallback;)V
+.method public static setDynamicPolicyCallback(Landroid/media/ANXAudioSystem$DynamicPolicyCallback;)V
     .registers 3
-    .param p0, "cb"    # Landroid/media/AudioSystem$DynamicPolicyCallback;
+    .param p0, "cb"    # Landroid/media/ANXAudioSystem$DynamicPolicyCallback;
 
     .line 272
-    const-class v0, Landroid/media/AudioSystem;
+    const-class v0, Landroid/media/ANXAudioSystem;
 
     monitor-enter v0
 
     .line 273
     :try_start_3
-    sput-object p0, Landroid/media/AudioSystem;->sDynPolicyCallback:Landroid/media/AudioSystem$DynamicPolicyCallback;
+    sput-object p0, Landroid/media/ANXAudioSystem;->sDynPolicyCallback:Landroid/media/ANXAudioSystem$DynamicPolicyCallback;
 
     .line 274
-    invoke-static {}, Landroid/media/AudioSystem;->native_register_dynamic_policy_callback()V
+    invoke-static {}, Landroid/media/ANXAudioSystem;->native_register_dynamic_policy_callback()V
 
     .line 275
     monitor-exit v0
@@ -1858,28 +1858,28 @@
     throw v1
 .end method
 
-.method public static setErrorCallback(Landroid/media/AudioSystem$ErrorCallback;)V
+.method public static setErrorCallback(Landroid/media/ANXAudioSystem$ErrorCallback;)V
     .registers 3
-    .param p0, "cb"    # Landroid/media/AudioSystem$ErrorCallback;
+    .param p0, "cb"    # Landroid/media/ANXAudioSystem$ErrorCallback;
 
     .line 235
-    const-class v0, Landroid/media/AudioSystem;
+    const-class v0, Landroid/media/ANXAudioSystem;
 
     monitor-enter v0
 
     .line 236
     :try_start_3
-    sput-object p0, Landroid/media/AudioSystem;->mErrorCallback:Landroid/media/AudioSystem$ErrorCallback;
+    sput-object p0, Landroid/media/ANXAudioSystem;->mErrorCallback:Landroid/media/ANXAudioSystem$ErrorCallback;
 
     .line 237
     if-eqz p0, :cond_e
 
     .line 238
-    invoke-static {}, Landroid/media/AudioSystem;->checkAudioFlinger()I
+    invoke-static {}, Landroid/media/ANXAudioSystem;->checkAudioFlinger()I
 
     move-result v1
 
-    invoke-interface {p0, v1}, Landroid/media/AudioSystem$ErrorCallback;->onError(I)V
+    invoke-interface {p0, v1}, Landroid/media/ANXAudioSystem$ErrorCallback;->onError(I)V
 
     .line 240
     :cond_e
@@ -1920,21 +1920,21 @@
 .method public static native setPhoneState(I)I
 .end method
 
-.method public static setRecordingCallback(Landroid/media/AudioSystem$AudioRecordingCallback;)V
+.method public static setRecordingCallback(Landroid/media/ANXAudioSystem$AudioRecordingCallback;)V
     .registers 3
-    .param p0, "cb"    # Landroid/media/AudioSystem$AudioRecordingCallback;
+    .param p0, "cb"    # Landroid/media/ANXAudioSystem$AudioRecordingCallback;
 
     .line 327
-    const-class v0, Landroid/media/AudioSystem;
+    const-class v0, Landroid/media/ANXAudioSystem;
 
     monitor-enter v0
 
     .line 328
     :try_start_3
-    sput-object p0, Landroid/media/AudioSystem;->sRecordingCallback:Landroid/media/AudioSystem$AudioRecordingCallback;
+    sput-object p0, Landroid/media/ANXAudioSystem;->sRecordingCallback:Landroid/media/ANXAudioSystem$AudioRecordingCallback;
 
     .line 329
-    invoke-static {}, Landroid/media/AudioSystem;->native_register_recording_callback()V
+    invoke-static {}, Landroid/media/ANXAudioSystem;->native_register_recording_callback()V
 
     .line 330
     monitor-exit v0
@@ -1966,13 +1966,13 @@
     .line 913
     if-ltz p0, :cond_c
 
-    sget-object v0, Landroid/media/AudioSystem;->STREAM_NAMES:[Ljava/lang/String;
+    sget-object v0, Landroid/media/ANXAudioSystem;->STREAM_NAMES:[Ljava/lang/String;
 
     array-length v0, v0
 
     if-ge p0, v0, :cond_c
 
-    sget-object v0, Landroid/media/AudioSystem;->STREAM_NAMES:[Ljava/lang/String;
+    sget-object v0, Landroid/media/ANXAudioSystem;->STREAM_NAMES:[Ljava/lang/String;
 
     aget-object v0, v0, p0
 

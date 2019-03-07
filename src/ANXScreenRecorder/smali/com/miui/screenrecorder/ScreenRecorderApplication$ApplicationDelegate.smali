@@ -42,9 +42,11 @@
     invoke-super {p0}, Lmiui/external/ApplicationDelegate;->onCreate()V
 
     .line 28
-    invoke-static {}, Landroid/app/ActivityManager;->isUserAMonkey()Z
+    # invoke-static {}, Landroid/app/ActivityManager;->isUserAMonkey()Z
 
-    move-result v1
+    # move-result v1
+    
+    const/4 v1, 0x1
 
     sput-boolean v1, Lcom/miui/screenrecorder/tools/ScreenRecorderUtils;->isMonkeyMode:Z
 

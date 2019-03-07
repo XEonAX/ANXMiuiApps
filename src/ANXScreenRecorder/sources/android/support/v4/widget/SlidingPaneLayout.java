@@ -9,7 +9,7 @@ import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.media.AudioSystem;
+import android.media.ANXAudioSystem;
 import android.os.Build.VERSION;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -561,7 +561,7 @@ public class SlidingPaneLayout extends ViewGroup {
                 throw new IllegalStateException("Width must have an exact value or MATCH_PARENT");
             } else if (widthMode != Integer.MIN_VALUE) {
                 if (widthMode == 0) {
-                    widthSize = AudioSystem.PLAY_SOUND_DELAY;
+                    widthSize = ANXAudioSystem.PLAY_SOUND_DELAY;
                 }
             }
         } else if (heightMode == 0) {
@@ -569,7 +569,7 @@ public class SlidingPaneLayout extends ViewGroup {
                 throw new IllegalStateException("Height must not be UNSPECIFIED");
             } else if (heightMode == 0) {
                 heightMode = Integer.MIN_VALUE;
-                heightSize = AudioSystem.PLAY_SOUND_DELAY;
+                heightSize = ANXAudioSystem.PLAY_SOUND_DELAY;
             }
         }
         int layoutHeight = 0;

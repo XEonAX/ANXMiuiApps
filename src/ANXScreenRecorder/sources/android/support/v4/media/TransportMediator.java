@@ -9,6 +9,7 @@ import android.view.KeyEvent;
 import android.view.KeyEvent.Callback;
 import android.view.View;
 import java.util.ArrayList;
+import miui.os.SystemProperties;
 
 public class TransportMediator extends TransportController {
     public static final int FLAG_KEY_MEDIA_FAST_FORWARD = 64;
@@ -41,7 +42,7 @@ public class TransportMediator extends TransportController {
             case 88:
             case 89:
             case 90:
-            case 91:
+            case SystemProperties.PROP_VALUE_MAX /*91*/:
             case KEYCODE_MEDIA_PLAY /*126*/:
             case KEYCODE_MEDIA_PAUSE /*127*/:
             case KEYCODE_MEDIA_RECORD /*130*/:

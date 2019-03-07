@@ -21,6 +21,10 @@ public class F {
     class a implements Callback {
         private Handler b;
 
+        /* synthetic */ a(F f, G g) {
+            this();
+        }
+
         private a() {
             this.b = null;
         }
@@ -55,7 +59,7 @@ public class F {
     }
 
     private void d() {
-        Object aVar = new a();
+        Object aVar = new a(this, null);
         this.f = new HandlerThread("".concat("_").concat(String.valueOf(r.b())));
         this.f.start();
         this.d = new Handler(this.f.getLooper(), aVar);

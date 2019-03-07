@@ -1,11 +1,11 @@
-.class public interface abstract Landroid/media/AudioSystem$DynamicPolicyCallback;
+.class public interface abstract Landroid/media/ANXAudioSystem$DynamicPolicyCallback;
 .super Ljava/lang/Object;
-.source "AudioSystem.java"
+.source "ANXAudioSystem.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/media/AudioSystem;
+    value = Landroid/media/ANXAudioSystem;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

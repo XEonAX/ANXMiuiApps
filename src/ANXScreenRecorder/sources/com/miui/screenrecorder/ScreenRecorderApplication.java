@@ -1,6 +1,5 @@
 package com.miui.screenrecorder;
 
-import android.app.ActivityManager;
 import android.content.Context;
 import android.os.StrictMode;
 import android.os.StrictMode.VmPolicy.Builder;
@@ -17,7 +16,7 @@ public class ScreenRecorderApplication extends Application {
     public class ApplicationDelegate extends miui.external.ApplicationDelegate {
         public void onCreate() {
             super.onCreate();
-            ScreenRecorderUtils.isMonkeyMode = ActivityManager.isUserAMonkey();
+            ScreenRecorderUtils.isMonkeyMode = true;
             ScreenRecorderApplication.sContext = getApplicationContext();
             MiStatInterfaceUtils.init(ScreenRecorderApplication.sContext);
             if (ScreenRecorderUtils.isAndroid24AndLater()) {

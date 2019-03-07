@@ -33,7 +33,7 @@
 
     .prologue
     .line 64
-    const/4 v0, 0x0
+    const/4 v0, 0x1
 
     sput-boolean v0, Lcom/miui/screenrecorder/tools/ScreenRecorderUtils;->isMonkeyMode:Z
 
@@ -1101,7 +1101,7 @@
 
     .line 277
     :try_start_1
-    const-string v10, "android.media.AudioSystem"
+    const-string v10, "android.media.ANXAudioSystem"
 
     invoke-static {v10}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 

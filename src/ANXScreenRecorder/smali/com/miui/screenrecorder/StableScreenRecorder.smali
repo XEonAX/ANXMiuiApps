@@ -586,7 +586,7 @@
     .prologue
     .line 975
     :try_start_0
-    const-string v5, "android.media.AudioSystem"
+    const-string v5, "android.media.ANXAudioSystem"
 
     invoke-static {v5}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 

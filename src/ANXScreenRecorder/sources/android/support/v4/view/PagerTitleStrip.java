@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.database.DataSetObserver;
 import android.graphics.drawable.Drawable;
-import android.media.AudioSystem;
+import android.media.ANXAudioSystem;
 import android.os.Build.VERSION;
 import android.support.annotation.ColorInt;
 import android.support.annotation.FloatRange;
@@ -329,7 +329,7 @@ public class PagerTitleStrip extends ViewGroup implements Decor {
         int nextTopOffset = maxBaseline - nextBaseline;
         int alignedNextHeight = nextTopOffset + this.mNextText.getMeasuredHeight();
         int maxTextHeight = Math.max(Math.max(prevTopOffset + this.mPrevText.getMeasuredHeight(), currTopOffset + this.mCurrText.getMeasuredHeight()), alignedNextHeight);
-        switch (this.mGravity & AudioSystem.DEVICE_OUT_ALL_SCO) {
+        switch (this.mGravity & ANXAudioSystem.DEVICE_OUT_ALL_SCO) {
             case 16:
                 int centeredTop = (((stripHeight - paddingTop) - paddingBottom) - maxTextHeight) / 2;
                 prevTop = centeredTop + prevTopOffset;

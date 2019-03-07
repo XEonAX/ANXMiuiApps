@@ -845,7 +845,7 @@ public class StableScreenRecorder implements ScreenRecorder {
 
     private void audioSetForceUse(String use, String conf) {
         try {
-            Class<?> asClazz = Class.forName("android.media.AudioSystem");
+            Class<?> asClazz = Class.forName("android.media.ANXAudioSystem");
             Method sfuMethod = asClazz.getMethod("setForceUse", new Class[]{Integer.TYPE, Integer.TYPE});
             int usage = asClazz.getDeclaredField(use).getInt(null);
             int config = asClazz.getDeclaredField(conf).getInt(null);

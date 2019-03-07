@@ -55,7 +55,7 @@ public class ScreenRecorderUtils {
     public static final long MIN_MEMORY_REQUIRED = 1048576000;
     private static final String SCREEN_RECORDER_PREFERENCE = "screen_recorder_preference";
     private static final String TAG = "ScreenRecorderUtils";
-    public static boolean isMonkeyMode = false;
+    public static boolean isMonkeyMode = true;
 
     public static void recorderKeyEvent(Context context, boolean isShowKeyEvent) {
         LogUtil.i(TAG, "recorderKeyEvent sendBroadcastAsUser isShowKeyEvent=" + isShowKeyEvent);
@@ -212,7 +212,7 @@ public class ScreenRecorderUtils {
             return isSupportInnerRecord;
         }
         try {
-            Class.forName("android.media.AudioSystem").getDeclaredField("FOR_LOOPBACK").getInt(null);
+            Class.forName("android.media.ANXAudioSystem").getDeclaredField("FOR_LOOPBACK").getInt(null);
             return true;
         } catch (Exception e2) {
             LogUtil.e(TAG, "debug", e2);
