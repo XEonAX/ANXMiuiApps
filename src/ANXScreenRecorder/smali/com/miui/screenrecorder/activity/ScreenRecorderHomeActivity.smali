@@ -1,5 +1,5 @@
 .class public Lcom/miui/screenrecorder/activity/ScreenRecorderHomeActivity;
-.super Lmiui/app/Activity;
+.super Landroid/app/Activity;
 .source "ScreenRecorderHomeActivity.java"
 
 
@@ -108,7 +108,7 @@
     const/4 v1, 0x0
 
     .line 59
-    invoke-direct {p0}, Lmiui/app/Activity;-><init>()V
+    invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
     .line 68
     new-instance v0, Ljava/util/ArrayList;
@@ -1117,30 +1117,30 @@
     iput-object v3, p0, Lcom/miui/screenrecorder/activity/ScreenRecorderHomeActivity;->mActionBarRight:Landroid/widget/TextView;
 
     .line 152
-    invoke-virtual {p0}, Lcom/miui/screenrecorder/activity/ScreenRecorderHomeActivity;->getActionBar()Lmiui/app/ActionBar;
+    invoke-virtual {p0}, Lcom/miui/screenrecorder/activity/ScreenRecorderHomeActivity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v0
 
     .line 153
-    .local v0, "actionBar":Lmiui/app/ActionBar;
+    .local v0, "actionBar":Landroid/app/ActionBar;
     if-nez v0, :cond_1
 
     .line 177
-    .end local v0    # "actionBar":Lmiui/app/ActionBar;
+    .end local v0    # "actionBar":Landroid/app/ActionBar;
     .end local v1    # "actionBarView":Landroid/view/View;
     .end local v2    # "lp":Landroid/app/ActionBar$LayoutParams;
     :goto_0
     return-void
 
     .line 154
-    .restart local v0    # "actionBar":Lmiui/app/ActionBar;
+    .restart local v0    # "actionBar":Landroid/app/ActionBar;
     .restart local v1    # "actionBarView":Landroid/view/View;
     .restart local v2    # "lp":Landroid/app/ActionBar$LayoutParams;
     :cond_1
-    invoke-virtual {v0, v1, v2}, Lmiui/app/ActionBar;->setCustomView(Landroid/view/View;Landroid/app/ActionBar$LayoutParams;)V
+    invoke-virtual {v0, v1, v2}, Landroid/app/ActionBar;->setCustomView(Landroid/view/View;Landroid/app/ActionBar$LayoutParams;)V
 
     .line 156
-    .end local v0    # "actionBar":Lmiui/app/ActionBar;
+    .end local v0    # "actionBar":Landroid/app/ActionBar;
     .end local v1    # "actionBarView":Landroid/view/View;
     .end local v2    # "lp":Landroid/app/ActionBar$LayoutParams;
     :cond_2
@@ -1285,30 +1285,30 @@
     iput-object v3, p0, Lcom/miui/screenrecorder/activity/ScreenRecorderHomeActivity;->mActionBarRight:Landroid/widget/TextView;
 
     .line 110
-    invoke-virtual {p0}, Lcom/miui/screenrecorder/activity/ScreenRecorderHomeActivity;->getActionBar()Lmiui/app/ActionBar;
+    invoke-virtual {p0}, Lcom/miui/screenrecorder/activity/ScreenRecorderHomeActivity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v0
 
     .line 111
-    .local v0, "actionBar":Lmiui/app/ActionBar;
+    .local v0, "actionBar":Landroid/app/ActionBar;
     if-nez v0, :cond_1
 
     .line 133
-    .end local v0    # "actionBar":Lmiui/app/ActionBar;
+    .end local v0    # "actionBar":Landroid/app/ActionBar;
     .end local v1    # "actionBarView":Landroid/view/View;
     .end local v2    # "lp":Landroid/app/ActionBar$LayoutParams;
     :goto_0
     return-void
 
     .line 112
-    .restart local v0    # "actionBar":Lmiui/app/ActionBar;
+    .restart local v0    # "actionBar":Landroid/app/ActionBar;
     .restart local v1    # "actionBarView":Landroid/view/View;
     .restart local v2    # "lp":Landroid/app/ActionBar$LayoutParams;
     :cond_1
-    invoke-virtual {v0, v1, v2}, Lmiui/app/ActionBar;->setCustomView(Landroid/view/View;Landroid/app/ActionBar$LayoutParams;)V
+    invoke-virtual {v0, v1, v2}, Landroid/app/ActionBar;->setCustomView(Landroid/view/View;Landroid/app/ActionBar$LayoutParams;)V
 
     .line 116
-    .end local v0    # "actionBar":Lmiui/app/ActionBar;
+    .end local v0    # "actionBar":Landroid/app/ActionBar;
     .end local v1    # "actionBarView":Landroid/view/View;
     .end local v2    # "lp":Landroid/app/ActionBar$LayoutParams;
     :cond_2
@@ -2228,7 +2228,7 @@
 
     .prologue
     .line 624
-    invoke-super {p0, p1, p2, p3}, Lmiui/app/Activity;->onActivityResult(IILandroid/content/Intent;)V
+    invoke-super {p0, p1, p2, p3}, Landroid/app/Activity;->onActivityResult(IILandroid/content/Intent;)V
 
     .line 625
     invoke-static {p1, p2}, Lcom/miui/screenrecorder/tools/KoreaRegionUtils;->processCallBack(II)Z
@@ -2243,7 +2243,7 @@
 
     .prologue
     .line 748
-    invoke-super {p0, p1}, Lmiui/app/Activity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+    invoke-super {p0, p1}, Landroid/app/Activity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
     .line 749
     invoke-static {p1}, Lcom/miui/screenrecorder/tools/ScreenRecorderUtils;->getLocaleFromConfig(Landroid/content/res/Configuration;)Ljava/util/Locale;
@@ -2329,7 +2329,7 @@
 
     .prologue
     .line 92
-    invoke-super {p0, p1}, Lmiui/app/Activity;->onCreate(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 93
     invoke-virtual {p0}, Lcom/miui/screenrecorder/activity/ScreenRecorderHomeActivity;->getResources()Landroid/content/res/Resources;
@@ -2461,7 +2461,7 @@
 
     .prologue
     .line 606
-    invoke-super {p0}, Lmiui/app/Activity;->onDestroy()V
+    invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
 
     .line 607
     iget-object v0, p0, Lcom/miui/screenrecorder/activity/ScreenRecorderHomeActivity;->mHandler:Landroid/os/Handler;
@@ -2516,7 +2516,7 @@
     return v0
 
     :cond_0
-    invoke-super {p0, p1, p2}, Lmiui/app/Activity;->onKeyDown(ILandroid/view/KeyEvent;)Z
+    invoke-super {p0, p1, p2}, Landroid/app/Activity;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
     move-result v0
 
@@ -2546,7 +2546,7 @@
     .line 541
     :cond_0
     :goto_0
-    invoke-super {p0, p1}, Lmiui/app/Activity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    invoke-super {p0, p1}, Landroid/app/Activity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
 
@@ -2573,7 +2573,7 @@
 
     .prologue
     .line 600
-    invoke-super {p0}, Lmiui/app/Activity;->onPause()V
+    invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
     .line 601
     const-string v0, "ScreenRecorderHomePage"
@@ -2651,7 +2651,7 @@
 
     .line 553
     :cond_1
-    invoke-super {p0, p1}, Lmiui/app/Activity;->onPrepareOptionsMenu(Landroid/view/Menu;)Z
+    invoke-super {p0, p1}, Landroid/app/Activity;->onPrepareOptionsMenu(Landroid/view/Menu;)Z
 
     move-result v2
 
@@ -2665,7 +2665,7 @@
     const/4 v1, 0x0
 
     .line 587
-    invoke-super {p0}, Lmiui/app/Activity;->onResume()V
+    invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
     .line 588
     const-string v0, "ScreenRecorderHomePage"
@@ -2710,7 +2710,7 @@
 
     .prologue
     .line 577
-    invoke-super {p0}, Lmiui/app/Activity;->onStart()V
+    invoke-super {p0}, Landroid/app/Activity;->onStart()V
 
     .line 578
     iget-boolean v0, p0, Lcom/miui/screenrecorder/activity/ScreenRecorderHomeActivity;->mIsFromSendAction:Z
@@ -2735,7 +2735,7 @@
 
     .prologue
     .line 568
-    invoke-super {p0}, Lmiui/app/Activity;->onStop()V
+    invoke-super {p0}, Landroid/app/Activity;->onStop()V
 
     .line 569
     iget-boolean v0, p0, Lcom/miui/screenrecorder/activity/ScreenRecorderHomeActivity;->mHasClickSendAction:Z

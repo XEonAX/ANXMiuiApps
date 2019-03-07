@@ -1,6 +1,8 @@
 package com.miui.screenrecorder.activity;
 
+import android.app.ActionBar;
 import android.app.ActionBar.LayoutParams;
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -51,8 +53,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Locale;
-import miui.app.ActionBar;
-import miui.app.Activity;
 import miui.util.AttributeResolver;
 import miui.widget.FloatingActionButton;
 
