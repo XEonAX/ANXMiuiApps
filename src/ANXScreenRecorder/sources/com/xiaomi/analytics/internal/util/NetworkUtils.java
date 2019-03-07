@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build.VERSION;
-import android.support.v4.view.MotionEventCompat;
 import android.telephony.TelephonyManager;
 
 public class NetworkUtils {
@@ -65,12 +64,12 @@ public class NetworkUtils {
             case 8:
             case 9:
             case 10:
-            case MotionEventCompat.AXIS_RX /*12*/:
-            case MotionEventCompat.AXIS_RZ /*14*/:
+            case 12:
+            case 14:
             case 15:
             case 17:
                 return NetState.MN3G;
-            case MotionEventCompat.AXIS_RY /*13*/:
+            case 13:
             case 18:
             case 19:
                 return NetState.MN4G;

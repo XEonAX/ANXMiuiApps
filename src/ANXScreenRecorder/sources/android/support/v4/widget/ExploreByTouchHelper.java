@@ -22,8 +22,8 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
     private static final String DEFAULT_CLASS_NAME = View.class.getName();
     public static final int HOST_ID = -1;
     public static final int INVALID_ID = Integer.MIN_VALUE;
-    private int mFocusedVirtualViewId = INVALID_ID;
-    private int mHoveredVirtualViewId = INVALID_ID;
+    private int mFocusedVirtualViewId = Integer.MIN_VALUE;
+    private int mHoveredVirtualViewId = Integer.MIN_VALUE;
     private final AccessibilityManager mManager;
     private ExploreByTouchNodeProvider mNodeProvider;
     private final int[] mTempGlobalRect = new int[2];
@@ -80,15 +80,15 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
             case 9:
                 int virtualViewId = getVirtualViewAt(event.getX(), event.getY());
                 updateHoveredVirtualView(virtualViewId);
-                if (virtualViewId == INVALID_ID) {
+                if (virtualViewId == Integer.MIN_VALUE) {
                     z = false;
                 }
                 return z;
             case 10:
-                if (this.mFocusedVirtualViewId == INVALID_ID) {
+                if (this.mFocusedVirtualViewId == Integer.MIN_VALUE) {
                     return false;
                 }
-                updateHoveredVirtualView(INVALID_ID);
+                updateHoveredVirtualView(Integer.MIN_VALUE);
                 return true;
             default:
                 return false;
@@ -96,7 +96,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
     }
 
     public boolean sendEventForVirtualView(int virtualViewId, int eventType) {
-        if (virtualViewId == INVALID_ID || !this.mManager.isEnabled()) {
+        if (virtualViewId == Integer.MIN_VALUE || !this.mManager.isEnabled()) {
             return false;
         }
         ViewParent parent = this.mView.getParent();
@@ -279,7 +279,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         if (!this.mManager.isEnabled() || !AccessibilityManagerCompat.isTouchExplorationEnabled(this.mManager) || isAccessibilityFocused(virtualViewId)) {
             return false;
         }
-        if (this.mFocusedVirtualViewId != INVALID_ID) {
+        if (this.mFocusedVirtualViewId != Integer.MIN_VALUE) {
             sendEventForVirtualView(this.mFocusedVirtualViewId, 65536);
         }
         this.mFocusedVirtualViewId = virtualViewId;
@@ -292,7 +292,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         if (!isAccessibilityFocused(virtualViewId)) {
             return false;
         }
-        this.mFocusedVirtualViewId = INVALID_ID;
+        this.mFocusedVirtualViewId = Integer.MIN_VALUE;
         this.mView.invalidate();
         sendEventForVirtualView(virtualViewId, 65536);
         return true;

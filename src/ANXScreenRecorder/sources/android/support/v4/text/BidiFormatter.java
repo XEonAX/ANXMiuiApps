@@ -116,13 +116,13 @@ public final class BidiFormatter {
                         return 1;
                     case (byte) 9:
                         break;
-                    case MotionEventCompat.AXIS_RZ /*14*/:
+                    case (byte) 14:
                     case (byte) 15:
                         embeddingLevel++;
                         embeddingLevelDir = -1;
                         break;
                     case (byte) 16:
-                    case MotionEventCompat.AXIS_LTRIGGER /*17*/:
+                    case (byte) 17:
                         embeddingLevel++;
                         embeddingLevelDir = 1;
                         break;
@@ -143,7 +143,7 @@ public final class BidiFormatter {
             }
             while (this.charIndex > 0) {
                 switch (dirTypeBackward()) {
-                    case MotionEventCompat.AXIS_RZ /*14*/:
+                    case (byte) 14:
                     case (byte) 15:
                         if (firstNonEmptyEmbeddingLevel != embeddingLevel) {
                             embeddingLevel--;
@@ -151,7 +151,7 @@ public final class BidiFormatter {
                         }
                         return -1;
                     case (byte) 16:
-                    case MotionEventCompat.AXIS_LTRIGGER /*17*/:
+                    case (byte) 17:
                         if (firstNonEmptyEmbeddingLevel != embeddingLevel) {
                             embeddingLevel--;
                             break;
@@ -194,7 +194,7 @@ public final class BidiFormatter {
                         return 1;
                     case (byte) 9:
                         break;
-                    case MotionEventCompat.AXIS_RZ /*14*/:
+                    case (byte) 14:
                     case (byte) 15:
                         if (lastNonEmptyEmbeddingLevel != embeddingLevel) {
                             embeddingLevel--;
@@ -202,7 +202,7 @@ public final class BidiFormatter {
                         }
                         return -1;
                     case (byte) 16:
-                    case MotionEventCompat.AXIS_LTRIGGER /*17*/:
+                    case (byte) 17:
                         if (lastNonEmptyEmbeddingLevel != embeddingLevel) {
                             embeddingLevel--;
                             break;

@@ -135,25 +135,26 @@
 
     iput-boolean p2, p0, Lmiui/widget/FloatingActionButton;->Tr:Z
 
-    .line 77
-    sget p2, Lmiui/R$styleable;->FloatingActionButton_fabColor:I
+    # .line 77
+    # sget p2, Lmiui/R$styleable;->FloatingActionButton_fabColor:I
 
-    .line 79
-    invoke-virtual {p0}, Lmiui/widget/FloatingActionButton;->getContext()Landroid/content/Context;
+    # .line 79
+    # invoke-virtual {p0}, Lmiui/widget/FloatingActionButton;->getContext()Landroid/content/Context;
 
-    move-result-object p3
+    # move-result-object p3
 
-    sget v0, Lmiui/R$attr;->colorAccent:I
+    # sget v0, Lmiui/R$attr;->colorAccent:I
 
-    .line 78
-    invoke-static {p3, v0}, Lmiui/util/AttributeResolver;->resolveColor(Landroid/content/Context;I)I
+    # .line 78
+    # invoke-static {p3, v0}, Lmiui/util/AttributeResolver;->resolveColor(Landroid/content/Context;I)I
 
-    move-result p3
+    # move-result p3
 
-    .line 77
-    invoke-virtual {p1, p2, p3}, Landroid/content/res/TypedArray;->getColor(II)I
+    # .line 77
+    # invoke-virtual {p1, p2, p3}, Landroid/content/res/TypedArray;->getColor(II)I
 
-    move-result p2
+    # move-result p2
+    const p2, 0xff0000
 
     iput p2, p0, Lmiui/widget/FloatingActionButton;->Tq:I
 
@@ -302,16 +303,18 @@
     nop
 
     .line 122
-    invoke-virtual {p0}, Lmiui/widget/FloatingActionButton;->getContext()Landroid/content/Context;
+    # invoke-virtual {p0}, Lmiui/widget/FloatingActionButton;->getContext()Landroid/content/Context;
 
-    move-result-object v0
+    # move-result-object v0
 
-    sget v1, Lmiui/R$attr;->colorAccent:I
+    # sget v1, Lmiui/R$attr;->colorAccent:I
 
-    .line 121
-    invoke-static {v0, v1}, Lmiui/util/AttributeResolver;->resolveColor(Landroid/content/Context;I)I
+    # .line 121
+    # invoke-static {v0, v1}, Lmiui/util/AttributeResolver;->resolveColor(Landroid/content/Context;I)I
 
-    move-result v0
+    # move-result v0
+    
+    const v0, 0xff00
 
     iput v0, p0, Lmiui/widget/FloatingActionButton;->Tq:I
 

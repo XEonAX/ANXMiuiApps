@@ -12,7 +12,6 @@ import android.media.session.PlaybackState;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.ResultReceiver;
-import android.support.v4.view.MotionEventCompat;
 import android.view.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
@@ -104,7 +103,7 @@ class MediaControllerCompatApi21 {
                     return 5;
                 case 6:
                     return 2;
-                case MotionEventCompat.AXIS_RY /*13*/:
+                case 13:
                     return 1;
                 default:
                     return 3;

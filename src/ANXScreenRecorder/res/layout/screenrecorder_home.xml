@@ -11,6 +11,6 @@
     </RelativeLayout>
     <miui.widget.FloatingActionButton android:layout_gravity="bottom|center|right" android:id="@id/start_recorder" android:background="@drawable/round_fill_red65" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/conversation_fab_margin" android:layout_marginBottom="@dimen/conversation_fab_margin" android:src="@drawable/action_button_main_video_normal_light" android:contentDescription="@string/app_name" />
     <com.miui.screenrecorder.view.ProgressFrameLayout android:id="@id/progressBar" android:focusable="true" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
-        <view android:layout_gravity="center" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" class="miui.widget.ProgressBar" style="?android:attr/progressBarStyle" />
+        <view android:layout_gravity="center" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" class="android.widget.ProgressBar" style="?android:attr/progressBarStyle" />
     </com.miui.screenrecorder.view.ProgressFrameLayout>
 </FrameLayout>

@@ -163,7 +163,7 @@ public class StickyGridHeadersBaseAdapterWrapper extends BaseAdapter {
 
     public long getItemId(int position) {
         Position adapterPosition = translatePosition(position);
-        if (adapterPosition.mPosition == -2 || adapterPosition.mPosition == POSITION_FOOTER) {
+        if (adapterPosition.mPosition == -2 || adapterPosition.mPosition == -4) {
             return -1;
         }
         if (adapterPosition.mPosition == -1) {
@@ -177,7 +177,7 @@ public class StickyGridHeadersBaseAdapterWrapper extends BaseAdapter {
 
     public int getItemViewType(int position) {
         Position adapterPosition = translatePosition(position);
-        if (adapterPosition.mPosition == POSITION_FOOTER) {
+        if (adapterPosition.mPosition == -4) {
             return 3;
         }
         if (adapterPosition.mPosition == -2) {
@@ -208,7 +208,7 @@ public class StickyGridHeadersBaseAdapterWrapper extends BaseAdapter {
             this.mLastHeaderViewSeen = v;
             v.forceLayout();
             return convertView;
-        } else if (adapterPosition.mPosition == POSITION_FOOTER) {
+        } else if (adapterPosition.mPosition == -4) {
             v = getHeaderFillerView(adapterPosition.mHeader, convertView, parent);
             view = ((FixedViewInfo) this.mFooterViewInfos.get(adapterPosition.mHeader - this.mDelegate.getNumHeaders())).view;
             this.mGridView.detachHeader((View) v.getTag());
@@ -387,7 +387,7 @@ public class StickyGridHeadersBaseAdapterWrapper extends BaseAdapter {
         if (this.mFooterViewInfos != null) {
             int j = 0;
             while (j < this.mFooterViewInfos.size()) {
-                this.mPositionMap.add(Integer.valueOf(POSITION_FOOTER));
+                this.mPositionMap.add(Integer.valueOf(-4));
                 this.mSectionMap.add(Integer.valueOf(i));
                 for (header = 1; header < columns; header++) {
                     this.mPositionMap.add(Integer.valueOf(-3));

@@ -173,7 +173,7 @@ public class c {
                             arrayList.add(Long.valueOf(j));
                         } catch (JSONException e2) {
                         }
-                        if (arrayList.size() >= d) {
+                        if (arrayList.size() >= 300) {
                             z = query.isLast();
                             break;
                         }

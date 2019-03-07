@@ -9,6 +9,7 @@ import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.media.AudioSystem;
 import android.os.Build.VERSION;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -560,21 +561,21 @@ public class SlidingPaneLayout extends ViewGroup {
                 throw new IllegalStateException("Width must have an exact value or MATCH_PARENT");
             } else if (widthMode != Integer.MIN_VALUE) {
                 if (widthMode == 0) {
-                    widthSize = 300;
+                    widthSize = AudioSystem.PLAY_SOUND_DELAY;
                 }
             }
         } else if (heightMode == 0) {
             if (!isInEditMode()) {
                 throw new IllegalStateException("Height must not be UNSPECIFIED");
             } else if (heightMode == 0) {
-                heightMode = ExploreByTouchHelper.INVALID_ID;
-                heightSize = 300;
+                heightMode = Integer.MIN_VALUE;
+                heightSize = AudioSystem.PLAY_SOUND_DELAY;
             }
         }
         int layoutHeight = 0;
         int maxLayoutHeight = -1;
         switch (heightMode) {
-            case ExploreByTouchHelper.INVALID_ID /*-2147483648*/:
+            case Integer.MIN_VALUE:
                 maxLayoutHeight = (heightSize - getPaddingTop()) - getPaddingBottom();
                 break;
             case 1073741824:
@@ -604,14 +605,14 @@ public class SlidingPaneLayout extends ViewGroup {
                 }
                 int horizontalMargin = lp.leftMargin + lp.rightMargin;
                 if (lp.width == -2) {
-                    childWidthSpec = MeasureSpec.makeMeasureSpec(widthAvailable - horizontalMargin, ExploreByTouchHelper.INVALID_ID);
+                    childWidthSpec = MeasureSpec.makeMeasureSpec(widthAvailable - horizontalMargin, Integer.MIN_VALUE);
                 } else if (lp.width == -1) {
                     childWidthSpec = MeasureSpec.makeMeasureSpec(widthAvailable - horizontalMargin, 1073741824);
                 } else {
                     childWidthSpec = MeasureSpec.makeMeasureSpec(lp.width, 1073741824);
                 }
                 if (lp.height == -2) {
-                    childHeightSpec = MeasureSpec.makeMeasureSpec(maxLayoutHeight, ExploreByTouchHelper.INVALID_ID);
+                    childHeightSpec = MeasureSpec.makeMeasureSpec(maxLayoutHeight, Integer.MIN_VALUE);
                 } else if (lp.height == -1) {
                     childHeightSpec = MeasureSpec.makeMeasureSpec(maxLayoutHeight, 1073741824);
                 } else {
@@ -646,7 +647,7 @@ public class SlidingPaneLayout extends ViewGroup {
                                 if (lp.width != 0) {
                                     childHeightSpec = MeasureSpec.makeMeasureSpec(child.getMeasuredHeight(), 1073741824);
                                 } else if (lp.height == -2) {
-                                    childHeightSpec = MeasureSpec.makeMeasureSpec(maxLayoutHeight, ExploreByTouchHelper.INVALID_ID);
+                                    childHeightSpec = MeasureSpec.makeMeasureSpec(maxLayoutHeight, Integer.MIN_VALUE);
                                 } else if (lp.height == -1) {
                                     childHeightSpec = MeasureSpec.makeMeasureSpec(maxLayoutHeight, 1073741824);
                                 } else {
@@ -666,7 +667,7 @@ public class SlidingPaneLayout extends ViewGroup {
                             if (!skippedFirstPass) {
                                 childHeightSpec = MeasureSpec.makeMeasureSpec(child.getMeasuredHeight(), 1073741824);
                             } else if (lp.height == -2) {
-                                childHeightSpec = MeasureSpec.makeMeasureSpec(maxLayoutHeight, ExploreByTouchHelper.INVALID_ID);
+                                childHeightSpec = MeasureSpec.makeMeasureSpec(maxLayoutHeight, Integer.MIN_VALUE);
                             } else if (lp.height == -1) {
                                 childHeightSpec = MeasureSpec.makeMeasureSpec(maxLayoutHeight, 1073741824);
                             } else {

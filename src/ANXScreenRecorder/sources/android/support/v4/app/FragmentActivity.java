@@ -499,7 +499,7 @@ public class FragmentActivity extends BaseFragmentActivityHoneycomb implements O
             if (!(id == 0 || r == null)) {
                 String pkgname;
                 switch (ViewCompat.MEASURED_STATE_MASK & id) {
-                    case ViewCompat.MEASURED_STATE_TOO_SMALL /*16777216*/:
+                    case 16777216:
                         pkgname = "android";
                         break;
                     case 2130706432:

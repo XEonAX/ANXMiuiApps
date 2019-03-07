@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.media.AudioSystem;
 import android.media.projection.MediaProjection;
 import android.media.projection.MediaProjectionManager;
 import android.os.Handler;
@@ -342,7 +343,7 @@ public class MiuiScreenRecorderController {
             showAlertDialog(title, message, positiveBtnText, negativeBtnText, neutralBtnText, new OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     switch (which) {
-                        case -3:
+                        case AudioSystem.INVALID_OPERATION /*-3*/:
                             MiuiScreenRecorderController.this.dialogDismiss();
                             return;
                         case -2:

@@ -30,7 +30,7 @@ public class Space extends View {
         int specMode = MeasureSpec.getMode(measureSpec);
         int specSize = MeasureSpec.getSize(measureSpec);
         switch (specMode) {
-            case ExploreByTouchHelper.INVALID_ID /*-2147483648*/:
+            case Integer.MIN_VALUE:
                 return Math.min(size, specSize);
             case 0:
                 return size;

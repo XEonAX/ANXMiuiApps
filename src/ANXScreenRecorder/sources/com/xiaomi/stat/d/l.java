@@ -6,7 +6,6 @@ import android.net.NetworkInfo;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.Build.VERSION;
-import android.support.v4.view.MotionEventCompat;
 import android.text.TextUtils;
 import com.xiaomi.stat.I;
 
@@ -168,12 +167,12 @@ public class l {
                     case 8:
                     case 9:
                     case 10:
-                    case MotionEventCompat.AXIS_RX /*12*/:
-                    case MotionEventCompat.AXIS_RZ /*14*/:
+                    case 12:
+                    case 14:
                     case 15:
                     case 17:
                         return g;
-                    case MotionEventCompat.AXIS_RY /*13*/:
+                    case 13:
                     case 18:
                     case 19:
                         return h;

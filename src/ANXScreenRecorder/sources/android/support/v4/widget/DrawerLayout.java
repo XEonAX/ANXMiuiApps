@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.media.AudioSystem;
 import android.os.Build.VERSION;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -866,12 +867,12 @@ public class DrawerLayout extends ViewGroup implements DrawerLayoutImpl {
             if (isInEditMode()) {
                 if (widthMode != Integer.MIN_VALUE) {
                     if (widthMode == 0) {
-                        widthSize = 300;
+                        widthSize = AudioSystem.PLAY_SOUND_DELAY;
                     }
                 }
                 if (heightMode != Integer.MIN_VALUE) {
                     if (heightMode == 0) {
-                        heightSize = 300;
+                        heightSize = AudioSystem.PLAY_SOUND_DELAY;
                     }
                 }
             } else {
@@ -979,7 +980,7 @@ public class DrawerLayout extends ViewGroup implements DrawerLayoutImpl {
                     }
                     boolean changeOffset = newOffset != lp.onScreen;
                     int height;
-                    switch (lp.gravity & 112) {
+                    switch (lp.gravity & AudioSystem.DEVICE_OUT_ALL_SCO) {
                         case 16:
                             height = b - t;
                             int childTop = (height - childHeight) / 2;

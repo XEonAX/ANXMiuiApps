@@ -7,6 +7,7 @@ import android.database.DataSetObserver;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.media.AudioSystem;
 import android.os.Build.VERSION;
 import android.os.Bundle;
 import android.os.Parcel;
@@ -20,7 +21,6 @@ import android.support.v4.os.ParcelableCompatCreatorCallbacks;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v4.view.accessibility.AccessibilityRecordCompat;
 import android.support.v4.widget.EdgeEffectCompat;
-import android.support.v4.widget.ExploreByTouchHelper;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.FocusFinder;
@@ -1150,9 +1150,9 @@ public class ViewPager extends ViewGroup {
                 lp = (LayoutParams) child.getLayoutParams();
                 if (lp != null && lp.isDecor) {
                     int hgrav = lp.gravity & 7;
-                    int vgrav = lp.gravity & 112;
-                    int widthMode = ExploreByTouchHelper.INVALID_ID;
-                    int heightMode = ExploreByTouchHelper.INVALID_ID;
+                    int vgrav = lp.gravity & AudioSystem.DEVICE_OUT_ALL_SCO;
+                    int widthMode = Integer.MIN_VALUE;
+                    int heightMode = Integer.MIN_VALUE;
                     boolean consumeVertical = vgrav == 48 || vgrav == 80;
                     boolean consumeHorizontal = hgrav == 3 || hgrav == 5;
                     if (consumeVertical) {
@@ -1245,7 +1245,7 @@ public class ViewPager extends ViewGroup {
             if (child.getVisibility() != 8) {
                 lp = (LayoutParams) child.getLayoutParams();
                 if (lp.isDecor) {
-                    int vgrav = lp.gravity & 112;
+                    int vgrav = lp.gravity & AudioSystem.DEVICE_OUT_ALL_SCO;
                     switch (lp.gravity & 7) {
                         case 1:
                             childLeft = Math.max((width - child.getMeasuredWidth()) / 2, paddingLeft);

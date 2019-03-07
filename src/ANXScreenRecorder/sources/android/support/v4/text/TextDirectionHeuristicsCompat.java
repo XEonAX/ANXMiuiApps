@@ -1,6 +1,5 @@
 package android.support.v4.text;
 
-import android.support.v4.view.MotionEventCompat;
 import java.nio.CharBuffer;
 import java.util.Locale;
 
@@ -153,13 +152,13 @@ public class TextDirectionHeuristicsCompat {
     private static int isRtlTextOrFormat(int directionality) {
         switch (directionality) {
             case 0:
-            case MotionEventCompat.AXIS_RZ /*14*/:
+            case 14:
             case 15:
                 return 1;
             case 1:
             case 2:
             case 16:
-            case MotionEventCompat.AXIS_LTRIGGER /*17*/:
+            case 17:
                 return 0;
             default:
                 return 2;

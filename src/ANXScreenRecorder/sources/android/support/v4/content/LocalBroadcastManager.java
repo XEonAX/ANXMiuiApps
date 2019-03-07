@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.media.AudioSystem;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
@@ -173,10 +174,10 @@ public class LocalBroadcastManager {
                         } else if (debug) {
                             String reason;
                             switch (match) {
-                                case -4:
+                                case AudioSystem.PERMISSION_DENIED /*-4*/:
                                     reason = "category";
                                     break;
-                                case -3:
+                                case AudioSystem.INVALID_OPERATION /*-3*/:
                                     reason = "action";
                                     break;
                                 case -2:

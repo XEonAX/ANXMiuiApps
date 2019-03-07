@@ -11,6 +11,7 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.Build.VERSION;
+import android.support.v4.view.MotionEventCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
@@ -73,7 +74,7 @@ public class FloatingActionButton extends ImageView {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.FloatingActionButton, i, R.style.Widget_FloatingActionButton);
         this.To = obtainStyledAttributes.getBoolean(R.styleable.FloatingActionButton_fabShadowEnabled, true);
         this.Tr = obtainStyledAttributes.hasValue(R.styleable.FloatingActionButton_fabColor);
-        this.Tq = obtainStyledAttributes.getColor(R.styleable.FloatingActionButton_fabColor, AttributeResolver.resolveColor(getContext(), R.attr.colorAccent));
+        this.Tq = 16711680;
         obtainStyledAttributes.recycle();
         eQ();
         eT();
@@ -100,7 +101,7 @@ public class FloatingActionButton extends ImageView {
 
     private Drawable eR() {
         if (this.Tp == null) {
-            this.Tq = AttributeResolver.resolveColor(getContext(), R.attr.colorAccent);
+            this.Tq = MotionEventCompat.ACTION_POINTER_INDEX_MASK;
             this.Tr = true;
             this.Tp = eS();
         }
