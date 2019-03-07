@@ -157,6 +157,12 @@ public final class R {
         public static final int start = 2130837540;
         public static final int sticky_header_bg = 2130837541;
         public static final int stop = 2130837542;
+        /* added by JADX */
+        public static final int icon_settings_light = 2130837559;
+        /* added by JADX */
+        public static final int icon_settings_normal_light = 2130837560;
+        /* added by JADX */
+        public static final int icon_settings_pressed_light = 2130837561;
     }
 
     public static final class id {

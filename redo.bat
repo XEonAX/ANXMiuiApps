@@ -1,4 +1,4 @@
-REM call .\version.bat
+call .\version.bat
 call .\recompile.bat
 call .\sign.bat
 REM call .\remagisk.bat
