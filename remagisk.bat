@@ -1,24 +1,20 @@
 for /f "delims== tokens=1,2" %%G in (VERSION) do set anx%%G=%%H
 echo %anxversion%
-xcopy /s /y .\out\ANXCamera.apk .\src\ANXCameraMagisk\system\priv-app\ANXCamera
-xcopy /s /y .\out\ANXCamera.apk .\src\ANXCameraUnity\system\priv-app\ANXCamera
+xcopy /s /y .\out\ANXScreenRecorder.apk .\out\ANXScreenRecorder_%anxversion%.apk
+REM xcopy /s /y .\out\ANXScreenRecorder.apk .\src\ANXMiuiApps\system\priv-app\ANXScreenRecorder
 
-del .\out\ANXCameraMagisk.zip
-del .\out\ANXCameraMagisk_*.zip
+REM del .\out\ANXScreenRecorderMagisk.zip
+REM del .\out\ANXScreenRecorderMagisk_*.zip
 
-del .\out\ANXCameraUnity.zip
-del .\out\ANXCameraUnity_*.zip
+REM del .\out\ANXMiuiApps.zip
+REM del .\out\ANXMiuiApps_*.zip
 
+REM "C:\Program Files\7-Zip\7z.exe" a -tzip .\out\ANXScreenRecorderMagisk.zip .\src\ANXScreenRecorderMagisk\*
+REM copy .\out\ANXScreenRecorderMagisk.zip /B .\out\ANXScreenRecorderMagisk_%anxversion%.zip
 
-del .\out\ANX4K60Unity.zip
-del .\out\ANX4K60Unity_*.zip
+REM "C:\Program Files\7-Zip\7z.exe" a -tzip .\out\ANXMiuiApps.zip .\src\ANXMiuiApps\*
+REM copy .\out\ANXMiuiApps.zip /B .\out\ANXMiuiApps_%anxversion%.zip
+REM adb push .\out\ANXScreenRecorderMagisk.zip  /sdcard/zips
 
-"C:\Program Files\7-Zip\7z.exe" a -tzip .\out\ANXCameraMagisk.zip .\src\ANXCameraMagisk\*
-copy .\out\ANXCameraMagisk.zip /B .\out\ANXCameraMagisk_%anxversion%.zip
-
-"C:\Program Files\7-Zip\7z.exe" a -tzip .\out\ANXCameraUnity.zip .\src\ANXCameraUnity\*
-copy .\out\ANXCameraUnity.zip /B .\out\ANXCameraUnity_%anxversion%.zip
-adb push .\out\ANXCameraMagisk.zip  /sdcard/zips
-
-"C:\Program Files\7-Zip\7z.exe" a -tzip .\out\ANX4K60Unity.zip .\src\ANX4K60Unity\*
-copy .\out\ANX4K60Unity.zip /B .\out\ANX4K60Unity_%anxversion%.zip
+REM "C:\Program Files\7-Zip\7z.exe" a -tzip .\out\ANX4K60Unity.zip .\src\ANX4K60Unity\*
+REM copy .\out\ANX4K60Unity.zip /B .\out\ANX4K60Unity_%anxversion%.zip
