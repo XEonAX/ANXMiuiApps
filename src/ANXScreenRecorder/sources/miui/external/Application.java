@@ -4,67 +4,24 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.util.Log;
 import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
-import java.util.Map;
 import miui.external.SdkConstants.SdkError;
 
 public class Application extends android.app.Application implements SdkConstants {
     private static final String PACKAGE_NAME = "com.miui.core";
     private ApplicationDelegate mApplicationDelegate;
-    private boolean mInitialized;
+    private boolean mInitialized = true;
     private boolean mStarted;
 
-    public Application() {
-        if (loadSdk() && initializeSdk()) {
-            this.mInitialized = true;
-        }
-    }
-
     private boolean loadSdk() {
-        try {
-            if (SdkHelper.isMiuiSystem() || SdkLoader.load(SdkHelper.getApkPath(null, PACKAGE_NAME, "miui"), null, SdkHelper.getLibPath(null, PACKAGE_NAME), Application.class.getClassLoader())) {
-                return true;
-            }
-            SdkErrorInstrumentation.handleSdkError(SdkError.NO_SDK);
-            return false;
-        } catch (Throwable t) {
-            handleGenericError(t);
-            return false;
-        }
+        return true;
     }
 
     private boolean initializeSdk() {
-        try {
-            Map<String, Object> metaData = new HashMap();
-            int code = ((Integer) SdkEntranceHelper.getSdkEntrance().getMethod("initialize", new Class[]{android.app.Application.class, Map.class}).invoke(null, new Object[]{this, metaData})).intValue();
-            if (code == 0) {
-                return true;
-            }
-            handleUnknownError("initialize", code);
-            return false;
-        } catch (Throwable t) {
-            handleGenericError(t);
-            return false;
-        }
+        return true;
     }
 
     private boolean startSdk() {
-        try {
-            Map<String, Object> metaData = new HashMap();
-            int code = ((Integer) SdkEntranceHelper.getSdkEntrance().getMethod("start", new Class[]{Map.class}).invoke(null, new Object[]{metaData})).intValue();
-            if (code == 1) {
-                SdkErrorInstrumentation.handleSdkError(SdkError.LOW_SDK_VERSION);
-                return false;
-            } else if (code == 0) {
-                return true;
-            } else {
-                handleUnknownError("start", code);
-                return false;
-            }
-        } catch (Throwable t) {
-            handleGenericError(t);
-            return false;
-        }
+        return true;
     }
 
     private void handleGenericError(Throwable t) {

@@ -1,10 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:sharedUserId="android.uid.system" package="com.miui.screenrecorder" platformBuildVersionCode="26" platformBuildVersionName="8.0.0">
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" 
+    package="com.miui.screenrecorder" 
+    platformBuildVersionCode="26" 
+    platformBuildVersionName="8.0.0">
+    <!-- android:sharedUserId="android.uid.system"  -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-&gt;
-<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE"/>
@@ -12,29 +16,50 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
-    <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name="com.miui.screenrecorder.ScreenRecorderApplication" android:resizeableActivity="false" android:supportsRtl="true" android:theme="@style/Theme.Light" android:windowSoftInputMode="stateHidden">
-        <meta-data android:name="app_description_title" android:resource="@string/description_title"/>
-        <meta-data android:name="app_description_content" android:resource="@string/description_content"/>
-        <meta-data android:name="android.max_aspect" android:value="2.2"/>
-        <activity android:configChanges="keyboardHidden|layoutDirection|locale|orientation|screenLayout|screenSize" android:exported="true" android:label="@string/app_name" android:launchMode="singleTop" android:name="com.miui.screenrecorder.activity.ScreenRecorderHomeActivity" android:theme="@style/Theme.EditModeTitle">
+    <application android:allowBackup="true" 
+        android:icon="@drawable/ic_launcher" 
+        android:label="@string/app_name" 
+        android:name="com.miui.screenrecorder.ScreenRecorderApplication" 
+        android:resizeableActivity="false" 
+        android:supportsRtl="true" 
+        android:theme="@style/Theme.Light" 
+        android:windowSoftInputMode="stateHidden">
+        <meta-data android:name="app_description_title" 
+            android:resource="@string/description_title"/>
+        <meta-data android:name="app_description_content" 
+            android:resource="@string/description_content"/>
+        <meta-data android:name="android.max_aspect" 
+            android:value="2.2"/>
+        <activity android:configChanges="keyboardHidden|layoutDirection|locale|orientation|screenLayout|screenSize" 
+            android:exported="true" 
+            android:label="@string/app_name" 
+            android:launchMode="singleTop" 
+            android:name="com.miui.screenrecorder.activity.ScreenRecorderHomeActivity" 
+            android:theme="@style/Theme.EditModeTitle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
                 <category android:name="miui.intent.category.SYSAPP_TOOL"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="keyboardHidden|layoutDirection|locale|orientation|screenLayout|screenSize" android:name="com.miui.screenrecorder.activity.ScreenRecorderSettingActivity" android:theme="@style/Theme">
+        <activity android:configChanges="keyboardHidden|layoutDirection|locale|orientation|screenLayout|screenSize" 
+            android:name="com.miui.screenrecorder.activity.ScreenRecorderSettingActivity" 
+            android:theme="@style/Theme">
             <intent-filter>
                 <action android:name="miui.intent.action.SCREENRECORDER_SETTINGS"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <service android:configChanges="keyboardHidden|layoutDirection|locale|orientation|screenLayout|screenSize" android:name="com.miui.screenrecorder.service.RecorderService">
+        <service android:configChanges="keyboardHidden|layoutDirection|locale|orientation|screenLayout|screenSize" 
+            android:name="com.miui.screenrecorder.service.RecorderService">
             <intent-filter>
                 <action android:name="miui.intent.screenrecorder.RECORDER_SERVICE"/>
             </intent-filter>
         </service>
-        <service android:icon="@drawable/ic_title" android:label="@string/app_name" android:name="com.miui.screenrecorder.service.QuickService" android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+        <service android:icon="@drawable/ic_title" 
+            android:label="@string/app_name" 
+            android:name="com.miui.screenrecorder.service.QuickService" 
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
