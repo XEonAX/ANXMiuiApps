@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <layer-list>
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="#00ffffff" />
+                    <padding android:left="8.0dip" android:right="8.0dip" />
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="rectangle">
+                    <corners android:topLeftRadius="4.0dip" android:topRightRadius="4.0dip" android:bottomLeftRadius="4.0dip" android:bottomRightRadius="4.0dip" />
+                    <solid android:color="@color/grey_96" />
+                    <stroke android:width="1.0dip" android:color="@color/grey_c5" />
+                    <padding android:left="8.0dip" android:top="4.0dip" android:right="8.0dip" android:bottom="4.0dip" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="#00ffffff" />
+                    <padding android:left="8.0dip" android:right="8.0dip" />
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="rectangle">
+                    <corners android:topLeftRadius="4.0dip" android:topRightRadius="4.0dip" android:bottomLeftRadius="4.0dip" android:bottomRightRadius="4.0dip" />
+                    <solid android:color="#ffffffff" />
+                    <stroke android:width="1.0dip" android:color="@color/grey_c5" />
+                    <padding android:left="8.0dip" android:top="4.0dip" android:right="8.0dip" android:bottom="4.0dip" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="setting_item_summary">13.0sp</dimen>
+    <dimen name="setting_item_title">20.0sp</dimen>
+    <dimen name="setting_item_value">13.0sp</dimen>
+</resources>

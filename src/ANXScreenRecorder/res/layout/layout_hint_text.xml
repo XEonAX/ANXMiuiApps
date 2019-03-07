@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="11.299988dip" android:textColor="#b3000000" android:gravity="center" android:id="@id/hint_text" android:background="@drawable/bubble" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="60.0dip" android:text="@string/bubble_text" />
+    <View android:id="@id/stub_view" android:layout_width="100.0dip" android:layout_height="0.0dip" />
+</LinearLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layoutDirection="ltr"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:background="@drawable/rect_half_circle_translute" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/screen_record_switch" android:background="@drawable/start" android:layout_width="44.0dip" android:layout_height="44.69998dip" android:contentDescription="@string/start_recording" />
+            <TextView android:textSize="14.0dip" android:textColor="@color/white" android:gravity="center_vertical" android:id="@id/start_text" android:layout_width="wrap_content" android:layout_height="44.69998dip" android:text="@string/start" android:paddingStart="6.0dip" android:paddingEnd="6.0dip" />
+            <ImageView android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/time_close" android:background="@drawable/close" android:layout_width="37.69998dip" android:layout_height="44.69998dip" android:contentDescription="@string/close_screen_record" />
+            <Chronometer android:textSize="12.0dip" android:textColor="@color/white" android:gravity="center_vertical" android:id="@id/recorder_timer" android:visibility="gone" android:layout_width="50.0dip" android:layout_height="44.69998dip" android:format="@string/timer_format" android:paddingStart="7.0dip" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

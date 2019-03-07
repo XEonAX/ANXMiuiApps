@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:topLeftRadius="7.0dip" android:topRightRadius="7.0dip" android:bottomLeftRadius="7.0dip" android:bottomRightRadius="7.0dip" />
+            <solid android:color="@drawable/card_background_pressed" />
+            <stroke android:width="0.33000004dip" android:color="@color/grid_item_background_border_color" />
+            <padding android:left="0.5dip" android:top="0.5dip" android:right="0.5dip" android:bottom="0.5dip" />
+        </shape>
+    </item>
+    <item>
+        <bitmap android:gravity="center" android:src="@drawable/empty_img" />
+    </item>
+</layer-list>

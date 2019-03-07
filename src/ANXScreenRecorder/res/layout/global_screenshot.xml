@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/global_screenshot_background" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@android:color/black" android:contentDescription="@null" />
+    <ImageView android:layout_gravity="center" android:id="@id/global_screenshot" android:layout_width="wrap_content" android:layout_height="wrap_content" android:adjustViewBounds="true" android:contentDescription="@null" />
+    <ImageView android:id="@id/global_screenshot_flash" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@android:color/white" android:contentDescription="@null" />
+    <LinearLayout android:orientation="vertical" android:id="@id/global_screenshot_mask" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <View android:id="@id/global_screenshot_mask_up" android:background="#ff000000" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        <View android:id="@id/global_screenshot_mask_down" android:background="#ff000000" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+    </LinearLayout>
+</FrameLayout>

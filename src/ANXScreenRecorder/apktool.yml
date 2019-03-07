@@ -1,0 +1,29 @@
+!!brut.androlib.meta.MetaInfo
+apkFileName: MiuiScreenRecorder.apk
+compressionType: false
+doNotCompress:
+- arsc
+- png
+- res/drawable-xhdpi-v4/bubble.9.png
+- res/drawable-xhdpi-v4/empty.9.png
+- res/drawable-xhdpi-v4/screenshot_thumbnail_shadow.9.png
+- res/drawable-xxhdpi-v4/bubble.9.png
+- res/drawable-xxhdpi-v4/empty.9.png
+- ogg
+isFrameworkApk: false
+packageInfo:
+  forcedPackageId: '127'
+  renameManifestPackage: null
+sdkInfo: null
+sharedLibrary: false
+sparseResources: false
+unknownFiles: {}
+usesFramework:
+  ids:
+  - 1
+  - 16
+  tag: null
+version: 2.3.4
+versionInfo:
+  versionCode: '32'
+  versionName: 1.4.8

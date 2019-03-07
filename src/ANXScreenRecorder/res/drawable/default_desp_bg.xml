@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:topLeftRadius="0.0dip" android:topRightRadius="0.0dip" android:bottomLeftRadius="@dimen/desp_round" android:bottomRightRadius="@dimen/desp_round" />
+    <solid android:color="@color/grid_item_desp_background_color" />
+</shape>

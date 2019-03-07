@@ -1,2 +1,2 @@
-java  -jar ..\ANXMiuiPortTools\signapk.jar ..\ANXMiuiPortTools\testkey.x509.pem ..\ANXMiuiPortTools\testkey.pk8 .\out\ANXCamera-Unsigned.apk .\out\ANXCamera-Unaligned.apk
-..\ANXMiuiPortTools\zipalign.exe -f 4  .\out\ANXCamera-Unaligned.apk .\out\ANXCamera.apk
+java  -jar ..\ANXMiuiPortTools\signapk.jar ..\ANXMiuiPortTools\testkey.x509.pem ..\ANXMiuiPortTools\testkey.pk8 .\out\ANXScreenRecorder-Unsigned.apk .\out\ANXScreenRecorder-Unaligned.apk
+..\ANXMiuiPortTools\zipalign.exe -f 4  .\out\ANXScreenRecorder-Unaligned.apk .\out\ANXScreenRecorder.apk

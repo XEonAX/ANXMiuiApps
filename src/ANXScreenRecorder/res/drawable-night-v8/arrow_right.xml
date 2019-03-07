@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap android:src="@drawable/arrow_right_normal" android:tint="#7fffffff"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

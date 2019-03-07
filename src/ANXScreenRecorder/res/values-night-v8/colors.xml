@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="common_background_color">#ff000000</color>
+    <color name="grid_head_background_color">#ff000000</color>
+    <color name="grid_head_text_color">#ff8c8c8c</color>
+    <color name="grid_item_background_border_color">#1affffff</color>
+    <color name="homepage_blank_text_color">#66ffffff</color>
+</resources>

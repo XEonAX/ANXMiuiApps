@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="drawable" name="card_background_pressed">#ffeeeeee</item>
+    <item type="drawable" name="miui_action_bar_cancel">@miui:drawable/action_mode_title_button_cancel_light</item>
+    <item type="drawable" name="miui_action_bar_confirm">@miui:drawable/action_mode_title_button_confirm_light</item>
+    <item type="drawable" name="miui_action_btn_delete">@miui:drawable/action_button_delete_light</item>
+    <item type="drawable" name="miui_action_btn_new">@miui:drawable/action_button_new_light</item>
+    <item type="drawable" name="miui_action_mode_more">@miui:drawable/action_mode_immersion_more_light</item>
+    <item type="drawable" name="miui_ic_delete">@miui:drawable/action_button_delete_light</item>
+    <item type="drawable" name="miui_ic_deselect_all">@miui:drawable/action_mode_title_button_deselect_all_light</item>
+    <item type="drawable" name="miui_ic_move">@miui:drawable/action_button_move_light</item>
+    <item type="drawable" name="miui_ic_select_all">@miui:drawable/action_mode_title_button_select_all_light</item>
+    <item type="drawable" name="miui_ic_stick">@miui:drawable/action_button_stick_light</item>
+    <item type="drawable" name="miui_ic_unstick">@miui:drawable/action_button_unstick_light</item>
+    <item type="drawable" name="card_background_normal">#ffffffff</item>
+    <item type="drawable" name="default_video_bg">#ffebebeb</item>
+    <item type="drawable" name="miui_action_btn_move">@miui:drawable/action_button_move_light</item>
+    <item type="drawable" name="semi_black">#80000000</item>
+</resources>

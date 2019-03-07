@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/screen_record_params" android:key="miui.screenrecorder.ListPreference">
+        <com.miui.screenrecorder.view.MiuiScreenRecorderListPreference android:persistent="true" android:entries="@array/screenrecorder_settings_resolution" android:key="miui.screenrecorder.resolution" android:entryValues="@array/screenrecorder_settings_resolution_values" />
+        <com.miui.screenrecorder.view.MiuiScreenRecorderListPreference android:persistent="true" android:entries="@array/screenrecorder_settings_bit_rate" android:key="miui.screenrecorder.bitrates" android:entryValues="@array/screenrecorder_settings_bit_rate_values" />
+        <com.miui.screenrecorder.view.MiuiScreenRecorderListPreference android:persistent="true" android:entries="@array/screenrecorder_settings_orientation" android:key="miui.screenrecorder.orientation" android:entryValues="@array/screenrecorder_settings_orientation_values" />
+        <com.miui.screenrecorder.view.MiuiScreenRecorderListPreference android:persistent="true" android:entries="@array/screenrecorder_settings_sound" android:key="miui.screenrecorder.sound" android:entryValues="@array/screenrecorder_settings_sound_values" />
+        <com.miui.screenrecorder.view.MiuiScreenRecorderCheckBoxPreference android:title="@string/fixed_frame_rate" android:key="miui.screenrecorder.fixedframe" android:summary="@string/fixed_frame_rate_summary" android:defaultValue="true" />
+        <com.miui.screenrecorder.view.FramesListPreference android:persistent="true" android:entries="@array/screenrecorder_settings_frames" android:key="miui.screenrecorder.frame" android:entryValues="@array/screenrecorder_settings_frames_values" />
+        <com.miui.screenrecorder.view.MiuiScreenRecorderListPreference android:persistent="true" android:entries="@array/screenrecorder_settings_storage_location" android:key="miui.screenrecorder.storage" android:entryValues="@array/screenrecorder_settings_storage_location_values" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/screen_record_option">
+        <CheckBoxPreference android:title="@string/stop_record_while_locking" android:key="miui.screenrecorder.stopwhilelock" android:summary="@string/stop_record_while_locking_summary" android:defaultValue="true" />
+        <CheckBoxPreference android:title="@string/show_screen_touch" android:key="miui.screenrecorder.showtouch" android:summary="@string/show_screen_touch_summary" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/show_hard_key" android:key="miui.screenrecorder.showhardkey" android:summary="@string/show_hard_key_summary" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/is_go_home" android:key="miui.screenrecorder.isclosegohome" android:summary="@string/is_go_home_summary" android:defaultValue="false" />
+    </PreferenceCategory>
+</PreferenceScreen>

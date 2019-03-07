@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_gravity="center" android:orientation="vertical" android:background="@drawable/empty_item_n" android:layout_width="@dimen/home_thumbnail_width" android:layout_height="@dimen/home_thumbnail_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/thumbnail" android:layout_width="fill_parent" android:layout_height="fill_parent" android:contentDescription="@null" />
+    <RelativeLayout android:id="@id/discript_view" android:paddingBottom="2.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/thumbnail_discript_height" android:layout_alignParentBottom="true">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerVertical="true" android:paddingStart="@dimen/thumbnail_discript_space" android:paddingEnd="@dimen/thumbnail_discript_space" android:layout_marginEnd="26.0dip" android:layout_alignParentStart="true">
+            <View android:layout_width="wrap_content" android:layout_height="0.0dip" android:layout_weight="0.4" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:textSize="@dimen/thumbnail_text_size" android:textColor="@color/white" android:id="@id/time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" />
+                <View android:background="@color/white" android:layout_width="@dimen/thumbnail_seperate_space" android:layout_height="9.669983sp" android:layout_marginTop="0.6700001sp" android:alpha="0.6" android:layout_marginStart="@dimen/thumbnail_seperate" android:layout_marginEnd="@dimen/thumbnail_seperate" />
+                <TextView android:textSize="@dimen/thumbnail_text_size" android:textColor="@color/white" android:id="@id/size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" />
+            </LinearLayout>
+            <TextView android:textSize="@dimen/thumbnail_name_size" android:textColor="@color/grey_99ff" android:gravity="center_vertical" android:id="@id/app_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dip" android:maxLines="1" />
+            <View android:layout_width="wrap_content" android:layout_height="0.0dip" android:layout_weight="0.6" />
+        </LinearLayout>
+        <ImageView android:id="@id/play_image" android:layout_width="wrap_content" android:layout_height="@dimen/play_image_size" android:layout_marginTop="20.0dip" android:src="@drawable/play_normal" android:contentDescription="@null" android:layout_marginEnd="18.0dip" android:layout_alignParentEnd="true" />
+        <ImageView android:id="@id/select_image" android:layout_width="@dimen/select_image_size" android:layout_height="@dimen/select_image_size" android:layout_marginTop="14.0dip" android:src="@drawable/grid_item_checkbox_normal" android:contentDescription="@null" android:layout_marginStart="@dimen/select_image_right" android:layout_marginEnd="@dimen/select_image_left" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+</RelativeLayout>
