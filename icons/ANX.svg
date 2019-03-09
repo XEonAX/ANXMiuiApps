@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1000px"
+   height="1000px"
+   viewBox="0 0 1000 1000"
+   version="1.1"
+   id="svg10"
+   enable-background="new"
+   inkscape:export-filename="J:\ROOT\GitHub\ANXMiuiApps\icons\ANXpng.png"
+   inkscape:export-xdpi="103.584"
+   inkscape:export-ydpi="103.584"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="ANX.svg">
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient880">
+      <stop
+         style="stop-color:#06b9ff;stop-opacity:1"
+         offset="0"
+         id="stop876" />
+      <stop
+         style="stop-color:#08ff8b;stop-opacity:1"
+         offset="1"
+         id="stop878" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient872">
+      <stop
+         style="stop-color:#ffac13;stop-opacity:1"
+         offset="0"
+         id="stop868" />
+      <stop
+         style="stop-color:#a73dff;stop-opacity:1"
+         offset="1"
+         id="stop870" />
+    </linearGradient>
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect902"
+       is_visible="true"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect898"
+       is_visible="true"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect894"
+       is_visible="true"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect890"
+       is_visible="true"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect886"
+       is_visible="true"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect882"
+       is_visible="true"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect878"
+       is_visible="true"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect874"
+       is_visible="true"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect866"
+       is_visible="true"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect862"
+       is_visible="true"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect858"
+       is_visible="true"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient823">
+      <stop
+         style="stop-color:#46cbff;stop-opacity:1;"
+         offset="0"
+         id="stop819" />
+      <stop
+         style="stop-color:#46cbff;stop-opacity:0;"
+         offset="1"
+         id="stop821" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient823"
+       id="linearGradient825"
+       x1="160"
+       y1="200"
+       x2="1060"
+       y2="1120"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient872"
+       id="linearGradient874"
+       x1="129.99992"
+       y1="780"
+       x2="909.99994"
+       y2="280"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient880"
+       id="linearGradient882"
+       x1="35"
+       y1="500"
+       x2="965"
+       y2="500"
+       gradientUnits="userSpaceOnUse" />
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter976"
+       x="-0.012000065"
+       width="1.0240001"
+       y="-0.012000065"
+       height="1.0240001">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="4.6000248"
+         id="feGaussianBlur978" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Drop Shadow"
+       id="filter1062">
+      <feFlood
+         flood-opacity="0.498039"
+         flood-color="rgb(0,0,0)"
+         result="flood"
+         id="feFlood1052" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite1054" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="10"
+         result="blur"
+         id="feGaussianBlur1056" />
+      <feOffset
+         dx="10"
+         dy="10"
+         result="offset"
+         id="feOffset1058" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite1060" />
+    </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient872"
+       id="linearGradient1100"
+       gradientUnits="userSpaceOnUse"
+       x1="129.99992"
+       y1="780"
+       x2="909.99994"
+       y2="280" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient872"
+       id="linearGradient1102"
+       gradientUnits="userSpaceOnUse"
+       x1="129.99992"
+       y1="780"
+       x2="909.99994"
+       y2="280" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient872"
+       id="linearGradient1104"
+       gradientUnits="userSpaceOnUse"
+       x1="129.99992"
+       y1="780"
+       x2="909.99994"
+       y2="280" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient872"
+       id="linearGradient1106"
+       gradientUnits="userSpaceOnUse"
+       x1="129.99992"
+       y1="780"
+       x2="909.99994"
+       y2="280" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient872"
+       id="linearGradient1108"
+       gradientUnits="userSpaceOnUse"
+       x1="129.99992"
+       y1="780"
+       x2="909.99994"
+       y2="280" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient872"
+       id="linearGradient1110"
+       gradientUnits="userSpaceOnUse"
+       x1="129.99992"
+       y1="780"
+       x2="909.99994"
+       y2="280" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient880"
+       id="linearGradient1127"
+       x1="540"
+       y1="710"
+       x2="490"
+       y2="910"
+       gradientUnits="userSpaceOnUse" />
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter1153"
+       x="-0.0022936822"
+       width="1.0045874"
+       y="-0.009770096"
+       height="1.0195402">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.345685"
+         id="feGaussianBlur1155" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Drop Shadow"
+       id="filter1313">
+      <feFlood
+         flood-opacity="0.498039"
+         flood-color="rgb(0,0,0)"
+         result="flood"
+         id="feFlood1303" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite1305" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="10"
+         result="blur"
+         id="feGaussianBlur1307" />
+      <feOffset
+         dx="10"
+         dy="10"
+         result="offset"
+         id="feOffset1309" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite1311" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.65625"
+     inkscape:cx="326.28109"
+     inkscape:cy="401.10966"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer3"
+     showgrid="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1013"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="fine"
+       originx="500"
+       originy="500"
+       empspacing="10"
+       color="#60ff3f"
+       opacity="0.1254902" />
+    <inkscape:grid
+       type="xygrid"
+       id="coarse"
+       originx="500"
+       originy="500"
+       empspacing="100"
+       spacingx="50"
+       spacingy="50"
+       color="#ffff3f"
+       opacity="0.1254902"
+       empcolor="#ff3fc5"
+       empopacity="0.25098039" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Base"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="opacity:1;fill:#313131;fill-opacity:1;stroke:url(#linearGradient825);stroke-width:20;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="path817"
+       cx="500"
+       cy="500"
+       r="460" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2">
+    <g
+       id="g928"
+       style="stroke:url(#linearGradient874);stroke-width:18.00900459;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter1313)"
+       transform="matrix(1.2333336,0,0,1,-116.66672,0)">
+      <path
+         inkscape:original-d="M 150,650 250,350 350,650"
+         inkscape:path-effect="#path-effect882"
+         inkscape:connector-curvature="0"
+         id="path880"
+         d="m 150,650 c 0,0 100,-300 100,-300 0,0 100,300 100,300"
+         style="fill:none;stroke:url(#linearGradient1100);stroke-width:18.00900459;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:original-d="M 550,650 450,350 399.99992,650 h -50"
+         inkscape:path-effect="#path-effect886"
+         inkscape:connector-curvature="0"
+         id="path884"
+         d="m 550,650 c 0,0 -100,-300 -100,-300 0,0 -50.00008,300 -50.00008,300 0,0 -50,0 -50,0"
+         style="fill:none;stroke:url(#linearGradient1102);stroke-width:18.00900459;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:nodetypes="ccc" />
+      <path
+         inkscape:original-d="m 550,650 49.99992,-300 h 50"
+         inkscape:path-effect="#path-effect890"
+         inkscape:connector-curvature="0"
+         id="path888"
+         d="m 550,650 c 0,0 49.99992,-300 49.99992,-300 0,0 50,0 50,0"
+         style="fill:none;stroke:url(#linearGradient1104);stroke-width:18.00900459;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:nodetypes="cc" />
+      <path
+         inkscape:original-d="M 650,350 850,650"
+         inkscape:path-effect="#path-effect894"
+         inkscape:connector-curvature="0"
+         id="path892"
+         d="m 650,350 c 0,0 200,300 200,300"
+         style="fill:none;stroke:url(#linearGradient1106);stroke-width:18.00900459;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:original-d="M 650,650 850,350"
+         inkscape:path-effect="#path-effect898"
+         inkscape:connector-curvature="0"
+         id="path896"
+         d="m 650,650 c 0,0 200,-300 200,-300"
+         style="fill:none;stroke:url(#linearGradient1108);stroke-width:18.00900459;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:original-d="M 200,500 H 300"
+         inkscape:path-effect="#path-effect902"
+         inkscape:connector-curvature="0"
+         id="path900"
+         d="m 200,500 c 0,0 100,0 100,0"
+         style="fill:none;stroke:url(#linearGradient1110);stroke-width:18.00900459;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         clip-path="none" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Layer 3"
+     style="display:inline">
+    <circle
+       style="display:inline;opacity:1;fill:none;fill-opacity:1;stroke:url(#linearGradient882);stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers;filter:url(#filter976)"
+       id="path817-3"
+       cx="500"
+       cy="500"
+       r="460"
+       mask="none"
+       transform="matrix(1.0122852,0,0,1.00566,-6.1426202,-2.8299908)"
+       inkscape:export-xdpi="103.584"
+       inkscape:export-ydpi="103.584" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Layer 4">
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot1113"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:url(#linearGradient1127);fill-opacity:1;stroke:none;filter:url(#filter1153)"><flowRegion
+         id="flowRegion1115"
+         style="fill:url(#linearGradient1127);fill-opacity:1"><rect
+           id="rect1117"
+           width="400"
+           height="220"
+           x="300"
+           y="700"
+           style="fill:url(#linearGradient1127);fill-opacity:1" /></flowRegion><flowPara
+         id="flowPara1119"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:85.33333333px;font-family:'Harlow Solid Italic';-inkscape-font-specification:'Harlow Solid Italic, ';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr;text-anchor:middle;fill:url(#linearGradient1127);fill-opacity:1">Miui</flowPara><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:85.33333333px;font-family:'Harlow Solid Italic';-inkscape-font-specification:'Harlow Solid Italic, ';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr;text-anchor:middle;fill:url(#linearGradient1127);fill-opacity:1"
+         id="flowPara1301"> Apps</flowPara></flowRoot>  </g>
+</svg>

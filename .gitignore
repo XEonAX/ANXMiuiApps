@@ -3,3 +3,5 @@ out/
 .idea
 src/ANXMiuiAppsMagisk/system/priv-app/ANXScreenRecorder/ANXScreenRecorder.apk
 src/ANXMiuiAppsUnity/system/priv-app/ANXScreenRecorder/ANXScreenRecorder.apk
+src/ANXAppsUnity/system/priv-app/ANXScreenRecorder/ANXScreenRecorder.apk
+src/ANXAppsMagisk/system/priv-app/ANXScreenRecorder/ANXScreenRecorder.apk
