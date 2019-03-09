@@ -45,5 +45,6 @@
         <permission name="android.permission.INTERACT_ACROSS_USERS" fixed="true" />
         <permission name="com.android.launcher.permission.INSTALL_SHORTCUT" fixed="true" />
         <permission name="android.permission.FOREGROUND_SERVICE" fixed="true" />
+        <permission name="android.permission.WRITE_SETTINGS" fixed="true" />
     </exception>
 </exceptions>

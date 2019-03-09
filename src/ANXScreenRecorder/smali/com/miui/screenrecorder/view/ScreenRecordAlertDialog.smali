@@ -1,5 +1,5 @@
 .class public Lcom/miui/screenrecorder/view/ScreenRecordAlertDialog;
-.super Lmiui/app/AlertDialog;
+.super Landroid/app/AlertDialog;
 .source "ScreenRecordAlertDialog.java"
 
 
@@ -10,7 +10,7 @@
 
     .prologue
     .line 13
-    invoke-direct {p0, p1}, Lmiui/app/AlertDialog;-><init>(Landroid/content/Context;)V
+    invoke-direct {p0, p1}, Landroid/app/AlertDialog;-><init>(Landroid/content/Context;)V
 
     .line 14
     return-void
@@ -23,7 +23,7 @@
 
     .prologue
     .line 17
-    invoke-direct {p0, p1, p2}, Lmiui/app/AlertDialog;-><init>(Landroid/content/Context;I)V
+    invoke-direct {p0, p1, p2}, Landroid/app/AlertDialog;-><init>(Landroid/content/Context;I)V
 
     .line 18
     return-void

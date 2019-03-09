@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" 
-    android:compileSdkVersion="28" 
-    android:compileSdkVersionCodename="9" 
-    android:versionCode="2" 
-    android:versionName="2.FunnyJoyousSeagull" 
+    android:compileSdkVersion="22" 
+    android:compileSdkVersionCodename="8.0.0" 
+    android:versionCode="7" 
+    android:versionName="7.OilyImportantAfricanbushviper" 
     package="com.miui.screenrecorder" 
-    platformBuildVersionCode="28" 
-    platformBuildVersionName="9">
-    <uses-sdk android:minSdkVersion="28" 
-        android:targetSdkVersion="28"/>
+    platformBuildVersionCode="22" 
+    platformBuildVersionName="8.0.0">
+    <uses-sdk android:minSdkVersion="22" 
+        android:targetSdkVersion="22"/>
     <!-- android:sharedUserId="android.uid.system"  -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -24,6 +24,7 @@
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS"/>
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
     <application android:allowBackup="true" 
         android:icon="@drawable/ic_launcher" 
         android:label="@string/app_name" 

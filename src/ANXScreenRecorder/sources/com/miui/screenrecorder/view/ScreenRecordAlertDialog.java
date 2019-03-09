@@ -1,7 +1,7 @@
 package com.miui.screenrecorder.view;
 
+import android.app.AlertDialog;
 import android.content.Context;
-import miui.app.AlertDialog;
 
 public class ScreenRecordAlertDialog extends AlertDialog {
     public ScreenRecordAlertDialog(Context context) {
