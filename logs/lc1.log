@@ -1,0 +1,472 @@
+Microsoft Windows [Version 10.0.17134.590]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\Users\User>adblogcat 0-c
+'adblogcat' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\User>adb logcat -c
+* daemon not running; starting now at tcp:5037
+* daemon started successfully
+
+C:\Users\User>adb logcat -c
+
+C:\Users\User>adb logcat -c
+
+C:\Users\User>adb logcat
+--------- beginning of main
+03-10 16:28:56.607 30578 30902 E acfh    : RuntimeException while executing runnable achi{aanr@185a6e9} with executor zan@ff93f6e
+03-10 16:28:56.607 30578 30902 E acfh    : java.util.concurrent.RejectedExecutionException: Task zar@2cb6370 is rejected by adapter [java.util.concurrent.ScheduledThreadPoolExecutor@6edb1b3[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 59]]
+03-10 16:28:56.607 30578 30902 E acfh    :      at aalx.a(PG:13)
+03-10 16:28:56.607 30578 30902 E acfh    :      at aalx.execute(PG:21)
+03-10 16:28:56.607 30578 30902 E acfh    :      at zan.execute(PG:23)
+03-10 16:28:56.607 30578 30902 E acfh    :      at acfh.b(PG:258)
+03-10 16:28:56.607 30578 30902 E acfh    :      at acfh.a(PG:217)
+03-10 16:28:56.607 30578 30902 E acfh    :      at acfh.a(PG:155)
+03-10 16:28:56.607 30578 30902 E acfh    :      at acfw.run(PG:31)
+03-10 16:28:56.607 30578 30902 E acfh    :      at acgx.execute(PG:3)
+03-10 16:28:56.607 30578 30902 E acfh    :      at acfh.b(PG:258)
+03-10 16:28:56.607 30578 30902 E acfh    :      at acfh.a(PG:217)
+03-10 16:28:56.607 30578 30902 E acfh    :      at acfh.a(PG:155)
+03-10 16:28:56.607 30578 30902 E acfh    :      at acfw.run(PG:31)
+03-10 16:28:56.607 30578 30902 E acfh    :      at acgx.execute(PG:3)
+03-10 16:28:56.607 30578 30902 E acfh    :      at acfh.b(PG:258)
+03-10 16:28:56.607 30578 30902 E acfh    :      at acfh.a(PG:217)
+03-10 16:28:56.607 30578 30902 E acfh    :      at acfh.a(PG:155)
+03-10 16:28:56.607 30578 30902 E acfh    :      at aarp.execute(PG:8)
+03-10 16:28:56.607 30578 30902 E acfh    :      at acfh.b(PG:258)
+03-10 16:28:56.607 30578 30902 E acfh    :      at acfh.a(PG:217)
+03-10 16:28:56.607 30578 30902 E acfh    :      at adno.a(PG:32)
+03-10 16:28:56.607 30578 30902 E acfh    :      at adoz.run(PG:5)
+03-10 16:28:56.607 30578 30902 E acfh    :      at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+03-10 16:28:56.607 30578 30902 E acfh    :      at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+03-10 16:28:56.607 30578 30902 E acfh    :      at java.lang.Thread.run(Thread.java:764)
+03-10 16:28:56.944 30874 30874 D StableScreenRecorderCore: init handler and working thread
+03-10 16:28:56.946 30874 30874 V ScreenRecorderConfig: device = beryllium, resolution values = 1080, 720, 480
+03-10 16:28:56.947 30874 30874 V ScreenRecorderConfig: maxResolutionHeight 2246 maxResolutionWidth 1080
+03-10 16:28:56.994   984 30156 D NuPlayerDriver: NuPlayerDriver(0xe9ba1180) created, clientPid(2241)
+03-10 16:28:56.998 30874 30874 E libc    : Access denied finding property "qemu.hw.mainkeys"
+03-10 16:28:57.008 30874 30874 V RecorderWindowManager: mRecorderWindow is added
+03-10 16:28:57.008   984 30926 D GenericSource: FileSource remote
+03-10 16:28:57.017   984 30925 D NuPlayerDriver: notifyListener_l(0xe9ba1180), (1, 0, 0, -1), loop setting(0, 0)
+03-10 16:28:57.022  1313  6177 I MediaFocusControl: requestAudioFocus() from uid/pid 10030/2241 clientId=android.media.AudioManager@1ef55c5 callingPack=com.android.systemui req=3 flags=0x0 sdk=28
+03-10 16:28:57.042   829  2384 D SurfaceFlinger: duplicate layer name: changing  to #1
+03-10 16:28:57.056   829  2386 D SurfaceFlinger: duplicate layer name: changing  to #2
+03-10 16:28:57.061   829  2386 D SurfaceFlinger: duplicate layer name: changing ch.deletescape.lawnchair.plah/ch.deletescape.lawnchair.Launcher to ch.deletescape.lawnchair.plah/ch.deletescape.lawnchair.Launcher#1
+03-10 16:28:57.084  3151  3151 I StreamRenderer: cleanUpRendererScope(nowcards-15-3665c2a-d612)
+03-10 16:28:57.123  3151  3151 W PhoneWindow: Previously focused view reported id 2131755183 during save, but can't be found during restore.
+03-10 16:28:57.164   829  2384 D SurfaceFlinger: duplicate layer name: changing ch.deletescape.lawnchair.plah/ch.deletescape.lawnchair.Launcher to ch.deletescape.lawnchair.plah/ch.deletescape.lawnchair.Launcher#2
+03-10 16:28:57.222  3151  3170 W SessionLifecycleManager: Handover failed. Creating new session controller.
+03-10 16:28:57.265  3151 29335 W LocationOracle: No location history returned by ContextManager
+03-10 16:28:57.268  3151 30685 W RenderingContextPop: YouTube is not installed on the phone
+03-10 16:28:57.268  3151  3170 I StreamController: registerScope: nowcards-15-3674cea-e0b6
+03-10 16:28:57.306  3151  3170 I MicroDetectionWorker: #startMicroDetector [speakerMode: 0]
+03-10 16:28:57.307  3151  3170 I AudioController: Created new AudioSource
+03-10 16:28:57.308  3151  3170 I MicroDetectionWorker: onReady
+03-10 16:28:57.311  3151 29338 I MicroRecognitionRunner: Starting detection.
+03-10 16:28:57.311  3151 29338 I MultipleReaderAudioSrc: Using micInputStream
+03-10 16:28:57.312  3151 29334 I MicrophoneInputStream: mic_starting  SR : 16000 CC : 16 SO : 1999
+03-10 16:28:57.316  3151  3151 I StreamRenderer: maybeRegisterNowCardsScope(nowcards-15-3674cea-e0b6, com.google.android.sidekick.shared.remoteapi.CardRenderingContext@d087775)
+03-10 16:28:57.319   829  1365 W SurfaceFlinger: Attempting to set client state on removed layer: ch.deletescape.lawnchair.plah/ch.deletescape.lawnchair.Launcher#0
+03-10 16:28:57.319   829  1365 W SurfaceFlinger: Attempting to destroy on removed layer: ch.deletescape.lawnchair.plah/ch.deletescape.lawnchair.Launcher#0
+03-10 16:28:57.323   767  1392 D audio_hw_primary: adev_open_input_stream: enter: sample_rate(16000) channel_mask(0x10) devices(0x80000004)        stream_handle(0xf4dddb40) io_handle(446) source(6) format 1
+03-10 16:28:57.324   767  1392 W audio_hw_utils: audio_extn_utils_update_stream_input_app_type_cfg: App type could not be selected. Falling back to default
+03-10 16:28:57.326   827 30939 I AudioFlinger: AudioFlinger's thread 0xea883940 tid=30939 ready to run
+03-10 16:28:57.327   767  1392 D audio_hw_primary: in_standby: enter: stream (0xf4dddb40) usecase(18: audio-record)
+03-10 16:28:57.329   767  1392 D audio_hw_primary: in_standby: enter: stream (0xf4dddb40) usecase(18: audio-record)
+03-10 16:28:57.341   767  1392 D audio_hw_primary: in_set_parameters: enter: kvpairs=bottom=;input_source=6;routing=-2147483644
+03-10 16:28:57.344  3151 29334 I MicrophoneInputStream: mic_started  SR : 16000 CC : 16 SO : 1999
+03-10 16:28:57.344   767 30940 D audio_hw_primary: start_input_stream: enter: stream(0xf4dddb40)usecase(18: audio-record)
+03-10 16:28:57.345   767 30940 D audio_hw_primary: select_devices for use case (audio-record)
+03-10 16:28:57.345   767 30940 V audio_hw_primary: voice_extn_compress_voip_is_active: COMPRESS_VOIP_ENABLED is not defined
+03-10 16:28:57.345   767 30940 D audio_hw_primary: select_devices: out_snd_device(0: ) in_snd_device(112: voice-rec-mic)
+03-10 16:28:57.345   767 30940 I msm8974_platform: platform_check_and_set_capture_codec_backend_cfg:txbecf: afe: bitwidth 16, samplerate 16000, channel 1 format 1, backend_idx 7 usecase = 18 device (voice-rec-mic)
+03-10 16:28:57.345   767 30940 I msm8974_platform: platform_check_capture_codec_backend_cfg:txbecf: afe: Codec selected backend: 7 current bit width: 16 and sample rate: 16000, channels 1 format 1
+03-10 16:28:57.345   767 30940 W msm8974_platform: platform_get_backend_index:napb: Invalid device - 0
+03-10 16:28:57.345   767 30940 I msm8974_platform: platform_check_capture_codec_backend_cfg:txbecf: afe: Codec selected backend: 7 updated bit width: 16 and sample rate: 16000
+03-10 16:28:57.345   767 30940 D audio_hw_primary: check_usecases_capture_codec_backend:becf: force routing 0
+03-10 16:28:57.345   767 30940 D hardware_info: hw_info_append_hw_type : device_name = voice-rec-mic
+03-10 16:28:57.345   767 30940 D msm8974_platform: platform_split_snd_device: snd_device(112) num devices(0) new_snd_devices(0)
+03-10 16:28:57.345   767 30940 D audio_hw_primary: enable_snd_device: snd_device(112: voice-rec-mic)
+03-10 16:28:57.345   767 30940 I soundtrigger: audio_extn_sound_trigger_update_device_status: device 0x70 of type 1 for Event 1, with Raise=0
+03-10 16:28:57.345   767 30940 D audio_route: Apply path: voice-rec-mic
+03-10 16:28:57.355  3151  3151 W StaticLayout: maxLineHeight should not be -1.  maxLines:2 lineCount:2
+03-10 16:28:57.356  3151  3151 I chatty  : uid=10046 com.google.android.googlequicksearchbox:search identical 2 lines
+03-10 16:28:57.356  3151  3151 W StaticLayout: maxLineHeight should not be -1.  maxLines:2 lineCount:2
+03-10 16:28:57.356   767 30940 W audio_hw_utils: audio_extn_utils_update_stream_input_app_type_cfg: App type could not be selected. Falling back to default
+03-10 16:28:57.356   767 30940 D soundtrigger: audio_extn_sound_trigger_update_stream_status: uc_info->id 18 of type 1 device 0x00 for Event 3, with Raise=1
+03-10 16:28:57.356   767 30940 W soundtrigger: audio_extn_sound_trigger_update_stream_status: device[0x00]: speaker is NOT used, do NOT transit to adsp.
+03-10 16:28:57.356   767 30940 D audio_hw_utils: audio_extn_utils_send_app_type_cfg: usecase->in_snd_device voice-rec-mic
+03-10 16:28:57.356   767 30940 D msm8974_platform: platform_split_snd_device: snd_device(112) num devices(0) new_snd_devices(0)
+03-10 16:28:57.356   767 30940 D audio_hw_utils: audio_extn_btsco_get_sample_rate:Not a BT SCO device, need not update sampling rate
+03-10 16:28:57.356   767 30940 I audio_hw_utils: send_app_type_cfg_for_device CAPTURE app_type 69938, acdb_dev_id 4, sample_rate 48000, snd_device_be_idx 3
+03-10 16:28:57.356   767 30940 D msm8974_platform: platform_split_snd_device: snd_device(112) num devices(1) new_snd_devices(0)
+03-10 16:28:57.356   767 30940 I ACDB-LOADER: ACDB -> send_audio_cal, acdb_id = 4, path = 1, app id = 0x11132, sample rate = 48000
+03-10 16:28:57.356   767 30940 D         : Failed to fetch the lookup information of the device 00000004
+03-10 16:28:57.356   767 30940 E ACDB-LOADER: Error: ACDB AudProc vol returned = -19
+03-10 16:28:57.356   767 30940 I ACDB-LOADER: ACDB -> GET_AFE_TOPOLOGY_ID for adcd_id 4, Topology Id 112fb
+03-10 16:28:57.356   767 30940 D         : Failed to fetch the lookup information of the device 00000004
+03-10 16:28:57.356   767 30940 E ACDB-LOADER: Error: ACDB_CMD_GET_AFE_COMMON_TABLE_SIZE Returned = -19
+03-10 16:28:57.356   767 30940 D         : Failed to fetch the lookup information of the device 00000004
+03-10 16:28:57.356   767 30940 E ACDB-LOADER: Error: ACDB AFE returned = -19
+03-10 16:28:57.356   767 30940 D audio_hw_primary: enable_audio_route: apply mixer and update path: audio-record
+03-10 16:28:57.356   767 30940 D audio_route: Apply path: audio-record
+03-10 16:28:57.357   767 30940 D audio_hw_primary: select_devices: done
+03-10 16:28:57.361  3151  3151 W StaticLayout: maxLineHeight should not be -1.  maxLines:2 lineCount:2
+03-10 16:28:57.362  3151  3151 I chatty  : uid=10046 com.google.android.googlequicksearchbox:search identical 2 lines
+03-10 16:28:57.362  3151  3151 W StaticLayout: maxLineHeight should not be -1.  maxLines:2 lineCount:2
+03-10 16:28:57.363  3151  3151 W View    : requestLayout() improperly called by com.google.android.apps.gsa.staticplugins.nowstream.shared.renderers.fd{5042dd2 V.E...... ......ID 0,0-1080,2246} during layout: running second layout pass
+03-10 16:28:57.379   980   980 I keystore: 1 0
+03-10 16:28:57.394   767 30940 D audio_hw_primary: start_input_stream: exit
+03-10 16:28:57.406 30874 30895 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+03-10 16:28:57.415  3151 29338 W SpeechLevelGenerator: Really low audio levels detected. The audio input may have issues.
+03-10 16:28:57.415  3151  3170 I MicroDetectionWorker: onReady
+03-10 16:28:57.503   829   919 W SurfaceFlinger: Attempting to set client state on removed layer: com.miui.screenrecorder/com.miui.screenrecorder.activity.ScreenRecorderHomeActivity#0
+03-10 16:28:57.503   829   919 W SurfaceFlinger: Attempting to destroy on removed layer: com.miui.screenrecorder/com.miui.screenrecorder.activity.ScreenRecorderHomeActivity#0
+03-10 16:28:57.524   984 30156 D NuPlayerDriver: start(0xe9ba1180), state is 4, eos is 0
+03-10 16:28:57.524   984 30925 I GenericSource: start
+03-10 16:28:57.526  2241  2241 V MediaRouter: onRestoreRoute() : route=RouteInfo{ name=Phone, description=null, status=null, category=RouteCategory{ name=System types=ROUTE_TYPE_LIVE_AUDIO ROUTE_TYPE_LIVE_VIDEO  groupable=false }, supportedTypes=ROUTE_TYPE_LIVE_AUDIO ROUTE_TYPE_LIVE_VIDEO , presentationDisplay=null }
+03-10 16:28:57.527  2241  2241 V MediaRouter: Selecting route: RouteInfo{ name=Phone, description=null, status=null, category=RouteCategory{ name=System types=ROUTE_TYPE_LIVE_AUDIO ROUTE_TYPE_LIVE_VIDEO  groupable=false }, supportedTypes=ROUTE_TYPE_LIVE_AUDIO ROUTE_TYPE_LIVE_VIDEO , presentationDisplay=null }
+03-10 16:28:57.532   984 30953 I OMXClient: IOmx service obtained
+03-10 16:28:57.533   988  2108 I OMXMaster: makeComponentInstance(OMX.google.vorbis.decoder) in omx@1.0-service process
+03-10 16:28:57.537   988  2108 E OMXNodeInstance: setConfig(0xed2a9c00:google.vorbis.decoder, ConfigPriority(0x6f800002)) ERROR: Undefined(0x80001001)
+03-10 16:28:57.537   984 30953 I ACodec  : codec does not support config priority (err -2147483648)
+03-10 16:28:57.538   984 30953 I MediaCodec: MediaCodec will operate in async mode
+03-10 16:28:57.540   765   765 W AshmemAllocator: ashmem_create_region(32768) returning hidl_memory(0x701102c100, 32768)
+03-10 16:28:57.556   765   765 I chatty  : uid=1000(system) allocator@1.0-s identical 10 lines
+03-10 16:28:57.556   765   765 W AshmemAllocator: ashmem_create_region(32768) returning hidl_memory(0x701102c100, 32768)
+03-10 16:28:57.560   827  2882 D AudioFlinger: Client defaulted notificationFrames to 7350 for frameCount 22050
+03-10 16:28:57.563   765   765 W AshmemAllocator: ashmem_create_region(7680) returning hidl_memory(0x701102c100, 7680)
+03-10 16:28:57.566   765   765 W AshmemAllocator: ashmem_create_region(7680) returning hidl_memory(0x701102c100, 7680)
+03-10 16:28:57.568   984 30925 D NuPlayerDriver: notifyListener_l(0xe9ba1180), (6, 0, 0, -1), loop setting(0, 0)
+03-10 16:28:57.569   767 13723 D audio_hw_primary: start_output_stream: enter: stream(0xf2d11000)usecase(1: low-latency-playback) devices(0x2)
+03-10 16:28:57.569   767 13723 D audio_hw_primary: select_devices for use case (low-latency-playback)
+03-10 16:28:57.569   767 13723 V audio_hw_primary: voice_extn_compress_voip_is_active: COMPRESS_VOIP_ENABLED is not defined
+03-10 16:28:57.569   767 13723 V msm8974_platform: voice_extn_compress_voip_is_active: COMPRESS_VOIP_ENABLED is not defined
+03-10 16:28:57.569   767 13723 D audio_hw_primary: select_devices for use case (audio-record)
+03-10 16:28:57.569   767 13723 V audio_hw_primary: voice_extn_compress_voip_is_active: COMPRESS_VOIP_ENABLED is not defined
+03-10 16:28:57.569   767 13723 D audio_hw_primary: select_devices: out_snd_device(2: speaker) in_snd_device(0: )
+03-10 16:28:57.569   767 13723 I msm8974_platform: platform_check_and_set_codec_backend_cfg:becf: afe: bitwidth 16, samplerate 48000 channels 2, backend_idx 0 usecase = 1 device (speaker)
+03-10 16:28:57.569   767 13723 D msm8974_platform: platform_split_snd_device: snd_device(2) num devices(1) new_snd_devices(0)
+03-10 16:28:57.569   767 13723 I msm8974_platform: platform_check_and_set_codec_backend_cfg: new_snd_devices[0] is 2
+03-10 16:28:57.569   767 13723 I msm8974_platform: platform_check_codec_backend_cfg:becf: afe: bitwidth 16, samplerate 48000 channels 2, backend_idx 0 usecase = 1 device (speaker)
+03-10 16:28:57.569   767 13723 D msm8974_platform: platform_check_codec_backend_cfg:becf: afe: playback on codec device not supporting native playback set default Sample Rate(48k)
+03-10 16:28:57.569   767 13723 I msm8974_platform: platform_check_codec_backend_cfg:becf: afe: Codec selected backend: 0 updated bit width: 16 and sample rate: 48000
+03-10 16:28:57.569   767 13723 D audio_hw_primary: check_usecases_codec_backend:becf: force routing 0
+03-10 16:28:57.569   767 13723 E msm8974_platform: platform_check_backends_match: Invalid snd_device =
+03-10 16:28:57.569   767 13723 D audio_hw_primary: check_usecases_codec_backend:becf: (67) check_usecases curr device: speaker, usecase device: backends match 0
+03-10 16:28:57.569   767 13723 E msm8974_platform: platform_check_backends_match: Invalid snd_device =
+03-10 16:28:57.569   767 13723 D audio_hw_primary: check_usecases_codec_backend:becf: (67) check_usecases curr device: speaker, usecase device: backends match 0
+03-10 16:28:57.569   767 13723 D audio_hw_primary: check_usecases_codec_backend:becf: check_usecases num.of Usecases to switch 0
+03-10 16:28:57.569   767 13723 D msm8974_platform: platform_split_snd_device: snd_device(2) num devices(0) new_snd_devices(2)
+03-10 16:28:57.569   767 13723 D hardware_info: hw_info_append_hw_type : device_name = speaker
+03-10 16:28:57.569   767 13723 D msm8974_platform: platform_split_snd_device: snd_device(2) num devices(0) new_snd_devices(0)
+03-10 16:28:57.569   767 13723 D audio_hw_primary: enable_snd_device: snd_device(2: speaker)
+03-10 16:28:57.569   767 13723 I soundtrigger: audio_extn_sound_trigger_update_device_status: device 0x2 of type 0 for Event 1, with Raise=0
+03-10 16:28:57.570   767 13723 D audio_route: Apply path: speaker
+03-10 16:28:57.570   767 13723 E soundtrigger: audio_extn_sound_trigger_update_stream_status: invalid input device 0x0, for event 3
+03-10 16:28:57.570   767 13723 D soundtrigger: audio_extn_sound_trigger_update_stream_status: uc_info->id 1 of type 0 device 0x02 for Event 3, with Raise=0
+03-10 16:28:57.570   767 13723 W soundtrigger: audio_extn_sound_trigger_update_stream_status: device[0x02]: speaker is NOT used, do NOT transit to adsp.
+03-10 16:28:57.570   767 13723 D audio_hw_utils: audio_extn_utils_send_app_type_cfg: usecase->out_snd_device speaker
+03-10 16:28:57.570   767 13723 D msm8974_platform: platform_split_snd_device: snd_device(2) num devices(0) new_snd_devices(0)
+03-10 16:28:57.570   767 13723 D audio_hw_utils: audio_extn_btsco_get_sample_rate:Not a BT SCO device, need not update sampling rate
+03-10 16:28:57.570   767 13723 I audio_hw_utils: send_app_type_cfg_for_device PLAYBACK app_type 69937, acdb_dev_id 15, sample_rate 48000, snd_device_be_idx 39
+03-10 16:28:57.570   767 13723 D msm8974_platform: platform_split_snd_device: snd_device(2) num devices(1) new_snd_devices(0)
+03-10 16:28:57.570   767 13723 I ACDB-LOADER: ACDB -> send_audio_cal, acdb_id = 15, path = 0, app id = 0x11131, sample rate = 48000
+03-10 16:28:57.570   767 13723 D         : Failed to fetch the lookup information of the device 0000000F
+03-10 16:28:57.570   767 13723 E ACDB-LOADER: Error: ACDB AudProc vol returned = -19
+03-10 16:28:57.570   767 13723 I ACDB-LOADER: ACDB -> GET_AFE_TOPOLOGY_ID for adcd_id 15, Topology Id 112fc
+03-10 16:28:57.570   767 13723 D         : Failed to fetch the lookup information of the device 0000000F
+03-10 16:28:57.570   767 13723 E ACDB-LOADER: Error: ACDB_CMD_GET_AFE_COMMON_TABLE_SIZE Returned = -19
+03-10 16:28:57.570   767 13723 D         : Failed to fetch the lookup information of the device 0000000F
+03-10 16:28:57.570   767 13723 E ACDB-LOADER: Error: ACDB AFE returned = -19
+03-10 16:28:57.571   767 13723 D audio_hw_primary: enable_audio_route: apply mixer and update path: low-latency-playback speaker
+03-10 16:28:57.571   767 13723 D audio_route: Apply path: low-latency-playback speaker
+03-10 16:28:57.572   767 13723 D audio_hw_primary: select_devices: done
+03-10 16:28:57.581  3114  3150 W OpenGLRenderer: Incorrectly called buildLayer on View: ShortcutAndWidgetContainer, destroying layer...
+03-10 16:28:57.628   767 13723 D msm8974_platform: platform_set_channel_map mixer_ctl_name:Playback Channel Map13
+03-10 16:28:57.629   767 13723 D msm8974_platform: platform_set_channel_map: set mapping(1 2 0 0 0 0 0 0) for channel:2
+03-10 16:28:57.629   767 13723 D audio_hw_primary: start_output_stream: exit
+03-10 16:28:57.629   767 13723 D audio_hw_primary: out_write: retry previous failed cal level set
+03-10 16:28:57.629   767 13723 W msm8974_platform: platform_send_gain_dep_cal: Usecase list is empty
+03-10 16:28:57.629   767 13723 D msm8974_platform: platform_split_snd_device: snd_device(2) num devices(1) new_snd_devices(0)
+03-10 16:28:57.657   767  1392 W msm8974_platform: platform_send_gain_dep_cal: Usecase list is empty
+03-10 16:28:57.657   767  1392 D msm8974_platform: platform_split_snd_device: snd_device(2) num devices(1) new_snd_devices(0)
+03-10 16:28:57.658   767  1392 D         : Failed to fetch the lookup information of the device 0000000F
+03-10 16:28:57.658   767  1392 E ACDB-LOADER: Error: ACDB AudProc vol returned = -19
+03-10 16:28:57.831   984 30925 D NuPlayerDriver: notifyListener_l(0xe9ba1180), (211, 0, 0, 20), loop setting(0, 0)
+03-10 16:28:57.859 30874 30883 W System  : A resource failed to call close.
+03-10 16:28:58.093   984 30925 D NuPlayerDriver: notifyListener_l(0xe9ba1180), (211, 0, 0, 20), loop setting(0, 0)
+03-10 16:28:58.362   984 30925 D NuPlayerDriver: notifyListener_l(0xe9ba1180), (211, 0, 0, 20), loop setting(0, 0)
+03-10 16:28:58.373   984 30952 I NuPlayerDecoder: [audio] saw output EOS
+03-10 16:28:58.373   984 30951 D AudioTrack: stop() called with 52920 frames delivered
+03-10 16:28:58.926   984 30925 D NuPlayerDriver: notifyListener_l(0xe9ba1180), (2, 0, 0, -1), loop setting(0, 0)
+03-10 16:28:58.929  1313  6177 I MediaFocusControl: abandonAudioFocus() from uid/pid 10030/2241 clientId=android.media.AudioManager@1ef55c5
+03-10 16:28:58.929   984 30925 D NuPlayerDriver: notifyListener_l(0xe9ba1180), (211, 0, 0, 20), loop setting(0, 0)
+03-10 16:28:58.949   767  1392 W msm8974_platform: platform_send_gain_dep_cal: Usecase list is empty
+03-10 16:28:58.949   767  1392 D msm8974_platform: platform_split_snd_device: snd_device(2) num devices(1) new_snd_devices(0)
+03-10 16:28:58.949   767  1392 D         : Failed to fetch the lookup information of the device 0000000F
+03-10 16:28:58.949   767  1392 E ACDB-LOADER: Error: ACDB AudProc vol returned = -19
+03-10 16:29:00.067  6336 30965 D EventNotificationJob: Running EventNotificationJob, isDetail=true
+03-10 16:29:00.071  6336 30965 D EventNotificationJob:   finished processing events.
+03-10 16:29:01.870   767 26042 D audio_hw_primary: out_standby: enter: stream (0xf2d11000) usecase(1: low-latency-playback)
+03-10 16:29:01.936   767 26042 D audio_hw_primary: stop_output_stream: enter: usecase(1: low-latency-playback)
+03-10 16:29:01.936   767 26042 D audio_hw_primary: disable_audio_route: reset and update mixer path: low-latency-playback speaker
+03-10 16:29:01.938   767 26042 E soundtrigger: audio_extn_sound_trigger_update_stream_status: invalid input device 0x0, for event 2
+03-10 16:29:01.938   767 26042 D soundtrigger: audio_extn_sound_trigger_update_stream_status: uc_info->id 1 of type 0 device 0x02 for Event 2, with Raise=0
+03-10 16:29:01.938   767 26042 W soundtrigger: audio_extn_sound_trigger_update_stream_status: device[0x02]: speaker is NOT used, do NOT transit to adsp.
+03-10 16:29:01.939   767 26042 D hardware_info: hw_info_append_hw_type : device_name = speaker
+03-10 16:29:01.939   767 26042 D audio_hw_primary: disable_snd_device: snd_device(2: speaker)
+03-10 16:29:01.939   767 26042 D msm8974_platform: platform_split_snd_device: snd_device(2) num devices(0) new_snd_devices(0)
+03-10 16:29:01.939   767 26042 I soundtrigger: audio_extn_sound_trigger_update_device_status: device 0x2 of type 0 for Event 0, with Raise=0
+03-10 16:29:01.939   767 26042 D audio_hw_primary: stop_output_stream: exit: status(0)
+03-10 16:29:01.939   767 26042 D audio_hw_primary: out_standby: exit
+03-10 16:29:01.945  1313  4033 E LightsService: Light requested not available on this device. 2
+--------- beginning of system
+03-10 16:29:02.512   986  1122 E storaged: getDiskStats failed with result NOT_SUPPORTED and size 0
+03-10 16:29:02.975  1313  1741 E LightsService: Light requested not available on this device. 2
+03-10 16:29:03.033 30874 30874 D ScreenRecorderController: deviceOri 1
+03-10 16:29:03.033 30874 30874 D ScreenRecorderController: setResolution, orientation = 1, width = 1080, height = 2246
+03-10 16:29:03.033 30874 30874 D ScreenRecorderController: preStart, orientation 0, bitrate = 16000000, sound = 3, frame = 24, path = /storage/emulated/0/DCIM/ScreenRecorder/Screenrecorder-2019-03-10-16-29-03-30.mp4.tmp
+03-10 16:29:03.044 30874 30874 I ScreenRecorderUtils: recorderKeyEvent sendBroadcastAsUser isShowKeyEvent=false
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController: Error in startRecord
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController: java.lang.reflect.InvocationTargetException
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at java.lang.reflect.Method.invoke(Native Method)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at com.miui.screenrecorder.controller.MiuiScreenRecorderController.startRecord(MiuiScreenRecorderController.java:138)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at com.miui.screenrecorder.controller.MiuiScreenRecorderController.showHintAndStart(MiuiScreenRecorderController.java:112)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at com.miui.screenrecorder.controller.MiuiScreenRecorderController.preStart(MiuiScreenRecorderController.java:93)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at com.miui.screenrecorder.service.RecorderService$2.onLeftBtnClick(RecorderService.java:352)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at com.miui.screenrecorder.view.RecorderSwitchWindow.onTouchEvent(RecorderSwitchWindow.java:174)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.view.View.dispatchTouchEvent(View.java:12514)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.view.ViewGroup.dispatchTransformedTouchEvent(ViewGroup.java:3024)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2705)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.view.View.dispatchPointerEvent(View.java:12753)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.view.ViewRootImpl$ViewPostImeInputStage.processPointerEvent(ViewRootImpl.java:5121)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.view.ViewRootImpl$ViewPostImeInputStage.onProcess(ViewRootImpl.java:4924)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:4441)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.view.ViewRootImpl$InputStage.onDeliverToNext(ViewRootImpl.java:4494)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.view.ViewRootImpl$InputStage.forward(ViewRootImpl.java:4460)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.view.ViewRootImpl$AsyncInputStage.forward(ViewRootImpl.java:4600)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.view.ViewRootImpl$InputStage.apply(ViewRootImpl.java:4468)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.view.ViewRootImpl$AsyncInputStage.apply(ViewRootImpl.java:4657)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:4441)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.view.ViewRootImpl$InputStage.onDeliverToNext(ViewRootImpl.java:4494)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.view.ViewRootImpl$InputStage.forward(ViewRootImpl.java:4460)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.view.ViewRootImpl$InputStage.apply(ViewRootImpl.java:4468)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:4441)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.view.ViewRootImpl.deliverInputEvent(ViewRootImpl.java:7124)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.view.ViewRootImpl.doProcessInputEvents(ViewRootImpl.java:7093)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.view.ViewRootImpl.enqueueInputEvent(ViewRootImpl.java:7054)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.view.ViewRootImpl$WindowInputEventReceiver.onInputEvent(ViewRootImpl.java:7227)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.view.InputEventReceiver.dispatchInputEvent(InputEventReceiver.java:186)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.os.MessageQueue.nativePollOnce(Native Method)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.os.MessageQueue.next(MessageQueue.java:326)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.os.Looper.loop(Looper.java:160)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.app.ActivityThread.main(ActivityThread.java:6739)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at java.lang.reflect.Method.invoke(Native Method)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:495)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:858)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController: Caused by: java.lang.SecurityException: Requires MANAGE_MEDIA_PROJECTION in order to grant projection permission
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.os.Parcel.createException(Parcel.java:1950)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.os.Parcel.readException(Parcel.java:1918)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.os.Parcel.readException(Parcel.java:1868)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.media.projection.IMediaProjectionManager$Stub$Proxy.createProjection(IMediaProjectionManager.java:176)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      ... 35 more
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController: Caused by: android.os.RemoteException: Remote stack trace:
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at com.android.server.media.projection.MediaProjectionManagerService$BinderService.createProjection(MediaProjectionManagerService.java:227)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.media.projection.IMediaProjectionManager$Stub.onTransact(IMediaProjectionManager.java:70)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:      at android.os.Binder.execTransact(Binder.java:731)
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController:
+03-10 16:29:03.058 30874 30874 E ScreenRecorderController: MediaProjection is null.
+03-10 16:29:05.121  1313  6177 W NotificationService: Toast already killed. pkg=com.miui.screenrecorder callback=android.app.ITransientNotification$Stub$Proxy@483e137
+03-10 16:29:05.637  6336  6562 D ClClient: Not sending keepalive.  Current connection state=STOPPED
+03-10 16:29:05.645   829   924 W SurfaceFlinger: Attempting to destroy on removed layer: 85a31e3 Toast#0
+03-10 16:29:06.593  1313  6177 I WifiService: acquireWifiLock uid=10014 lockMode=2
+03-10 16:29:06.597  2845 19358 I CastDatabase: Saving the database
+03-10 16:29:06.605  1313  1361 W WindowManager: Unable to start animation, surface is null or no children.
+03-10 16:29:06.607  2845 19358 I SQLiteCastStore: [CastNetworkInfo] saved: 0, skipped: 0, [CastDeviceInfo]: saved 0, skipped 0, [Paired Guest Mode DeviceInfo] saved: 0, skipped: 0. [ProbedNetworks]: saved 0, skipped: 0, [ProbedSocketAddress]: saved 0, skipped: 0, [Network-Device pairs]: saved: 0
+03-10 16:29:09.183  1099  2059 I LOWI-8.6.0.26: [LOWI-Scan] lowi_close_record:Scan done in 57098236ms, 9 APs in scan results
+03-10 16:29:09.186  1313  2070 D WificondControl: Scan result ready event
+03-10 16:29:09.219  1313  2070 I WifiService: releaseWifiLock uid=10014
+03-10 16:29:09.224   789   789 I LocSvc_GnssInterface: ===> injectLocation line 236
+03-10 16:29:09.225   789  2211 I LocSvc_api_v02: ---> locClientSendReq line 2154 QMI_LOC_INJECT_POSITION_REQ_V02
+03-10 16:29:09.227   789  2216 I LocSvc_ApiV02: <--- globalRespCb line 141 QMI_LOC_INJECT_POSITION_REQ_V02
+03-10 16:29:09.234  2536 30950 I GCoreUlr: Successfully inserted 1 locations
+03-10 16:29:09.949 30874 30874 V StableScreenRecorderCore: Screen Recorder stop
+03-10 16:29:09.951 30874 30874 I ScreenRecorderUtils: recorderKeyEvent sendBroadcastAsUser isShowKeyEvent=false
+03-10 16:29:09.951 30874 30912 E .screenrecorde: No implementation found for int android.media.ANXAudioSystem.setForceUse(int, int) (tried Java_android_media_ANXAudioSystem_setForceUse and Java_android_media_ANXAudioSystem_setForceUse__II)
+03-10 16:29:09.952 30874 30912 E StableScreenRecorderCore: error while in setForceUsage
+03-10 16:29:09.952 30874 30912 E StableScreenRecorderCore: java.lang.reflect.InvocationTargetException
+03-10 16:29:09.952 30874 30912 E StableScreenRecorderCore:      at java.lang.reflect.Method.invoke(Native Method)
+03-10 16:29:09.952 30874 30912 E StableScreenRecorderCore:      at com.miui.screenrecorder.StableScreenRecorder.audioSetForceUse(StableScreenRecorder.java:979)
+03-10 16:29:09.952 30874 30912 E StableScreenRecorderCore:      at com.miui.screenrecorder.StableScreenRecorder.release(StableScreenRecorder.java:766)
+03-10 16:29:09.952 30874 30912 E StableScreenRecorderCore:      at com.miui.screenrecorder.StableScreenRecorder.access$1400(StableScreenRecorder.java:48)
+03-10 16:29:09.952 30874 30912 E StableScreenRecorderCore:      at com.miui.screenrecorder.StableScreenRecorder$WorkHandler.handleMessage(StableScreenRecorder.java:264)
+03-10 16:29:09.952 30874 30912 E StableScreenRecorderCore:      at android.os.Handler.dispatchMessage(Handler.java:106)
+03-10 16:29:09.952 30874 30912 E StableScreenRecorderCore:      at android.os.Looper.loop(Looper.java:193)
+03-10 16:29:09.952 30874 30912 E StableScreenRecorderCore:      at android.os.HandlerThread.run(HandlerThread.java:65)
+03-10 16:29:09.952 30874 30912 E StableScreenRecorderCore: Caused by: java.lang.UnsatisfiedLinkError: No implementation found for int android.media.ANXAudioSystem.setForceUse(int, int) (tried Java_android_media_ANXAudioSystem_setForceUse and Java_android_media_ANXAudioSystem_setForceUse__II)
+03-10 16:29:09.952 30874 30912 E StableScreenRecorderCore:      at android.media.ANXAudioSystem.setForceUse(Native Method)
+03-10 16:29:09.952 30874 30912 E StableScreenRecorderCore:      ... 8 more
+03-10 16:29:09.952 30874 30912 V StableScreenRecorderCore: release all things
+03-10 16:29:09.963 30874 30912 V MediaFileUtils: originfile.renameTo success
+03-10 16:29:09.965 30874 30912 V StableScreenRecorderCore: send result to outside, record result = true
+03-10 16:29:09.969 23802 23802 D MediaScannerReceiver: action: android.intent.action.MEDIA_SCANNER_SCAN_FILE path: /storage/emulated/0/DCIM/ScreenRecorder/Screenrecorder-2019-03-10-16-29-03-30.mp4
+03-10 16:29:09.982   984 30156 D NuPlayerDriver: NuPlayerDriver(0xe9ba1600) created, clientPid(30874)
+03-10 16:29:09.990   984 30987 D GenericSource: FileSource remote
+03-10 16:29:09.996   984 30986 D NuPlayerDriver: notifyListener_l(0xe9ba1600), (1, 0, 0, -1), loop setting(0, 0)
+03-10 16:29:10.000 30874 30874 D Ringtone: Successfully created local player
+03-10 16:29:10.000 30874 30874 W Ringtone: Use of stream types is deprecated for operations other than volume control
+03-10 16:29:10.000 30874 30874 W Ringtone: See the documentation of setStreamType() for what to use instead with android.media.AudioAttributes to qualify your playback use case
+03-10 16:29:10.001   984 30156 D NuPlayerDriver: reset(0xe9ba1600) at state 4
+03-10 16:29:10.001   984 30156 D NuPlayerDriver: notifyListener_l(0xe9ba1600), (8, 0, 0, -1), loop setting(0, 0)
+03-10 16:29:10.002   984 30986 D NuPlayerDriver: notifyResetComplete(0xe9ba1600)
+03-10 16:29:10.002   984 30156 D NuPlayerDriver: reset(0xe9ba1600) at state 0
+03-10 16:29:10.003 30874 30874 V MediaPlayer: resetDrmState:  mDrmInfo=null mDrmProvisioningThread=null mPrepareDrmInProgress=false mActiveDrmScheme=false
+03-10 16:29:10.003 30874 30874 V MediaPlayer: cleanDrmObj: mDrmObj=null mDrmSessionId=null
+03-10 16:29:10.004 30874 30874 V MediaPlayer: resetDrmState:  mDrmInfo=null mDrmProvisioningThread=null mPrepareDrmInProgress=false mActiveDrmScheme=false
+03-10 16:29:10.004 30874 30874 V MediaPlayer: cleanDrmObj: mDrmObj=null mDrmSessionId=null
+03-10 16:29:10.008   984 30156 D NuPlayerDriver: NuPlayerDriver(0xe9ba1880) created, clientPid(30874)
+03-10 16:29:10.013   984 30991 D GenericSource: FileSource remote
+03-10 16:29:10.018   984 30990 D NuPlayerDriver: notifyListener_l(0xe9ba1880), (1, 0, 0, -1), loop setting(0, 0)
+03-10 16:29:10.020 30874 30874 D Ringtone: Successfully created local player
+03-10 16:29:10.027 30874 30874 E .screenrecorde: No package ID 11 found for ID 0x110b0012.
+03-10 16:29:10.028 30874 30874 E InputEventReceiver: Exception dispatching input event.
+03-10 16:29:10.028 30874 30874 E MessageQueue-JNI: Exception in MessageQueue callback: handleReceiveCallback
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI: java.lang.ExceptionInInitializerError
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at java.lang.Class.classForName(Native Method)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at java.lang.Class.forName(Class.java:453)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at java.lang.Class.forName(Class.java:378)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at com.miui.screenrecorder.view.RecorderThumbnailWindow.getRecorderBitmap(RecorderThumbnailWindow.java:373)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at com.miui.screenrecorder.view.RecorderThumbnailWindow.showWindow(RecorderThumbnailWindow.java:327)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at com.miui.screenrecorder.service.RecorderService.showThumbnailWindow(RecorderService.java:314)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at com.miui.screenrecorder.service.RecorderService.stopRecorder(RecorderService.java:441)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at com.miui.screenrecorder.service.RecorderService.access$200(RecorderService.java:53)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at com.miui.screenrecorder.service.RecorderService$2.onLeftBtnClick(RecorderService.java:348)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at com.miui.screenrecorder.view.RecorderSwitchWindow.onTouchEvent(RecorderSwitchWindow.java:174)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.view.View.dispatchTouchEvent(View.java:12514)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.view.ViewGroup.dispatchTransformedTouchEvent(ViewGroup.java:3024)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2705)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.view.View.dispatchPointerEvent(View.java:12753)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.view.ViewRootImpl$ViewPostImeInputStage.processPointerEvent(ViewRootImpl.java:5121)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.view.ViewRootImpl$ViewPostImeInputStage.onProcess(ViewRootImpl.java:4924)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:4441)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.view.ViewRootImpl$InputStage.onDeliverToNext(ViewRootImpl.java:4494)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.view.ViewRootImpl$InputStage.forward(ViewRootImpl.java:4460)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.view.ViewRootImpl$AsyncInputStage.forward(ViewRootImpl.java:4600)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.view.ViewRootImpl$InputStage.apply(ViewRootImpl.java:4468)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.view.ViewRootImpl$AsyncInputStage.apply(ViewRootImpl.java:4657)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:4441)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.view.ViewRootImpl$InputStage.onDeliverToNext(ViewRootImpl.java:4494)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.view.ViewRootImpl$InputStage.forward(ViewRootImpl.java:4460)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.view.ViewRootImpl$InputStage.apply(ViewRootImpl.java:4468)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:4441)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.view.ViewRootImpl.deliverInputEvent(ViewRootImpl.java:7124)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.view.ViewRootImpl.doProcessInputEvents(ViewRootImpl.java:7093)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.view.ViewRootImpl.enqueueInputEvent(ViewRootImpl.java:7054)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.view.ViewRootImpl$WindowInputEventReceiver.onInputEvent(ViewRootImpl.java:7227)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.view.InputEventReceiver.dispatchInputEvent(InputEventReceiver.java:186)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.os.MessageQueue.nativePollOnce(Native Method)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.os.MessageQueue.next(MessageQueue.java:326)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.os.Looper.loop(Looper.java:160)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.app.ActivityThread.main(ActivityThread.java:6739)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at java.lang.reflect.Method.invoke(Native Method)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:495)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:858)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI: Caused by: android.content.res.Resources$NotFoundException: Resource ID #0x110b0012
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.content.res.ResourcesImpl.getValue(ResourcesImpl.java:216)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at android.content.res.Resources.getDimensionPixelSize(Resources.java:727)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      at miui.util.ScreenshotUtils.<clinit>(ScreenshotUtils.java:46)
+03-10 16:29:10.029 30874 30874 E MessageQueue-JNI:      ... 39 more
+03-10 16:29:10.029 30874 30874 D AndroidRuntime: Shutting down VM
+--------- beginning of crash
+03-10 16:29:10.030 30874 30874 E AndroidRuntime: FATAL EXCEPTION: main
+03-10 16:29:10.030 30874 30874 E AndroidRuntime: Process: com.miui.screenrecorder, PID: 30874
+03-10 16:29:10.030 30874 30874 E AndroidRuntime: java.lang.ExceptionInInitializerError
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at java.lang.Class.classForName(Native Method)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at java.lang.Class.forName(Class.java:453)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at java.lang.Class.forName(Class.java:378)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at com.miui.screenrecorder.view.RecorderThumbnailWindow.getRecorderBitmap(RecorderThumbnailWindow.java:373)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at com.miui.screenrecorder.view.RecorderThumbnailWindow.showWindow(RecorderThumbnailWindow.java:327)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at com.miui.screenrecorder.service.RecorderService.showThumbnailWindow(RecorderService.java:314)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at com.miui.screenrecorder.service.RecorderService.stopRecorder(RecorderService.java:441)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at com.miui.screenrecorder.service.RecorderService.access$200(RecorderService.java:53)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at com.miui.screenrecorder.service.RecorderService$2.onLeftBtnClick(RecorderService.java:348)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at com.miui.screenrecorder.view.RecorderSwitchWindow.onTouchEvent(RecorderSwitchWindow.java:174)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.view.View.dispatchTouchEvent(View.java:12514)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.view.ViewGroup.dispatchTransformedTouchEvent(ViewGroup.java:3024)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2705)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.view.View.dispatchPointerEvent(View.java:12753)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.view.ViewRootImpl$ViewPostImeInputStage.processPointerEvent(ViewRootImpl.java:5121)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.view.ViewRootImpl$ViewPostImeInputStage.onProcess(ViewRootImpl.java:4924)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:4441)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.view.ViewRootImpl$InputStage.onDeliverToNext(ViewRootImpl.java:4494)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.view.ViewRootImpl$InputStage.forward(ViewRootImpl.java:4460)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.view.ViewRootImpl$AsyncInputStage.forward(ViewRootImpl.java:4600)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.view.ViewRootImpl$InputStage.apply(ViewRootImpl.java:4468)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.view.ViewRootImpl$AsyncInputStage.apply(ViewRootImpl.java:4657)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:4441)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.view.ViewRootImpl$InputStage.onDeliverToNext(ViewRootImpl.java:4494)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.view.ViewRootImpl$InputStage.forward(ViewRootImpl.java:4460)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.view.ViewRootImpl$InputStage.apply(ViewRootImpl.java:4468)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:4441)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.view.ViewRootImpl.deliverInputEvent(ViewRootImpl.java:7124)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.view.ViewRootImpl.doProcessInputEvents(ViewRootImpl.java:7093)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.view.ViewRootImpl.enqueueInputEvent(ViewRootImpl.java:7054)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.view.ViewRootImpl$WindowInputEventReceiver.onInputEvent(ViewRootImpl.java:7227)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.view.InputEventReceiver.dispatchInputEvent(InputEventReceiver.java:186)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.os.MessageQueue.nativePollOnce(Native Method)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.os.MessageQueue.next(MessageQueue.java:326)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.os.Looper.loop(Looper.java:160)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.app.ActivityThread.main(ActivityThread.java:6739)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at java.lang.reflect.Method.invoke(Native Method)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:495)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:858)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime: Caused by: android.content.res.Resources$NotFoundException: Resource ID #0x110b0012
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.content.res.ResourcesImpl.getValue(ResourcesImpl.java:216)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at android.content.res.Resources.getDimensionPixelSize(Resources.java:727)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        at miui.util.ScreenshotUtils.<clinit>(ScreenshotUtils.java:46)
+03-10 16:29:10.030 30874 30874 E AndroidRuntime:        ... 39 more
+03-10 16:29:10.038 30874 30874 I Process : Sending signal. PID: 30874 SIG: 9
+03-10 16:29:10.047  1313  1350 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.DROPBOX_ENTRY_ADDED flg=0x10 (has extras) } to com.google.android.gms/.stats.service.DropBoxEntryAddedReceiver
+03-10 16:29:10.047  1313  1350 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.DROPBOX_ENTRY_ADDED flg=0x10 (has extras) } to com.google.android.gms/.chimera.GmsIntentOperationService$PersistentTrustedReceiver
+03-10 16:29:10.099  1313  1741 W InputDispatcher: channel '8307f2 com.miui.screenrecorder (server)' ~ Consumer closed input channel or an error occurred.  events=0x9
+03-10 16:29:10.099  1313  1741 E InputDispatcher: channel '8307f2 com.miui.screenrecorder (server)' ~ Channel is unrecoverably broken and will be disposed!
+03-10 16:29:10.101  1313  1741 W InputDispatcher: channel 'd87b0a8 com.miui.screenrecorder (server)' ~ Consumer closed input channel or an error occurred.  events=0x9
+03-10 16:29:10.101  1313  1741 E InputDispatcher: channel 'd87b0a8 com.miui.screenrecorder (server)' ~ Channel is unrecoverably broken and will be disposed!
+03-10 16:29:10.101  1313  1741 W InputDispatcher: channel '4a36089 com.miui.screenrecorder (server)' ~ Consumer closed input channel or an error occurred.  events=0x9
+03-10 16:29:10.101  1313  1741 E InputDispatcher: channel '4a36089 com.miui.screenrecorder (server)' ~ Channel is unrecoverably broken and will be disposed!
+03-10 16:29:10.112   984 30156 E MetadataRetrieverClient: offset (0) bigger than file size (0)
+03-10 16:29:10.113 23802 30984 W StagefrightMediaScanner: media scan failed for /storage/emulated/0/DCIM/ScreenRecorder/Screenrecorder-2019-03-10-16-29-03-30.mp4
+03-10 16:29:10.113 23802 30984 E MediaScannerJNI: An error occurred while scanning file '/storage/emulated/0/DCIM/ScreenRecorder/Screenrecorder-2019-03-10-16-29-03-30.mp4'.
+03-10 16:29:10.127  1313  6177 I WindowManager: WIN DEATH: Window{8307f2 u0 com.miui.screenrecorder}
+03-10 16:29:10.127  1313  6177 W InputDispatcher: Attempted to unregister already unregistered input channel '8307f2 com.miui.screenrecorder (server)'
+03-10 16:29:10.130  1313  2070 I ActivityManager: Process com.miui.screenrecorder (pid 30874) has died: fore +50FGS
+03-10 16:29:10.134   714   714 I Zygote  : Process 30874 exited due to signal (9)
+03-10 16:29:10.134  1313  1353 W libprocessgroup: kill(-30874, 9) failed: No such process
+03-10 16:29:10.134  1313  1353 I libprocessgroup: Successfully killed process cgroup uid 10230 pid 30874 in 3ms
+03-10 16:29:10.134  1313  2070 W ActivityManager: Scheduling restart of crashed service com.miui.screenrecorder/.service.RecorderService in 1000ms
+03-10 16:29:10.137   984 23370 D NuPlayerDriver: stop(0xe9ba1180)
+03-10 16:29:10.137   984 23370 D NuPlayerDriver: notifyListener_l(0xe9ba1180), (8, 0, 0, -1), loop setting(0, 0)
+03-10 16:29:10.137   829  1365 W SurfaceFlinger: Attempting to destroy on removed layer: 8307f2 com.miui.screenrecorder#0
+03-10 16:29:10.138  2241 31001 V MediaPlayer: resetDrmState:  mDrmInfo=null mDrmProvisioningThread=null mPrepareDrmInProgress=false mActiveDrmScheme=false
+03-10 16:29:10.138  2241 31001 V MediaPlayer: cleanDrmObj: mDrmObj=null mDrmSessionId=null
+03-10 16:29:10.138   984 23370 D NuPlayerDriver: reset(0xe9ba1180) at state 8
+03-10 16:29:10.138   984 30156 D NuPlayerDriver: reset(0xe9ba1880) at state 4
+03-10 16:29:10.139  1313  6683 I WindowManager: WIN DEATH: Window{4a36089 u0 com.miui.screenrecorder}
+03-10 16:29:10.140  1313  6683 W InputDispatcher: Attempted to unregister already unregistered input channel '4a36089 com.miui.screenrecorder (server)'
+03-10 16:29:10.140   984 30156 D NuPlayerDriver: notifyListener_l(0xe9ba1880), (8, 0, 0, -1), loop setting(0, 0)
+03-10 16:29:10.141   984 30990 D NuPlayerDriver: notifyResetComplete(0xe9ba1880)
+03-10 16:29:10.142   984 30925 D NuPlayerDriver: notifyListener_l(0xe9ba1180), (211, 0, 0, 20), loop setting(0, 0)
+03-10 16:29:10.155  1313  8275 I WindowManager: WIN DEATH: Window{d87b0a8 u0 com.miui.screenrecorder}
+03-10 16:29:10.155  1313  8275 W InputDispatcher: Attempted to unregister already unregistered input channel 'd87b0a8 com.miui.screenrecorder (server)'
+03-10 16:29:10.159  2241  2241 W StaticLayout: maxLineHeight should not be -1.  maxLines:1 lineCount:1
+03-10 16:29:10.159  2241  2241 W StaticLayout: maxLineHeight should not be -1.  maxLines:1 lineCount:1
+03-10 16:29:10.159   984 30925 D NuPlayerDriver: notifyResetComplete(0xe9ba1180)
+03-10 16:29:10.160   984 23370 W AMessage: failed to post message as target looper for handler 0 is gone.
+03-10 16:29:10.160   829  1365 W SurfaceFlinger: Attempting to destroy on removed layer: d87b0a8 com.miui.screenrecorder#0
+03-10 16:29:10.170  1313  1361 W ActivityManager: setHasOverlayUi called on unknown pid: 30874
+03-10 16:29:10.178  1313  5562 W ActivityManager: Background start not allowed: service Intent { cmp=com.google.android.apps.photos/com.google.android.libraries.social.mediamonitor.BackgroundThreadNotifierIntentService (has extras) } to com.google.android.apps.photos/com.google.android.libraries.social.mediamonitor.BackgroundThreadNotifierIntentService from pid=13378 uid=10198 pkg=com.google.android.apps.photos startFg?=false
+03-10 16:29:10.181  1313  1361 W ActivityManager: setHasOverlayUi called on unknown pid: 30874
+^C
+C:\Users\User>a

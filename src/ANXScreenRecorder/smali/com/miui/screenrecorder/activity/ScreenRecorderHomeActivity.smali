@@ -2330,7 +2330,8 @@
     .prologue
     .line 92
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
-
+    invoke-static {p0}, Lcom/aeonax/PermissionsAsker;->Ask(Landroid/app/Activity;)V
+    
     .line 93
     invoke-virtual {p0}, Lcom/miui/screenrecorder/activity/ScreenRecorderHomeActivity;->getResources()Landroid/content/res/Resources;
 

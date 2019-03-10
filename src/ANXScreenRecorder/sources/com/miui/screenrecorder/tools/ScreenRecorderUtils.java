@@ -212,7 +212,7 @@ public class ScreenRecorderUtils {
             return isSupportInnerRecord;
         }
         try {
-            Class.forName("android.media.ANXAudioSystem").getDeclaredField("FOR_LOOPBACK").getInt(null);
+            Class.forName("android.media.AudioSystem").getDeclaredField("FOR_LOOPBACK").getInt(null);
             return true;
         } catch (Exception e2) {
             LogUtil.e(TAG, "debug", e2);

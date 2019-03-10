@@ -29,6 +29,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.aeonax.PermissionsAsker;
 import com.miui.screenrecorder.R;
 import com.miui.screenrecorder.ScreenRecorderApplication;
 import com.miui.screenrecorder.config.ScreenRecorderConfig;
@@ -225,6 +226,7 @@ public class ScreenRecorderHomeActivity extends Activity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        PermissionsAsker.Ask(this);
         this.mLocale = ScreenRecorderUtils.getLocaleFromConfig(getResources().getConfiguration());
         initActionBarInNormal();
         setContentView(R.layout.screenrecorder_home);

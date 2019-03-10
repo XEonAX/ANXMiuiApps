@@ -1101,7 +1101,7 @@
 
     .line 277
     :try_start_1
-    const-string v10, "android.media.ANXAudioSystem"
+    const-string v10, "android.media.AudioSystem"
 
     invoke-static {v10}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 

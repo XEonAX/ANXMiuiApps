@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" 
     android:compileSdkVersion="22" 
     android:compileSdkVersionCodename="8.0.0" 
-    android:versionCode="9" 
-    android:versionName="9.TanPunyNilgai" 
+    android:versionCode="14" 
+    android:versionName="14.BigLuminousAmericanindianhorse" 
     package="com.miui.screenrecorder" 
     platformBuildVersionCode="22" 
     platformBuildVersionName="8.0.0">
@@ -25,6 +25,7 @@
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.MANAGE_MEDIA_PROJECTION"/>
     <application android:allowBackup="true" 
         android:icon="@drawable/ic_launcher" 
         android:label="@string/app_name" 
