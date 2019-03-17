@@ -91,9 +91,9 @@ public class TypefaceCompatUtil {
         }
     }
 
-    /* JADX WARNING: Removed duplicated region for block: B:35:0x004e A:{Splitter: B:4:0x000b, ExcHandler: all (th java.lang.Throwable)} */
-    /* JADX WARNING: Removed duplicated region for block: B:35:0x004e A:{Splitter: B:4:0x000b, ExcHandler: all (th java.lang.Throwable)} */
-    /* JADX WARNING: Removed duplicated region for block: B:35:0x004e A:{Splitter: B:4:0x000b, ExcHandler: all (th java.lang.Throwable)} */
+    /* JADX WARNING: Removed duplicated region for block: B:35:0x004e A:{ExcHandler: all (th java.lang.Throwable), Splitter: B:4:0x000b} */
+    /* JADX WARNING: Removed duplicated region for block: B:35:0x004e A:{ExcHandler: all (th java.lang.Throwable), Splitter: B:4:0x000b} */
+    /* JADX WARNING: Removed duplicated region for block: B:35:0x004e A:{ExcHandler: all (th java.lang.Throwable), Splitter: B:4:0x000b} */
     /* JADX WARNING: Removed duplicated region for block: B:26:0x0041  */
     /* JADX WARNING: Failed to process nested try/catch */
     /* JADX WARNING: Failed to process nested try/catch */

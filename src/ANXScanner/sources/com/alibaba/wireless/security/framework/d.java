@@ -99,7 +99,7 @@ public class d implements ISGPluginManager {
         throw new SecException(199);
     }
 
-    /* JADX WARNING: Removed duplicated region for block: B:135:0x0563 A:{Splitter: B:86:0x046d, Catch:{ InstantiationException -> 0x0553, IllegalAccessException -> 0x069c, SecException -> 0x0563, all -> 0x0634, SecException -> 0x0274, all -> 0x014b }, ExcHandler: com.alibaba.wireless.security.open.SecException (r4_143 'e' com.alibaba.wireless.security.open.SecException)} */
+    /* JADX WARNING: Removed duplicated region for block: B:135:0x0563 A:{ExcHandler: com.alibaba.wireless.security.open.SecException (r4_143 'e' com.alibaba.wireless.security.open.SecException), Splitter: B:86:0x046d, Catch:{ InstantiationException -> 0x0553, IllegalAccessException -> 0x069c, SecException -> 0x0563, all -> 0x0634, SecException -> 0x0274, all -> 0x014b }} */
     /* JADX WARNING: Missing block: B:135:0x0563, code:
             r4 = move-exception;
      */
@@ -865,7 +865,7 @@ public class d implements ISGPluginManager {
     /* JADX WARNING: Removed duplicated region for block: B:89:0x0111 A:{SYNTHETIC, Splitter: B:89:0x0111} */
     /* JADX WARNING: Removed duplicated region for block: B:86:0x010a A:{SYNTHETIC, Splitter: B:86:0x010a} */
     /* JADX WARNING: Removed duplicated region for block: B:89:0x0111 A:{SYNTHETIC, Splitter: B:89:0x0111} */
-    /* JADX WARNING: Removed duplicated region for block: B:83:0x0106 A:{Splitter: B:22:0x0038, ExcHandler: all (th java.lang.Throwable)} */
+    /* JADX WARNING: Removed duplicated region for block: B:83:0x0106 A:{ExcHandler: all (th java.lang.Throwable), Splitter: B:22:0x0038} */
     /* JADX WARNING: Failed to process nested try/catch */
     /* JADX WARNING: Missing block: B:83:0x0106, code:
             r0 = th;

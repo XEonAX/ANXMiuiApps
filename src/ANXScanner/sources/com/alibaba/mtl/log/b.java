@@ -141,7 +141,7 @@ public class b {
     }
 
     /* renamed from: a */
-    public Application m14a() {
+    public Application m15a() {
         return this.a;
     }
 }

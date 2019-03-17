@@ -12,9 +12,9 @@ import java.nio.channels.FileLock;
 public class k {
     static File a = null;
     /* renamed from: a */
-    static FileChannel f63a;
+    static FileChannel f64a;
     /* renamed from: a */
-    static FileLock f64a;
+    static FileLock f65a;
 
     public static synchronized boolean c(Context context) {
         boolean z = true;

@@ -254,7 +254,7 @@ public final class AppMonitorDelegate {
         }
 
         /* JADX WARNING: Missing block: B:18:0x0039, code:
-            if (com.alibaba.mtl.appmonitor.d.j.a(com.alibaba.mtl.appmonitor.a.f.d, r7, r8, r9 != null ? r9.getMap() : null) != false) goto L_0x003b;
+            if (com.alibaba.mtl.appmonitor.d.j.a(com.alibaba.mtl.appmonitor.a.f.STAT, r7, r8, r9 != null ? r9.getMap() : null) != false) goto L_0x003b;
      */
         /* Code decompiled incorrectly, please refer to instructions dump. */
         public static void commit(String module, String monitorPoint, DimensionValueSet dimensionValues, MeasureValueSet measureValues, Map<String, String> exta) {

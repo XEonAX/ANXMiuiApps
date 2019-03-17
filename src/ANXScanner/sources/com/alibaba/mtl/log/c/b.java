@@ -134,8 +134,8 @@ Caused by: jadx.core.utils.exceptions.CodegenException: MERGE can be used only i
         this.a = new a(context);
     }
 
-    /* JADX WARNING: Removed duplicated region for block: B:52:0x00d0 A:{Splitter: B:10:0x000f, ExcHandler: all (th java.lang.Throwable)} */
-    /* JADX WARNING: Removed duplicated region for block: B:52:0x00d0 A:{Splitter: B:10:0x000f, ExcHandler: all (th java.lang.Throwable)} */
+    /* JADX WARNING: Removed duplicated region for block: B:52:0x00d0 A:{ExcHandler: all (th java.lang.Throwable), Splitter: B:10:0x000f} */
+    /* JADX WARNING: Removed duplicated region for block: B:52:0x00d0 A:{ExcHandler: all (th java.lang.Throwable), Splitter: B:10:0x000f} */
     /* JADX WARNING: Failed to process nested try/catch */
     /* JADX WARNING: Failed to process nested try/catch */
     /* JADX WARNING: Missing block: B:41:0x00b2, code:
@@ -321,7 +321,7 @@ Caused by: jadx.core.utils.exceptions.CodegenException: MERGE can be used only i
         	at jadx.api.JavaClass.decompile(JavaClass.java:62)
         	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:200)
         */
-    /* JADX WARNING: Removed duplicated region for block: B:35:0x012c A:{Splitter: B:3:0x0004, ExcHandler: all (r0_4 'th' java.lang.Throwable)} */
+    /* JADX WARNING: Removed duplicated region for block: B:35:0x012c A:{ExcHandler: all (r0_4 'th' java.lang.Throwable), Splitter: B:3:0x0004} */
     public synchronized java.util.ArrayList<com.alibaba.mtl.log.model.a> a(java.lang.String r10, int r11) {
         /*
         r9 = this;

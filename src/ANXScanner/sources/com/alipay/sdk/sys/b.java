@@ -54,7 +54,7 @@ public final class b {
         return false;
     }
 
-    /* JADX WARNING: Removed duplicated region for block: B:22:0x004a A:{Splitter: B:3:0x0010, ExcHandler: all (th java.lang.Throwable)} */
+    /* JADX WARNING: Removed duplicated region for block: B:22:0x004a A:{ExcHandler: all (th java.lang.Throwable), Splitter: B:3:0x0010} */
     /* JADX WARNING: Failed to process nested try/catch */
     /* JADX WARNING: Missing block: B:22:0x004a, code:
             r0 = th;

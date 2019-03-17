@@ -145,7 +145,7 @@ public final class DefaultLoginImpl implements IRemoteLogin {
         return null;
     }
 
-    /* JADX WARNING: Removed duplicated region for block: B:15:0x0060 A:{Splitter: B:2:0x0012, ExcHandler: all (th java.lang.Throwable)} */
+    /* JADX WARNING: Removed duplicated region for block: B:15:0x0060 A:{ExcHandler: all (th java.lang.Throwable), Splitter: B:2:0x0012} */
     /* JADX WARNING: Failed to process nested try/catch */
     /* JADX WARNING: Missing block: B:16:0x0061, code:
             threadLocal.remove();

@@ -15,8 +15,8 @@ final class i extends Thread {
         this.c = eVar;
     }
 
-    /* JADX WARNING: Removed duplicated region for block: B:38:0x00fb A:{Splitter: B:20:0x0043, ExcHandler: java.lang.Exception (r0_38 'e' java.lang.Throwable)} */
-    /* JADX WARNING: Removed duplicated region for block: B:38:0x00fb A:{Splitter: B:20:0x0043, ExcHandler: java.lang.Exception (r0_38 'e' java.lang.Throwable)} */
+    /* JADX WARNING: Removed duplicated region for block: B:38:0x00fb A:{ExcHandler: java.lang.Exception (r0_38 'e' java.lang.Throwable), Splitter: B:20:0x0043} */
+    /* JADX WARNING: Removed duplicated region for block: B:38:0x00fb A:{ExcHandler: java.lang.Exception (r0_38 'e' java.lang.Throwable), Splitter: B:20:0x0043} */
     /* JADX WARNING: Failed to process nested try/catch */
     /* JADX WARNING: Missing block: B:30:0x00d9, code:
             r0 = move-exception;

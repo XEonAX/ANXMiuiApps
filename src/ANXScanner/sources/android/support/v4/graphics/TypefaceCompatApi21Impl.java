@@ -36,9 +36,9 @@ class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
         }
     }
 
-    /* JADX WARNING: Removed duplicated region for block: B:45:0x0061 A:{Splitter: B:7:0x0019, ExcHandler: all (th java.lang.Throwable)} */
-    /* JADX WARNING: Removed duplicated region for block: B:45:0x0061 A:{Splitter: B:7:0x0019, ExcHandler: all (th java.lang.Throwable)} */
-    /* JADX WARNING: Removed duplicated region for block: B:45:0x0061 A:{Splitter: B:7:0x0019, ExcHandler: all (th java.lang.Throwable)} */
+    /* JADX WARNING: Removed duplicated region for block: B:45:0x0061 A:{ExcHandler: all (th java.lang.Throwable), Splitter: B:7:0x0019} */
+    /* JADX WARNING: Removed duplicated region for block: B:45:0x0061 A:{ExcHandler: all (th java.lang.Throwable), Splitter: B:7:0x0019} */
+    /* JADX WARNING: Removed duplicated region for block: B:45:0x0061 A:{ExcHandler: all (th java.lang.Throwable), Splitter: B:7:0x0019} */
     /* JADX WARNING: Failed to process nested try/catch */
     /* JADX WARNING: Failed to process nested try/catch */
     /* JADX WARNING: Missing block: B:35:0x0051, code:

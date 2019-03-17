@@ -86,8 +86,8 @@ public class LoginComponent {
         map.put(str, str2);
     }
 
-    /* JADX WARNING: Removed duplicated region for block: B:22:0x0162 A:{Splitter: B:14:0x0100, ExcHandler: org.json.JSONException (r0_45 'e' org.json.JSONException)} */
-    /* JADX WARNING: Removed duplicated region for block: B:22:0x0162 A:{Splitter: B:14:0x0100, ExcHandler: org.json.JSONException (r0_45 'e' org.json.JSONException)} */
+    /* JADX WARNING: Removed duplicated region for block: B:22:0x0162 A:{ExcHandler: org.json.JSONException (r0_45 'e' org.json.JSONException), Splitter: B:14:0x0100} */
+    /* JADX WARNING: Removed duplicated region for block: B:22:0x0162 A:{ExcHandler: org.json.JSONException (r0_45 'e' org.json.JSONException), Splitter: B:14:0x0100} */
     /* JADX WARNING: Missing block: B:22:0x0162, code:
             r0 = move-exception;
      */
