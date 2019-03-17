@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:paddingBottom="50.0dip" android:scrollbars="vertical" android:fadingEdge="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/size_90" android:paddingEnd="@dimen/size_90"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:layout_gravity="center_horizontal" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/text_size_65" android:id="@id/word_ocr_result" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="@dimen/text_size_45" android:textColor="@color/translation_default_result_color" android:id="@id/word_symbols" android:paddingTop="@dimen/size_55" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lineSpacingMultiplier="1.5" />
+        <TextView android:textSize="@dimen/text_size_45" android:textColor="@color/translation_default_result_color" android:id="@id/word_difinition" android:paddingTop="@dimen/size_55" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lineSpacingMultiplier="1.5" />
+        <TextView android:textSize="@dimen/text_size_40" android:id="@id/word_more" android:paddingTop="@dimen/size_60" android:paddingBottom="@dimen/size_60" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+</ScrollView>

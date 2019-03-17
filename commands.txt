@@ -6,6 +6,7 @@ java  -jar ..\ANXMiuiPortTools\apktool.jar if -p ..\ANXMiuiPortTools\MiuiFramewo
 
 Decompile
 java  -jar ..\ANXMiuiPortTools\apktool.jar d -p ..\ANXMiuiPortTools\MiuiFrameworks -f -o .\src\ANXScreenRecorder .\orig\MiuiScreenRecorder.apk
+java  -jar ..\ANXMiuiPortTools\apktool.jar d -p ..\ANXMiuiPortTools\MiuiFrameworks -f -o .\src\ANXScanner .\orig\MiuiScanner.apk
 
 Decompile Miui ROM
 java -jar baksmali-2.2.6.jar d -o android-support-v7-recyclerview .\framework\vdexExtractor_deodexed\android-support-v7-recyclerview\android-support-v7-recyclerview_classes.dex.dex

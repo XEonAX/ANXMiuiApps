@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:textSize="@dimen/text_size_36" android:textColor="@color/module_item_color" android:gravity="center" android:id="@id/namecard_language" android:layout_width="fill_parent" android:layout_height="@dimen/translation_language_pair_item_height" android:singleLine="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

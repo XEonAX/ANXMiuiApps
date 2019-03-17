@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaomi.scanner.ui.DocumentOcrLayout android:id="@id/document_ocr_layout" android:visibility="gone" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:scanner="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:background="@color/sentence_result_bg_color" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/document_ocr_bottom_panel" android:layout_below="@id/document_ocr_title_panel">
+        <TextView android:id="@id/document_ocr_result" android:layout_above="@id/document_language_chooser" style="@style/OcrResultTextStyle" />
+        <com.xiaomi.scanner.ui.LanguageChooser android:gravity="center" android:layout_gravity="end|bottom|center" android:id="@id/document_language_chooser" android:background="@drawable/bg_translation_language" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/size_40" android:layout_marginEnd="@dimen/size_40" scanner:entry_values="@array/kingsoft_language_entryvalues" scanner:entries="@array/kingsoft_language_long_entries" scanner:entry_key="pref_document_ocr_language" scanner:persist="true">
+            <TextView android:textSize="@dimen/text_size_32" android:gravity="center" android:id="@id/txt_language_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="@dimen/language_text_max_width" android:text="@string/language_entry_chinese_cn" android:singleLine="true" android:drawablePadding="@dimen/language_chooser_drawable_padding" android:drawableEnd="@drawable/ic_language_list_status" />
+        </com.xiaomi.scanner.ui.LanguageChooser>
+    </FrameLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/document_ocr_title_panel" android:background="@color/title_background" android:layout_width="fill_parent" android:layout_height="@dimen/document_ocr_title_height" android:layout_alignParentTop="true">
+        <ImageView android:id="@id/document_ocr_back" android:background="@null" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/ic_back" android:scaleType="center" android:contentDescription="@string/back" android:paddingStart="@dimen/document_ocr_title_padding" android:paddingEnd="@dimen/document_ocr_title_margin" />
+        <TextView android:textSize="@dimen/ui_title_size" android:textColor="@android:color/white" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/document_ocr_result_title" android:singleLine="true" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/document_ocr_bottom_panel" android:background="@android:color/black" android:layout_width="fill_parent" android:layout_height="@dimen/document_action_panel_height" android:layout_alignParentBottom="true">
+        <TextView android:id="@id/document_ocr_copy" android:text="@string/document_ocr_result_copy" android:drawableTop="@drawable/ic_document_copy" style="@style/DocumentTextStyle" />
+        <TextView android:id="@id/document_ocr_save" android:text="@string/document_ocr_result_save" android:drawableTop="@drawable/ic_document_note" android:layout_marginStart="@dimen/document_action_panel_icon_margin" style="@style/DocumentTextStyle" />
+    </LinearLayout>
+</com.xiaomi.scanner.ui.DocumentOcrLayout>

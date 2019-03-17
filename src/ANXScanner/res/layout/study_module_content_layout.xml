@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="@android:color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ViewStub android:id="@id/search_result_layout" android:layout="@layout/wenba_search_result" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <RelativeLayout android:id="@id/search_layout" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ProgressBar android:id="@id/search_progress" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/study_progress_margin_top" android:layout_marginBottom="@dimen/study_progress_margin_bottom" android:indeterminateDrawable="@drawable/loading_question_progress" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="@dimen/text_size_36" android:textColor="@color/black_40_transparent" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/study_searching" android:singleLine="true" android:layout_below="@id/search_progress" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <ViewStub android:id="@id/no_result_layout" android:layout="@layout/no_result" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</FrameLayout>

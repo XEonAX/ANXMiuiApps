@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/image_bg_flag" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:scaleType="fitXY" android:layout_centerInParent="true" />
+    <com.xiaomi.scanner.ui.ZoomImageView android:id="@id/image_bg" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <com.xiaomi.scanner.ui.ZoomImageView android:id="@id/image_translate" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <com.xiaomi.scanner.translation.widget.RealTimeTranslateView android:id="@id/translate_result_view" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignTop="@id/image_bg_flag" android:layout_alignBottom="@id/image_bg_flag" />
+    <ImageView android:id="@id/image_back" android:paddingLeft="24.0dip" android:paddingTop="20.0dip" android:paddingRight="24.0dip" android:paddingBottom="20.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_back" />
+    <com.xiaomi.scanner.translation.widget.ChooseLangView android:layout_gravity="center_horizontal" android:id="@id/choose_lang_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16.0dip" android:layout_centerHorizontal="true" />
+    <TextView android:enabled="false" android:textSize="10.669983sp" android:textColor="@color/black" android:gravity="center" android:layout_gravity="bottom|center" android:id="@id/btn_compare" android:background="@drawable/white_20_bg" android:paddingLeft="18.329987dip" android:paddingTop="8.0dip" android:paddingRight="18.329987dip" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/translate_compare_margin" android:text="@string/translate_text_compare" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+</merge>

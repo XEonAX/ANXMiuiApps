@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:background="@drawable/com_alibaba_imagesearch_menu_item_bg" android:layout_width="200.0dip" android:layout_height="44.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="16.0dip" android:textColor="#ff737782" android:gravity="center" android:id="@id/com_taobao_tae_sdk_web_view_menu_item_title" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</LinearLayout>

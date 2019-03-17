@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaomi.scanner.ui.RectifyImageLayout android:id="@id/crop_layout" android:visibility="gone" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:background="@color/sentence_result_bg_color" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:layout_gravity="center" android:id="@id/cropped_image" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="fitCenter" android:contentDescription="@null" />
+        <com.xiaomi.scanner.ui.DocumentRectifyView android:layout_gravity="center" android:id="@id/rectify_rect" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </FrameLayout>
+    <TextView android:textSize="@dimen/ui_title_size" android:gravity="center" android:id="@id/crop_title" android:background="@color/title_background" android:layout_width="fill_parent" android:layout_height="@dimen/ui_top_bottom_height" android:singleLine="true" android:layout_alignParentTop="true" />
+    <FrameLayout android:background="@color/options_background" android:layout_width="fill_parent" android:layout_height="@dimen/document_bottom_panel_height" android:layout_alignParentBottom="true">
+        <ImageView android:layout_gravity="start|center" android:id="@id/cancel_rectify" android:padding="@dimen/touch_expend_size" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_cancel" android:contentDescription="@string/crop_cancel_description" android:layout_marginStart="@dimen/size_40" />
+        <ImageView android:layout_gravity="end|center" android:id="@id/done_rectify" android:padding="@dimen/touch_expend_size" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_confirm" android:contentDescription="@string/crop_done_description" android:layout_marginEnd="@dimen/size_40" />
+    </FrameLayout>
+</com.xiaomi.scanner.ui.RectifyImageLayout>

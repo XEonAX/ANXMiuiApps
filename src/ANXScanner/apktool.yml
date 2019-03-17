@@ -1,0 +1,193 @@
+!!brut.androlib.meta.MetaInfo
+apkFileName: MiuiScanner.apk
+compressionType: false
+doNotCompress:
+- dex
+- arsc
+- pfx
+- so
+- lib/armeabi/libsgmainso-5.4.114.so
+- lib/armeabi/libtnet-3.1.14.so
+- res/drawable-hdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png
+- png
+- res/drawable-hdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png
+- res/drawable-hdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png
+- res/drawable-hdpi-v4/abc_cab_background_top_mtrl_alpha.9.png
+- res/drawable-hdpi-v4/abc_list_divider_mtrl_alpha.9.png
+- res/drawable-hdpi-v4/abc_list_focused_holo.9.png
+- res/drawable-hdpi-v4/abc_list_longpressed_holo.9.png
+- res/drawable-hdpi-v4/abc_list_pressed_holo_dark.9.png
+- res/drawable-hdpi-v4/abc_list_pressed_holo_light.9.png
+- res/drawable-hdpi-v4/abc_list_selector_disabled_holo_dark.9.png
+- res/drawable-hdpi-v4/abc_list_selector_disabled_holo_light.9.png
+- res/drawable-hdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png
+- res/drawable-hdpi-v4/abc_popup_background_mtrl_mult.9.png
+- res/drawable-hdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png
+- res/drawable-hdpi-v4/abc_scrubber_track_mtrl_alpha.9.png
+- res/drawable-hdpi-v4/abc_spinner_mtrl_am_alpha.9.png
+- res/drawable-hdpi-v4/abc_switch_track_mtrl_alpha.9.png
+- res/drawable-hdpi-v4/abc_tab_indicator_mtrl_alpha.9.png
+- res/drawable-hdpi-v4/abc_textfield_activated_mtrl_alpha.9.png
+- res/drawable-hdpi-v4/abc_textfield_default_mtrl_alpha.9.png
+- res/drawable-hdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png
+- res/drawable-hdpi-v4/abc_textfield_search_default_mtrl_alpha.9.png
+- res/drawable-hdpi-v4/notification_bg_low_normal.9.png
+- res/drawable-hdpi-v4/notification_bg_low_pressed.9.png
+- res/drawable-hdpi-v4/notification_bg_normal.9.png
+- res/drawable-hdpi-v4/notification_bg_normal_pressed.9.png
+- res/drawable-ldpi-v4/com_alibaba_imagesearch_web_view_title_bar_back.9.png
+- res/drawable-ldpi-v4/com_alibaba_imagesearch_web_view_title_bar_refresh.9.png
+- res/drawable-ldrtl-hdpi-v17/abc_spinner_mtrl_am_alpha.9.png
+- res/drawable-ldrtl-mdpi-v17/abc_spinner_mtrl_am_alpha.9.png
+- res/drawable-ldrtl-xhdpi-v17/abc_spinner_mtrl_am_alpha.9.png
+- res/drawable-ldrtl-xxhdpi-v17/abc_spinner_mtrl_am_alpha.9.png
+- res/drawable-ldrtl-xxxhdpi-v17/abc_spinner_mtrl_am_alpha.9.png
+- res/drawable-mdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png
+- res/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png
+- res/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png
+- res/drawable-mdpi-v4/abc_cab_background_top_mtrl_alpha.9.png
+- res/drawable-mdpi-v4/abc_list_divider_mtrl_alpha.9.png
+- res/drawable-mdpi-v4/abc_list_focused_holo.9.png
+- res/drawable-mdpi-v4/abc_list_longpressed_holo.9.png
+- res/drawable-mdpi-v4/abc_list_pressed_holo_dark.9.png
+- res/drawable-mdpi-v4/abc_list_pressed_holo_light.9.png
+- res/drawable-mdpi-v4/abc_list_selector_disabled_holo_dark.9.png
+- res/drawable-mdpi-v4/abc_list_selector_disabled_holo_light.9.png
+- res/drawable-mdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png
+- res/drawable-mdpi-v4/abc_popup_background_mtrl_mult.9.png
+- res/drawable-mdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png
+- res/drawable-mdpi-v4/abc_scrubber_track_mtrl_alpha.9.png
+- res/drawable-mdpi-v4/abc_spinner_mtrl_am_alpha.9.png
+- res/drawable-mdpi-v4/abc_switch_track_mtrl_alpha.9.png
+- res/drawable-mdpi-v4/abc_tab_indicator_mtrl_alpha.9.png
+- res/drawable-mdpi-v4/abc_textfield_activated_mtrl_alpha.9.png
+- res/drawable-mdpi-v4/abc_textfield_default_mtrl_alpha.9.png
+- res/drawable-mdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png
+- res/drawable-mdpi-v4/abc_textfield_search_default_mtrl_alpha.9.png
+- res/drawable-mdpi-v4/com_alibaba_imagesearch_web_view_title_bar_back.9.png
+- res/drawable-mdpi-v4/com_alibaba_imagesearch_web_view_title_bar_refresh.9.png
+- res/drawable-mdpi-v4/notification_bg_low_normal.9.png
+- res/drawable-mdpi-v4/notification_bg_low_pressed.9.png
+- res/drawable-mdpi-v4/notification_bg_normal.9.png
+- res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png
+- res/drawable-xhdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png
+- res/drawable-xhdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png
+- res/drawable-xhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png
+- res/drawable-xhdpi-v4/abc_cab_background_top_mtrl_alpha.9.png
+- res/drawable-xhdpi-v4/abc_list_divider_mtrl_alpha.9.png
+- res/drawable-xhdpi-v4/abc_list_focused_holo.9.png
+- res/drawable-xhdpi-v4/abc_list_longpressed_holo.9.png
+- res/drawable-xhdpi-v4/abc_list_pressed_holo_dark.9.png
+- res/drawable-xhdpi-v4/abc_list_pressed_holo_light.9.png
+- res/drawable-xhdpi-v4/abc_list_selector_disabled_holo_dark.9.png
+- res/drawable-xhdpi-v4/abc_list_selector_disabled_holo_light.9.png
+- res/drawable-xhdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png
+- res/drawable-xhdpi-v4/abc_popup_background_mtrl_mult.9.png
+- res/drawable-xhdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png
+- res/drawable-xhdpi-v4/abc_scrubber_track_mtrl_alpha.9.png
+- res/drawable-xhdpi-v4/abc_spinner_mtrl_am_alpha.9.png
+- res/drawable-xhdpi-v4/abc_switch_track_mtrl_alpha.9.png
+- res/drawable-xhdpi-v4/abc_tab_indicator_mtrl_alpha.9.png
+- res/drawable-xhdpi-v4/abc_textfield_activated_mtrl_alpha.9.png
+- res/drawable-xhdpi-v4/abc_textfield_default_mtrl_alpha.9.png
+- res/drawable-xhdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png
+- res/drawable-xhdpi-v4/abc_textfield_search_default_mtrl_alpha.9.png
+- res/drawable-xhdpi-v4/alibc_link_title_bar_close.9.png
+- res/drawable-xhdpi-v4/alibc_link_titlebar_back.9.png
+- res/drawable-xhdpi-v4/bg_payment_normal.9.png
+- res/drawable-xhdpi-v4/bg_payment_pressed.9.png
+- res/drawable-xhdpi-v4/bg_translation_button_normal.9.png
+- res/drawable-xhdpi-v4/bg_translation_button_pressed.9.png
+- res/drawable-xhdpi-v4/com_alibaba_imagesearch_simple_toast_bg.9.png
+- res/drawable-xhdpi-v4/com_alibaba_imagesearch_web_view_title_bar_back.9.png
+- res/drawable-xhdpi-v4/com_alibaba_imagesearch_web_view_title_bar_refresh.9.png
+- res/drawable-xhdpi-v4/com_taobao_nb_sdk_web_view_title_bar_back.9.png
+- res/drawable-xhdpi-v4/com_taobao_nb_sdk_web_view_title_bar_close.9.png
+- res/drawable-xhdpi-v4/com_taobao_tae_sdk_web_view_title_bar_back.9.png
+- res/drawable-xhdpi-v4/com_taobao_tae_sdk_web_view_title_bar_close.9.png
+- res/drawable-xhdpi-v4/crop_rect.9.png
+- res/drawable-xhdpi-v4/ic_translation_type_thumb.9.png
+- res/drawable-xhdpi-v4/ic_translation_type_track.9.png
+- res/drawable-xhdpi-v4/laser_scanner.9.png
+- res/drawable-xhdpi-v4/notification_bg_low_normal.9.png
+- res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png
+- res/drawable-xhdpi-v4/notification_bg_normal.9.png
+- res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png
+- res/drawable-xhdpi-v4/word_detection_rect.9.png
+- res/drawable-xxhdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png
+- res/drawable-xxhdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png
+- res/drawable-xxhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png
+- res/drawable-xxhdpi-v4/abc_cab_background_top_mtrl_alpha.9.png
+- res/drawable-xxhdpi-v4/abc_list_divider_mtrl_alpha.9.png
+- res/drawable-xxhdpi-v4/abc_list_focused_holo.9.png
+- res/drawable-xxhdpi-v4/abc_list_longpressed_holo.9.png
+- res/drawable-xxhdpi-v4/abc_list_pressed_holo_dark.9.png
+- res/drawable-xxhdpi-v4/abc_list_pressed_holo_light.9.png
+- res/drawable-xxhdpi-v4/abc_list_selector_disabled_holo_dark.9.png
+- res/drawable-xxhdpi-v4/abc_list_selector_disabled_holo_light.9.png
+- res/drawable-xxhdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png
+- res/drawable-xxhdpi-v4/abc_popup_background_mtrl_mult.9.png
+- res/drawable-xxhdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png
+- res/drawable-xxhdpi-v4/abc_scrubber_track_mtrl_alpha.9.png
+- res/drawable-xxhdpi-v4/abc_spinner_mtrl_am_alpha.9.png
+- res/drawable-xxhdpi-v4/abc_switch_track_mtrl_alpha.9.png
+- res/drawable-xxhdpi-v4/abc_tab_indicator_mtrl_alpha.9.png
+- res/drawable-xxhdpi-v4/abc_textfield_activated_mtrl_alpha.9.png
+- res/drawable-xxhdpi-v4/abc_textfield_default_mtrl_alpha.9.png
+- res/drawable-xxhdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png
+- res/drawable-xxhdpi-v4/abc_textfield_search_default_mtrl_alpha.9.png
+- res/drawable-xxhdpi-v4/bg_payment_normal.9.png
+- res/drawable-xxhdpi-v4/bg_payment_pressed.9.png
+- res/drawable-xxhdpi-v4/bg_translation_button_normal.9.png
+- res/drawable-xxhdpi-v4/bg_translation_button_pressed.9.png
+- res/drawable-xxhdpi-v4/com_alibaba_imagesearch_web_view_title_bar_back.9.png
+- res/drawable-xxhdpi-v4/com_alibaba_imagesearch_web_view_title_bar_refresh.9.png
+- res/drawable-xxhdpi-v4/com_taobao_nb_sdk_web_view_title_bar_back.9.png
+- res/drawable-xxhdpi-v4/com_taobao_nb_sdk_web_view_title_bar_close.9.png
+- res/drawable-xxhdpi-v4/crop_rect.9.png
+- res/drawable-xxhdpi-v4/ic_translation_type_thumb.9.png
+- res/drawable-xxhdpi-v4/ic_translation_type_track.9.png
+- res/drawable-xxhdpi-v4/laser_scanner.9.png
+- res/drawable-xxhdpi-v4/word_detection_rect.9.png
+- res/drawable-xxxhdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png
+- res/drawable-xxxhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png
+- res/drawable-xxxhdpi-v4/abc_spinner_mtrl_am_alpha.9.png
+- res/drawable-xxxhdpi-v4/abc_switch_track_mtrl_alpha.9.png
+- res/drawable-xxxhdpi-v4/abc_tab_indicator_mtrl_alpha.9.png
+- res/drawable-xxxhdpi-v4/bg_payment_normal.9.png
+- res/drawable-xxxhdpi-v4/bg_payment_pressed.9.png
+- res/drawable-xxxhdpi-v4/bg_translation_button_normal.9.png
+- res/drawable-xxxhdpi-v4/bg_translation_button_pressed.9.png
+- res/drawable-xxxhdpi-v4/com_alibaba_imagesearch_web_view_title_bar_back.9.png
+- res/drawable-xxxhdpi-v4/com_alibaba_imagesearch_web_view_title_bar_refresh.9.png
+- res/drawable-xxxhdpi-v4/crop_rect.9.png
+- res/drawable-xxxhdpi-v4/ic_translation_type_thumb.9.png
+- res/drawable-xxxhdpi-v4/ic_translation_type_track.9.png
+- res/drawable-xxxhdpi-v4/laser_scanner.9.png
+- res/drawable-xxxhdpi-v4/word_detection_rect.9.png
+- res/drawable/com_alibaba_imagesearch_web_view_title_bar_back.9.png
+- res/drawable/com_alibaba_imagesearch_web_view_title_bar_refresh.9.png
+- jpg
+- res/raw-mcc9998-mnc9999/xiaomi_static_config
+- ogg
+isFrameworkApk: false
+packageInfo:
+  forcedPackageId: '127'
+  renameManifestPackage: null
+sdkInfo:
+  minSdkVersion: '19'
+  targetSdkVersion: '26'
+sharedLibrary: false
+sparseResources: false
+unknownFiles:
+  okhttp3/internal/publicsuffix/publicsuffixes.gz: '0'
+  org/apache/http/entity/mime/version.properties: '8'
+usesFramework:
+  ids:
+  - 1
+  - 16
+  tag: null
+version: 2.3.4
+versionInfo:
+  versionCode: '10600'
+  versionName: '10.6'

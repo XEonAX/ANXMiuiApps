@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListView android:id="@id/compare_list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="24.0dip" android:layout_marginTop="56.329987dip" android:layout_marginRight="24.0dip" android:layout_above="@id/translate_bottom_container" />
+    <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/white" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="20.0dip" android:text="@string/translate_text_compare" android:layout_centerHorizontal="true" />
+    <ImageView android:id="@id/compare_back" android:paddingLeft="24.0dip" android:paddingTop="20.0dip" android:paddingRight="24.0dip" android:paddingBottom="20.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_back" />
+    <LinearLayout android:layout_gravity="bottom|center" android:orientation="horizontal" android:id="@id/translate_bottom_container" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="54.0dip" android:layout_alignParentBottom="true">
+        <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/compare_copy" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/translate_text_compare_copy" android:layout_weight="1.0" />
+        <View android:background="@color/white_15_transparent" android:layout_width="1.0px" android:layout_height="fill_parent" />
+        <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/compare_save" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/translate_text_compare_save" android:layout_weight="1.0" />
+    </LinearLayout>
+    <View android:background="@color/white_15_transparent" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_alignTop="@id/translate_bottom_container" />
+</merge>

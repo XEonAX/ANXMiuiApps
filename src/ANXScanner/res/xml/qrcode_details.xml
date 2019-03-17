@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:key="pref_mecard_group_key" />
+    <PreferenceCategory android:key="pref_text_group_key">
+        <com.xiaomi.scanner.module.code.ui.TextViewPreference android:persistent="false" android:key="pref_text_content_key" />
+    </PreferenceCategory>
+</PreferenceScreen>

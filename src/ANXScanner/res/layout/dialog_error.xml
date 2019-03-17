@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:orientation="vertical" android:background="@drawable/bg_20_33dp_white" android:padding="26.669983dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="9.329987dip">
+        <ImageView android:layout_gravity="center_horizontal" android:id="@id/error_progress" android:layout_width="24.669983dip" android:layout_height="24.669983dip" android:src="@drawable/loading" android:layout_centerVertical="true" />
+        <TextView android:textSize="15.669983sp" android:textColor="@color/black_80_transparent" android:id="@id/tv_error_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.329987dip" android:layout_marginRight="15.329987dip" android:text="@string/translate_fail" android:layout_toRightOf="@id/error_progress" android:layout_centerVertical="true" />
+        <TextView android:textSize="15.669983sp" android:textColor="@color/colorGridItemPressed" android:id="@id/error_try_again" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/translate_try_again" android:layout_centerVertical="true" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+</FrameLayout>

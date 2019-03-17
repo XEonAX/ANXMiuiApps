@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/default_function" android:background="@color/white" android:paddingLeft="24.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/setting_item_height">
+        <TextView android:textSize="14.669983sp" android:textColor="@color/black" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/setting_default_function" />
+        <Spinner android:gravity="center|right" android:layout_gravity="center|right" android:id="@id/default_function_spinner" android:paddingRight="31.669983dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:contentDescription="@string/setting_default_function" style="@style/mySpinner" />
+        <ImageView android:layout_gravity="center|right" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/to_right_enter" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/setting_preference_pay" android:background="@color/white" android:paddingLeft="24.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/setting_item_height">
+        <View android:background="@color/black_15_transparent" android:layout_width="fill_parent" android:layout_height="1.0px" />
+        <Spinner android:gravity="center|right" android:layout_gravity="center|right" android:id="@id/preference_pay_spinner" android:paddingRight="31.669983dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:contentDescription="@string/setting_preference_pay" style="@style/mySpinner" />
+        <TextView android:textSize="14.669983sp" android:textColor="@color/black" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/setting_preference_pay" />
+        <ImageView android:layout_gravity="center|right" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/to_right_enter" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/privacy_policy" android:background="@color/white" android:paddingLeft="24.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/setting_item_height" android:layout_marginTop="7.669983dip" android:layout_marginBottom="7.669983dip" android:contentDescription="@miui:string/privacy_policy">
+        <TextView android:textSize="14.669983sp" android:textColor="@color/black" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@miui:string/privacy_policy" />
+        <ImageView android:layout_gravity="center|right" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/to_right_enter" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/about" android:background="@color/white" android:paddingLeft="24.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/setting_item_height" android:contentDescription="@string/about_title">
+        <TextView android:textSize="14.669983sp" android:textColor="@color/black" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/about_title" />
+        <ImageView android:layout_gravity="center|right" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/to_right_enter" />
+    </FrameLayout>
+</LinearLayout>

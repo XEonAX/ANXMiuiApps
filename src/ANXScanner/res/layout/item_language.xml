@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xiaomi.scanner.ui.LanguagePairLayout android:gravity="center" android:descendantFocusability="blocksDescendants" android:layout_width="wrap_content" android:layout_height="@dimen/translation_language_pair_item_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/pair_source" android:text="@string/translation_language_english" style="@style/LanguageItem" />
+    <ImageView android:id="@id/pair_narrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_narrow" android:contentDescription="@null" android:layout_marginStart="@dimen/translation_language_item_narrow_margin" android:layout_marginEnd="@dimen/translation_language_item_narrow_margin" />
+    <TextView android:id="@id/pair_dest" android:text="@string/translation_language_chinese" style="@style/LanguageItem" />
+</com.xiaomi.scanner.ui.LanguagePairLayout>

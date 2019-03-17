@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/black_40_transparent" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:background="@drawable/white_20_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip" android:layout_alignParentBottom="true" android:layout_marginStart="10.0dip" android:layout_marginEnd="10.0dip">
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="#ff000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="29.329987dip" android:text="@string/impunity_declaration_title" android:textAllCaps="false" />
+            <TextView android:scrollbarStyle="outsideOverlay" android:textSize="12.0sp" android:textColor="#ff4a4a4a" android:id="@id/tv_message" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dip" android:lineSpacingExtra="4.0dip" android:textAllCaps="false" android:paddingStart="35.0dip" android:paddingEnd="35.0dip" android:layout_marginStart="3.3299866dip" android:layout_marginEnd="3.3299866dip" />
+        </LinearLayout>
+        <View android:background="#ffcccccc" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginTop="26.0dip" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="45.0dip">
+            <TextView android:textSize="14.0sp" android:textColor="@color/black" android:gravity="center" android:id="@id/dialog_exit" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/impunity_declaration_negative_text" android:layout_weight="1.0" android:textAllCaps="false" />
+            <View android:background="#ffcccccc" android:layout_width="1.0px" android:layout_height="fill_parent" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/black" android:gravity="center" android:id="@id/dialog_commit" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/agree_btn" android:layout_weight="1.0" android:textAllCaps="false" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

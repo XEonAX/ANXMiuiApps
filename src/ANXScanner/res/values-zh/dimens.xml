@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="document_action_panel_icon_margin">23.339996dip</dimen>
+    <dimen name="translation_language_choose_narrow_margin">9.339996dip</dimen>
+    <dimen name="translation_language_item_narrow_margin">18.669983dip</dimen>
+    <dimen name="translation_language_pair_list_width">117.0dip</dimen>
+</resources>

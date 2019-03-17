@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="DocumentTextStyle" parent="@style/DocumentTextCommon" />
+    <style name="LanguageItem" parent="@style/LanguageItemCommon">
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+</resources>

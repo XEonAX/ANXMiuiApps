@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.xiaomi.scanner.translation.widget.WordSelectView android:id="@id/word_select_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <com.xiaomi.scanner.translation.widget.ChooseLangView android:layout_gravity="center_horizontal" android:id="@id/choose_lang_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16.0dip" android:layout_marginBottom="16.0dip" />
+    <com.xiaomi.scanner.ui.Switch android:layout_gravity="bottom|center" android:id="@id/translation_type" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/size_40" android:layout_marginBottom="@dimen/size_72" android:contentDescription="@null" />
+    <com.xiaomi.scanner.ui.TranslateLineView android:id="@id/line_view" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</merge>

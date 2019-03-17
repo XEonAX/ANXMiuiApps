@@ -1,0 +1,14 @@
+.class synthetic Lcom/xiaomi/scanner/util/CameraUtil$1;
+.super Ljava/lang/Object;
+.source "CameraUtil.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/xiaomi/scanner/util/CameraUtil;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1008
+    name = null
+.end annotation

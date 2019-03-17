@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.xiaomi.scanner.module.code.ui.QRCodeFgView android:id="@id/qrc_fgview" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <ViewStub android:layout_gravity="bottom" android:id="@id/scanBarcodeStub" android:layout="@layout/barcode_tip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/scan_barcode_tips_margin" />
+    <TextView android:textSize="@dimen/text_size_38" android:textColor="@color/white" android:layout_gravity="center_horizontal" android:id="@id/tv_qr_code_scan_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/place_barcode_into_rectangle" />
+</merge>

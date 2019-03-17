@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="abc_config_activityDefaultDur">220</integer>
+    <integer name="abc_config_activityShortDur">150</integer>
+    <integer name="cancel_button_image_alpha">127</integer>
+    <integer name="config_tooltipAnimTime">150</integer>
+    <integer name="default_mode_index">0</integer>
+    <integer name="scan_mode_amazon_shopping">3</integer>
+    <integer name="scan_mode_business_card">4</integer>
+    <integer name="scan_mode_code">0</integer>
+    <integer name="scan_mode_document">5</integer>
+    <integer name="scan_mode_plant">6</integer>
+    <integer name="scan_mode_shopping">1</integer>
+    <integer name="scan_mode_study">30</integer>
+    <integer name="scan_mode_translation">2</integer>
+    <integer name="scan_sort_mode_amazon_shopping">3</integer>
+    <integer name="scan_sort_mode_business_card">6</integer>
+    <integer name="scan_sort_mode_code">4</integer>
+    <integer name="scan_sort_mode_document">7</integer>
+    <integer name="scan_sort_mode_plant">0</integer>
+    <integer name="scan_sort_mode_shopping">1</integer>
+    <integer name="scan_sort_mode_study">5</integer>
+    <integer name="scan_sort_mode_translation">2</integer>
+    <integer name="scan_weight_amazon_shopping">7</integer>
+    <integer name="scan_weight_bc">4</integer>
+    <integer name="scan_weight_code">0</integer>
+    <integer name="scan_weight_document">6</integer>
+    <integer name="scan_weight_plant">5</integer>
+    <integer name="scan_weight_shopping">3</integer>
+    <integer name="scan_weight_study">1</integer>
+    <integer name="scan_weight_translation">2</integer>
+    <integer name="status_bar_notification_info_maxnum">999</integer>
+</resources>

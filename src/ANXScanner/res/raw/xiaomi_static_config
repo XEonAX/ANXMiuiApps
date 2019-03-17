@@ -1,0 +1,22 @@
+{
+  data: [
+    {
+      title: "module_title_code",
+      type: "activity",
+      image: "force_touch_code",
+      intent: "#Intent;action=miui.intent.action.scanner;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.xiaomi.scanner/.app.ScanActivity;i.extra_intent_module_index=0;end"
+    },
+    {
+      title: "module_title_shopping",
+      type: "activity",
+      image: "force_touch_shopping",
+      intent: "#Intent;action=miui.intent.action.scanner;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.xiaomi.scanner/.app.ScanActivity;i.extra_intent_module_index=1;end"
+    },
+    {
+      title: "module_title_translation",
+      type: "activity",
+      image: "force_touch_translation",
+      intent: "#Intent;action=miui.intent.action.scanner;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.xiaomi.scanner/.app.ScanActivity;i.extra_intent_module_index=2;end"
+    }
+  ]
+}
