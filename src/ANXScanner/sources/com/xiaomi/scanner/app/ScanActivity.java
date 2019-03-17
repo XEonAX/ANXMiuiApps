@@ -1,5 +1,6 @@
 package com.xiaomi.scanner.app;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.KeyguardManager;
 import android.content.BroadcastReceiver;
@@ -91,7 +92,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import miui.app.Activity;
 import miui.os.Environment;
 import mtopsdk.common.util.SymbolExpUtil;
 

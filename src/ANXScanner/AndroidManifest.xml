@@ -28,8 +28,8 @@
     <permission android:name="com.xiaomi.scanner.receiver.RECEIVER" 
         android:protectionLevel="signature"/>
     <uses-permission android:name="android.permission.RUN_INSTRUMENTATION"/>
-    <application android:allowBackup="true" 
-        android:extractNativeLibs="false" 
+    <application android:allowBackup="false" 
+        android:extractNativeLibs="true" 
         android:hardwareAccelerated="true" 
         android:icon="@drawable/barcode_scanner" 
         android:label="@string/app_name" 
@@ -108,7 +108,7 @@
         <meta-data android:name="homework_appid" 
             android:value="xiaomisaoyisao"/>
         <uses-library android:name="miui-stat.jar" 
-            android:required="true"/>
+            android:required="false"/>
         <receiver android:exported="true" 
             android:name="com.xiaomi.scanner.module.code.app.BarCodeScannerReceiver" 
             android:permission="com.xiaomi.scanner.receiver.RECEIVER">

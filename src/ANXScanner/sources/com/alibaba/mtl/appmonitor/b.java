@@ -8,7 +8,7 @@ import com.alibaba.mtl.log.d.r;
 class b implements Runnable {
     private static long a = 300000;
     /* renamed from: a */
-    private static b f45a;
+    private static b f47a;
     private static boolean j = false;
 
     private b() {

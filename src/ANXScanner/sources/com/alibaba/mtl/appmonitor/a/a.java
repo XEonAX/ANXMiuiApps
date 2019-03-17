@@ -15,7 +15,7 @@ public class a extends d {
     public int f = 0;
     public int g = 0;
     /* renamed from: g */
-    public Map<String, String> f50g;
+    public Map<String, String> f49g;
     public Map<String, Integer> h;
 
     public synchronized void e() {

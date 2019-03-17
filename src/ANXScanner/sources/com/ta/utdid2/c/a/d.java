@@ -23,7 +23,7 @@ public class d {
     private static final Object c = new Object();
     private File a;
     /* renamed from: a */
-    private HashMap<File, a> f83a = new HashMap();
+    private HashMap<File, a> f87a = new HashMap();
     private final Object b = new Object();
 
     /* compiled from: TransactionXMLFile */
@@ -33,9 +33,9 @@ public class d {
         private final File b;
         private final int c;
         /* renamed from: c */
-        private final File f84c;
+        private final File f88c;
         /* renamed from: c */
-        private Map f85c;
+        private Map f89c;
         private boolean k = false;
 
         /* compiled from: TransactionXMLFile */
@@ -160,7 +160,7 @@ public class d {
         }
 
         /* renamed from: a */
-        public boolean m25a() {
+        public boolean m28a() {
             if (this.b == null || !new File(this.b.getAbsolutePath()).exists()) {
                 return false;
             }

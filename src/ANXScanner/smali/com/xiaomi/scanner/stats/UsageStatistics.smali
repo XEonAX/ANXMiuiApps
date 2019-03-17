@@ -273,23 +273,24 @@
     sput-object v0, Lcom/xiaomi/scanner/stats/UsageStatistics;->TAG:Lcom/xiaomi/scanner/debug/Log$Tag;
 
     .line 42
-    invoke-static {}, Lcom/xiaomi/scanner/util/DeviceUtil;->isInternationalBuild()Z
+    # invoke-static {}, Lcom/xiaomi/scanner/util/DeviceUtil;->isInternationalBuild()Z
 
-    move-result v0
+    # move-result v0
 
-    if-nez v0, :cond_0
+    # if-nez v0, :cond_0
 
-    const/4 v0, 0x1
+    # const/4 v0, 0x1
+    const/4 v0, 0x0
 
-    :goto_0
+    # :goto_0
     sput-boolean v0, Lcom/xiaomi/scanner/stats/UsageStatistics;->sIsEnabled:Z
 
     return-void
 
-    :cond_0
-    const/4 v0, 0x0
+    # :cond_0
+    # const/4 v0, 0x0
 
-    goto :goto_0
+    # goto :goto_0
 .end method
 
 .method public constructor <init>()V

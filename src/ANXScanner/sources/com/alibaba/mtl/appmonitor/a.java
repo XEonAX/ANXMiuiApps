@@ -26,7 +26,7 @@ class a implements Runnable {
     /* compiled from: BackgroundTrigger */
     class a implements ActivityLifecycleCallbacks {
         /* renamed from: a */
-        private Runnable f46a;
+        private Runnable f48a;
 
         a(Runnable runnable) {
             a.this = runnable;

@@ -25,7 +25,7 @@ public class j {
     }
 
     /* renamed from: a */
-    public static byte[] m17a(byte[] bArr) {
+    public static byte[] m18a(byte[] bArr) {
         if (bArr != null) {
             try {
                 MessageDigest instance = MessageDigest.getInstance("MD5");

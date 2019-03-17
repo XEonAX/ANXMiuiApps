@@ -17,7 +17,7 @@ public class a {
     public static String B = String.valueOf(System.currentTimeMillis());
     public static IRequestAuth a = null;
     /* renamed from: a */
-    private static boolean f47a = false;
+    private static boolean f44a = false;
     public static long b = -1;
     public static final AtomicInteger d = new AtomicInteger(0);
     private static Context mContext;
@@ -27,7 +27,7 @@ public class a {
     public static boolean r = true;
     public static int s = 10000;
     /* renamed from: s */
-    public static boolean f48s = true;
+    public static boolean f45s = true;
     public static int t = 0;
 
     public static synchronized void a(Context context) {

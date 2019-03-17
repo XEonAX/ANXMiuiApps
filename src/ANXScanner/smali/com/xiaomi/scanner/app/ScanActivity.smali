@@ -1,5 +1,5 @@
 .class public Lcom/xiaomi/scanner/app/ScanActivity;
-.super Lmiui/app/Activity;
+.super Landroid/app/Activity;
 .source "ScanActivity.java"
 
 # interfaces
@@ -224,7 +224,7 @@
     const/4 v2, 0x0
 
     .line 91
-    invoke-direct {p0}, Lmiui/app/Activity;-><init>()V
+    invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
     .line 123
     iput-object v2, p0, Lcom/xiaomi/scanner/app/ScanActivity;->mAmazonAssistantHelper:Lcom/xiaomi/scanner/module/amazoncloudconfig/AmazonAssistantHelper;
@@ -3355,7 +3355,7 @@
     invoke-static {v0, v1}, Lcom/xiaomi/scanner/debug/Log;->t(Lcom/xiaomi/scanner/debug/Log$Tag;Ljava/lang/String;)V
 
     .line 541
-    invoke-super {p0, p1, p2, p3}, Lmiui/app/Activity;->onActivityResult(IILandroid/content/Intent;)V
+    invoke-super {p0, p1, p2, p3}, Landroid/app/Activity;->onActivityResult(IILandroid/content/Intent;)V
 
     .line 542
     const/16 v0, 0x64
@@ -3587,7 +3587,7 @@
 
     .prologue
     .line 329
-    invoke-super {p0, p1}, Lmiui/app/Activity;->onCreate(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 330
     new-instance v0, Landroid/os/Handler;
@@ -3663,7 +3663,7 @@
 
     .line 512
     :cond_0
-    invoke-super {p0}, Lmiui/app/Activity;->onDestroy()V
+    invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
 
     .line 513
     return-void
@@ -4046,7 +4046,7 @@
 
     .line 1201
     :cond_3
-    invoke-super {p0, p1, p2}, Lmiui/app/Activity;->onKeyDown(ILandroid/view/KeyEvent;)Z
+    invoke-super {p0, p1, p2}, Landroid/app/Activity;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
     move-result v0
 
@@ -4095,7 +4095,7 @@
 
     .line 1215
     :cond_2
-    invoke-super {p0, p1, p2}, Lmiui/app/Activity;->onKeyUp(ILandroid/view/KeyEvent;)Z
+    invoke-super {p0, p1, p2}, Landroid/app/Activity;->onKeyUp(ILandroid/view/KeyEvent;)Z
 
     move-result v0
 
@@ -4164,7 +4164,7 @@
     const/4 v4, 0x0
 
     .line 452
-    invoke-super {p0, p1}, Lmiui/app/Activity;->onNewIntent(Landroid/content/Intent;)V
+    invoke-super {p0, p1}, Landroid/app/Activity;->onNewIntent(Landroid/content/Intent;)V
 
     .line 453
     invoke-direct {p0, p1}, Lcom/xiaomi/scanner/app/ScanActivity;->handleIntentFrom(Landroid/content/Intent;)V
@@ -4332,7 +4332,7 @@
 
     .line 486
     :cond_0
-    invoke-super {p0}, Lmiui/app/Activity;->onPause()V
+    invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
     .line 487
     return-void
@@ -4596,7 +4596,7 @@
     invoke-static {v0, v1}, Lcom/xiaomi/scanner/debug/Log;->v(Lcom/xiaomi/scanner/debug/Log$Tag;Ljava/lang/String;)V
 
     .line 502
-    invoke-super {p0}, Lmiui/app/Activity;->onRestart()V
+    invoke-super {p0}, Landroid/app/Activity;->onRestart()V
 
     .line 503
     return-void
@@ -4706,7 +4706,7 @@
     .line 399
     .end local v0    # "delay":J
     :goto_1
-    invoke-super {p0}, Lmiui/app/Activity;->onResume()V
+    invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
     .line 402
     return-void
@@ -4751,7 +4751,7 @@
     invoke-virtual {p0}, Lcom/xiaomi/scanner/app/ScanActivity;->onStartTasks()V
 
     .line 370
-    invoke-super {p0}, Lmiui/app/Activity;->onStart()V
+    invoke-super {p0}, Landroid/app/Activity;->onStart()V
 
     .line 371
     return-void
@@ -4822,7 +4822,7 @@
     invoke-virtual {p0}, Lcom/xiaomi/scanner/app/ScanActivity;->onStopTasks()V
 
     .line 496
-    invoke-super {p0}, Lmiui/app/Activity;->onStop()V
+    invoke-super {p0}, Landroid/app/Activity;->onStop()V
 
     .line 497
     return-void
@@ -4875,7 +4875,7 @@
 
     .line 1238
     :cond_1
-    invoke-super {p0, p1}, Lmiui/app/Activity;->onTouchEvent(Landroid/view/MotionEvent;)Z
+    invoke-super {p0, p1}, Landroid/app/Activity;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
@@ -4887,7 +4887,7 @@
 
     .prologue
     .line 554
-    invoke-super {p0}, Lmiui/app/Activity;->onUserInteraction()V
+    invoke-super {p0}, Landroid/app/Activity;->onUserInteraction()V
 
     .line 555
     invoke-virtual {p0}, Lcom/xiaomi/scanner/app/ScanActivity;->isFinishing()Z
@@ -4910,7 +4910,7 @@
 
     .prologue
     .line 738
-    invoke-super {p0, p1}, Lmiui/app/Activity;->onWindowFocusChanged(Z)V
+    invoke-super {p0, p1}, Landroid/app/Activity;->onWindowFocusChanged(Z)V
 
     .line 739
     if-eqz p1, :cond_0
@@ -5156,7 +5156,7 @@
 
     .line 1373
     .local v0, "innerRequestCode":I
-    invoke-super {p0, p1, v0}, Lmiui/app/Activity;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-super {p0, p1, v0}, Landroid/app/Activity;->startActivityForResult(Landroid/content/Intent;I)V
 
     .line 1374
     return-void

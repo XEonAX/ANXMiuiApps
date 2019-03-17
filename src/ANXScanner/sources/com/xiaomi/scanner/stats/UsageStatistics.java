@@ -11,7 +11,6 @@ import com.xiaomi.scanner.app.ScannerApp;
 import com.xiaomi.scanner.debug.Log;
 import com.xiaomi.scanner.debug.Log.Tag;
 import com.xiaomi.scanner.util.Constants;
-import com.xiaomi.scanner.util.DeviceUtil;
 import com.xiaomi.scanner.util.ScannerThreadPool;
 import java.util.HashMap;
 import java.util.Map;
@@ -138,7 +137,7 @@ public class UsageStatistics {
     private static final Tag TAG = new Tag("UsageStatistics");
     private static final long UPLOAD_POLICY_INTERVAL = 300000;
     private static boolean sInitialized;
-    private static final boolean sIsEnabled = (!DeviceUtil.isInternationalBuild());
+    private static final boolean sIsEnabled = false;
 
     public class CameraFailure {
         public static final int API_RUNTIME_EXCEPTION = 104;

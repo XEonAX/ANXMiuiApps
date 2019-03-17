@@ -8,9 +8,9 @@ import java.util.Comparator;
 public class g {
     private static g a = new g();
     /* renamed from: a */
-    private a f61a = new a();
+    private a f62a = new a();
     /* renamed from: a */
-    private b f62a = new b();
+    private b f63a = new b();
 
     /* compiled from: KeyArraySorter */
     private class a implements Comparator<String> {
