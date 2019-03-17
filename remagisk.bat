@@ -3,6 +3,8 @@ echo %anxversion%
 
 xcopy /s /y .\out\ANXScreenRecorder.apk .\src\ANXAppsMagisk\system\priv-app\ANXScreenRecorder
 xcopy /s /y .\out\ANXScreenRecorder.apk .\src\ANXAppsUnity\system\priv-app\ANXScreenRecorder
+xcopy /s /y .\out\ANXScanner.apk .\src\ANXAppsMagisk\system\priv-app\ANXScanner
+xcopy /s /y .\out\ANXScanner.apk .\src\ANXAppsUnity\system\priv-app\ANXScanner
 
 del .\out\\ANXAppsMagisk.zip
 del .\out\\ANXAppsMagisk_*.zip
