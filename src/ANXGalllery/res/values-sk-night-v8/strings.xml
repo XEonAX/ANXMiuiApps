@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is"><Data> JSte si istý, že toto je &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? Táto osoba bude presunutá do albumu \"%2$s\". </Data>" "</string>
+    <string name="confirm_recommandation_face_not"><Data> Ste si istý, že toto nie je &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are"><Data> Ste si istý, že toto sú &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? Títo ľudia budú presunutí do\"%2$s\" albumu. </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not"><Data> Ste si istý, že toto nie sú &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? </Data>" "</string>
+</resources>

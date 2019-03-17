@@ -1,0 +1,7 @@
+{
+  "uri": "assets://fonts/files/Courgette.ttf",
+  "package": "com.miui.gallery",
+  "iconUri": "com.miui.gallery:drawable/video_editor_font_courgette",
+  "extra": false,
+  "name": "Courgette"
+}

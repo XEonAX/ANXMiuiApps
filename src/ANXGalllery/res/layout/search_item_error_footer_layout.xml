@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/click_view" android:background="@drawable/search_list_item_background" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/divider" style="@style/Gallery.Widget.ListView.Divider" />
+    <TextView android:textAppearance="@style/Gallery.TextAppearance.ProgressTitle" android:gravity="center" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/result_load_text_vertical_margin" android:layout_marginBottom="@dimen/result_load_text_vertical_margin" android:text="@string/load_failed" android:singleLine="true" android:layout_marginStart="@dimen/result_load_text_start_margin" />
+</LinearLayout>

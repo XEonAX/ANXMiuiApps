@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/preview_title" android:background="@color/movie_bottom_panel_background" android:layout_width="fill_parent" android:layout_height="@dimen/movie_preview_title_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/movie_video_duration_size" android:textColor="@color/movie_selector_tab_text" android:gravity="end|center" android:id="@id/tv_short_video_title" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/movie_video_short" android:layout_weight="1.0" />
+    <View android:layout_width="@dimen/movie_preview_title_bank" android:layout_height="fill_parent" />
+    <TextView android:textSize="@dimen/movie_video_duration_size" android:textColor="@color/movie_selector_tab_text" android:gravity="start|center" android:id="@id/tv_long_video_title" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/movie_video_long" android:layout_weight="1.0" />
+</LinearLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:theme="@style/GalleryTheme.Dialog.Alert" android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:paddingTop="27.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cleaner_slim_title" style="?android:attr/windowTitleStyle" />
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="22.0dip">
+        <FrameLayout android:layout_width="@dimen/slim_description_dialog_photo_size" android:layout_height="@dimen/slim_description_dialog_photo_size">
+            <View android:background="@drawable/photo_slim_description" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+            <TextView android:textSize="@dimen/slim_description_dialog_photo_text_size" android:textColor="@color/slim_description_dialog_photo_text_color" android:gravity="center_vertical" android:layout_gravity="bottom" android:background="@color/slim_description_dialog_photo_text_background" android:layout_width="fill_parent" android:layout_height="@dimen/slim_description_dialog_photo_text_height" android:text="@string/slim_description_dialog_slim_before" android:paddingStart="@dimen/slim_description_dialog_photo_text_padding" />
+        </FrameLayout>
+        <FrameLayout android:layout_width="@dimen/slim_description_dialog_photo_size" android:layout_height="@dimen/slim_description_dialog_photo_size" android:layout_marginStart="@dimen/slim_description_dialog_photo_spacing">
+            <View android:background="@drawable/photo_slim_description" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+            <TextView android:textSize="@dimen/slim_description_dialog_photo_text_size" android:textColor="@color/slim_description_dialog_photo_text_color" android:gravity="center_vertical" android:layout_gravity="bottom" android:background="@color/slim_description_dialog_photo_text_background" android:layout_width="fill_parent" android:layout_height="@dimen/slim_description_dialog_photo_text_height" android:text="@string/slim_description_dialog_slim_after" android:paddingStart="@dimen/slim_description_dialog_photo_text_padding" />
+        </FrameLayout>
+    </LinearLayout>
+    <TextView android:textSize="@dimen/slim_description_dialog_detail_text_size" android:textColor="@color/slim_description_dialog_detail_text_color" android:layout_width="266.0dip" android:layout_height="wrap_content" android:layout_marginTop="@dimen/slim_description_dialog_detail_margin_top" android:layout_marginBottom="31.0dip" android:text="@string/slim_description_dialog_detail" />
+    <Button android:gravity="center" android:id="@id/button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/slim_description_dialog_ok" style="?android:attr/buttonBarButtonStyle" />
+</LinearLayout>

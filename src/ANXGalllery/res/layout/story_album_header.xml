@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.miui.gallery.card.ui.detail.SlideShowHeaderView android:id="@id/header" android:layout_width="wrap_content" android:layout_height="@dimen/story_slide_header_height" />
+    <TextView android:textSize="@dimen/story_header_name_size" android:textColor="@color/story_title_text_color" android:ellipsize="end" android:gravity="center" android:layout_gravity="center" android:id="@id/title" android:layout_width="@dimen/story_header_name_width" android:layout_height="wrap_content" android:layout_marginTop="@dimen/story_header_name_margin_top" android:singleLine="true" />
+    <TextView android:textSize="@dimen/story_header_description_size" android:textColor="@color/story_desc_text_color" android:gravity="center" android:layout_gravity="center" android:id="@id/description" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/story_header_description_margin_top" android:layout_marginBottom="@dimen/story_header_description_margin_bottom" />
+</LinearLayout>

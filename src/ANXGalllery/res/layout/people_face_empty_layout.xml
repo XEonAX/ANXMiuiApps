@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:layout_gravity="center|top" android:background="@drawable/no_more_recommends" android:layout_width="@dimen/empty_face_size" android:layout_height="@dimen/empty_face_size" android:layout_marginTop="@dimen/empty_face_margin_top" />
+    <TextView android:textAppearance="@style/Gallery.TextAppearance.Info.Tip" android:layout_gravity="center|top" android:id="@id/content" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/empty_text_margin_top" />
+    <Button android:layout_gravity="bottom|center" android:id="@id/back" android:layout_width="fill_parent" android:text="@string/empty_recommend_back" style="@style/Gallery.Widget.Button.Warning" />
+</FrameLayout>

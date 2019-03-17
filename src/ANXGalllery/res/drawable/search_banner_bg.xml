@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/panel_bar_background" />
+    <corners android:radius="@dimen/general_rounded_corner_radius" />
+    <stroke android:width="@dimen/search_bar_bg_stroke_width" android:color="@color/divider_line_color" />
+    <size android:height="@dimen/search_edit_text_height" />
+</shape>

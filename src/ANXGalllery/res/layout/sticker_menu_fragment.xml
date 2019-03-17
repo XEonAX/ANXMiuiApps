@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <ImageView android:layout_gravity="center" android:id="@id/recent" android:paddingTop="5.0dip" android:paddingBottom="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/sticker_button_history" android:contentDescription="@string/photo_editor_talkback_recently" android:paddingStart="5.0dip" android:paddingEnd="5.0dip" android:layout_marginStart="@dimen/sticker_button_history_margin_start" android:layout_marginEnd="@dimen/sticker_button_history_margin_end" />
+        <View android:layout_gravity="center" android:background="@drawable/sticker_category_recent_divider" android:layout_width="@dimen/sticker_button_history_divider_width" android:layout_height="@dimen/sticker_button_history_divider_height" />
+        <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <com.miui.gallery.editor.photo.widgets.recyclerview.SimpleRecyclerView android:id="@id/category" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        </FrameLayout>
+    </LinearLayout>
+    <com.miui.gallery.editor.photo.widgets.NoScrollViewPager android:id="@id/sticker_pager" android:layout_width="fill_parent" android:layout_height="@dimen/menu_panel_list_height" />
+    <include android:id="@id/bottom_panel" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" layout="@layout/common_menu_bottom_bar" />
+</LinearLayout>

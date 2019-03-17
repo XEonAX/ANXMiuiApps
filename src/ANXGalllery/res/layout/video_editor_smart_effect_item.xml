@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="fill_parent" android:minWidth="@dimen/video_editor_list_item_minwidth"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.constraint.ConstraintLayout android:id="@id/container" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:id="@id/icon" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitCenter" android:minWidth="@dimen/video_editor_filter_icon_min_size" android:minHeight="@dimen/video_editor_filter_icon_min_size" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" />
+        <TextView android:textSize="@dimen/video_editor_common_item_text" android:textColor="@drawable/video_editor_text_selector" android:gravity="center" android:id="@id/name" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/video_editor_filter_menu_item_name_top_margin" android:singleLine="true" android:layout_marginStart="@dimen/video_editor_filter_menu_item_name_lr_margin" android:layout_marginEnd="@dimen/video_editor_filter_menu_item_name_lr_margin" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toBottomOf="@id/icon" />
+    </android.support.constraint.ConstraintLayout>
+</LinearLayout>

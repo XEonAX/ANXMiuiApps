@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:scrollbarStyle="outsideOverlay" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:paddingBottom="@dimen/vertical_spacing_huge" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <com.miui.gallery.widget.ExpandedListView android:id="@android:id/list" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        <Button android:layout_gravity="center_horizontal" android:id="@id/exit_share" android:text="@string/exit_share" style="@style/Gallery.Widget.Button.Default" />
+    </LinearLayout>
+</ScrollView>

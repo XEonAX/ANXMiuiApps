@@ -1,0 +1,32 @@
+{
+  "name": "in_effect2",
+  "version": 0,
+  "width": 209.67,
+  "height": 76.67,
+  "offsetX": 0,
+  "offsetY": 0,
+  "icon": "icon.webp",
+  "bgPost": "bg.png",
+  "bgPostRect": [
+    92.67,
+    12,
+    116.67,
+    38.67
+  ],
+  "textPieceList": [
+    {
+      "frameRect": [
+        12,
+        48.67,
+        197.67,
+        64.67
+      ],
+      "text": "HELLO SPRING",
+      "size":12,
+      "isVerticalText": 0,
+      "font": "",
+      "align": 1,
+      "letterSpacing": 0.1
+    }
+  ]
+}

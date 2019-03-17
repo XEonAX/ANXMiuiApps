@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="@dimen/video_editor_watermark_item_width" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/video_editor_text_image" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" android:importantForAccessibility="yes" />
+    <View android:id="@id/select_edit_background" android:background="@color/video_editor_filter_text_input_bg" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignBottom="@id/icon" android:alpha="0.85" />
+    <ImageView android:id="@id/video_editor_edit" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/video_editor_icon_watermark_text" android:scaleType="centerCrop" android:layout_centerInParent="true" />
+    <com.miui.gallery.video.editor.widget.DownloadView android:gravity="end" android:id="@id/item_download" android:background="@drawable/video_editor_icon_watermark_download" android:paddingTop="4.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:paddingEnd="2.0dip" android:layout_alignParentEnd="true" />
+    <View android:id="@id/selector" android:background="@drawable/video_editor_watermark_selected" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</RelativeLayout>

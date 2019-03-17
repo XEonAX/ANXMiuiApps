@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RadioGroup android:gravity="center" android:orientation="horizontal" android:id="@id/radio_group_controller" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <RadioButton android:id="@id/radio_button_bubble" android:checked="true" android:text="@string/text_tab_bubble" style="@style/PhotoEditor.RadioButton" />
+        <RadioButton android:id="@id/radio_button_watermark" android:text="@string/text_tab_watermark" style="@style/PhotoEditor.RadioButton" />
+    </RadioGroup>
+    <com.miui.gallery.editor.photo.widgets.NoScrollViewPager android:id="@id/view_pager" android:layout_width="fill_parent" android:layout_height="@dimen/menu_panel_list_height" />
+    <include android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" layout="@layout/common_menu_bottom_bar" />
+</LinearLayout>

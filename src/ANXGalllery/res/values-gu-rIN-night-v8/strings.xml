@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is">" "<Data> ખરેખર આ &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> છે? આ વ્યક્તિને \"%2$s\" આલ્બમ પર ખસેડવામાં આવશે. </Data>" "</string>
+    <string name="confirm_recommandation_face_not">" "<Data> ખાતરી છે કે આ &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> નથી? </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are">" "<Data> ખરેખર આ &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> છે? આ વ્યક્તિને \"%2$s\" આલ્બમ પર ખસેડવામાં આવશે. </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not">" "<Data> શું તમે ખરેખર સુનિશ્ચિત છો કે આ &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> નથી? </Data>" "</string>
+</resources>

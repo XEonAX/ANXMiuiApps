@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/pager_point_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    <com.miui.gallery.widget.GalleryViewPager android:id="@id/chooser_pager" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/pager_point_layout" ViewPager:leftOffsetLimit="3" ViewPager:rightOffsetLimit="3"
+      xmlns:ViewPager="http://schemas.android.com/apk/res/com.miui.gallery" />
+</RelativeLayout>

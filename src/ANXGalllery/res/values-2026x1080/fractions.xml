@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <fraction name="share_channel_ratio">26.87%</fraction>
+    <fraction name="share_pager_ratio">61.010002%</fraction>
+    <fraction name="share_title_padding_ratio">25.730001%</fraction>
+    <fraction name="share_title_ratio">12.119997%</fraction>
+</resources>

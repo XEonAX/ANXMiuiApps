@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="photo_page_anim_pivot_x">199</integer>
+    <integer name="photo_page_anim_pivot_y">1871</integer>
+    <integer name="photo_page_anim_support_height">2114</integer>
+    <integer name="photo_page_anim_support_width">1080</integer>
+    <integer name="editor_preview_height_ratio">1330</integer>
+    <integer name="editor_preview_width_ratio">997</integer>
+</resources>

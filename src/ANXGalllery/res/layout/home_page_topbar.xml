@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/top_bar_background" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.miui.gallery.search.widget.BannerSearchBar android:id="@id/album_page_search_bar" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <com.miui.gallery.widget.PanelBar android:id="@id/panel_bar" android:background="@drawable/top_bar_single_bg" android:layout_width="fill_parent" android:layout_height="@dimen/panel_item_height" android:layout_marginTop="@dimen/message_bar_vertical_margin" android:layout_marginBottom="@dimen/message_bar_vertical_margin" android:layout_marginStart="@dimen/message_bar_horizontal_margin" android:layout_marginEnd="@dimen/message_bar_horizontal_margin" />
+</LinearLayout>

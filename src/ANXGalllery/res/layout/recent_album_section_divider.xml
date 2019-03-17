@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:tag="recent_section_divider" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@drawable/transparent_background" android:layout_width="fill_parent" android:layout_height="@dimen/recent_section_divider_placeholder_height" />
+    <include layout="@layout/section_divider_gray" />
+</LinearLayout>

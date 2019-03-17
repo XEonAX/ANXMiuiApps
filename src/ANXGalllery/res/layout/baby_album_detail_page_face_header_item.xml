@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.gallery.ui.BabyAlbumDetailFaceHeaderItem android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/header_background" android:layout_width="fill_parent" android:layout_height="@dimen/baby_album_page_header_height">
+        <ImageView android:id="@id/background" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" android:contentDescription="@null" />
+        <ImageView android:id="@id/background_mask" android:background="@color/black_30_transparent" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" android:contentDescription="@null" />
+        <FrameLayout android:id="@id/face_all" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/vertical_spacing_primary" android:layout_alignParentBottom="true" android:layout_marginStart="14.0dip">
+            <ImageView android:id="@id/face" android:layout_width="@dimen/baby_album_page_header_face_height" android:layout_height="@dimen/baby_album_page_header_face_height" android:src="@drawable/default_face_cover" android:scaleType="centerCrop" android:contentDescription="@string/baby_face_desc" />
+            <ImageView android:id="@id/face_circle_overlay" android:background="@drawable/face_border" android:layout_width="@dimen/baby_album_page_header_face_height" android:layout_height="@dimen/baby_album_page_header_face_height" android:scaleType="centerCrop" android:contentDescription="@null" />
+        </FrameLayout>
+        <TextView android:textAppearance="@style/Gallery.TextAppearance.List.Primary" android:textColor="@color/white_100_transparent" android:id="@id/age_current" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="30.0dip" android:text="@string/people_page_label" android:layout_alignBottom="@id/face_all" android:layout_marginStart="@dimen/horizontal_spacing_primary" android:layout_toEndOf="@id/face_all" />
+    </RelativeLayout>
+    <Button android:textAppearance="@style/Gallery.TextAppearance.List.Secondary" android:gravity="center" android:layout_gravity="center" android:id="@id/recommend_face_photo_to_this_album" android:visibility="gone" android:layout_margin="@dimen/baby_album_recommend_btn_margin" android:paddingStart="@dimen/baby_album_recommend_btn_horizontal_padding" android:paddingEnd="@dimen/baby_album_recommend_btn_horizontal_padding" style="@style/Gallery.Widget.Button" />
+</com.miui.gallery.ui.BabyAlbumDetailFaceHeaderItem>

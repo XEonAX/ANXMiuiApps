@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is">" "<Data> E di me siguri që është &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? Ky person do të zhvendoset në albumin \"%2$s\". </Data>" "</string>
+    <string name="confirm_recommandation_face_not">" "<Data> E di me siguri që nuk është &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are">" "<Data> E di me siguri që janë &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? Këta persona do të zhvendosen në albumin \"%2$s\". </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not">" "<Data> E di me siguri që nuk janë &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? </Data>" "</string>
+</resources>

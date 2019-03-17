@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.gallery.editor.photo.widgets.CommonBottomMenuWithUndo android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="start" android:id="@id/discard" android:layout_width="@dimen/menu_panel_bottom_bar_button_width" android:layout_height="fill_parent" android:src="@drawable/menu_button_discard" android:scaleType="center" android:contentDescription="@string/photo_editor_talkback_cancel" />
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <ImageView android:id="@id/undo" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/editor_menu_undo" android:contentDescription="@string/photo_editor_talkback_undo" android:paddingStart="@dimen/menu_redo_btn_margin_left" android:paddingEnd="@dimen/menu_undo_btn_margin_right" />
+        <TextView android:textSize="@dimen/menu_panel_bottom_bar_title_size" android:textColor="@color/photo_editor_menu_bottom_bar_title_color" android:gravity="center" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <ImageView android:id="@id/redo" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/editor_menu_redo" android:contentDescription="@string/photo_editor_talkback_redo" android:paddingStart="@dimen/menu_redo_btn_margin_left" android:paddingEnd="@dimen/menu_undo_btn_margin_right" />
+    </LinearLayout>
+    <ImageView android:layout_gravity="end" android:id="@id/save" android:layout_width="@dimen/menu_panel_bottom_bar_button_width" android:layout_height="fill_parent" android:src="@drawable/menu_button_save" android:scaleType="center" android:contentDescription="@string/photo_editor_talkback_confirm" />
+</com.miui.gallery.editor.photo.widgets.CommonBottomMenuWithUndo>

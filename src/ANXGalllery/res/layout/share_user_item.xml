@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:paddingTop="@dimen/vertical_spacing_big" android:paddingBottom="@dimen/vertical_spacing_big" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:gravity="center_horizontal" android:id="@id/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitXY" android:layout_centerHorizontal="true" android:contentDescription="@null" />
+    <ImageView android:id="@id/mark" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="center" android:layout_alignBottom="@id/icon" android:contentDescription="@null" android:layout_alignEnd="@id/icon" />
+    <ImageView android:gravity="center_horizontal" android:id="@id/ic_effect" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_contact_photo_effect" android:scaleType="fitXY" android:layout_centerHorizontal="true" android:contentDescription="@null" />
+    <TextView android:gravity="center_horizontal" android:id="@id/text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/vertical_spacing_secondary" android:layout_below="@id/icon" android:layout_centerHorizontal="true" />
+</RelativeLayout>

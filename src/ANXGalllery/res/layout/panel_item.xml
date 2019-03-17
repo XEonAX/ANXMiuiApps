@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout style="@style/Gallery.Widget.Panel.Item"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/message_drawable" android:visibility="gone" android:layout_width="@dimen/panel_item_title_drawable_width" android:layout_height="wrap_content" android:scaleType="center" android:layout_centerVertical="true" android:contentDescription="@null" />
+    <TextView android:textAppearance="@style/Gallery.TextAppearance.Panel" android:id="@id/message" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" android:layout_centerVertical="true" android:layout_toEndOf="@id/message_drawable" />
+    <LinearLayout android:gravity="end|center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_toEndOf="@id/message" android:layout_alignParentEnd="true">
+        <LinearLayout android:gravity="end" android:orientation="horizontal" android:id="@id/detail_container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" />
+        <ImageView android:id="@id/right_arrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/arrow_right" android:contentDescription="@null" android:layout_marginStart="@dimen/panel_item_arrow_margin_start" />
+    </LinearLayout>
+</RelativeLayout>

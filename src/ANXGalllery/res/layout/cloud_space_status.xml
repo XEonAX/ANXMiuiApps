@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/window_background" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:ColorRingProgress="http://schemas.android.com/apk/res-auto" xmlns:RightTopCornerTextView="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:orientation="vertical" android:id="@id/storage_frame" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="0.627">
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/cloud_storage_percent_margin_top">
+            <com.miui.gallery.widget.ColorRingProgress android:id="@id/used_progress" android:layout_width="@dimen/cloud_storage_progress_size" android:layout_height="@dimen/cloud_storage_progress_size" android:layout_centerHorizontal="true" RightTopCornerTextView:foregroundColor="@color/space_progress_fore" RightTopCornerTextView:backgroundColor="@color/space_progress_back" RightTopCornerTextView:ringThickness="@dimen/cloud_storage_progress_thickness" RightTopCornerTextView:colorInterval="@dimen/cloud_storage_progress_interval" />
+            <LinearLayout android:orientation="vertical" android:id="@id/ll_storage" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                <com.miui.gallery.widget.RightTopCornerTextView android:textSize="@dimen/cloud_storage_used_percent_text" android:textColor="@color/white_95_transparent" android:layout_gravity="center_horizontal" android:id="@id/used_percent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="miui-thin" RightTopCornerTextView:cornerText="@string/percent_sign" RightTopCornerTextView:cornerTextSize="@dimen/cloud_storage_percent_sign_text" RightTopCornerTextView:cornerMargin="@dimen/cloud_storage_percent_sign_margin" />
+                <TextView android:textSize="@dimen/cloud_storage_used_detail_text" android:textColor="@color/white_80_transparent" android:layout_gravity="center_horizontal" android:id="@id/storage_detail" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            </LinearLayout>
+        </RelativeLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/cloud_storage_title_margin_bottom" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true">
+            <TextView android:textSize="@dimen/cloud_storage_title_text" android:textColor="@color/white_95_transparent" android:layout_gravity="center_horizontal" android:id="@id/storage_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cloud_storage_title" />
+            <TextView android:textSize="@dimen/cloud_storage_subtitle_text" android:textColor="@color/white_70_transparent" android:layout_gravity="center_horizontal" android:id="@id/storage_subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/cloud_storage_subtitle_margin_top" android:text="@string/cloud_storage_subtitle" />
+        </LinearLayout>
+    </RelativeLayout>
+    <ListView android:id="@id/list" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="0.373" style="@style/Gallery.Widget.ListView" />
+</LinearLayout>

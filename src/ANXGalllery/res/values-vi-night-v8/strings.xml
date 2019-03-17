@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is">" "<Data> Bạn có chắc đây là &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? Người này sẽ bị chuyển đến album \"%2$s\". </Data>" "</string>
+    <string name="confirm_recommandation_face_not">" "<Data> Bạn có chắc đây không phải là &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are">" "<Data> Bạn có chắc đây là &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? Những người này sẽ bị chuyển đến album \"%2$s\". </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not">" "<Data> Bạn có chắc đây không phải là &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? </Data>" "</string>
+</resources>

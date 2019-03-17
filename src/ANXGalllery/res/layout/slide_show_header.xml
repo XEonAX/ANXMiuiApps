@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.miui.gallery.widget.SlideShowView android:id="@id/slide" android:layout_width="fill_parent" android:layout_height="fill_parent" android:foreground="@color/black_20_transparent" app:scaleMode="fitView" />
+    <ImageView android:id="@id/play_icon" android:background="@drawable/card_detail_play" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</merge>

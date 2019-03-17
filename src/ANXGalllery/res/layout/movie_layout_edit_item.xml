@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/item_root" android:layout_width="@dimen/movie_edit_iv_size" android:layout_height="fill_parent" android:layout_marginEnd="@dimen/movie_edit_item_right"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:background="@drawable/movie_square_board" android:padding="1.0px" android:layout_width="@dimen/movie_edit_iv_size" android:layout_height="@dimen/movie_edit_iv_size" android:layout_centerInParent="true">
+        <com.meicam.sdk.NvsThumbnailView android:id="@id/item_iv" android:background="@color/movie_add_background" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" />
+        <ImageView android:id="@id/item_iv_add" android:background="@color/movie_add_background" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/movie_icon_add" android:scaleType="center" android:contentDescription="@string/movie_content_describe_add" />
+    </RelativeLayout>
+    <View android:id="@id/iv_selected" android:background="@drawable/movie_icon_selected_square" android:layout_width="@dimen/movie_edit_iv_size" android:layout_height="@dimen/movie_edit_iv_size" android:layout_centerInParent="true" />
+</RelativeLayout>

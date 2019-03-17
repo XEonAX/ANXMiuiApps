@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tonicartos.widget.stickygridheaders.StickyGridHeadersGridView android:id="@id/grid" android:layout_width="fill_parent" android:layout_height="0.0dip" android:numColumns="@integer/thumbnail_screenshot_columns" android:layout_weight="1.0" style="@style/Gallery.Widget.GridView.ThumbNail" />
+    <TextView android:gravity="center" android:layout_gravity="center_horizontal" android:id="@android:id/empty" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="0.0dip" android:text="@string/album_detail_page_empty" android:layout_weight="1.0" style="@style/Gallery.TextAppearance.BlankPage" />
+    <FrameLayout android:background="@drawable/card_divider" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:id="@id/delete" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="@dimen/cleaner_pick_action_button_margin" android:text="@string/cleaner_photo_pick_delete_selected" style="@style/Gallery.Widget.Button.Warning" />
+    </FrameLayout>
+</LinearLayout>

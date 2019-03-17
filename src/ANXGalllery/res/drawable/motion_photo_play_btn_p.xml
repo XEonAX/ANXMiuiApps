@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <stroke android:width="2.0px" android:color="@color/motion_photo_play_btn_stroke" />
+    <solid android:color="@color/motion_photo_play_btn_press_color" />
+    <corners android:radius="@dimen/motion_photo_play_btn_radius" />
+    <size android:height="@dimen/motion_photo_play_btn_height" />
+    <padding android:left="@dimen/motion_photo_play_btn_padding_start" android:right="@dimen/motion_photo_play_btn_padding_end" android:bottom="@dimen/motion_photo_play_btn_padding_bottom" />
+</shape>

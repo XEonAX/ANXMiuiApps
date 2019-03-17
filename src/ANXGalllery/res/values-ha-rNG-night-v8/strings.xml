@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is">" "<Data>" Ka tabbatar wannan ne &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? Za'a canza wannan mutumin zuwa alban \"%2$s\".; "</Data>" "</string>
+    <string name="confirm_recommandation_face_not">" "<Data> Ka tabbatar wannan ba shi ba ne&lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>?; </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are">" "<Data>" Ka tabbatat wannan ne &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? Za'a canza wadannan mutane zuwa alban \"%2$s\".; "</Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not">" "<Data> Ka tabbatar wadannan ba su ba ne&lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>?; </Data>" "</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/black_90_transparent" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/projection_slide_text" android:textColor="@color/white_100_transparent" android:id="@id/project_slide_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_above="@id/project_slide_exit" android:layout_centerHorizontal="true" />
+    <ImageView android:id="@id/project_slide_exit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/projection_slide_icon_margin_top" android:layout_marginBottom="@dimen/projection_slide_icon_margin_bottom" android:src="@drawable/project_slide_exit" android:layout_centerInParent="true" android:contentDescription="@string/projection_slide_exit" />
+    <TextView android:textSize="@dimen/projection_slide_text" android:textColor="@color/white_100_transparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/projection_slide_exit" android:layout_below="@id/project_slide_exit" android:layout_centerHorizontal="true" />
+</RelativeLayout>

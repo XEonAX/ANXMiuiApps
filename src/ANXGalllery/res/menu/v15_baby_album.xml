@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/v15_action_button_addto" android:id="@id/menu_add_photos" android:visible="true" android:title="@string/operation_add_picture" android:showAsAction="always" />
+    <item android:icon="@drawable/v15_action_button_album_share_light" android:id="@id/menu_share" android:visible="true" android:title="@string/operation_share" android:showAsAction="always" />
+    <item android:id="@id/menu_send_shortcut" android:visible="true" android:title="@string/create_quick_icon_on_desk" android:showAsAction="never" />
+    <item android:id="@id/menu_baby_info" android:visible="true" android:title="@string/edit_baby_info" android:showAsAction="never" />
+</menu>

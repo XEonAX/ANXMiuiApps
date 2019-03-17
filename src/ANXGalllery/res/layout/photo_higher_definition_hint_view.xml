@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:textAppearance="@style/Gallery.TextAppearance.Info.DoubleTapHint" android:gravity="center" android:id="@id/hd_text_view" android:background="@drawable/higher_definition_bg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="@dimen/higher_definition_padding_left_right" android:paddingEnd="@dimen/higher_definition_padding_left_right"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

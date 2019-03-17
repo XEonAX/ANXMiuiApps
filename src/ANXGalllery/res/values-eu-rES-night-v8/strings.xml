@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is">" "<Data> Seguru zaude &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> denik? Pertsona hau \"%2$s\" albumera mugituko da. </Data>" "</string>
+    <string name="confirm_recommandation_face_not">" "<Data> Seguru zaude &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> ez denik? </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are">" "<Data> Seguru zaude &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> direnik? Pertsona hauek \"%2$s\" albumera mugituko dira. </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not">" "<Data> Seguru zaude &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> ez direnik? </Data>" "</string>
+</resources>

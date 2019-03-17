@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is">" "<Data>" Esteu segur que és &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? Aquesta persona es mourà a l'àlbum \"%2$s\".; "</Data>" "</string>
+    <string name="confirm_recommandation_face_not">" "<Data> Esteu segur que no és &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are">" "<Data>" Esteu segur que són &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? Aquestes persones es mouran a l'àlbum \"%2$s\".; "</Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not">" "<Data> Esteu segur que no són &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>?; </Data>" "</string>
+</resources>

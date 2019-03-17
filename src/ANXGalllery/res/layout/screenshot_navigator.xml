@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:id="@id/navigator" android:layout_width="fill_parent" android:layout_height="@dimen/photo_editor_navigator_menu_height" android:paddingStart="@dimen/photo_editor_screenshot_navigator_padding" android:paddingEnd="@dimen/photo_editor_screenshot_navigator_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

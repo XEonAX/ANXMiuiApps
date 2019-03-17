@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="people_face_grid_view_columns">3</integer>
+    <integer name="people_face_grid_view_columns_land">6</integer>
+    <integer name="thumbnail_columns">6</integer>
+    <integer name="thumbnail_columns_land">7</integer>
+    <integer name="thumbnail_screenshot_columns">4</integer>
+    <integer name="thumbnail_screenshot_columns_land">6</integer>
+</resources>

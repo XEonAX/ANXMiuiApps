@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/sort_bar_bg_normal_color" />
+            <size android:height="@dimen/sort_bar_height" android:width="@dimen/sort_bar_width" />
+        </shape>
+    </item>
+    <item android:gravity="top" android:drawable="@drawable/divider_line" />
+    <item android:gravity="bottom" android:drawable="@drawable/divider_line" />
+</layer-list>

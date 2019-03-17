@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="homepage_alwaysShowTargetViewDivider">true</bool>
+    <bool name="abc_config_showMenuShortcutsWhenKeyboardPresent">false</bool>
+    <bool name="action_menu_blur_enabled">true</bool>
+    <bool name="bottomMenu_config_withText">false</bool>
+    <bool name="preference_item_bg_enable_variablePadding">false</bool>
+    <bool name="priority_storage">true</bool>
+    <bool name="search_should_jump_when_single_suggestion">false</bool>
+    <bool name="theme_crop_share_icon">false</bool>
+</resources>

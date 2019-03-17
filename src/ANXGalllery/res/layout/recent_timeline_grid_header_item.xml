@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.gallery.ui.RecentTimelineGridHeaderItem android:paddingEnd="@dimen/recent_header_padding_end" style="@style/Gallery.Widget.GroupHeader"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/recent_icon_layout" android:layout_width="@dimen/recent_header_padding_start" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_alignParentStart="true">
+        <ImageView android:gravity="center" android:layout_width="@dimen/recent_header_recent_icon_size" android:layout_height="@dimen/recent_header_recent_icon_size" android:src="@drawable/ic_recent" android:layout_centerInParent="true" android:contentDescription="@null" />
+    </RelativeLayout>
+    <FrameLayout android:id="@id/album_name_and_select_container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:paddingStart="@dimen/horizontal_spacing_big" android:layout_marginEnd="@dimen/recent_header_padding_end" android:layout_alignParentEnd="true">
+        <RelativeLayout android:layout_gravity="end|center" android:id="@id/do_select_container" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textAppearance="@style/Gallery.TextAppearance.List.GroupHeader" android:gravity="center" android:id="@id/do_select" android:background="@drawable/select_all_button" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <TextView android:textAppearance="@style/Gallery.TextAppearance.List.GroupHeader.AlbumFrom" android:gravity="center_vertical" android:layout_gravity="end|center" android:id="@id/album_from" android:paddingTop="@dimen/vertical_spacing_big" android:paddingBottom="@dimen/vertical_spacing_big" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="@dimen/album_name_max_length" android:singleLine="true" android:drawablePadding="@dimen/recent_header_arrow_padding" android:drawableEnd="@drawable/arrow_right" />
+    </FrameLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/time_and_file_count_container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_toStartOf="@id/album_name_and_select_container" android:layout_toEndOf="@id/recent_icon_layout">
+        <TextView android:textAppearance="@style/Gallery.TextAppearance.List.GroupHeader.DateTime" android:gravity="center_vertical" android:id="@id/datetime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        <TextView android:textAppearance="@style/Gallery.TextAppearance.List.GroupHeader.FileCount" android:gravity="center_vertical" android:id="@id/file_count" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:drawableStart="@drawable/info_divider" />
+    </LinearLayout>
+</com.miui.gallery.ui.RecentTimelineGridHeaderItem>

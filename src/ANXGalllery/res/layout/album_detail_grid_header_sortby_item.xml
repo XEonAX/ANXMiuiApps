@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.gallery.widget.SortByHeader android:gravity="center" android:id="@id/sortby_header" android:paddingTop="@dimen/vertical_spacing_big" android:paddingBottom="@dimen/vertical_spacing_big" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/grid_header" style="@style/Gallery.Widget.GroupHeader"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:id="@id/datetime_container" android:background="@drawable/sort_by_item_left_bg" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textAppearance="@style/Gallery.TextAppearance.List.GroupHeader.SortBy" android:gravity="center" android:id="@id/datetime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/menu_item_sort_date" />
+        <ImageView android:id="@id/datetime_sort_arrow" android:background="@drawable/sort_by_item_arrow_up" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@null" android:layout_marginStart="@dimen/horizontal_spacing_secondary" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:id="@id/name_container" android:background="@drawable/sort_by_item_middle_bg" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textAppearance="@style/Gallery.TextAppearance.List.GroupHeader.SortBy" android:gravity="center" android:id="@id/name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/menu_item_sort_name" />
+        <ImageView android:id="@id/name_sort_arrow" android:background="@drawable/sort_by_item_arrow_up" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@null" android:layout_marginStart="@dimen/horizontal_spacing_secondary" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:id="@id/size_container" android:background="@drawable/sort_by_item_right_bg" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textAppearance="@style/Gallery.TextAppearance.List.GroupHeader.SortBy" android:gravity="center" android:id="@id/size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/menu_item_sort_size" />
+        <ImageView android:id="@id/size_sort_arrow" android:background="@drawable/sort_by_item_arrow_up" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@null" android:layout_marginStart="@dimen/horizontal_spacing_secondary" />
+    </LinearLayout>
+</com.miui.gallery.widget.SortByHeader>

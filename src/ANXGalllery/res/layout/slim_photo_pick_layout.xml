@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tonicartos.widget.stickygridheaders.StickyGridHeadersGridView android:id="@id/grid" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" style="@style/Gallery.Widget.GridView.ThumbNail" />
+    <FrameLayout android:background="@drawable/card_divider" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:id="@id/start" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="@dimen/cleaner_pick_action_button_margin" android:text="@string/cleaner_slim_start" style="@style/Gallery.Widget.Button.Warning" />
+    </FrameLayout>
+</LinearLayout>

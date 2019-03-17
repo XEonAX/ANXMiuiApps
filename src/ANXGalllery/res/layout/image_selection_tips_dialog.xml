@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/selection_title_text_size" android:textColor="@color/image_selection_title_text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/selection_title_top_margin" android:text="@string/alert_selection_title" style="?android:attr/windowTitleStyle" />
+    <TextView android:textAppearance="@style/Gallery.TextAppearance.Dialog.List.Secondary" android:textSize="@dimen/selection_sub_title_text_size" android:textColor="@color/image_selection_desc_text_color" android:gravity="center_horizontal" android:layout_width="@dimen/selection_title_text_width" android:layout_height="wrap_content" android:layout_marginTop="@dimen/selection_sub_title_top_margin" android:text="@string/alert_selection_description" android:lineSpacingExtra="@dimen/selection_sub_title_line_pacing" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/selection_image_top_margin">
+        <ImageView android:layout_width="@dimen/dialog_selection_image_size" android:layout_height="@dimen/dialog_selection_image_size" android:src="@drawable/selection_better" />
+        <ImageView android:layout_width="@dimen/dialog_selection_image_size" android:layout_height="@dimen/dialog_selection_image_size" android:src="@drawable/selection_normal" android:layout_marginStart="@dimen/dialog_selection_image_margin" />
+    </LinearLayout>
+    <Button android:gravity="center" android:id="@id/positive_btn" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/selection_button_top_margin" android:text="@string/cleaner_scan_ok" android:maxLines="2" style="?android:attr/buttonBarButtonStyle" />
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is">" "<Data> Бұл &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> екеніне сенімдісіз бе? Осы фотосурет \"%2$s\" альбоміне көшіріледі. </Data>" "</string>
+    <string name="confirm_recommandation_face_not">" "<Data> Бұл &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> емес екендігіне сенімдісіз бе?; </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are">" "<Data> Бұл &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> екендігіне сенімдісіз бе? Бұл адамдар \"%2$s\"» альбомына көшіріледі.. </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not">" "<Data> Осылар &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? емес екендігіне сенімдісіз бе? </Data>" "</string>
+</resources>

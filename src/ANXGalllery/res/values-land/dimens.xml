@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dual_camera_enter_margin_bottom">74.18198dip</dimen>
+    <dimen name="specify_type_enter_margin_bottom">108.359985dip</dimen>
+    <dimen name="micro_thumb_horizontal_spacing">7.0px</dimen>
+    <dimen name="search_setting_sub_title_bottom_margin">10.0dip</dimen>
+    <dimen name="search_setting_title_bottom_margin">5.0dip</dimen>
+    <dimen name="search_setting_title_top_margin">7.0dip</dimen>
+    <dimen name="story_item_max_height">600.0dip</dimen>
+    <dimen name="story_item_min_height">200.0dip</dimen>
+    <dimen name="vertical_spacing_twostagedraw">62.0dip</dimen>
+</resources>

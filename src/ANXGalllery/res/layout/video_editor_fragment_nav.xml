@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/rl_bottom_bar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+        <TextView android:textAppearance="@style/PhotoEditor.TextAppearance.TextButton" android:gravity="center" android:layout_gravity="start" android:id="@id/discard" android:layout_width="@dimen/photo_editor_navigator_text_button_width" android:layout_height="@dimen/photo_editor_navigator_text_button_height" android:text="@string/photo_editor_navigator_cancel" android:lines="1" />
+        <TextView android:enabled="false" android:textAppearance="@style/PhotoEditor.TextAppearance.TextButton" android:gravity="center" android:layout_gravity="end" android:id="@id/export" android:layout_width="@dimen/photo_editor_navigator_text_button_width" android:layout_height="@dimen/photo_editor_navigator_text_button_height" android:text="@string/photo_editor_navigator_export" android:lines="1" android:layout_alignParentEnd="true" />
+    </FrameLayout>
+    <FrameLayout android:paddingBottom="@dimen/photo_editor_navigator_bottom_margin" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/rl_bottom_bar">
+        <com.miui.gallery.video.editor.ui.SimpleRecyclerView android:id="@id/navigator" android:layout_width="fill_parent" android:layout_height="@dimen/photo_editor_navigator_menu_height" android:paddingStart="@dimen/photo_editor_navigator_bound_margin" android:paddingEnd="@dimen/photo_editor_navigator_bound_margin" />
+    </FrameLayout>
+</RelativeLayout>

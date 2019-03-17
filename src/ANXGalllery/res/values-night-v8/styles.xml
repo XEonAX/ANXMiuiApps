@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Gallery.ActionBar.TabText" parent="@miui:style/Widget.ActionBar.TabText">
+        <item name="android:textColor">@color/action_bar_tab_text_dark</item>
+    </style>
+    <style name="Gallery.TextAppearance.Small.Inverse" parent="@miui:style/TextAppearance.Small" />
+    <style name="Gallery.Theme.NoTitle" parent="@miui:style/Theme.Dark.NoTitle" />
+    <style name="Gallery.Widget.ActionBar" parent="@miui:style/Widget.Dark.ActionBar" />
+    <style name="Gallery.Widget.ActionBar.Large" parent="@miui:style/Widget.Dark.ActionBar.Large" />
+    <style name="Gallery.Widget.ActionBar.NoDisplay.CustomBackground" parent="@style/Gallery.Widget.ActionBar.NoDisplay">
+        <item name="miui:actionBarEmbededTabsBackground">@null</item>
+        <item name="miui:actionBarStackedBackground">@null</item>
+    </style>
+    <style name="Gallery.Widget.ActionButton" parent="@miui:style/Widget.Dark.ActionButton" />
+    <style name="Gallery.Widget.ActionButton.Overflow" parent="@miui:style/Widget.Dark.ActionButton.Overflow" />
+    <style name="Gallery.Widget.ActionMode" parent="@miui:style/Widget.ActionMode" />
+    <style name="Gallery.Widget.ActionMode.Button" parent="@miui:style/Widget.Dark.ActionMode.Button" />
+    <style name="Gallery.Widget.ActionMode.Button.Default" parent="@miui:style/Widget.ActionMode.Button.Default" />
+    <style name="Gallery.Widget.ProgressBar" parent="@miui:style/Widget.Dark.ProgressBar" />
+    <style name="Gallery.Widget.ProgressBar.Small" parent="@miui:style/Widget.Dark.ProgressBar.Small" />
+    <style name="GalleryTheme" parent="@miui:style/Theme.Dark">
+        <item name="android:windowBackground">@drawable/window_background</item>
+        <item name="android:actionBarStyle">@style/Gallery.Widget.ActionBar</item>
+        <item name="android:actionBarTabTextStyle">@style/Gallery.ActionBar.TabText</item>
+        <item name="android:actionModeStyle">@style/Gallery.Widget.ActionMode</item>
+        <item name="immersionButtonMoreBackground">@miui:drawable/action_mode_immersion_more_dark</item>
+    </style>
+    <style name="GalleryTheme.DarkActionBar" parent="@miui:style/Theme.Dark" />
+    <style name="GalleryTheme.Dialog" parent="@miui:style/Theme.Dark.Dialog" />
+    <style name="GalleryTheme.Dialog.Alert" parent="@miui:style/Theme.Dark.Dialog.Alert" />
+    <style name="GalleryTheme.MenuDialog" parent="@miui:style/Theme.Dark" />
+    <style name="GalleryTheme.NoActionBar" parent="@miui:style/Theme.Dark.NoTitle">
+        <item name="android:fastScrollThumbDrawable">@drawable/fast_scroll_thumb</item>
+        <item name="miui:colorAccent">@color/accent_color_dark</item>
+    </style>
+    <style name="GalleryTheme.NoActionBar.DarkStatusBar" parent="@miui:style/Theme.Dark.NoTitle">
+        <item name="miui:windowTranslucentStatus">transparentDark</item>
+    </style>
+    <style name="GalleryTheme.NoTitle" parent="@miui:style/Theme.Dark.NoTitle" />
+    <style name="GalleryTheme.Settings" parent="@miui:style/Theme.Dark.Settings">
+        <item name="miui:windowActionBarOverlay">false</item>
+    </style>
+    <style name="Theme.NoTitle" parent="@miui:style/Theme.Dark.NoTitle" />
+</resources>

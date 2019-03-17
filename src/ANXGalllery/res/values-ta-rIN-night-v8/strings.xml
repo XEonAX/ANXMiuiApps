@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is">" "<Data> இது நிச்சயமாக &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> தானா? உறுதிப்படுத்தினால், இந்த நபர், \"%2$s\" ஆல்பத்திற்கு நகர்த்தப்படுவார். </Data>" "</string>
+    <string name="confirm_recommandation_face_not">" "<Data>" நிச்சயமாக இது' &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> அல்லவா? "</Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are">" "<Data> இவை நிச்சயமாக &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> தானா? உறுதிப்படுத்தினால், இந்த நபர்கள், \"%2$s\" ஆல்பத்திற்கு நகர்த்தப்படுவார்கள். </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not">" "<Data>" நிச்சயமாக இது' &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> அல்லவா? "</Data>" "</string>
+</resources>

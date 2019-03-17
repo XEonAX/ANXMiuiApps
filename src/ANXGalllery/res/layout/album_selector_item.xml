@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Gallery.Widget.ListView.Item.DoubleLine"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/cover" android:contentDescription="@null" style="@style/Gallery.Widget.ThumbNail.Tiny" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="15.0dip">
+        <TextView android:textAppearance="@style/Gallery.TextAppearance.AlbumSelectorDialog.Title" android:textStyle="bold" android:ellipsize="end" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="2.0dip" android:singleLine="true" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textAppearance="@style/Gallery.TextAppearance.AlbumSelectorDialog.Secondary" android:ellipsize="end" android:id="@id/count" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+            <TextView android:textAppearance="@style/Gallery.TextAppearance.AlbumSelectorDialog.Secondary" android:ellipsize="end" android:id="@id/type" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:drawableStart="@drawable/info_divider" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

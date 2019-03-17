@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference android:title="@string/baby_nick_name" android:key="baby_name" android:dialogTitle="@string/input_baby_nick_name" />
+    <Preference android:persistent="true" android:title="@string/baby_birthday" android:key="baby_birthday" />
+    <ListPreference android:entries="@array/baby_sexy" android:title="@string/baby_sexy" android:key="baby_sexy" android:defaultValue="male" android:dialogTitle="@string/choose_baby_sexy" android:entryValues="@array/baby_sexy_value" />
+    <ListPreference android:entries="@array/owner_relation" android:title="@string/you_are" android:key="owner_relation" android:dialogTitle="@string/choose_owner_relation" android:entryValues="@array/owner_relation_value" />
+    <miui.preference.ValuePreference android:persistent="false" android:title="@string/auto_update_face" android:key="auto_update_face" android:defaultValue="true" />
+</PreferenceScreen>

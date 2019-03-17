@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:id="@id/baby_photo" android:layout_width="@dimen/baby_album_page_header_face_height" android:layout_height="@dimen/baby_album_page_header_face_height" android:src="@drawable/baby_album_sharer_default_small" android:scaleType="centerCrop" android:contentDescription="@null" />
+    <TextView android:textColor="@color/black_40_transparent" android:id="@id/msg" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?android:textAppearanceMedium" />
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is"><Data> Sigur că acest lucru este &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? Această persoană va fi mutată la albumul \"%2$s\". </Data>" "</string>
+    <string name="confirm_recommandation_face_not"><Data> Sigur că acest lucru nu este &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are"><Data> Sigur că acestea sunt &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? Aceste persoane vor fi mutate la albumul \"%2$s\". </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not"><Data> Sigur că acestea nu sunt &lt;font color=#e6ffffff>%1$s&lt;/b>&lt;/font> </Data>" "</string>
+</resources>

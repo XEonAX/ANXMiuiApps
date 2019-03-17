@@ -1,0 +1,61 @@
+{
+  "name": "in_effect5",
+  "version": 0,
+  "width": 216,
+  "height": 136,
+  "offsetX": 0,
+  "offsetY": 0,
+  "icon": "icon.webp",
+  "bgPost": "bg.png",
+  "bgPostRect": [
+    38,
+    12,
+    184,
+    124
+  ],
+  "textPieceList": [
+    {
+      "frameRect": [
+        12,
+        64.67,
+        204,
+        82.33
+      ],
+      "text": "HELLO WORD",
+      "size":17,
+      "isVerticalText": 0,
+      "font": "",
+      "align": 1,
+      "letterSpacing": 0.22,
+      "lines": 1
+    },
+    {
+      "frameRect": [
+        67.67,
+        86.67,
+        148.33,
+        103
+      ],
+      "text": "2019",
+      "size":14,
+      "isVerticalText": 0,
+      "font": "",
+      "align": 1,
+      "letterSpacing": 0.22
+    },
+    {
+      "frameRect": [
+        56,
+        108.67,
+        159.67,
+        120.33
+      ],
+      "text": "MORNING",
+      "size":10,
+      "isVerticalText": 0,
+      "font": "",
+      "align": 1,
+      "letterSpacing": 0.9
+    }
+  ]
+}

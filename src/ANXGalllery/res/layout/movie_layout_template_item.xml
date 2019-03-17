@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/item_root" android:clipChildren="false" android:layout_width="@dimen/movie_list_item_minwidth" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/item_iv" android:duplicateParentState="true" android:layout_width="@dimen/movie_template_iv_size" android:layout_height="@dimen/movie_template_iv_size" android:scaleType="centerCrop" android:layout_centerInParent="true" />
+        <View android:id="@id/iv_selected" android:background="@drawable/movie_icon_selected" android:clipChildren="false" android:layout_width="@dimen/movie_template_iv_size" android:layout_height="@dimen/movie_template_iv_size" android:layout_centerInParent="true" />
+        <com.miui.gallery.movie.ui.view.DownloadView android:id="@id/item_download" android:background="@drawable/movie_download_bg" android:layout_width="@dimen/movie_download_icon_size" android:layout_height="@dimen/movie_download_icon_size" android:layout_alignBottom="@id/item_iv" android:layout_alignEnd="@id/item_iv" />
+    </RelativeLayout>
+    <TextView android:textSize="@dimen/movie_adapter_title_size" android:textColor="@color/movie_selector_item_text" android:ellipsize="end" android:gravity="center" android:layout_gravity="bottom" android:id="@id/item_title" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/movie_template_item_text_top" android:lines="1" />
+</LinearLayout>

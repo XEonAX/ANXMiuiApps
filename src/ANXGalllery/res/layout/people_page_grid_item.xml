@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.gallery.ui.PeoplePageGridItem android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/face_container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true">
+        <ImageView android:id="@id/face" android:layout_centerHorizontal="true" android:contentDescription="@null" style="@style/Gallery.Widget.ThumbNail.People" />
+        <CheckBox android:id="@android:id/checkbox" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:button="@drawable/people_grid_item_checkbox" android:layout_alignParentBottom="true" android:paddingEnd="7.0dip" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+    <TextView android:textAppearance="@style/Gallery.TextAppearance.PeopleName" android:ellipsize="end" android:gravity="center" android:id="@id/name" android:layout_width="wrap_content" android:layout_height="@dimen/people_name_height" android:layout_marginTop="@dimen/people_name_margin_top" android:text="@string/people_page_unname" android:singleLine="true" android:layout_below="@id/face_container" android:layout_centerHorizontal="true" android:paddingStart="@dimen/people_name_padding" android:paddingEnd="@dimen/people_name_padding" />
+</com.miui.gallery.ui.PeoplePageGridItem>

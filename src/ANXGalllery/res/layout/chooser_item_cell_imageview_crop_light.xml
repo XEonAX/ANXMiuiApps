@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.gallery.widget.CircleImageView android:id="@id/chooser_icon" android:layout_width="@dimen/chooser_cell_icon_size" android:layout_height="@dimen/chooser_cell_icon_size" CircleImageView:borderColor="@color/black_25_transparent" CircleImageView:borderWidth="@dimen/icon_edge_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:CircleImageView="http://schemas.android.com/apk/res-auto" />

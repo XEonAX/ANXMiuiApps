@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.gallery.ui.AlbumPageListLocalItem android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Gallery.Widget.ListView.AlbumList.Item"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/album_cover" android:background="@drawable/local_folder" android:layout_marginTop="@dimen/horizontal_spacing_big" android:layout_marginBottom="@dimen/horizontal_spacing_big" android:contentDescription="@null" android:layout_marginStart="@dimen/horizontal_spacing_big" android:layout_marginEnd="@dimen/horizontal_spacing_huge" style="@style/Gallery.Widget.ThumbNail.Small" />
+    <TextView android:gravity="center" android:id="@id/album_photo_count" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:drawablePadding="@dimen/horizontal_spacing_secondary" android:layout_centerVertical="true" android:drawableEnd="@drawable/arrow_right" android:layout_marginEnd="@dimen/horizontal_spacing_huge" android:layout_alignParentEnd="true" style="@style/Gallery.TextAppearance.List.Value.Custom" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerVertical="true" android:layout_marginEnd="@dimen/horizontal_spacing_huge" android:layout_toStartOf="@id/album_photo_count" android:layout_toEndOf="@id/album_cover">
+        <TextView android:ellipsize="end" android:id="@id/album_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/other_album" android:singleLine="true" style="@style/Gallery.TextAppearance.List.Primary.Custom" />
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/custom_list_title_desc_margin">
+            <TextView android:id="@id/album_name_desc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="@dimen/album_name_max_len" android:singleLine="true" style="@style/Gallery.TextAppearance.List.Secondary.Custom" />
+            <TextView android:id="@id/more_album_hint" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/more_album_hint" style="@style/Gallery.TextAppearance.List.Secondary.Custom" />
+        </LinearLayout>
+    </LinearLayout>
+</com.miui.gallery.ui.AlbumPageListLocalItem>

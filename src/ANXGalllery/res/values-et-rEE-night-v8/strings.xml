@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is">" "<Data> Oled kindel, et see on &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? See isik liigutatakse \"%2$s\" albumisse. </Data>" "</string>
+    <string name="confirm_recommandation_face_not">" "<Data> Oled kindel et see ei ole &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>?; </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are">" "<Data> Oled kindel, et nned on &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? Need isikud liigutatakse \"%2$s\" albumisse. </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not">" "<Data> Oled kindel, et need ei ole &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? </Data>" "</string>
+</resources>

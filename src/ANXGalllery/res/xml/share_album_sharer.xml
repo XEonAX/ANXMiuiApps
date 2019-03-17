@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/share_album"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceCategory android:key="sharers">
+        <com.miui.gallery.share.GridPreference android:persistent="false" android:key="sharer_grid" />
+    </PreferenceCategory>
+    <PreferenceCategory android:key="public_share">
+        <PreferenceScreen android:persistent="false" android:title="@string/send_public_url" android:key="send_public_url" />
+    </PreferenceCategory>
+</PreferenceScreen>

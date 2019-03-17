@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="action_button_bg_bottom_padding">24.0dip</dimen>
+    <dimen name="action_button_bg_top_padding">23.0dip</dimen>
+    <dimen name="action_button_default_height">90.0dip</dimen>
+    <dimen name="action_button_min_width">90.0dip</dimen>
+    <dimen name="action_button_without_title_bg_top_padding">31.75dip</dimen>
+    <dimen name="action_button_drawable_padding">1.3299866dip</dimen>
+    <dimen name="album_cover_container_size_small">152.0dip</dimen>
+    <dimen name="baby_album_page_header_additional_height">40.0dip</dimen>
+    <dimen name="baby_album_page_header_face_height">80.0dip</dimen>
+    <dimen name="baby_album_page_header_height">500.0dip</dimen>
+    <dimen name="baby_setting_page_header_face_height">100.0dip</dimen>
+    <dimen name="baby_setting_page_header_face_width">100.0dip</dimen>
+    <dimen name="config_prefDialogWidth">320.0dip</dimen>
+    <dimen name="horizontal_spacing_big">15.0dip</dimen>
+    <dimen name="horizontal_spacing_huge">25.0dip</dimen>
+    <dimen name="horizontal_spacing_primary">13.0dip</dimen>
+    <dimen name="horizontal_spacing_secondary">7.0dip</dimen>
+    <dimen name="micro_thumb_size_small">112.0dip</dimen>
+    <dimen name="micro_thumb_size_tiny">56.0dip</dimen>
+    <dimen name="people_face_horizontal_spacing">10.0dip</dimen>
+    <dimen name="people_face_vertical_spacing">20.0dip</dimen>
+    <item type="dimen" name="people_page_header_margin_left">@dimen/horizontal_spacing_secondary</item>
+    <dimen name="people_page_list_padding_left_right">10.0dip</dimen>
+    <dimen name="people_time_line_header_height">35.0dip</dimen>
+    <dimen name="preference_value_max_width">160.0dip</dimen>
+    <dimen name="preference_value_padding_bottom">6.0dip</dimen>
+    <dimen name="preference_value_padding_top">6.0dip</dimen>
+    <dimen name="search_setting_button_height">53.299988dip</dimen>
+    <dimen name="search_setting_button_margin">22.299988dip</dimen>
+    <dimen name="search_setting_button_text_size">16.0sp</dimen>
+    <dimen name="share_user_item_width">100.0dip</dimen>
+    <dimen name="share_user_item_width_landscape">80.0dip</dimen>
+    <dimen name="time_line_header_height">52.0dip</dimen>
+    <dimen name="vertical_spacing_big">15.0dip</dimen>
+    <dimen name="vertical_spacing_huge">25.0dip</dimen>
+    <dimen name="vertical_spacing_primary">13.0dip</dimen>
+    <dimen name="vertical_spacing_secondary">7.0dip</dimen>
+    <dimen name="face_micro_thumb_height">113.0dip</dimen>
+    <dimen name="face_micro_thumb_width">113.0dip</dimen>
+</resources>

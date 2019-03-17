@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is"><Data> Bu &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>ligi aniqmi? Bu odam \"%2$s\" albomiga ko‘chiriladi. </Data>" "</string>
+    <string name="confirm_recommandation_face_not">" "<Data> Bu &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> emasligiga aminmisiz? </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are"><Data> Bu &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>ligi aniqmi? Shu odamlar \"%2$s\" albomiga ko‘chiriladi. </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not">" "<Data> Bular &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> emasligiga aminmisiz? </Data>" "</string>
+</resources>

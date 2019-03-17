@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="movie_editor_view_margin_top">128.0px</dimen>
+</resources>

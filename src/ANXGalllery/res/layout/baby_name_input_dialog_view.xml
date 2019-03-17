@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditText android:id="@id/custom_dialog_content" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/input_baby_name" style="@miui:style/Widget.EditText.Dialog" />
+</FrameLayout>

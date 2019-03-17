@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="photo_editor_navigator_bottom_margin">2.5dip</dimen>
+    <dimen name="action_button_bg_bottom_padding">10.669983dip</dimen>
+    <dimen name="action_button_bg_top_padding">9.669983dip</dimen>
+    <dimen name="action_button_default_height">66.69998dip</dimen>
+    <dimen name="action_button_min_width">66.32999dip</dimen>
+    <dimen name="action_button_without_title_bg_top_padding">20.099976dip</dimen>
+    <dimen name="menu_panel_bottom_bar_height">49.329987dip</dimen>
+    <dimen name="photo_editor_navigator_left_margin">8.332977dip</dimen>
+    <dimen name="photo_editor_navigator_start_margin">8.332977dip</dimen>
+    <dimen name="action_button_drawable_padding">1.3299866dip</dimen>
+    <dimen name="share_user_item_width">70.0dip</dimen>
+    <dimen name="video_editor_effect_box_padding_top">8.0dip</dimen>
+</resources>

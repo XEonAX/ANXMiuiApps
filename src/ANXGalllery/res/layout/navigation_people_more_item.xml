@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/click_view" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:id="@id/icon" android:src="@drawable/default_face_cover" android:contentDescription="@null" style="@style/Gallery.Widget.ThumbNail.People.Middle" />
+        <ImageView android:background="@drawable/navigation_people_item_black_cover" android:duplicateParentState="true" android:layout_width="@dimen/people_face_size_middle" android:layout_height="@dimen/people_face_size_middle" android:src="@drawable/search_people_more_icon" android:scaleType="center" android:contentDescription="@string/view_more_face_desc" />
+    </FrameLayout>
+</LinearLayout>

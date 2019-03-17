@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.gallery.ui.BabyAlbumDetailGridHeaderItem style="@style/Gallery.Widget.GroupHeader"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/time_line_time_and_location" />
+    <TextView android:textAppearance="@style/Gallery.TextAppearance.List.GroupHeader" android:layout_gravity="center_vertical" android:id="@id/age" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="@dimen/horizontal_spacing_primary" />
+</com.miui.gallery.ui.BabyAlbumDetailGridHeaderItem>

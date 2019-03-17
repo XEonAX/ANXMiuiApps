@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is"><Data> ही खात्री आहे &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? ही व्यक्ती येथे हलवली जाईल \"%2$s\" album. </Data>" "</string>
+    <string name="confirm_recommandation_face_not">" "<Data> नक्की हे &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> नाहीत? </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are">" "<Data> हे आहेत याची खात्री &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? हे लोक येथे हल‍वले जातील \"%2$s\" album. </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not"><Data> हे नाहीत याची खात्री&lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? </Data>" "</string>
+</resources>

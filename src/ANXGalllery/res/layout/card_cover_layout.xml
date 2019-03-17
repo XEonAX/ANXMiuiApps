@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/cover_image1" android:layout_width="0.0dip" android:layout_height="fill_parent" android:scaleType="centerCrop" android:layout_weight="1.0" android:contentDescription="@null" />
+    <LinearLayout android:orientation="vertical" android:id="@id/second_row" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" android:layout_marginStart="@dimen/card_divider_stroke_height" android:layout_marginEnd="@dimen/card_divider_stroke_height">
+        <ImageView android:id="@id/cover_image2" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginBottom="@dimen/card_divider_stroke_height" android:scaleType="centerCrop" android:layout_weight="1.0" android:contentDescription="@null" />
+        <ImageView android:id="@id/cover_image3" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/card_divider_stroke_height" android:scaleType="centerCrop" android:layout_weight="1.0" android:contentDescription="@null" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/third_row" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" android:layout_marginStart="@dimen/card_divider_stroke_height">
+        <ImageView android:id="@id/cover_image4" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginBottom="@dimen/card_divider_stroke_height" android:scaleType="centerCrop" android:layout_weight="1.0" android:contentDescription="@null" />
+        <com.miui.gallery.widget.CardNumImageView android:id="@id/cover_image5" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/card_divider_stroke_height" android:scaleType="centerCrop" android:layout_weight="1.0" android:contentDescription="@null" app:foregroundDrawable="@drawable/rect_item_fg_without_stroke"
+          xmlns:app="http://schemas.android.com/apk/res/com.miui.gallery" />
+    </LinearLayout>
+</merge>

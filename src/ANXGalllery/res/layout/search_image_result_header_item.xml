@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.gallery.search.resultpage.ImageResultHeaderItem style="@style/Gallery.Widget.GroupHeader"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/expand_and_select_container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:paddingStart="@dimen/horizontal_spacing_big" android:layout_alignParentEnd="true">
+        <RelativeLayout android:layout_gravity="end|center" android:id="@id/do_select_container" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="@dimen/recent_header_padding_end">
+            <TextView android:textAppearance="@style/Gallery.TextAppearance.List.GroupHeader" android:gravity="center" android:id="@id/do_select" android:background="@drawable/select_all_button" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <ImageView android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/expand_icon" android:paddingTop="@dimen/vertical_spacing_big" android:paddingBottom="@dimen/vertical_spacing_big" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="fill_parent" android:contentDescription="@string/expand_desc" android:paddingStart="@dimen/horizontal_spacing_big" android:paddingEnd="@dimen/recent_header_padding_end" />
+    </FrameLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/time_and_location_container" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_marginStart="@dimen/horizontal_spacing_primary" android:layout_toStartOf="@id/expand_and_select_container" android:layout_alignParentStart="true">
+        <TextView android:textAppearance="@style/Gallery.TextAppearance.List.GroupHeader.DateTime" android:gravity="center_vertical" android:id="@id/header_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" />
+        <TextView android:textAppearance="@style/Gallery.TextAppearance.List.GroupHeader.FileCount" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/header_sub_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="1" android:drawableStart="@drawable/info_divider" />
+    </LinearLayout>
+</com.miui.gallery.search.resultpage.ImageResultHeaderItem>

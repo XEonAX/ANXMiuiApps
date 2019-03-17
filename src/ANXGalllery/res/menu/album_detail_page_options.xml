@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/menu_add_photos" android:title="@string/operation_add_picture" android:showAsAction="never" />
+    <item android:id="@id/menu_remove_from_other_albums" android:title="@string/operation_remove_from_other_albums" android:showAsAction="never" />
+    <item android:id="@id/menu_move_to_other_albums" android:visible="false" android:title="@string/operation_move_to_other_albums" android:showAsAction="never" />
+    <item android:id="@id/menu_show_in_photos_tab" android:title="@string/operation_show_in_photos_tab" android:showAsAction="never" />
+    <item android:id="@id/menu_not_show_in_photos_tab" android:visible="false" android:title="@string/operation_not_show_in_photos_tab" android:showAsAction="never" />
+    <item android:id="@id/menu_enable_auto_upload" android:title="@string/operation_enable_auto_upload" android:showAsAction="never" />
+    <item android:id="@id/menu_disable_auto_upload" android:visible="false" android:title="@string/operation_disable_auto_upload" android:showAsAction="never" />
+    <item android:id="@id/menu_share" android:title="@string/operation_share" android:showAsAction="never" />
+    <item android:id="@id/menu_rename" android:title="@string/operation_rename" android:showAsAction="never" />
+</menu>

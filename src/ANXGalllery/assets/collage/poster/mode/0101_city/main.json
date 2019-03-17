@@ -1,0 +1,46 @@
+{
+  "background": "#ffffff",
+  "collagePositions": [
+    {
+      "margin": 1,
+      "position": [
+        0.115,
+        0.083,
+        0.885,
+        0.769
+      ]
+    }
+  ],
+  "collageModels": [
+    10,
+    20,
+    30,
+    40,
+    51,
+    60
+  ],
+  "textElementModels": [
+    {
+      "x": 0.5,
+      "y": 0.833,
+      "locationType": 3,
+      "textSize": 15.333,
+      "textColor": "#66000000",
+      "text": "@string/collage_poster_global_city_text",
+      "letterSpace": 0.1
+    }
+  ],
+  "specifyDrawableModels": [
+    {
+      "x": 0.5,
+      "y": 0.897,
+      "locationType": 5,
+      "specifyDrawableType": "TIME_FORMAT",
+      "extras": {
+        "textColor": "#66000000",
+        "textSize": 6.667,
+        "letterSpace": 0.6
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is">" "<Data> &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>이(가) 확실합니까? 이 사람은\"%2$s\" 앨범으로 이동될 것입니다. </Data>" "</string>
+    <string name="confirm_recommandation_face_not">" "<Data> &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>이(가) 확실히 아닙니까? </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are">" "<Data> &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>이(가) 확실합니까? 이 사람들은\"%2$s\" 앨범으로 이동될 것입니다. </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not">" "<Data> &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>이(가) 확실히 아닙니까? </Data>" "</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_gravity="center" android:id="@id/full_screen_error_view" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:id="@id/fix_button" android:text="@string/search_retry" android:layout_alignParentBottom="true" style="@style/Gallery.Widget.Button.Warning" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/fix_button">
+        <ImageView android:id="@id/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/empty_page_common" android:contentDescription="@null" />
+        <TextView android:ellipsize="middle" android:gravity="center" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/vertical_spacing_huge" android:layout_marginBottom="@dimen/vertical_spacing_very_huge" android:text="@string/search_login_title_full_screen" android:maxLines="2" android:paddingStart="@dimen/horizontal_spacing_huge" android:paddingEnd="@dimen/horizontal_spacing_huge" style="@style/Gallery.TextAppearance.Info.Tip" />
+    </LinearLayout>
+</RelativeLayout>

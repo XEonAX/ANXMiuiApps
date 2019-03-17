@@ -1,0 +1,40 @@
+{
+  "name": "in_effect4",
+  "version": 0,
+  "width": 218.67,
+  "height": 75.33,
+  "offsetX": 0,
+  "offsetY": 68.6,
+  "icon": "icon.webp",
+  "bgPost": "",
+  "textPieceList": [
+    {
+      "frameRect": [
+        12,
+        12,
+        206.33,
+        45.33
+      ],
+      "text": "FIND",
+      "size":33.33,
+      "isVerticalText": 0,
+      "font": "",
+      "align": 1,
+      "letterSpacing": 0.09
+    },
+    {
+      "frameRect": [
+        12,
+        49.33,
+        206.33,
+        65.33
+      ],
+      "text": "HAPPINESS",
+      "size":12,
+      "isVerticalText": 0,
+      "font": "",
+      "align": 1,
+      "letterSpacing": 0.1
+    }
+  ]
+}

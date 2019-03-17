@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridView android:id="@id/album_page_header_grid_view" android:paddingBottom="@dimen/message_bar_vertical_margin" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/message_bar_horizontal_margin" android:paddingEnd="@dimen/message_bar_horizontal_margin" style="@style/Gallery.Widget.GridView.AlbumPageHeader"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

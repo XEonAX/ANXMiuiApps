@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:scrollbarStyle="outsideOverlay" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:paddingBottom="@dimen/vertical_spacing_huge" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <com.miui.gallery.widget.ExpandedListView android:id="@android:id/list" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/status_wrapper" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ProgressBar android:id="@id/loading_bar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/vertical_spacing_secondary" />
+        <TextView android:gravity="center" android:id="@id/loading_text" android:paddingTop="@dimen/album_share_publishing_progress_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/Gallery.TextAppearance.Info.Tip" />
+        <Button android:gravity="center" android:id="@id/retry_button" android:layout_width="100.0sp" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:text="@string/retry_to_create_album" />
+    </LinearLayout>
+</FrameLayout>

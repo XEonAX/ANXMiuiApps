@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingTop="@dimen/adjust_menu_item_icon_margin_top" android:layout_width="wrap_content" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/iconView" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <TextView android:textAppearance="@style/PhotoEditor.TextAppearance.Label" android:ellipsize="marquee" android:gravity="center" android:id="@id/labelView" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/adjust_menu_item_icon_margin_vertical" android:singleLine="true" />
+</LinearLayout>

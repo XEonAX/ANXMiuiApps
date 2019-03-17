@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/other_albums_item" layout="@layout/album_page_list_local_item" />
+    <View android:id="@id/divider" android:background="@color/divider_line_color" android:layout_width="fill_parent" android:layout_height="@dimen/divider_line_height" android:layout_below="@id/other_albums_item" />
+</RelativeLayout>

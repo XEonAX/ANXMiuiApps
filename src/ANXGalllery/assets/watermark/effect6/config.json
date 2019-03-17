@@ -1,0 +1,53 @@
+{
+  "name": "in_effect6",
+  "version": 0,
+  "width": 220,
+  "height": 117,
+  "offsetX": 0,
+  "offsetY": -85.83,
+  "icon": "icon.webp",
+  "textPieceList": [
+    {
+      "frameRect": [
+        12,
+        12.33,
+        208,
+        33.67
+      ],
+      "text": "PERFECT",
+      "size":18.33,
+      "isVerticalText": 0,
+      "font": "",
+      "align": 1,
+      "letterSpacing": 0.08
+    },
+    {
+      "frameRect": [
+        12,
+        36.67,
+        208,
+        78.67
+      ],
+      "text": "2019",
+      "size":40,
+      "isVerticalText": 0,
+      "font": "",
+      "align": 1,
+      "letterSpacing": 0.018
+    },
+    {
+      "frameRect": [
+        12,
+        81.67,
+        208,
+        102.67
+      ],
+      "text": "HOLIDAYS",
+      "size":15.67,
+      "isVerticalText": 0,
+      "font": "",
+      "align": 1,
+      "letterSpacing": 0.1
+    }
+  ]
+}

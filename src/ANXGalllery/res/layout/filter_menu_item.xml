@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="@dimen/menu_panel_list_item_width" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/preview" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" android:importantForAccessibility="yes" />
+    <View android:id="@id/selector" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_alignTop="@id/title" android:layout_alignParentBottom="true" />
+    <TextView android:textSize="@dimen/filter_menu_item_title_text_size" android:textColor="@color/filter_item_title_color" android:ellipsize="marquee" android:gravity="center" android:id="@id/title" android:padding="@dimen/filter_menu_item_title_padding" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="@dimen/photo_editor_label_height" android:singleLine="true" android:layout_alignParentBottom="true" />
+    <TextView android:textSize="@dimen/filter_menu_item_value_indicator_text_size" android:textColor="@color/filter_item_indicator_color" android:gravity="center_vertical" android:id="@id/value_indicator" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginBottom="@dimen/filter_menu_item_value_indicator_margin" android:layout_centerHorizontal="true" />
+    <ImageView android:id="@id/configable_indicator" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/filter_menu_item_state_indicator_margin" android:src="@drawable/filter_configable_indicator" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:contentDescription="@null" />
+</RelativeLayout>

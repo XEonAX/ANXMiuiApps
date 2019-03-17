@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.gallery.widget.ScrollableViewDrawer android:id="@id/drawer" android:layout_width="fill_parent" android:layout_height="fill_parent" drawer:contentView="@id/sortby_header" drawer:targetView="@id/grid" drawer:scrollableView="@id/grid" drawer:scrollDivider="@android:color/transparent" drawer:dragEnabled="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:drawer="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/sortby_header" layout="@layout/album_detail_grid_header_sortby_item" />
+    <FrameLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <com.tonicartos.widget.stickygridheaders.StickyGridHeadersGridView android:id="@id/grid" android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/Gallery.Widget.GridView.ThumbNail" />
+        <com.miui.gallery.widget.EmptyPage android:id="@android:id/empty" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" app:emptyIcon="@drawable/empty_page_common" app:emptyTitle="@string/empty_title_no_photos" app:showActionButton="false"
+          xmlns:app="http://schemas.android.com/apk/res/com.miui.gallery" />
+    </FrameLayout>
+</com.miui.gallery.widget.ScrollableViewDrawer>

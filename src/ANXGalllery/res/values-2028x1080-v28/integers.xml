@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="editor_preview_height_ratio">1350</integer>
+    <integer name="editor_preview_width_ratio">996</integer>
+</resources>

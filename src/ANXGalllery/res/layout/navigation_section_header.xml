@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:gravity="center_vertical" android:background="@drawable/search_list_item_background" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:ellipsize="middle" android:layout_gravity="start" android:id="@id/title" android:paddingTop="@dimen/search_section_item_top_margin" android:paddingBottom="@dimen/search_section_item_bottom_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="@dimen/search_navigation_horizontal_margin" android:paddingEnd="@dimen/search_navigation_horizontal_margin" style="@style/Gallery.TextAppearance.Search.List.Secondary" />
+    <TextView android:layout_gravity="end" android:id="@id/subtitle" android:paddingTop="@dimen/search_section_item_top_margin" android:paddingBottom="@dimen/search_section_item_bottom_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="@dimen/search_navigation_horizontal_margin" android:paddingEnd="@dimen/search_navigation_horizontal_margin" style="@style/Gallery.TextAppearance.Search.List.Secondary" />
+</FrameLayout>

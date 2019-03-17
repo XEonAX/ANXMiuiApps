@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:key="root"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/cloud_settings" android:key="micloud_category">
+        <CheckBoxPreference android:persistent="false" android:title="@string/backup_automatically_title" android:key="backup_automatically" android:summary="@string/backup_automatically_summary" android:defaultValue="true" />
+        <CheckBoxPreference android:title="@string/backup_only_in_wifi" android:key="backup_only_in_wifi" android:summary="@string/backup_only_in_wifi_summary" android:dependency="backup_automatically" android:defaultValue="true" />
+        <CheckBoxPreference android:persistent="false" android:title="@string/ai_album_setting_title" android:key="cloud_ai_album_status" android:summary="@string/ai_album_setting_sub_title" android:dependency="backup_automatically" android:defaultValue="true" />
+        <CheckBoxPreference android:persistent="false" android:title="@string/enable_face_album_title" android:key="cloud_face_local_status" android:summary="@string/enable_face_album_summary" android:dependency="backup_automatically" android:defaultValue="false" />
+        <CheckBoxPreference android:persistent="false" android:title="@string/auto_download_media_title" android:key="auto_download_media" android:defaultValue="true" />
+        <com.miui.gallery.widget.ValueListPreference android:persistent="false" android:title="@string/download_type_title" android:key="download_type" android:dependency="auto_download_media" android:dialogTitle="@string/download_type_title" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/browse_category_title" android:key="browse_category">
+        <CheckBoxPreference android:persistent="false" android:title="@string/album_show_local_only" android:key="show_local_album_only" android:summary="@string/album_show_local_only_summary" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/show_hidden_album_title" android:key="show_hidden_album" />
+        <miui.preference.ValuePreference android:title="@string/slideshow_interval_title" android:key="slideshow_interval" android:defaultValue="3" android:dialogTitle="@string/slideshow_interval_dialog_title" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/other_settings" android:key="others">
+        <miui.preference.ValuePreference android:title="@string/trash_bin" android:key="trash_bin" android:summary="@string/trash_bin_summary" />
+        <CheckBoxPreference android:title="@string/impunity_declaration_settings" android:key="impunity_declaration" android:summary="@string/impunity_declaration_summary" android:defaultValue="true" />
+        <miui.preference.ValuePreference android:title="@string/user_agreement4" android:key="privacy_policy" />
+    </PreferenceCategory>
+</PreferenceScreen>

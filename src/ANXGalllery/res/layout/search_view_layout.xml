@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:focusable="true" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Gallery.Widget.TopSearchView"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <miui.widget.ClearableEditText android:ellipsize="end" android:gravity="start|center" android:id="@id/search_view_input" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="1" android:maxLength="@integer/search_keyword_limit" android:inputType="textAutoComplete" android:paddingStart="@dimen/search_bar_input_edge_margin" android:paddingEnd="@dimen/horizontal_spacing_secondary" style="@style/Gallery.Widget.EditText.Search" />
+    <ImageView android:layout_gravity="start|center" android:id="@id/search_btn_cancel" android:layout_width="@dimen/search_bar_input_edge_margin" android:layout_height="fill_parent" android:src="@drawable/action_bar_search_back" android:scaleType="center" android:contentDescription="@string/back" />
+    <ImageView android:layout_gravity="end|center" android:id="@id/search_btn_voice" android:visibility="gone" android:layout_width="@dimen/search_bar_input_edge_margin" android:layout_height="fill_parent" android:src="@drawable/search_voice_entrance" android:scaleType="center" android:contentDescription="@string/voice_assistant" />
+</FrameLayout>

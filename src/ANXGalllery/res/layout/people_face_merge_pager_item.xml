@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/face" android:contentDescription="@null" style="@style/Gallery.Widget.ThumbNail.People.Middle" />
+    <TextView android:textAppearance="@style/Gallery.TextAppearance.People.List.Middle.Secondary" android:ellipsize="end" android:gravity="center" android:id="@id/name" android:paddingTop="@dimen/vertical_spacing_primary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" />
+</LinearLayout>

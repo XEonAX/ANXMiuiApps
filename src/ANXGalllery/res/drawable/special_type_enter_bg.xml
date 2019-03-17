@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="oval"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <stroke android:width="2.0px" android:color="@color/special_type_enter_bg_stroke" />
+    <solid android:color="@color/special_type_enter_bg_solid" />
+    <size android:height="@dimen/specify_type_enter_bg_width" android:width="@dimen/specify_type_enter_bg_width" />
+</shape>

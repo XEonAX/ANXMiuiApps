@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is"><Data> Ċert/a li din il-persuna &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? Dil-persuna ser titmexxa fl-album \"%2$s\". </Data>" "</string>
+    <string name="confirm_recommandation_face_not"><Data> Ċert/a li din il-persuna mhux &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are"><Data> Ċert/a li dawn huma &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? Dawn in-nies ser jitmexxew fl-album \"%2$s\". </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not"><Data>" Ċert/a li dawn m'humiex &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? "</Data>" "</string>
+</resources>

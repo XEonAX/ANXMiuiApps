@@ -1,0 +1,3192 @@
+[
+  {
+    "name": "upload-supported-file-types",
+    "strategy": {
+      "image": [
+        {
+          "extension": "JPG",
+          "mime-type": "image/jpeg"
+        },
+        {
+          "extension": "JPEG",
+          "mime-type": "image/jpeg"
+        },
+        {
+          "extension": "GIF",
+          "mime-type": "image/gif"
+        },
+        {
+          "extension": "PNG",
+          "mime-type": "image/png"
+        },
+        {
+          "extension": "BMP",
+          "mime-type": "image/x-ms-bmp"
+        },
+        {
+          "extension": "WEBP",
+          "mime-type": "image/webp"
+        },
+        {
+          "extension": "WBMP",
+          "mime-type": "image/vnd.wap.wbmp"
+        }
+      ],
+      "video": [
+        {
+          "extension": "MP4",
+          "mime-type": "video/mp4"
+        },
+        {
+          "extension": "MOV",
+          "mime-type": "video/quicktime"
+        },
+        {
+          "extension": "3GP",
+          "mime-type": "video/3gpp"
+        }
+      ]
+    }
+  },
+  {
+    "name": "location",
+    "strategy": {
+      "daily_update_limit_dev": 0,
+      "daily_update_limit_stable": 0
+    }
+  },
+  {
+    "name": "server-reserved-album-names",
+    "strategy": {
+      "reserved-names": [
+        "我的照片",
+        "截屏",
+        "截图",
+        "my photo",
+        "my photos",
+        "screenshot",
+        "screenshots",
+        "我的照片",
+        "截圖",
+        "camera photos",
+        "相机",
+        "相機",
+        "所有视频",
+        "所有影片",
+        "All videos",
+        "宠物相册",
+        "Pet Album",
+        "视频",
+        "全景",
+        "視頻",
+        "Videos",
+        "Panoramas"
+      ]
+    }
+  },
+  {
+    "name": "hidden-albums",
+    "strategy": {
+      "patterns": [
+        "(^|/|_|-)(temp|ad|thumb|cache|tmp|img|icon)($|/|_|-)",
+        "(^|/)([0-9_-]+)($|/)",
+        "(^/?)(tencent/micromsg/[0-9a-zA-Z]+/)(avatar|image|image2|video|sfs/avatar)($|/)",
+        "(^/?)(tencent/MobileQQ)($|/)",
+        "(^/?)(codoonsports/skins)($|/)",
+        "(^/?)(miui/debug_log)($|/)",
+        "(^/?)(miniplay/com\\.minitech\\.miniworld\\.[0-9a-zA-Z.]+/data)($|/)",
+        "(^/?)(tencent/now/file)($|/)"
+      ],
+      "non_hidden_path_prefix": [
+        "DCIM/",
+        "Pictures/",
+        "Download/",
+        "MIUI/Gallery/cloud/"
+      ]
+    }
+  },
+  {
+    "name": "album-sort-date",
+    "strategy": {
+      "albums": [
+        {
+          "album_path": "tencent/micromsg/weixin",
+          "sort_date": "dateModified"
+        },
+        {
+          "album_path": "tencent/qq_images",
+          "sort_date": "dateModified"
+        },
+        {
+          "album_path": "tencent/qqfile_recv",
+          "sort_date": "dateModified"
+        },
+        {
+          "album_path": "sina/weibo/weibo",
+          "sort_date": "dateModified"
+        },
+        {
+          "album_path": "download",
+          "sort_date": "dateModified"
+        },
+        {
+          "album_path": "bluetooth",
+          "sort_date": "dateModified"
+        },
+        {
+          "album_path": "miui/midrop",
+          "sort_date": "dateModified"
+        }
+      ]
+    }
+  },
+  {
+    "name": "backup-policies",
+    "strategy": {
+      "policies": [
+        {
+          "type": "auto-background",
+          "enable": true,
+          "policy": {
+            "disallow-metered": true,
+            "require-charging": true,
+            "ignore-battery": false,
+            "manual": false,
+            "expedited": false
+          }
+        },
+        {
+          "type": "auto-foreground",
+          "enable": true,
+          "policy": {
+            "disallow-metered": true,
+            "require-charging": false,
+            "ignore-battery": false,
+            "manual": false,
+            "expedited": false
+          }
+        },
+        {
+          "type": "manual-battery",
+          "enable": true,
+          "policy": {
+            "disallow-metered": true,
+            "require-charging": false,
+            "ignore-battery": true,
+            "manual": true,
+            "expedited": true
+          }
+        },
+        {
+          "type": "manual-network",
+          "enable": true,
+          "policy": {
+            "disallow-metered": false,
+            "require-charging": false,
+            "ignore-battery": true,
+            "manual": true,
+            "expedited": true
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "sync",
+    "strategy": {
+      "max-temperature-allowed-when-background-sync": 38,
+      "max-temperature-allowed-when-background-sync-begin": 36,
+      "temperature-listen-interval-in-min": 5,
+      "background-download-thumbnail-thread-sleep-during-in-min": 15,
+      "total-owner-save-thumbnail-count-limit": 10000,
+      "total-sharer-save-thumbnail-count-limit": 0,
+      "delay-upload-time": 0,
+      "only-screen-off-acquire-wakelock": true,
+      "only-charging-acquire-wakelock": true,
+      "max-capacity-temp-operation-server-tag": 30,
+      "auto-download-space-limit": 0.2,
+      "auto-download-num-in-foreground": 500,
+      "auto-download-owner-synced-image": true,
+      "auto-download-share-synced-image": false,
+      "auto-download-in-back-periodic": true,
+      "auto-download-in-fore-periodic": true,
+      "auto-download-require-device-idle": true,
+      "guide-cloud-for-international-build": false,
+      "max-download-times-when-timeout": 2,
+      "auto_download": true,
+      "download_type": 0,
+      "auto_download_share": false,
+      "support_backup_only_wifi": true,
+      "monitor_enable": true,
+      "monitor_check_interval": 0,
+      "monitor_background": true,
+      "monitor_background_buffer_time": 15000,
+      "monitor_background_upper_time": 120000
+    }
+  },
+  {
+    "name": "cloud-guide",
+    "strategy": {
+      "life_before_slimmed": 7,
+      "slim_immediately_size": 100,
+      "weak_strategy_video_count": 10,
+      "weak_strategy_image_count": 100,
+      "weak_strategy_media_size": 200,
+      "weak_strategy_low_space_percentage": 10,
+      "strict_strategy_media_size_percentage": 15,
+      "strict_strategy_low_space_percentage": 10,
+      "strict_strategy_media_size_when_low_space": 200
+    }
+  },
+  {
+    "name": "components-list",
+    "strategy": {
+      "share-components": [
+        {
+          "package-name": "com.tencent.mm",
+          "class-name": "com.tencent.mm.ui.tools.ShareImgUI",
+          "order": 0
+        },
+        {
+          "package-name": "com.tencent.mm",
+          "class-name": "com.tencent.mm.ui.tools.ShareToTimeLineUI",
+          "order": 1
+        },
+        {
+          "package-name": "com.qzone",
+          "class-name": "com.qzonex.module.operation.ui.QZonePublishMoodActivity",
+          "order": 2
+        },
+        {
+          "package-name": "com.tencent.mobileqq",
+          "class-name": "com.tencent.mobileqq.activity.JumpActivity",
+          "order": 3
+        }
+      ],
+      "share-components-international": [
+        {
+          "package-name": "com.twitter.android",
+          "class-name": "com.twitter.android.composer.ComposerActivity",
+          "order": 0
+        },
+        {
+          "package-name": "com.instagram.android",
+          "class-name": "com.instagram.android.activity.ShareHandlerActivity",
+          "order": 1
+        },
+        {
+          "package-name": "com.whatsapp",
+          "class-name": "com.whatsapp.ContactPicker",
+          "order": 2
+        },
+        {
+          "package-name": "com.facebook.katana",
+          "class-name": "com.facebook.composer.shareintent.ImplicitShareIntentHandlerDefaultAlias",
+          "order": 3
+        },
+        {
+          "package-name": "com.facebook.orca",
+          "class-name": "com.facebook.messenger.intents.ShareIntentHandler",
+          "order": 4
+        },
+        {
+          "package-name": "org.telegram.messenger",
+          "class-name": "org.telegram.ui.LaunchActivity",
+          "order": 5
+        },
+        {
+          "package-name": "com.bsb.hike",
+          "class-name": "com.bsb.hike.ui.ComposeChatActivity",
+          "order": 6
+        },
+        {
+          "package-name": "com.twitter.android",
+          "class-name": "com.twitter.android.DMActivity",
+          "order": 7
+        },
+        {
+          "package-name": "com.xiaomi.midrop",
+          "class-name": "com.xiaomi.midrop.sender.ui.TransmissionActivity",
+          "order": 8
+        }
+      ],
+      "component-priority": [
+        {
+          "package-name": "com.miui.bugreport",
+          "class-name": "com.miui.bugreport.ui.FeedbackActivity",
+          "value": 2
+        },
+        {
+          "package-prefix": "com.miui",
+          "value": 1
+        },
+        {
+          "package-prefix": "com.xiaomi",
+          "value": 1
+        },
+        {
+          "system": "true",
+          "value": 1
+        }
+      ],
+      "component-priority-international": []
+    }
+  },
+  {
+    "name": "server-unmodify-albums",
+    "strategy": {
+      "albums": [
+        {
+          "serverId": 1,
+          "name": "untitled"
+        },
+        {
+          "serverId": 2,
+          "name": "snapshot"
+        }
+      ]
+    }
+  },
+  {
+    "name": "album-list",
+    "strategy": {
+      "albums": [
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "en",
+              "name": "sdcard"
+            }
+          ],
+          "path": ""
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "yy/image"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "真实美女"
+            },
+            {
+              "language-code": "en",
+              "name": "PPMM"
+            }
+          ],
+          "path": "ppmm_gallery"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "kingreader/covers"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "com/cmcc/mocam/cache"
+        },
+        {
+          "attributes": {
+            "auto-upload": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "微看电视"
+            },
+            {
+              "language-code": "en",
+              "name": "Weikan TV"
+            }
+          ],
+          "path": "weikan/weikan"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "sina/weibo/weibo_filter"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "tencent/qq_favorite"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "人人"
+            },
+            {
+              "language-code": "en",
+              "name": "RenRen"
+            }
+          ],
+          "path": "renren/image"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "mcache"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "Messenger的图片"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "Messenger的圖片"
+            },
+            {
+              "language-code": "en",
+              "name": "Messenger Pictures"
+            }
+          ],
+          "path": "pictures/messenger"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "haodou/recipe/imagecache"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "miliao/icon"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "zy_news/newsimg"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "PicsArt"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "PicsArt"
+            },
+            {
+              "language-code": "en",
+              "name": "PicsArt"
+            }
+          ],
+          "path": "pictures/picsart"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "茄子快传的图片"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "茄子快傳的圖片"
+            },
+            {
+              "language-code": "en",
+              "name": "SHAREit Pictures"
+            }
+          ],
+          "path": "qiezi/pictures"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "boyaa_texas_v2"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "/system/media/wallpaper"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "kingcomic/theme"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "baidu_music/image"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "Q拍"
+            },
+            {
+              "language-code": "en",
+              "name": "Opai"
+            }
+          ],
+          "path": "dcim/opaipic"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "autohomemain/img"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "wallpaper/file"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "美图秀秀"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "美圖秀秀"
+            },
+            {
+              "language-code": "en",
+              "name": "Meitu"
+            }
+          ],
+          "path": "mtxx"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "rm/res/usericon"
+        },
+        {
+          "attributes": {
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "WPS"
+            },
+            {
+              "language-code": "en",
+              "name": "WPS"
+            }
+          ],
+          "path": "kingsoftoffice/file/summary/preview"
+        },
+        {
+          "attributes": {
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "小米商城"
+            },
+            {
+              "language-code": "en",
+              "name": "MiShop saved"
+            }
+          ],
+          "path": "mishop"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "appshare.istory/imgs"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "weichen"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "茄子快传的视频"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "茄子快傳的視頻"
+            },
+            {
+              "language-code": "en",
+              "name": "SHAREit Videos"
+            }
+          ],
+          "path": "qiezi/videos"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "魔漫相机照片"
+            },
+            {
+              "language-code": "en",
+              "name": "Moman Camera pictures"
+            }
+          ],
+          "path": "dcim/momentcam"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "快牙的视频"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "快牙的視頻"
+            },
+            {
+              "language-code": "en",
+              "name": "Zapya Videos"
+            }
+          ],
+          "path": "zapya/video"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true,
+            "manual-rename-restricted": true
+          },
+          "names": [],
+          "name-string-res": "album_scanner",
+          "path": "pictures/scanner"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "Facebook"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "Facebook"
+            },
+            {
+              "language-code": "en",
+              "name": "Facebook"
+            }
+          ],
+          "path": "dcim/facebook"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "腾讯微博"
+            },
+            {
+              "language-code": "en",
+              "name": "Tencent Weibo"
+            }
+          ],
+          "path": "android/tencent/tencentweibo"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "美图GIF"
+            },
+            {
+              "language-code": "en",
+              "name": "Meitu GIF"
+            }
+          ],
+          "path": "mtgif"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "powerword/recommendation/icon"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "快手"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "快手"
+            },
+            {
+              "language-code": "en",
+              "name": "Kwai"
+            }
+          ],
+          "path": "gifshow"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "91pandareader/images"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "netease/vopen/netease_temp_pic"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "miliao/background/ww"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "burstlyimagecache"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "miliao/background/wh"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "UC浏览器"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "UC瀏覽器"
+            },
+            {
+              "language-code": "en",
+              "name": "UC Browser"
+            }
+          ],
+          "path": "ucdownloads"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "京东"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "京東"
+            },
+            {
+              "language-code": "en",
+              "name": "JD.COM"
+            }
+          ],
+          "path": "dcim/jdimage"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "QQ"
+            },
+            {
+              "language-code": "en",
+              "name": "QQ"
+            }
+          ],
+          "path": "tencent/qq_images"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "闪传的视频"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "閃傳的視頻"
+            },
+            {
+              "language-code": "en",
+              "name": "Xender Videos"
+            }
+          ],
+          "path": "xender/video"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "kbatterydoctor/cache"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "domobinterstitial/resources"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "B612"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "B612"
+            },
+            {
+              "language-code": "en",
+              "name": "B612"
+            }
+          ],
+          "path": "pictures/b612"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "米聊收藏"
+            },
+            {
+              "language-code": "en",
+              "name": "MiTalk saved"
+            }
+          ],
+          "path": "miliao/saved"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "camera360/tempdata"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "zzenglish/tmp"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "doreso/shareimage"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "微信"
+            },
+            {
+              "language-code": "en",
+              "name": "WeChat"
+            }
+          ],
+          "path": "tencent/micromsg/weixin"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "download/readmode"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "download/kbanner"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "魔漫相机绘图"
+            },
+            {
+              "language-code": "en",
+              "name": "Moman Camera drawing"
+            }
+          ],
+          "path": "momancamera/momentcam_drawing"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "android/download/ads"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "miliao/images/thumbnail"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "cn.ipostcard"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "天猫"
+            },
+            {
+              "language-code": "en",
+              "name": "Taobao TMall"
+            }
+          ],
+          "path": "dcim/100media"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "汽车之家"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "汽車之家"
+            },
+            {
+              "language-code": "en",
+              "name": "Autohomemain"
+            }
+          ],
+          "path": "autohomemain"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "花椒"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "花椒"
+            },
+            {
+              "language-code": "en",
+              "name": "花椒"
+            }
+          ],
+          "path": "花椒/我的相册"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "youni/profile_photo"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "miliao/apps/icons"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "miliao/background/thumbnail"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "美女激情画册"
+            },
+            {
+              "language-code": "en",
+              "name": "Beauty phone"
+            }
+          ],
+          "path": "beautyphone"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "QQ HD"
+            },
+            {
+              "language-code": "en",
+              "name": "QQ HD"
+            }
+          ],
+          "path": "tencent/qqhd_pic"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "miliao/adver"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "renren/uploadimage"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "QQ接收的文件"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "QQ接收的文件"
+            },
+            {
+              "language-code": "en",
+              "name": "QQ files"
+            }
+          ],
+          "path": "tencent/qqfile_recv"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "/system/media/lockscreen"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "百度浏览器"
+            },
+            {
+              "language-code": "en",
+              "name": "Baidu Browser"
+            }
+          ],
+          "path": "baidu/flyflow/downloads"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "QQ空间"
+            },
+            {
+              "language-code": "en",
+              "name": "Qzone"
+            }
+          ],
+          "path": "tencent/qzonepic"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "momark/cache"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "In-超萌貼紙相機"
+            },
+            {
+              "language-code": "en",
+              "name": "InCamera"
+            }
+          ],
+          "path": "incamera"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "viva2/magazine/cover"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true,
+            "manual-rename-restricted": true
+          },
+          "names": [],
+          "name-string-res": "album_midrop",
+          "path": "miui/midrop"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "cache/image"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "手机百度"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "手機百度"
+            },
+            {
+              "language-code": "en",
+              "name": "Baidu Mobile"
+            }
+          ],
+          "path": "baidu/searchbox/downloads"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true,
+            "manual-rename-restricted": true
+          },
+          "names": [],
+          "name-string-res": "album_download",
+          "path": "download"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "dopooltv/ad/image"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "diandao/logo/mall"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "baiduhi/image/middle"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "迅雷"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "迅雷"
+            },
+            {
+              "language-code": "en",
+              "name": "Thunder"
+            }
+          ],
+          "path": "thunderdownload"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "datas"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "Twitter的图片"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "Twitter的圖片"
+            },
+            {
+              "language-code": "en",
+              "name": "Twitter Pictures"
+            }
+          ],
+          "path": "pictures/twitter"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "download/ads"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "Layout"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "Layout"
+            },
+            {
+              "language-code": "en",
+              "name": "Layout"
+            }
+          ],
+          "path": "pictures/layout"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "新浪微博"
+            },
+            {
+              "language-code": "en",
+              "name": "Weibo"
+            }
+          ],
+          "path": "sina/weibo/weibo"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "魔漫相机表情"
+            },
+            {
+              "language-code": "en",
+              "name": "Moman Camera emoticon"
+            }
+          ],
+          "path": "momancamera/momentcam_emoticon"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "moji/imglifecache"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "panda"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "kuwomusic/welcome"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "可米酷漫画"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "可米酷漫畫"
+            },
+            {
+              "language-code": "en",
+              "name": "Comicool"
+            }
+          ],
+          "path": "comicool/截屏保存"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "OGQ壁纸"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "OGQ壁纸"
+            },
+            {
+              "language-code": "en",
+              "name": "Backgrounds HD"
+            }
+          ],
+          "path": "pictures/ogq"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "WhatsApp的视频"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "WhatsApp的視頻"
+            },
+            {
+              "language-code": "en",
+              "name": "WhatsApp Videos"
+            }
+          ],
+          "path": "whatsapp/media/whatsapp video"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "365rilidownload/cache"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "lehe_yy_s/photo"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "tencent/micromsg/camera"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "android/download/kbanner"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "voiceassistant/push/icon"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "Messenger的视频"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "Messenger的視頻"
+            },
+            {
+              "language-code": "en",
+              "name": "Messenger Videos"
+            }
+          ],
+          "path": "movies/messenger"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "openfeint/webui/images"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "kuaipai/twocode"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "cbox/temp"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "微云"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "微雲"
+            },
+            {
+              "language-code": "en",
+              "name": "Weiyun"
+            }
+          ],
+          "path": "微云保存的文件"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "网易新闻"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "網易新聞"
+            },
+            {
+              "language-code": "en",
+              "name": "NetEase News"
+            }
+          ],
+          "path": "pictures/netease/newsreader"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "hjapp"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "moji/imgnotdeletecache"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "生活黄页"
+            },
+            {
+              "language-code": "en",
+              "name": "Directory"
+            }
+          ],
+          "path": "miui/yellowpage"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "/system"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "闪传的图片"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "閃傳的圖片"
+            },
+            {
+              "language-code": "en",
+              "name": "Xender Pictures"
+            }
+          ],
+          "path": "xender/image"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "SNOW"
+            },
+            {
+              "language-code": "en",
+              "name": "SNOW"
+            }
+          ],
+          "path": "snow"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "91pandareader/covers"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "xiaoi/weather"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "小蚁运动相机"
+            },
+            {
+              "language-code": "en",
+              "name": "Sports Camera"
+            }
+          ],
+          "path": "dcim/sportscamera"
+        },
+        {
+          "attributes": {
+            "in-whitelist": false
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "演示视频"
+            },
+            {
+              "language-code": "en",
+              "name": "Demo video"
+            }
+          ],
+          "path": "miui/gallery/demovideo"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "tencent/qtl/find"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "zhidian/cache"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "goweatherex/download/themeimg"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "糗事百科"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "糗事百科"
+            },
+            {
+              "language-code": "en",
+              "name": "QSBK"
+            }
+          ],
+          "path": "qsbk/save"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "miidi.download"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "miliao/avatars"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "baiduhi/image/head"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "qqreader/cover"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "Mirror Image"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "Mirror Image"
+            },
+            {
+              "language-code": "en",
+              "name": "Mirror Image"
+            }
+          ],
+          "path": "mirror_image"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "米聊"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "米聊"
+            },
+            {
+              "language-code": "en",
+              "name": "Mi Talk"
+            }
+          ],
+          "path": "miliao/images"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "music_download/pic"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "小米无人机"
+            },
+            {
+              "language-code": "en",
+              "name": "MiDrone"
+            }
+          ],
+          "path": "dcim/midrone"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "baidu/baiduplayer/image"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "/system/media/video"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "youku/offlinedata"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "豌豆荚"
+            },
+            {
+              "language-code": "en",
+              "name": "SnapPea"
+            }
+          ],
+          "path": "wandoujia/image"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "icloudzone/ads_cache"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "coolwallpaper/cache"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "糖果照相机"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "糖果照相機"
+            },
+            {
+              "language-code": "en",
+              "name": "CandyCam"
+            }
+          ],
+          "path": "dcim/candycam"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "VIVA畅读"
+            },
+            {
+              "language-code": "en",
+              "name": "VIVA"
+            }
+          ],
+          "path": "dcim/viva-pics"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "baiduhi/image/thumbnail"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "hao123"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "hao123"
+            },
+            {
+              "language-code": "en",
+              "name": "hao123"
+            }
+          ],
+          "path": "hao123/down/image"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "陌陌"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "陌陌"
+            },
+            {
+              "language-code": "en",
+              "name": "Momo"
+            }
+          ],
+          "path": "immomo/camera"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "QQ浏览器"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "QQ瀏覽器"
+            },
+            {
+              "language-code": "en",
+              "name": "QQ Browser"
+            }
+          ],
+          "path": "qqbrowser/图片收藏"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "touchtao/games/urbanchaser"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "百度贴吧"
+            },
+            {
+              "language-code": "en",
+              "name": "Tieba"
+            }
+          ],
+          "path": "tieba"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "米聊涂鸦"
+            },
+            {
+              "language-code": "en",
+              "name": "MiTalk doodles"
+            }
+          ],
+          "path": "miliao/handwritings"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "qqbrowser/.imagecache"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "touchpalv5/webview"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "安卓壁纸"
+            },
+            {
+              "language-code": "en",
+              "name": "Android wallpapers"
+            }
+          ],
+          "path": "androidesk/wallpapers"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "mimarket/files"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "qqreader/pluginimg"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "Pinterest"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "Pinterest"
+            },
+            {
+              "language-code": "en",
+              "name": "Pinterest"
+            }
+          ],
+          "path": "dcim/100pint/pins"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "dopooltv/cache"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "wangpiao/images"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "qdreader"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "秒拍"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "秒拍"
+            },
+            {
+              "language-code": "en",
+              "name": "Flash Show"
+            }
+          ],
+          "path": "dcim/camera/miaopai"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "qumi"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "rm/res"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "百度云"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "百度雲"
+            },
+            {
+              "language-code": "en",
+              "name": "Baidu Netdisk"
+            }
+          ],
+          "path": "baidunetdisk"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "didi/imgs"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "掌上百度"
+            },
+            {
+              "language-code": "en",
+              "name": "Baidu Mobile"
+            }
+          ],
+          "path": "baidu/bdmobile/downloads"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "usb/rarmachine.app/contents"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "doumob/image"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "ganji/actionimage"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "wangpiao/posterimages"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "camera360/data"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true,
+            "manual-rename-restricted": true
+          },
+          "names": [],
+          "name-string-res": "album_wallpaper",
+          "path": "miui/wallpaper"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true,
+            "manual-rename-restricted": true
+          },
+          "names": [],
+          "name-string-res": "album_bluetooth",
+          "path": "bluetooth"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "joy/pic"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "天天P图"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "天天P圖"
+            },
+            {
+              "language-code": "en",
+              "name": "Pitu"
+            }
+          ],
+          "path": "pitu"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "cn.ipostcard/card_templates"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "infzm/image"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "androidesk/onekeywallpapers"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "ganji/postimage_details"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "ideashow/project"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "360launcher/store"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "miui/theme/temp"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "Instagram的图片"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "Instagram的圖片"
+            },
+            {
+              "language-code": "en",
+              "name": "Instagram Pictures"
+            }
+          ],
+          "path": "pictures/instagram"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "rm/res/song"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "kecheng/images"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "小咖秀"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "小咖秀"
+            },
+            {
+              "language-code": "en",
+              "name": "小咖秀"
+            }
+          ],
+          "path": "dcim/camera/xiaokaxiu"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "快牙的图片"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "快牙的圖片"
+            },
+            {
+              "language-code": "en",
+              "name": "Zapya Pictures"
+            }
+          ],
+          "path": "zapya/photo"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "WhatsApp的图片"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "WhatsApp的圖片"
+            },
+            {
+              "language-code": "en",
+              "name": "WhatsApp Images"
+            }
+          ],
+          "path": "whatsapp/media/whatsapp images"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "baidumap/cache"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "miui/weather"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "锁屏壁纸"
+            },
+            {
+              "language-code": "en",
+              "name": "Lockscreen Wallpapers"
+            }
+          ],
+          "path": "Pictures/锁屏壁纸"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true,
+            "manual-rename-restricted": true
+          },
+          "names": [],
+          "name-string-res": "album_screen_recorder",
+          "path": "DCIM/ScreenRecorder"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "今日头条"
+            },
+            {
+              "language-code": "en",
+              "name": "Toutiao"
+            }
+          ],
+          "path": "news_article"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "淘宝"
+            },
+            {
+              "language-code": "zh_TW",
+              "name": "淘寶"
+            },
+            {
+              "language-code": "en",
+              "name": "Taobao"
+            }
+          ],
+          "path": "Pictures/taobao"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [],
+          "path": "Pictures"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [],
+          "path": "netease/cloudmusic/网易云音乐相册"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [],
+          "path": "DCIM"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "微博HD"
+            },
+            {
+              "language-code": "en",
+              "name": "Weibo HD"
+            }
+          ],
+          "path": "Sina/weibo-pad/img"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "夸克浏览器"
+            },
+            {
+              "language-code": "en",
+              "name": "Quark Browser"
+            }
+          ],
+          "path": "Quark/Download"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "腾讯新闻"
+            },
+            {
+              "language-code": "en",
+              "name": "Tencent News"
+            }
+          ],
+          "path": "Pictures/TencentNews"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true,
+            "manual-rename-restricted": true
+          },
+          "names": [],
+          "name-string-res": "album_creative",
+          "path": "DCIM/Creative"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [],
+          "path": "Pictures/B612咔叽"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [],
+          "path": "Pictures/B612"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "天猫"
+            },
+            {
+              "language-code": "en",
+              "name": "Tmall Pics"
+            }
+          ],
+          "path": "DCIM/TmallPic"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "en",
+              "name": "Tim"
+            }
+          ],
+          "path": "Tencent/Tim_Images"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "百度新闻"
+            },
+            {
+              "language-code": "en",
+              "name": "Baidu News"
+            }
+          ],
+          "path": "Pictures/BaiduNews"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "搜狐新闻"
+            },
+            {
+              "language-code": "en",
+              "name": "Sohu News"
+            }
+          ],
+          "path": "Android/data/com.sohu.newsclient/files/SohuDownload"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "UC浏览器图片"
+            },
+            {
+              "language-code": "en",
+              "name": "UCBrowser Pictures"
+            }
+          ],
+          "path": "UCDownloads/pictures"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "小红书"
+            },
+            {
+              "language-code": "en",
+              "name": "XHS"
+            }
+          ],
+          "path": "Pictures/XHS"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "内涵段子"
+            },
+            {
+              "language-code": "en",
+              "name": "Joke Essay"
+            }
+          ],
+          "path": "joke_essay"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "miui/assistant/launch_icon"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "MobileCache"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "didiImg"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "DidiScreenAd"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "Tencent/tassistant/photon"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "Android/data/com.tencent.qqlive/files/image"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "QQmusic/LandScape"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "QQmusic/dts_auto/assets/images"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "Android/data/com.tencent.tmgp.sgame/files/Resources/Map/UIPics"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "Android/data/com.tencent.mobileqq/qzone/zip_cache"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "tmp"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "cache"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "imagecache"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "Xiaomi/WALI_LIVE/levelPic"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "Ingkee/newImage/tag"
+        },
+        {
+          "attributes": {
+            "hide": true
+          },
+          "names": [],
+          "path": "tencent/MicroMsg/vusericon"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [],
+          "path": "sina/weibo/微博动图"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "微信下载"
+            },
+            {
+              "language-code": "en",
+              "name": "WeChat Download"
+            }
+          ],
+          "path": "tencent/MicroMsg/Download"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "电子邮件附件"
+            },
+            {
+              "language-code": "en",
+              "name": "Email attachments"
+            }
+          ],
+          "path": "Android/data/com.android.email/files/Attachments"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "传送门"
+            },
+            {
+              "language-code": "en",
+              "name": "Taplus"
+            }
+          ],
+          "path": "MIUI/taplus/taplus_image"
+        },
+        {
+          "attributes": {
+            "auto-upload": true,
+            "in-whitelist": true,
+            "manual-rename-restricted": true
+          },
+          "names": [
+            {
+              "language-code": "zh_CN",
+              "name": "便签"
+            },
+            {
+              "language-code": "en",
+              "name": "Notes"
+            }
+          ],
+          "name-string-res": "album_notes",
+          "path": "DCIM/Notes"
+        }
+      ],
+      "patterns": [
+        {
+          "pattern": "(^/?)(DCIM|Pictures|Download)($|/)",
+          "attributes": {
+            "in-whitelist": true
+          }
+        },
+        {
+          "pattern": "^/?[^/]+/?$",
+          "attributes": {
+            "in-whitelist": true
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "media_scanner",
+    "strategy": {
+      "stream_file": {
+        "delay_milliseconds": 2000,
+        "folders": [
+          {
+            "path": "bluetooth"
+          }
+        ]
+      },
+      "file_size_limit": {
+        "image_max_size": 40,
+        "video_max_size": 4096
+      },
+      "special_type_media": {
+        "hfr_120fps_lower_bound": 100,
+        "hfr_120fps_upper_bound": 140,
+        "hfr_240fps_lower_bound": 160,
+        "hfr_240fps_upper_bound": 260
+      }
+    }
+  },
+  {
+    "name": "assistant-rules",
+    "strategy": {
+      "duplicateRemovalInterval": 180,
+      "defaultMinImageCount": 12,
+      "defaultMaxImageCount": 500,
+      "defaultMinSelectedImageCount": 6,
+      "defaultMaxSelectedImageCount": 80,
+      "freeScenarioTriggerInterval": 6,
+      "localScenarioRules": [
+        {
+          "scenarioId": 118,
+          "priority": 200,
+          "minImageCount": 12,
+          "maxImageCount": 500,
+          "minSelectedImageCount": 10,
+          "maxSelectedImageCount": 120,
+          "triggerInterval": 0
+        },
+        {
+          "scenarioId": 119,
+          "priority": 190,
+          "minSelectedImageCount": 10,
+          "maxSelectedImageCount": 120
+        },
+        {
+          "scenarioId": 120,
+          "priority": 180,
+          "minSelectedImageCount": 10,
+          "maxSelectedImageCount": 120
+        },
+        {
+          "scenarioId": 121,
+          "priority": 170,
+          "minSelectedImageCount": 10,
+          "maxSelectedImageCount": 120
+        },
+        {
+          "scenarioId": 108,
+          "priority": 160,
+          "maxSelectedImageCount": 80
+        },
+        {
+          "scenarioId": 109,
+          "priority": 150,
+          "maxSelectedImageCount": 80
+        },
+        {
+          "scenarioId": 110,
+          "priority": 140
+        },
+        {
+          "scenarioId": 101,
+          "priority": 130
+        },
+        {
+          "scenarioId": 102,
+          "priority": 120
+        },
+        {
+          "scenarioId": 111,
+          "priority": 110
+        },
+        {
+          "scenarioId": 112,
+          "priority": 100
+        },
+        {
+          "scenarioId": 113,
+          "priority": 90
+        },
+        {
+          "scenarioId": 114,
+          "priority": 80
+        },
+        {
+          "scenarioId": 115,
+          "priority": 70
+        },
+        {
+          "scenarioId": 116,
+          "priority": 60
+        },
+        {
+          "scenarioId": 117,
+          "priority": 50
+        },
+        {
+          "scenarioId": 103,
+          "priority": 40
+        },
+        {
+          "scenarioId": 104,
+          "priority": 30
+        },
+        {
+          "scenarioId": 401,
+          "priority": 20
+        },
+        {
+          "scenarioId": 402,
+          "priority": 19
+        },
+        {
+          "scenarioId": 403,
+          "priority": 18
+        },
+        {
+          "scenarioId": 404,
+          "priority": 17
+        },
+        {
+          "scenarioId": 201,
+          "priority": 16
+        },
+        {
+          "scenarioId": 501
+        }
+      ]
+    }
+  }
+]

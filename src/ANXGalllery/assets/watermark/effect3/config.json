@@ -1,0 +1,43 @@
+{
+  "name": "in_effect3",
+  "version": 0,
+  "width": 218.33,
+  "height": 70,
+  "offsetX": 0,
+  "offsetY": -53,
+  "icon": "icon.webp",
+  "bgPost": "",
+  "textPieceList": [
+    {
+      "frameRect": [
+        12,
+        14,
+        206.33,
+        42.33
+      ],
+      "text": "HOLIDAYS",
+      "size":24,
+      "isVerticalText": 0,
+      "font": "",
+      "align": 1,
+      "letterSpacing": 0.1,
+      "isBold": true,
+      "lines": 1
+    },
+    {
+      "frameRect": [
+        12,
+        45.33,
+        206.33,
+        58
+      ],
+      "text": "2019 | HAPPINESS",
+      "size":10.67,
+      "isVerticalText": 0,
+      "font": "",
+      "align": 1,
+      "letterSpacing": 0.2,
+      "lines": 1
+    }
+  ]
+}

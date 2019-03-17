@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="start|center" android:orientation="horizontal" android:background="@miui:drawable/list_item_bg_dialog_light" android:layout_width="fill_parent" android:paddingStart="@dimen/rename_face_dialog_or_activity_padding" android:paddingEnd="@dimen/rename_face_dialog_or_activity_padding" style="@style/Gallery.Widget.ListView.Item.SingleLine"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/folder_cover" android:drawable="@drawable/face_pick_from_contract" android:contentDescription="@null" style="@style/Gallery.Widget.ThumbNail.People.Small" />
+    <TextView android:textAppearance="@style/Gallery.TextAppearance.List.Primary" android:textColor="@color/face_folder_item_primary" android:ellipsize="marquee" android:id="@id/folder_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_marginStart="10.0dip" />
+    <TextView android:textAppearance="@style/Gallery.TextAppearance.List.Secondary" android:textColor="@color/face_folder_item_secondary" android:ellipsize="marquee" android:layout_gravity="bottom" android:id="@id/group_tip" android:paddingBottom="6.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+</LinearLayout>

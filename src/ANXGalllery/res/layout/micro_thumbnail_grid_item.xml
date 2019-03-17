@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.miui.gallery.widget.ScalableImageView android:id="@id/micro_thumb" android:duplicateParentState="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" />
+    <ViewStub android:id="@id/item_stub" android:layout="@layout/micro_thumbnail_grid_item_stub" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <FrameLayout android:id="@id/bottom_indicator_container" android:background="@drawable/bottom_indicator_container_bg" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_alignParentStart="true">
+        <TextView android:textAppearance="@style/Gallery.TextAppearance.Small.Inverse" android:layout_gravity="start|bottom|center" android:id="@id/type_indicator" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/horizontal_spacing_secondary" android:includeFontPadding="false" android:drawablePadding="@dimen/horizontal_spacing_secondary" android:layout_marginStart="@dimen/horizontal_spacing_primary" />
+        <TextView android:textAppearance="@style/Gallery.TextAppearance.Small.Inverse" android:layout_gravity="end|bottom|center" android:id="@id/favorites_indicator" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/horizontal_spacing_secondary" android:includeFontPadding="false" android:drawablePadding="0.0px" android:contentDescription="@string/added_to_favorites" android:drawableStart="@drawable/type_indicator_favorites" android:layout_marginEnd="@dimen/horizontal_spacing_primary" />
+    </FrameLayout>
+</merge>

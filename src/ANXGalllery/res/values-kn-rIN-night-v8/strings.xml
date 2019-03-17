@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is">" "<Data> ಇವರು &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> ಅವರೇ ಎಂಬುದು ಖಚಿತವೇ? ಇವರನ್ನು \"%2$s\" ಆಲ್ಬಂಗೆ ಸರಿಸಲಾಗುತ್ತದೆ. </Data>" "</string>
+    <string name="confirm_recommandation_face_not">" "<Data> ಇವರು &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> ಅವರಲ್ಲ ಎಂಬುದು ಖಚಿತವೇ? </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are">" "<Data> ಇವರು &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> ಅವರೇ ಎಂಬುದು ಖಚಿತವೇ? ಈ ಎಲ್ಲರನ್ನೂ \"%2$s\" ಆಲ್ಬಂಗೆ ಸರಿಸಲಾಗುತ್ತದೆ. </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not">" "<Data> ಇವರು &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> ಅವರಲ್ಲ ಎಂಬುದು ಖಚಿತವೇ? </Data>" "</string>
+</resources>

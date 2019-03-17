@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.miui.gallery.editor.photo.widgets.TouchTransLinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/top_panel" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="226.0" android:layout_alignParentTop="true" android:layout_marginStart="@dimen/crop_rotate_bar_margin_left">
+        <TextView android:textSize="@dimen/crop_rotate_label_text_size" android:textColor="@color/crop_rotate_label_color" android:gravity="center" android:layout_width="@dimen/crop_rotate_label_width" android:layout_height="fill_parent" android:text="@string/photo_editor_rotate" />
+        <com.miui.gallery.editor.photo.widgets.seekbar.BiDirectionSeekBar android:id="@id/seekbar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginEnd="@dimen/crop_rotate_bar_margin_right" />
+    </com.miui.gallery.editor.photo.widgets.TouchTransLinearLayout>
+    <com.miui.gallery.editor.photo.widgets.recyclerview.SimpleRecyclerView android:id="@id/preview_list" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="145.0" />
+    <include android:id="@id/common_menu_bottom_bar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/common_menu_bottom_bar" />
+</LinearLayout>

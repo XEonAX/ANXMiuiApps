@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/button_send_light" android:id="@id/action_send" android:visible="true" android:orderInCategory="1" android:title="@string/operation_send" android:showAsAction="always" />
+    <item android:icon="@drawable/button_beautify_light" android:id="@id/action_edit" android:visible="true" android:orderInCategory="2" android:title="@string/operation_edit" android:showAsAction="always" />
+    <item android:icon="@drawable/button_favorite_light" android:id="@id/action_favorite" android:visible="true" android:orderInCategory="3" android:title="@string/operation_favorites" android:checkable="true" android:showAsAction="always" />
+    <item android:icon="@drawable/button_delete_light" android:id="@id/action_delete" android:visible="true" android:orderInCategory="4" android:title="@string/operation_delete" android:showAsAction="always" />
+    <item android:icon="@drawable/button_save_light" android:id="@id/action_save" android:visible="false" android:orderInCategory="4" android:title="@string/operation_save" android:showAsAction="ifRoom" />
+    <item android:icon="@drawable/button_new_light" android:id="@id/action_add_cloud" android:visible="false" android:orderInCategory="7" android:title="@string/operation_add_album" android:showAsAction="ifRoom" />
+    <item android:icon="@drawable/button_decrypt_light" android:id="@id/action_remove_secret" android:visible="false" android:orderInCategory="7" android:title="@string/operation_remove_secret" android:showAsAction="ifRoom" />
+    <item android:id="@id/action_cast" android:visible="true" android:orderInCategory="7" android:title="@string/operation_projection" android:showAsAction="never" />
+    <item android:id="@id/action_set_wallpaper" android:visible="true" android:orderInCategory="7" android:title="@string/operation_set_wallpaper" android:showAsAction="never" />
+    <item android:id="@id/action_set_slide_wallpaper" android:visible="true" android:orderInCategory="7" android:title="@string/operation_set_slide_wallpaper" android:showAsAction="never" />
+    <item android:id="@id/action_play_slideshow" android:visible="true" android:orderInCategory="7" android:title="@string/operation_slide_show" android:showAsAction="never" />
+    <item android:id="@id/action_download_original" android:visible="false" android:orderInCategory="8" android:showAsAction="never" />
+    <item android:id="@id/action_details" android:visible="true" android:orderInCategory="9" android:title="@string/operation_detail" android:showAsAction="never" />
+</menu>

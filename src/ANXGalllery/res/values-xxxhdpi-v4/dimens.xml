@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="action_button_bg_bottom_padding">12.669983dip</dimen>
+    <dimen name="action_button_bg_top_padding">11.669983dip</dimen>
+    <dimen name="action_button_default_height">60.0dip</dimen>
+    <dimen name="action_button_min_width">63.0dip</dimen>
+    <dimen name="action_button_without_title_bg_top_padding">19.0dip</dimen>
+    <dimen name="photo_page_actionbar_height">55.5dip</dimen>
+    <dimen name="action_button_drawable_padding">1.3299866dip</dimen>
+</resources>

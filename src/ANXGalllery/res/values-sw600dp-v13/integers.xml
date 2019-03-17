@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="editor_preview_height_ratio">4</integer>
+    <integer name="editor_preview_width_ratio">3</integer>
+    <integer name="anim_duration">150</integer>
+    <integer name="paint_anim_duration">200</integer>
+    <integer name="remover_paint_alpha">181</integer>
+    <integer name="selectable_drawable_fade_duration">0</integer>
+</resources>

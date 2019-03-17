@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/PhotoEditor.TextAppearance.TextButton" android:gravity="center" android:id="@id/discard" android:layout_width="@dimen/photo_editor_navigator_text_button_width" android:layout_height="@dimen/photo_editor_navigator_text_button_height" android:text="@string/photo_editor_navigator_cancel" android:lines="1" android:layout_alignParentBottom="true" android:layout_alignParentStart="true" />
+    <TextView android:enabled="false" android:textAppearance="@style/PhotoEditor.TextAppearance.TextButton" android:gravity="center" android:id="@id/export" android:layout_width="@dimen/photo_editor_navigator_text_button_width" android:layout_height="@dimen/photo_editor_navigator_text_button_height" android:text="@string/photo_editor_navigator_export" android:lines="1" android:layout_alignParentBottom="true" android:layout_alignParentEnd="true" />
+</RelativeLayout>

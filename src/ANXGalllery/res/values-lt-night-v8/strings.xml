@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is">" "<Data> Ar jūs įsitikinęs, kad tai &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? Šis asmuo bus perkeltas į albumą \"%2$s\". </Data>" "</string>
+    <string name="confirm_recommandation_face_not">" "<Data> Ar tai tikrai ne &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are">" "<Data> Ar jūs įsitikinęs, kad tai &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? Šie asmenys bus perkelti į albumą \"%2$s\". </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not">" "<Data> Ar tai tikrai ne &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? </Data>" "</string>
+</resources>

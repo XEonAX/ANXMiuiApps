@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.gallery.ui.AlbumPageListFaceItem android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Gallery.Widget.ListView.AlbumList.Item"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/album_cover" layout="@layout/album_page_list_four_pic_cover_item" />
+    <TextView android:gravity="center" android:id="@id/album_photo_count" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:drawablePadding="@dimen/horizontal_spacing_secondary" android:layout_centerVertical="true" android:drawableEnd="@drawable/arrow_right" android:layout_marginEnd="@dimen/horizontal_spacing_huge" android:layout_alignParentEnd="true" style="@style/Gallery.TextAppearance.List.Value.Custom" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerVertical="true" android:layout_marginEnd="@dimen/horizontal_spacing_huge" android:layout_toStartOf="@id/album_photo_count" android:layout_toEndOf="@id/album_cover">
+        <TextView android:id="@id/album_name" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/Gallery.TextAppearance.List.Primary.Custom" />
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/custom_list_title_desc_margin">
+            <TextView android:id="@id/album_share_info" android:layout_width="0.0dip" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" style="@style/Gallery.TextAppearance.List.Secondary.Custom" />
+            <TextView android:id="@id/album_force_top_info" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/album_already_forced_top" android:singleLine="true" android:drawableStart="@drawable/info_divider" style="@style/Gallery.TextAppearance.List.Secondary.Custom" />
+        </LinearLayout>
+    </LinearLayout>
+</com.miui.gallery.ui.AlbumPageListFaceItem>

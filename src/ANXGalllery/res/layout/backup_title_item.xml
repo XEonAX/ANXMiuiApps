@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@color/panel_bar_background" android:layout_width="fill_parent" android:layout_height="@dimen/backup_title_item_height" android:paddingStart="@dimen/backup_title_padding_start" android:paddingEnd="@dimen/backup_title_padding_end"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:ColorRingProgress="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:paddingTop="2.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:id="@id/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@null" />
+        <com.miui.gallery.widget.ColorRingProgress android:layout_gravity="center" android:id="@id/progress" android:visibility="gone" android:layout_width="@dimen/backup_cloud_storage_progress_size" android:layout_height="@dimen/backup_cloud_storage_progress_size" ColorRingProgress:foregroundColor="@color/backup_cloud_storage_progress_fore" ColorRingProgress:backgroundColor="@color/backup_cloud_storage_progress_back" ColorRingProgress:ringThickness="@dimen/backup_cloud_storage_progress_thickness" ColorRingProgress:colorInterval="@dimen/backup_cloud_storage_progress_interval" />
+    </FrameLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/text_container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="@dimen/backup_title_item_drawable_padding">
+        <TextView android:textAppearance="@style/Gallery.TextAppearance.List.Primary" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:drawablePadding="@dimen/backup_title_drawable_padding" />
+        <TextView android:textAppearance="@style/Gallery.TextAppearance.List.Secondary" android:id="@id/summary" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView android:layout_gravity="end|center" android:id="@id/btn" style="@style/Gallery.Widget.Button.ListItem" />
+</LinearLayout>

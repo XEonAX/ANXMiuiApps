@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/Gallery.TextAppearance.List.GroupHeader.Date" android:layout_gravity="center_vertical" android:id="@id/datetime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/horizontal_spacing_primary" />
+    <TextView android:textAppearance="@style/Gallery.TextAppearance.List.GroupHeader.Location" android:layout_gravity="center_vertical" android:id="@id/location" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" android:drawableStart="@drawable/info_divider" android:textDirection="locale" />
+    <TextView android:textAppearance="@style/Gallery.TextAppearance.List.GroupHeader" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/do_select" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="@dimen/horizontal_spacing_big" android:layout_marginEnd="@dimen/horizontal_spacing_primary" />
+</merge>

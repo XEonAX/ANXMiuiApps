@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is">" "<Data> Уверены, что это &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? Это фото будет перемещено в альбом \"%2$s\". </Data>" "</string>
+    <string name="confirm_recommandation_face_not">" "<Data> Уверены, что это не &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are">" "<Data> Уверены, что это &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? Эти фото будут перемещены в альбом \"%2$s\". </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not">" "<Data> Уверены, что это не &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? </Data>" "</string>
+</resources>

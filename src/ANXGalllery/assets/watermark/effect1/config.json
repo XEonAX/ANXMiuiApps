@@ -1,0 +1,27 @@
+{
+  "name": "in_effect1",
+  "version": 0,
+  "width": 294.67,
+  "height": 65.33,
+  "offsetX": 0,
+  "offsetY": 52.6,
+  "icon": "icon.webp",
+  "bgPost": "",
+  "textPieceList": [
+    {
+      "frameRect": [
+        12,
+        12,
+        282.67,
+        57.33
+      ],
+      "text": "Always believe that something\nwonderful is about to happen.",
+      "size":16,
+      "isVerticalText": 0,
+      "font": "",
+      "align": 0,
+      "letterSpacing": 0.067,
+      "lines": 2
+    }
+  ]
+}

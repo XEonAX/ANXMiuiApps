@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/preference_menu_item_height" style="@miui:style/Widget.ListView.Item.Immersion"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/icon" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@null" android:layout_marginEnd="@dimen/preference_item_icon_margin" />
+    <ImageView android:layout_gravity="top" android:id="@id/red_dot" android:background="@drawable/immersion_menu_update_ic" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/preference_menu_red_dot_margin_top" android:contentDescription="@null" android:layout_marginEnd="@dimen/preference_menu_red_dot_margin_end" />
+    <LinearLayout android:orientation="vertical" android:paddingBottom="1.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:textAppearance="@style/Gallery.TextAppearance.PreferenceList" android:id="@id/text" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <TextView android:textAppearance="@style/Gallery.TextAppearance.List.Secondary.Preference" android:id="@id/summary" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView android:textAppearance="@style/Gallery.TextAppearance.List.Secondary.Preference" android:id="@id/information" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/menu_item_inner_padding" />
+</LinearLayout>

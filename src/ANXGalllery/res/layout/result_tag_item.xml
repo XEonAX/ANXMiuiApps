@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/click_view" android:paddingBottom="@dimen/result_tags_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:foreground="@drawable/result_tag_item_fg">
+        <ImageView android:id="@id/icon" android:layout_width="@dimen/result_tag_item_icon_height" android:layout_height="@dimen/result_tag_item_icon_height" android:scaleType="centerCrop" android:contentDescription="@null" />
+    </FrameLayout>
+    <TextView android:ellipsize="end" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/result_tag_item_text_top_margin" android:lines="1" style="@style/Gallery.TextAppearance.Search.List.Primary.Middle" />
+</LinearLayout>

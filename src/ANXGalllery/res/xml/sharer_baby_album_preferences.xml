@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory>
+        <miui.preference.ValuePreference android:persistent="false" android:title="@string/baby_nick_name" android:key="baby_name" />
+        <miui.preference.ValuePreference android:persistent="false" android:title="@string/baby_birthday" android:key="baby_birthday" />
+        <miui.preference.ValuePreference android:persistent="false" android:title="@string/baby_sexy" android:key="baby_sexy" />
+        <miui.preference.ValuePreference android:persistent="false" android:title="@string/you_are" android:key="owner_relation" />
+        <miui.preference.ValuePreference android:persistent="false" android:title="@string/auto_update_face" android:key="auto_update_face" />
+    </PreferenceCategory>
+</PreferenceScreen>

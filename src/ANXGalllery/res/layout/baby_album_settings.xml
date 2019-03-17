@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:scrollbarStyle="outsideOverlay" android:id="@id/gallery_setting_root" android:layout_width="fill_parent" android:layout_height="fill_parent" android:windowActionBar="true">
+        <LinearLayout android:orientation="vertical" android:paddingTop="30.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/go_to_setting" android:layout_width="@dimen/baby_setting_page_header_face_width" android:layout_height="@dimen/baby_setting_page_header_face_height" android:src="@drawable/baby_album_sharer_default_big" android:scaleType="centerCrop" android:contentDescription="@string/baby_album_settings" />
+            <com.miui.gallery.widget.ExpandedListView android:id="@android:id/list" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+            <Button android:gravity="center" android:layout_gravity="bottom|center" android:id="@id/finish_fill_baby" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/finish_fill_baby" android:layout_marginStart="@dimen/page_content_margin_lr" android:layout_marginEnd="@dimen/page_content_margin_lr" />
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

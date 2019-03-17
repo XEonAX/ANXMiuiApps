@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/fake_bottom" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+        <TextView android:text="@string/search_retry" style="@style/Gallery.Widget.Button.Warning" />
+    </FrameLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/fake_bottom">
+        <ProgressBar android:id="@id/progress" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/Gallery.Widget.ProgressBar" />
+        <ImageView android:id="@id/icon" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/empty_page_common" android:contentDescription="@null" />
+        <TextView android:ellipsize="middle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/vertical_spacing_huge" android:layout_marginBottom="@dimen/vertical_spacing_very_huge" android:text="@string/loading" android:maxLines="2" style="@style/Gallery.TextAppearance.Search.List.Secondary" />
+    </LinearLayout>
+</RelativeLayout>

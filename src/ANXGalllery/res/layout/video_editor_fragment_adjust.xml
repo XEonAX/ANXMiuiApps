@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.miui.gallery.editor.photo.widgets.recyclerview.SimpleRecyclerView android:id="@id/recylerview" android:layout_width="fill_parent" android:layout_height="@dimen/menu_panel_list_height" android:paddingStart="@dimen/photo_editor_menu_bound_padding" android:paddingEnd="@dimen/photo_editor_menu_bound_padding" />
+    <include android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" layout="@layout/video_editor_bottom_bar" />
+</LinearLayout>

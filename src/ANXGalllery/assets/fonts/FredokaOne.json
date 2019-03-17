@@ -1,0 +1,7 @@
+{
+  "uri": "assets://fonts/files/FredokaOne.ttf",
+  "package": "com.miui.gallery",
+  "iconUri": "com.miui.gallery:drawable/video_editor_font_fredoka",
+  "extra": false,
+  "name": "Fredoka One"
+}

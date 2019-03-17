@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="wrap_content" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="center" android:id="@id/video_editor_text_rl" android:background="@drawable/video_editor_img_bg_border" android:padding="1.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="@dimen/video_editor_text_item_width">
+        <ImageView android:gravity="center" android:id="@id/video_editor_text_image" android:background="@drawable/video_editor_text_type_bg" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="center" />
+    </RelativeLayout>
+</FrameLayout>

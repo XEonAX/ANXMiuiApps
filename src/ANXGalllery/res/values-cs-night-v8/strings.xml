@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is">" "<Data> Jste si jisti, že toto je &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? Tato osoba bude přesunuta do alba \"%2$s\". </Data>" "</string>
+    <string name="confirm_recommandation_face_not">" "<Data> Jste si jisti, že toto není &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are">" "<Data> Jste si jisti, že toto jsou &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? Tito lidé budou přesunuti do alba \"%2$s\". </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not">" "<Data> Jste si jisti, že toto nejsou &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? </Data>" "</string>
+</resources>

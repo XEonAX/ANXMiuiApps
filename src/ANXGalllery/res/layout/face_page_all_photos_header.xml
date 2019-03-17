@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layoutDirection="locale"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/Gallery.TextAppearance.People.List.Small" android:gravity="center_vertical" android:id="@id/all_photos_header" android:layout_width="fill_parent" android:layout_height="@dimen/all_face_height" android:text="@string/all_faces" android:paddingStart="@dimen/all_photo_padding" />
+</FrameLayout>

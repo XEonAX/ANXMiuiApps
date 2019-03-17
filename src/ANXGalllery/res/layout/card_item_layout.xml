@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/custom_list_item_background" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.miui.gallery.widget.CardCoverView android:id="@id/card_cover" android:layout_width="fill_parent" android:layout_height="@dimen/card_action_cover_height" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/card_action_layout_height">
+        <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="@dimen/card_title_margin_left">
+            <TextView android:textSize="@dimen/card_title_size" android:textStyle="bold" android:textColor="@color/card_title" android:ellipsize="end" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lines="1" />
+            <TextView android:textSize="@dimen/card_description_size" android:textColor="@color/card_description" android:ellipsize="end" android:id="@id/description" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/card_description_margin_top" android:lines="1" />
+        </LinearLayout>
+    </LinearLayout>
+    <View android:id="@id/divider" android:background="@color/card_divider_stroke" android:layout_width="fill_parent" android:layout_height="1.0px" />
+</LinearLayout>

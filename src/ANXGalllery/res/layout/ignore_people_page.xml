@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ViewStub android:gravity="center" android:layout_gravity="center" android:id="@id/empty_view" android:layout="@layout/people_face_empty_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <GridView android:id="@id/grid" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="fill_parent" android:verticalSpacing="0.0dip" android:layout_marginStart="@dimen/people_page_list_padding_left_right" android:layout_marginEnd="@dimen/people_page_list_padding_left_right" style="@style/Gallery.Widget.GridView.People" />
+</FrameLayout>

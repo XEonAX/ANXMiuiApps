@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+    <com.miui.gallery.video.editor.widget.SingleChoiceRecycleView android:id="@id/recylerview" android:layout_width="fill_parent" android:layout_height="@dimen/menu_panel_list_height" android:layout_marginBottom="@dimen/beautify_bottom_margin" />
+    <include android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" layout="@layout/video_editor_bottom_bar" />
+</LinearLayout>

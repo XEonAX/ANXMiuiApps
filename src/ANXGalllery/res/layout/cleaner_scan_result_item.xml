@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/cleaner_scan_result_item_background" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/top_panel" android:paddingBottom="@dimen/cleaner_item_content_layout_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/cleaner_item_content_layout_padding" android:paddingEnd="@dimen/cleaner_item_content_layout_padding">
+        <RelativeLayout android:id="@id/content_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/cleaner_item_title_text" android:textStyle="bold" android:textColor="@color/cleaner_item_title_text" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/cleaner_item_title_margin_top" android:layout_toStartOf="@id/size" android:layout_alignParentStart="true" />
+            <TextView android:textSize="@dimen/cleaner_item_description_text" android:textColor="@color/cleaner_item_description_text" android:id="@id/description" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/cleaner_item_description_margin_top" android:layout_marginBottom="@dimen/cleaner_item_description_margin_bottom" android:layout_below="@id/title" android:layout_toStartOf="@id/size" android:layout_alignParentStart="true" />
+            <TextView android:textSize="@dimen/cleaner_item_size_text" android:textColor="@color/cleaner_item_size_text" android:id="@id/size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+        <include layout="@layout/cleaner_scan_result_image_layout" />
+    </LinearLayout>
+    <View android:background="@color/card_divider_stroke" android:layout_width="fill_parent" android:layout_height="1.0px" />
+    <TextView android:textSize="@dimen/cleaner_item_action_text" android:textColor="@color/cleaner_item_action_text" android:gravity="center" android:id="@id/action" android:background="@drawable/cleaner_item_action_background" android:layout_width="fill_parent" android:layout_height="@dimen/cleaner_item_action_layout_height" />
+    <View android:id="@id/divider" android:background="@color/card_divider_stroke" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/cleaner_item_action_bottom_divider_height" />
+</LinearLayout>

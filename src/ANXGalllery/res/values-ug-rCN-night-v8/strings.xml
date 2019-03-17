@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is"><Data> بۇنىڭ&lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> ئىكەنلىكىنى جەزملەمسىز؟جەزملىسىڭىز بۇ چىراي “%2$s” ئالبومغا يۆتكىلىدۇ。; </Data>" "</string>
+    <string name="confirm_recommandation_face_not">" "<Data>جەزملەشتۈرگىنىڭىز &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>بۇ ئەمەسمۇ؟</Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are"><Data> بۇلارنىڭ&lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>ئىكەنلىكىنى جەزملەمسىز؟جەزملىگەندىن كېيىن بۇلار “%2$s” ئالبومغا يۆتكىلىدۇ。; </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not">" "<Data>جەزملەشتۈرگىنىڭىز &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>بۇ ئەمەسمۇ؟</Data>" "</string>
+    <string name="confirm_merge_face_albums">" "<Data> &lt;font color=#e6ffffff>&lt;b>%s&lt;/b>&lt;/font>نى جەزملەشتۈرەمسىز؟ </Data>" "</string>
+    <string name="confirm_merge_many_face_albums">" "<Data> &lt;font color=#e6ffffff>&lt;b>%s&lt;/b>&lt;/font>نى جەزملەشتۈرەمسىز؟ </Data>" "</string>
+    <string name="ignore_alert_title"><Data> بۇ چىراينى ئۆتكۈزىۋېتەمسىز？&lt;font color=#e6ffffff>&lt;b>ئۆتكۈزىۋەتكەن چىراينى سول ئۈستى تەرەپ تىزىملىكتىن ئەسلىگە كەلتۈرگىلى بولىدۇ&lt;/b>&lt;/font>; </Data>" "</string>
+</resources>

@@ -1,0 +1,149 @@
+!!brut.androlib.meta.MetaInfo
+apkFileName: MiuiGallery.apk
+compressionType: false
+doNotCompress:
+- dex
+- arsc
+- assets/city.db.md5
+- assets/keepfileFG2HJ6D4
+- jpg
+- webp
+- png
+- json
+- assets/km/com.nexstreaming.kinemaster.basic.kmt/kinemaster.dsa
+- assets/km/com.nexstreaming.kinemaster.builtin.transition.crossfade.kmt/kinemaster.dsa
+- assets/km/com.nexstreaming.kinemaster.builtin.watermark.kmt/kinemaster.dsa
+- assets/km/shared/theme_accent.fdbd63c72de84e818b4cd92c1995c6ab01ca68d9.png
+- assets/km/shared/theme_ending.1507d5580d59e8e39c6354e88c15528008a43cb2.png
+- assets/km/shared/theme_middle.2f622c84453e17250a5f9987399746e16f4728b2.png
+- assets/km/shared/theme_open.f490db68350053279d4a86130ecf519b4a95c66e.png
+- assets/km/shared/theme_thumb_basic.2363dfa9edfa0aa63622c58d1ca0ef52ece7e8f5.png
+- assets/km/shared/theme_transition.73581fa2613f9fc41e429054a5823cf8acc2aa24.png
+- assets/km/shared/transition_crossfade.1ab8b54ebbda716d73839c317a724fd230a3eae1.png
+- assets/km/shared/transition_none.67cf91d13c68c91ca47b8b36d74d702e12e32e00.png
+- lic
+- res/drawable-440dpi-v4/action_bar_split_bg_expanded_dark.9.png
+- res/drawable-440dpi-v4/list_item_bg_dialog_middle_normal_light.9.png
+- res/drawable-440dpi-v4/list_item_bg_dialog_middle_pressed_light.9.png
+- res/drawable-hdpi-v4/hidden_album_mask.9.png
+- res/drawable-night-xxhdpi-v8/photo_editor_seekbar_background.9.png
+- res/drawable-night-xxhdpi-v8/share_render_background_normal.9.png
+- res/drawable-night-xxhdpi-v8/share_render_background_pressed.9.png
+- res/drawable-night-xxhdpi-v8/video_editor_progress_bar_background_res.9.png
+- res/drawable-sw600dp-xhdpi-v13/action_bar_split_bg_expanded_dark.9.png
+- res/drawable-sw600dp-xhdpi-v13/button_group_bg_first_n.9.png
+- res/drawable-sw600dp-xhdpi-v13/button_group_bg_first_p.9.png
+- res/drawable-sw600dp-xhdpi-v13/button_group_bg_last_n.9.png
+- res/drawable-sw600dp-xhdpi-v13/button_group_bg_last_p.9.png
+- res/drawable-sw600dp-xhdpi-v13/ic_focus_failed_cross.9.png
+- res/drawable-sw600dp-xhdpi-v13/ic_focus_focused_cross.9.png
+- res/drawable-sw600dp-xhdpi-v13/ic_focus_focusing_cross.9.png
+- res/drawable-sw600dp-xhdpi-v13/list_item_bg_dialog_middle_normal_light.9.png
+- res/drawable-sw600dp-xhdpi-v13/list_item_bg_dialog_middle_pressed_light.9.png
+- res/drawable-sw600dp-xhdpi-v13/qr_error_bg.9.png
+- res/drawable-xhdpi-v4/ic_pan_thumb.9.png
+- res/drawable-xhdpi-v4/notification_bg_low_normal.9.png
+- res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png
+- res/drawable-xhdpi-v4/notification_bg_normal.9.png
+- res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png
+- res/drawable-xxhdpi-v4/bottom_indicator_container_bg.9.png
+- res/drawable-xxhdpi-v4/btn_bg_single_normal_light.9.png
+- res/drawable-xxhdpi-v4/btn_bg_single_pressed_light.9.png
+- res/drawable-xxhdpi-v4/btn_bg_warn_single_disable_light.9.png
+- res/drawable-xxhdpi-v4/btn_bg_warn_single_normal_light.9.png
+- res/drawable-xxhdpi-v4/btn_bg_warn_single_pressed_light.9.png
+- res/drawable-xxhdpi-v4/button_group_bg_first_n.9.png
+- res/drawable-xxhdpi-v4/button_group_bg_first_p.9.png
+- res/drawable-xxhdpi-v4/button_group_bg_last_n.9.png
+- res/drawable-xxhdpi-v4/button_group_bg_last_p.9.png
+- res/drawable-xxhdpi-v4/common_editor_window_correction_n.9.png
+- res/drawable-xxhdpi-v4/common_editor_window_n.9.png
+- res/drawable-xxhdpi-v4/crop_window.9.png
+- res/drawable-xxhdpi-v4/edit_text_search_input_bg_light.9.png
+- res/drawable-xxhdpi-v4/face_tag.9.png
+- res/drawable-xxhdpi-v4/higher_definition_bg.9.png
+- res/drawable-xxhdpi-v4/hybrid_loading_view_bg.9.png
+- res/drawable-xxhdpi-v4/hybrid_progress_determinate.9.png
+- res/drawable-xxhdpi-v4/ic_focus_failed_cross.9.png
+- res/drawable-xxhdpi-v4/ic_focus_focused_cross.9.png
+- res/drawable-xxhdpi-v4/ic_focus_focusing_cross.9.png
+- res/drawable-xxhdpi-v4/long_screenshot_cut_photo_border.9.png
+- res/drawable-xxhdpi-v4/long_screenshot_cut_photo_shadow.9.png
+- res/drawable-xxhdpi-v4/photo_editor_seekbar_background.9.png
+- res/drawable-xxhdpi-v4/photo_editor_seekbar_background_progress.9.png
+- res/drawable-xxhdpi-v4/projection_seekbar_progress.9.png
+- res/drawable-xxhdpi-v4/qr_error_bg.9.png
+- res/drawable-xxhdpi-v4/search_feedback_icon_bg.9.png
+- res/drawable-xxhdpi-v4/search_feedback_task_btn_n.9.png
+- res/drawable-xxhdpi-v4/search_feedback_task_btn_p.9.png
+- res/drawable-xxhdpi-v4/share_render_background_normal.9.png
+- res/drawable-xxhdpi-v4/share_render_background_pressed.9.png
+- res/drawable-xxhdpi-v4/slim_finish_btn_bg_disable_light.9.png
+- res/drawable-xxhdpi-v4/slim_finish_btn_bg_normal_light.9.png
+- res/drawable-xxhdpi-v4/slim_finish_btn_bg_pressed_light.9.png
+- res/drawable-xxhdpi-v4/text_cursor_light.9.png
+- res/drawable-xxhdpi-v4/text_select_handle_left.9.png
+- res/drawable-xxhdpi-v4/text_select_handle_right.9.png
+- res/drawable-xxhdpi-v4/time_line_title_divider.9.png
+- res/drawable-xxhdpi-v4/top_indicator_container_bg.9.png
+- res/drawable-xxhdpi-v4/video_editor_atuo_trim_button_normal.9.png
+- res/drawable-xxhdpi-v4/video_editor_atuo_trim_button_pressed.9.png
+- res/drawable-xxhdpi-v4/video_editor_handle_left.9.png
+- res/drawable-xxhdpi-v4/video_editor_handle_right.9.png
+- res/drawable-xxhdpi-v4/video_editor_progress_bar_background_res.9.png
+- res/drawable-xxhdpi-v4/video_editor_progress_bar_progress.9.png
+- res/drawable-xxhdpi-v4/video_editor_seek_progress.9.png
+- res/drawable/desc_divider.9.png
+- mp4
+isFrameworkApk: false
+packageInfo:
+  forcedPackageId: '127'
+  renameManifestPackage: null
+sdkInfo: null
+sharedLibrary: false
+sparseResources: false
+unknownFiles:
+  MODULE_LICENSE_BSD: '8'
+  mistats_version: '8'
+  miui_push_version: '8'
+  com/xiaomi/xmsf/push/service/IHttpService.aidl: '8'
+  com/xiaomi/xmsf/push/service/IStatService.aidl: '8'
+  javax/annotation/CheckForNull.java: '8'
+  javax/annotation/CheckForSigned.java: '8'
+  javax/annotation/CheckReturnValue.java: '8'
+  javax/annotation/Detainted.java: '8'
+  javax/annotation/MatchesPattern.java: '8'
+  javax/annotation/Nonnegative.java: '8'
+  javax/annotation/Nonnull.java: '8'
+  javax/annotation/Nullable.java: '8'
+  javax/annotation/OverridingMethodsMustInvokeSuper.java: '8'
+  javax/annotation/ParametersAreNonnullByDefault.java: '8'
+  javax/annotation/PropertyKey.java: '8'
+  javax/annotation/RegEx.java: '8'
+  javax/annotation/Signed.java: '8'
+  javax/annotation/Syntax.java: '8'
+  javax/annotation/Tainted.java: '8'
+  javax/annotation/Untainted.java: '8'
+  javax/annotation/WillClose.java: '8'
+  javax/annotation/WillCloseWhenClosed.java: '8'
+  javax/annotation/WillNotClose.java: '8'
+  javax/annotation/concurrent/GuardedBy.java: '8'
+  javax/annotation/concurrent/Immutable.java: '8'
+  javax/annotation/concurrent/NotThreadSafe.java: '8'
+  javax/annotation/concurrent/ThreadSafe.java: '8'
+  javax/annotation/meta/Exclusive.java: '8'
+  javax/annotation/meta/Exhaustive.java: '8'
+  javax/annotation/meta/TypeQualifier.java: '8'
+  javax/annotation/meta/TypeQualifierDefault.java: '8'
+  javax/annotation/meta/TypeQualifierNickname.java: '8'
+  javax/annotation/meta/TypeQualifierValidator.java: '8'
+  javax/annotation/meta/When.java: '8'
+usesFramework:
+  ids:
+  - 1
+  - 16
+  tag: null
+version: 2.3.4
+versionInfo:
+  versionCode: '266594'
+  versionName: 2.2.11.2-global

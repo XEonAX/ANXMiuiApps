@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is">" "<Data> مطمئنید این &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> است؟ این شخص به آلبوم \"%2$s\" منتقل خواهد شد. </Data>" "</string>
+    <string name="confirm_recommandation_face_not">" "<Data> مطمئنید این &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> نیست؟ </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are">" "<Data> مطمئنید این‌ها &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> هستند؟ این افراد به آلبوم \"%2$s\" منتقل خواهد شد. </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not">" "<Data> مطمئنید این‌ها &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> نیستند؟ </Data>" "</string>
+</resources>

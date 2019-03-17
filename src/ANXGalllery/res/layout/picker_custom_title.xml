@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/action_bar_horizontal_padding" android:paddingEnd="@dimen/action_bar_horizontal_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:id="@android:id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@android:string/cancel" android:layout_centerVertical="true" android:layout_alignParentStart="true" style="@style/Gallery.Widget.ActionMode.Button" />
+    <Button android:enabled="false" android:id="@android:id/button2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@android:string/ok" android:layout_centerVertical="true" android:layout_alignParentEnd="true" style="@style/Gallery.Widget.ActionMode.Button.Default" />
+    <TextView android:textAppearance="@style/Gallery.TextAppearance.ActionMode.Title" android:ellipsize="marquee" android:gravity="center" android:id="@android:id/title" android:layout_width="0.0dip" android:layout_height="wrap_content" android:singleLine="true" android:layout_centerVertical="true" android:layout_alignWithParentIfMissing="true" android:layout_toStartOf="@android:id/button2" android:layout_toEndOf="@android:id/button1" />
+</RelativeLayout>

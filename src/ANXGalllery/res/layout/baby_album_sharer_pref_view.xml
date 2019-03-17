@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/vertical_spacing_very_huge">
+        <LinearLayout android:id="@id/father_grid" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <LinearLayout android:id="@id/mother_grid" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <View android:id="@id/divider" android:background="@color/divider_line_color" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginTop="@dimen/vertical_spacing_very_huge" android:layout_marginBottom="@dimen/vertical_spacing_very_huge" />
+    <GridLayout android:layout_gravity="center" android:id="@android:id/list" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:columnCount="4" android:layout_marginStart="@dimen/vertical_spacing_secondary" />
+</LinearLayout>

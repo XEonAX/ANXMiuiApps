@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="horizontal" android:id="@id/top_panel" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" android:layout_marginStart="@dimen/doodle_color_seekbar_width_padding" android:layout_marginEnd="@dimen/doodle_color_seekbar_width_padding" />
+    <com.miui.gallery.editor.photo.widgets.recyclerview.SimpleRecyclerView android:id="@id/preview_list" android:layout_width="fill_parent" android:layout_height="@dimen/menu_panel_list_height" android:paddingStart="@dimen/photo_editor_menu_bound_padding" android:paddingEnd="@dimen/photo_editor_menu_bound_padding" />
+    <include android:id="@id/bottom_bar" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" layout="@layout/common_menu_bottom_bar" />
+</LinearLayout>

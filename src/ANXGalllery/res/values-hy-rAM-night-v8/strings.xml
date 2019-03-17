@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is">" "<Data> Համոզվա՞ծ եք, որ սա &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? Այս նկարը կտեղափոխվի \"%2$s\" ալբոմը. </Data>" "</string>
+    <string name="confirm_recommandation_face_not">" "<Data> Համոզվա՞ծ եք, որ սա &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are">" "<Data> Համոզվա՞ծ եք, որ սրանք &lt;font color=#e6ffffff>&lt;b>%1$s-են&lt;/b>&lt;/font>: Այս նկարները կտեղափոխվեն \"%2$s\" ալբոմը: </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not">" "<Data> Համոզված եք, որ սրանք &lt;font color=#e6ffffff>&lt;b>%1$s չեն&lt;/b>&lt;/font>? </Data></string>
+</resources>

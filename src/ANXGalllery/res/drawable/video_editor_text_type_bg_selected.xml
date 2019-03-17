@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="oval"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/video_editor_text_type_bg_selected" />
+    <size android:height="@dimen/video_editor_text_selector_width" android:width="@dimen/video_editor_text_selector_width" />
+</shape>

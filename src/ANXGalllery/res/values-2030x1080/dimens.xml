@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="beautyedit_beauty_compare_margin_right">72.0px</dimen>
+    <dimen name="beautyedit_beauty_compare_margin_top">221.0px</dimen>
+    <dimen name="photo_editor_preview_padding">42.0px</dimen>
+    <dimen name="photo_editor_preview_padding_bottom">0.0px</dimen>
+    <dimen name="photo_editor_preview_padding_top">90.0px</dimen>
+    <dimen name="cloud_storage_progress_size">619.0px</dimen>
+    <dimen name="dual_camera_enter_margin_bottom">139.63599dip</dimen>
+    <dimen name="video_editor_effect_box_margin_bottom">8.0px</dimen>
+    <dimen name="video_editor_nav__start">9.0dip</dimen>
+    <dimen name="video_editor_water_mark_in_distance">150.0dip</dimen>
+    <dimen name="storage_frame_height">1182.0px</dimen>
+    <dimen name="storage_hint_margin_top">114.0px</dimen>
+</resources>

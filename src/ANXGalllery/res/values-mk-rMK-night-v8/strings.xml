@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is"><Data>Сигурни сте дека ова е &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? Оваа личност ќе биде префрлена во \"%2$s\" албум.; </Data>" "</string>
+    <string name="confirm_recommandation_face_not"><Data>Сигурни сте дека ова не е &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>?; </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are"><Data>Сигурни сте дека овие се &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>? Овие луѓе ќе бидат префрлени во \"%2$s\" албум.; </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not"><Data>Сигурни сте дека овие не се &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>?; </Data>" "</string>
+</resources>

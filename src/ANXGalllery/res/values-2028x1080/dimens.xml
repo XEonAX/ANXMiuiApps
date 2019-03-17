@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="movie_bottom_height">161.0px</dimen>
+    <dimen name="movie_controller_height">566.0px</dimen>
+    <dimen name="movie_tab_height">161.0px</dimen>
+</resources>

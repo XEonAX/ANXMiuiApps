@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miui.gallery.ui.AlbumDetailGridHeaderItem style="@style/Gallery.Widget.GroupHeader"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/time_line_time_and_location" />
+</com.miui.gallery.ui.AlbumDetailGridHeaderItem>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is">" "<Data> დარწმუნებული ხართ, რომ ეს &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> არის? ეს პირი გადავა \"%2$s\" ალბომში.; </Data>" "</string>
+    <string name="confirm_recommandation_face_not">" "<Data> დარწმუნებული ხართ, რომ ეს &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> არ არის?; </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are">" "<Data> დარწმუნებული ხართ, რომ ესენი &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> არიან? ეს ხალხი გადავა \"%2$s\" ალბომში.; </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not">" "<Data> დარწმუნებული ხართ, რომ ესენი &lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font> არ არიან?; </Data>" "</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/video_editor_effect_action_bar" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="start|center" android:id="@id/video_editor_cancel" android:layout_width="@dimen/menu_panel_bottom_bar_button_width" android:layout_height="fill_parent" android:src="@drawable/video_editor_cancel_action_button_selector" android:scaleType="center" android:contentDescription="@string/photo_editor_talkback_cancel" />
+    <View android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" />
+    <include android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" layout="@layout/video_editor_text_action_buttons" />
+    <View android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" />
+    <ImageView android:layout_gravity="end|center" android:id="@id/video_editor_ok" android:layout_width="@dimen/menu_panel_bottom_bar_button_width" android:layout_height="fill_parent" android:src="@drawable/video_editor_done_action_button_selector" android:scaleType="center" android:contentDescription="@string/photo_editor_talkback_confirm" />
+</LinearLayout>

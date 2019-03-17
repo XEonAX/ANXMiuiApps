@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/item_root" android:clipChildren="false" android:layout_width="@dimen/video_editor_list_item_minwidth" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/item_iv" android:duplicateParentState="true" android:layout_width="@dimen/video_editor_item_width" android:layout_height="@dimen/video_editor_item_width" android:scaleType="centerCrop" android:layout_centerInParent="true" />
+        <ImageView android:id="@id/iv_selected" android:duplicateParentState="true" android:layout_width="@dimen/video_editor_item_width" android:layout_height="@dimen/video_editor_item_width" android:src="@drawable/video_editor_icon_selected" android:scaleType="centerCrop" android:layout_centerInParent="true" />
+        <com.miui.gallery.video.editor.widget.DownloadView android:gravity="center" android:id="@id/item_download" android:background="@drawable/video_editor_download_bg" android:layout_width="@dimen/video_editor_download_icon_size" android:layout_height="@dimen/video_editor_download_icon_size" android:layout_alignBottom="@id/item_iv" android:layout_alignEnd="@id/item_iv" />
+    </RelativeLayout>
+    <TextView android:textSize="@dimen/video_editor_item_title" android:gravity="center" android:layout_gravity="bottom" android:id="@id/item_title" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/video_editor_template_item_text_top" />
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is">" "<Data> これは&lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>で間違いないですか？この人は\"%2$s\"アルバムに移動されます。 </Data>" "</string>
+    <string name="confirm_recommandation_face_not">" "<Data> これは確かに&lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>ではないですか？ </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are">" "<Data> これらは&lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>で間違いないですか？これらの人々は\"%2$s\"アルバムに移動されます。 </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not">" "<Data> これらは確かに&lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>ではないですか？ </Data>" "</string>
+</resources>

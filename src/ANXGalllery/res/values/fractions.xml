@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <fraction name="share_channel_ratio">26.87%</fraction>
+    <fraction name="share_pager_ratio">64.22%</fraction>
+    <fraction name="share_title_padding_ratio">0.0%</fraction>
+    <fraction name="share_title_ratio">8.91%</fraction>
+    <fraction name="album_page_empty_text_vertical_percent">44.000008%</fraction>
+    <fraction name="private_entry_unlock_distance_percent">34.000004%</fraction>
+    <fraction name="private_entry_view_height_percent">77.0%</fraction>
+    <fraction name="secret_anim_press_scale">29.999996%</fraction>
+    <fraction name="share_channel_slip_padding_ratio">28.240002%</fraction>
+</resources>

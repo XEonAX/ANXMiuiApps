@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_gravity="end|center" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:id="@id/more" android:background="?immersionButtonMoreBackground" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@string/actionbar_overflow_item_desc" />
+    <ImageView android:layout_gravity="center" android:id="@id/menu_update_view" android:background="@drawable/immersion_menu_update_ic" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/menu_update_view_margin_end" android:layout_marginStart="@dimen/menu_update_view_margin_start" />
+</FrameLayout>

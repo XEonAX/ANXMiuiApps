@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/custom_select_title_margin_horizontal" android:paddingEnd="@dimen/custom_select_title_margin_horizontal"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:id="@id/select_mode_button1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@android:string/cancel" style="@style/Gallery.Widget.ActionMode.Button" />
+    <TextView android:textAppearance="@style/Gallery.TextAppearance.ActionMode.Title" android:ellipsize="end" android:gravity="center" android:id="@id/select_mode_title" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/custom_select_title_quickly_share" android:singleLine="true" android:layout_weight="1.0" />
+    <Button android:id="@id/select_mode_button2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/custom_select_title_select_all" style="@style/Gallery.Widget.ActionMode.Button.Default" />
+</LinearLayout>

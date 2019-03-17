@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm_recommandation_face_is">" "<Data> 確定這是&lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>嗎？確定後續該人物將被移動到“%2$s”相簿中。 </Data>" "</string>
+    <string name="confirm_recommandation_face_not">" "<Data> 確定這不是&lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>嗎？ </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_are">" "<Data> 確定這些是&lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>嗎？確定後這些人物將被移動到“%2$s”相簿中。 </Data>" "</string>
+    <string name="confirm_recommandation_multiple_faces_not">" "<Data> 確定這些不是&lt;font color=#e6ffffff>&lt;b>%1$s&lt;/b>&lt;/font>嗎？ </Data>" "</string>
+    <string name="confirm_merge_face_albums">" "<Data> 確定這是&lt;font color=#e6ffffff>&lt;b>%s&lt;/b>&lt;/font>嗎？ </Data>" "</string>
+    <string name="confirm_merge_many_face_albums">" "<Data> 確定這些是&lt;font color=#e6ffffff>&lt;b>%s&lt;/b>&lt;/font>嗎？ </Data>" "</string>
+    <string name="ignore_alert_title">" "<Data> 確定要忽略此人物？&lt;font color=#e6ffffff>&lt;b>忽略的人物可在右上角清單中恢復&lt;/b>&lt;/font> </Data>" "</string>
+</resources>

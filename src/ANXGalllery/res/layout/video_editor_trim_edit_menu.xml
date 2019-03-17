@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+    <TextView android:textSize="@dimen/video_editor_trim_text_size" android:textColor="@color/trim_text_color" android:gravity="center" android:id="@id/trim_tv_time" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <com.miui.gallery.video.editor.widget.rangeseekbar.VideoEditorRangeSeekBar android:id="@id/video_editor_trim_range_seek_bar" android:layout_width="fill_parent" android:layout_height="@dimen/video_editor_video_trim_seek_bar_height" android:paddingStart="@dimen/video_editor_video_trim_seek_bar_margin_left" android:paddingEnd="@dimen/video_editor_video_trim_seek_bar_margin_right" />
+    <include android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" layout="@layout/video_editor_bottom_bar" />
+</LinearLayout>

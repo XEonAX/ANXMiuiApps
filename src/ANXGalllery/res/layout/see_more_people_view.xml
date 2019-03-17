@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@color/divider_line_color" android:layout_width="fill_parent" android:layout_height="0.30000007dip" />
+    <TextView android:textAppearance="@style/Gallery.TextAppearance.People.List.Middle.Secondary" android:gravity="center" android:id="@id/see_more_people_text" android:layout_width="fill_parent" android:layout_height="@dimen/people_page_footer_height" android:text="@string/expand_people" />
+</LinearLayout>

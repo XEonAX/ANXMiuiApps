@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/beautyedit_undo_bottom_bar_margin_top" android:layout_above="@id/bottom_bar">
+        <com.miui.gallery.editor.photo.widgets.recyclerview.SimpleRecyclerView android:id="@id/parameter_list" android:layout_width="fill_parent" android:layout_height="@dimen/photo_editor_navigator_menu_height" />
+    </RelativeLayout>
+    <FrameLayout android:id="@id/child_menu_panel" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/bottom_bar" />
+    <include android:id="@id/bottom_bar" android:layout_width="fill_parent" android:layout_height="@dimen/menu_panel_bottom_bar_height" android:layout_alignParentBottom="true" layout="@layout/common_menu_bottom_bar_with_undo" />
+</RelativeLayout>

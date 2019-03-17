@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:textSize="@dimen/beautyedit_beauty_compare_btn_text_size" android:textColor="@color/beautyedit_beauty_compare_btn_text" android:layout_gravity="end|center|top" android:id="@id/compare_btn" android:background="@drawable/btn_beauty_compare" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/beautyedit_beauty_compare_margin_top" android:minWidth="@dimen/beautyedit_beauty_compare_btn_width" android:minHeight="@dimen/beautyedit_beauty_compare_btn_height" android:text="@string/photo_editor_beauty_compare" android:singleLine="true" android:layout_marginEnd="@dimen/beautyedit_beauty_compare_margin_right" />
+</FrameLayout>
