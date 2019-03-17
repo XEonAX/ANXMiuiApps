@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">"Enregistreur d'écran"</string>
+    <string name="app_name">AnX "Enregistreur d'écran"</string>
     <string name="app_notification_info">"Enregistreur d'écran fonctionne en arrière-plan"</string>
     <string name="app_notification_title">"Enregistreur d'écran"</string>
     <string name="auto_stop_title">Vidéo enregistrée avec succès</string>

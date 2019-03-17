@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Gravador de ecrã</string>
+    <string name="app_name">AnX Gravador de ecrã</string>
     <string name="app_notification_info">O gravador de ecrã está a funcionar em segundo plano</string>
     <string name="app_notification_title">Gravador de ecrã</string>
     <string name="auto_stop_title">Vídeo guardado com sucesso</string>

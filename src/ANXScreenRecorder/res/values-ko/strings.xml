@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">화면 녹화기</string>
+    <string name="app_name">AnX 화면 녹화기</string>
     <string name="app_notification_info">화면 녹화기가 백그라운드에서 작업 중입니다.</string>
     <string name="app_notification_title">화면 녹화기</string>
     <string name="auto_stop_title">동영상 저장 성공</string>

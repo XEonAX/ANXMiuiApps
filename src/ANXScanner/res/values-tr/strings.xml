@@ -31,7 +31,7 @@
     <string name="app_description_content">Barkod okuyucu QR kodlarını, dökümanları, iş kartlarını ve daha fazlasını taramanıza olanak sağlar. Uygulamayı silmeden önce uygulamaya ihtiyacınız olmadığından emin olun.</string>
     <string name="app_description_title">Barkod okuyucu hakkında</string>
     <string name="app_details">Uygulama:</string>
-    <string name="app_name">Barkod okuyucu</string>
+    <string name="app_name">AnX Barkod okuyucu</string>
     <string name="back">Geri</string>
     <string name="barcode_into_rectangle">Kodu çerçevenin içerisine hizalayın</string>
     <string name="birthday">Doğum günü:</string>

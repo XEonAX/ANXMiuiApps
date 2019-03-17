@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Ekrāna Ierakstītājs</string>
+    <string name="app_name">AnX Ekrāna Ierakstītājs</string>
     <string name="app_notification_info">Ekrāna ierakstītājs darbojas fonā</string>
     <string name="app_notification_title">Ekrāna Ierakstītājs</string>
     <string name="auto_stop_title">Video veiksmīgi saglabāts</string>

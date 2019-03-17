@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Rekam Layar</string>
+    <string name="app_name">AnX Rekam Layar</string>
     <string name="app_notification_info">Apl Rekam layar berjalan di latar belakang</string>
     <string name="app_notification_title">Rekam Layar</string>
     <string name="auto_stop_title">Video berhasil disimpan</string>

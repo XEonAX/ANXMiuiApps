@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Snemalnik zaslona</string>
+    <string name="app_name">AnX Snemalnik zaslona</string>
     <string name="app_notification_info">Snemalnik deluje v ozadju</string>
     <string name="app_notification_title">Snemalnik zaslona</string>
     <string name="auto_stop_title">Videoposnetek uspešno shranjen</string>

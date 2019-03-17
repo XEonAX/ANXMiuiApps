@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Nagrywanie ekranu</string>
+    <string name="app_name">AnX Nagrywanie ekranu</string>
     <string name="app_notification_info">Nagrywanie ekranu działa w tle</string>
     <string name="app_notification_title">Nagrywanie ekranu</string>
     <string name="auto_stop_title">Wideo nagrane pomyślnie</string>

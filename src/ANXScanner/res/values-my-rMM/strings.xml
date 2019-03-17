@@ -10,7 +10,7 @@
     <string name="app_description_content">စကန်နာသည် QR ကုဒ်များ၊ လိပ်စာကဒ်များနှင့် စာရွက်စာတမ်းများကို စကန်ဖတ်နိုင်သည်။ အဆိုပါအင်္ဂါရပ်အကြောင်း ကောင်းစွာနားလည်သိရှိပြီး ဤအက်ပ်ကိုဖြုတ်ပစ်ရန် သင်ဆုံးဖြတ်လိုက်သည်။</string>
     <string name="app_description_title">စကန်နာအကြောင်း</string>
     <string name="app_details">အက်ပ်များ−</string>
-    <string name="app_name">စကန်နာ</string>
+    <string name="app_name">AnX စကန်နာ</string>
     <string name="back">ဘက်ပြန်</string>
     <string name="barcode_into_rectangle">ကုဒ်အား ဖရိန်အတွင်းဝင် ထားပါ</string>
     <string name="birthday">မွေးနေ့−</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">บันทึกวิดีโอหน้าจอ</string>
+    <string name="app_name">AnX บันทึกวิดีโอหน้าจอ</string>
     <string name="app_notification_info">เครื่องบันทึกหน้าจอทำงานอยู่ด้านหลัง</string>
     <string name="app_notification_title">บันทึกวิดีโอหน้าจอ</string>
     <string name="auto_stop_title">บันทึกวิดีโอเรียบร้อย</string>

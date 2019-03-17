@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Ekraanisalvesti</string>
+    <string name="app_name">AnX Ekraanisalvesti</string>
     <string name="app_notification_info">Ekraanisalvestaja töötab taustal</string>
     <string name="app_notification_title">Ekraanisalvesti</string>
     <string name="auto_stop_title">Video on edukalt salvestatud</string>

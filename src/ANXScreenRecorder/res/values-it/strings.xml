@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Registra Schermo</string>
+    <string name="app_name">AnX Registra Schermo</string>
     <string name="app_notification_info">Registra Schermo sta lavorando in background</string>
     <string name="app_notification_title">Registra Schermo</string>
     <string name="auto_stop_title">Video salvato correttamente</string>

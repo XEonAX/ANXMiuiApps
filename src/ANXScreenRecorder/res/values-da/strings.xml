@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Screen Recorder</string>
+    <string name="app_name">AnX Screen Recorder</string>
     <string name="app_notification_info">Screen Recorder arbejder i baggrunden</string>
     <string name="app_notification_title">Screen Recorder</string>
     <string name="auto_stop_title">Videoen er nu gemt</string>

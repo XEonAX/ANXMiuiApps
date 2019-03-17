@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Grabadora de pantalla</string>
+    <string name="app_name">AnX Grabadora de pantalla</string>
     <string name="app_notification_info">La grabadora de pantalla se está ejecutando en segundo plano</string>
     <string name="app_notification_title">Grabadora de pantalla</string>
     <string name="auto_stop_title">Video guardado</string>

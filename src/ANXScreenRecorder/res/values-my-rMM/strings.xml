@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">မျက်နှာပြင်ရီကော်တာ</string>
+    <string name="app_name">AnX မျက်နှာပြင်ရီကော်တာ</string>
     <string name="app_notification_info">မျက်နှာပြင်ရီကော်တာသည် နောက်ခံတွင် အလုပ်လုပ်နေသည်</string>
     <string name="app_notification_title">မျက်နှာပြင်ရီကော်တာ</string>
     <string name="auto_stop_title">ဗီဒီယိုအား အောင်မြင်စွာ သိမ်းဆည်းခဲ့သည်</string>

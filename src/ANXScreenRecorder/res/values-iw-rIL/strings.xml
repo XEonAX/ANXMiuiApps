@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">מקליט המסך</string>
+    <string name="app_name">AnX מקליט המסך</string>
     <string name="app_notification_info">"'מקליט המסך' פועל ברקע"</string>
     <string name="app_notification_title">מקליט המסך</string>
     <string name="auto_stop_title">הסרטון נשמר בהצלחה</string>

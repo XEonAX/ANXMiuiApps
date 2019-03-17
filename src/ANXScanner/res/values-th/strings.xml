@@ -31,7 +31,7 @@
     <string name="app_description_content">ตัวสแกนช่วยให้คุณสามารถสแกน QR โค้ด เอกสาร นามบัตรและอื่นๆได้ ตรวจสอบให้แน่ใจว่าคุณเข้าใจถึงคุณสมบัติเหล่านี้ก่อนที่คุณจะถอนการติดตั้งแอป</string>
     <string name="app_description_title">เกี่ยวกับตัวสแกน</string>
     <string name="app_details">แอป:</string>
-    <string name="app_name">ตัวสแกน</string>
+    <string name="app_name">AnX ตัวสแกน</string>
     <string name="back">ย้อนกลับ</string>
     <string name="barcode_into_rectangle">ป้อนรหัสลงในกรอบ</string>
     <string name="birthday">วันเกิด:</string>

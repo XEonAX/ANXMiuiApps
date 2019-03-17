@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Perakam Skrin</string>
+    <string name="app_name">AnX Perakam Skrin</string>
     <string name="app_notification_info">Perakam Skrin sedang berfungsi di Latar Belakang</string>
     <string name="app_notification_title">Perakam Skrin</string>
     <string name="auto_stop_title">Video berjaya disimpan</string>

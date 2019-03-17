@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Էկրանի Ձայնագրման Սարք</string>
+    <string name="app_name">AnX Էկրանի Ձայնագրման Սարք</string>
     <string name="app_notification_info">Էկրանի Ձայնագրող սարքն աշխատում է ֆոնային ռեժիմում</string>
     <string name="app_notification_title">Էկրանի Ձայնագրման Սարք</string>
     <string name="auto_stop_title">Տեսաձայնագրությունը հաջողությամբ պահպանվել է</string>

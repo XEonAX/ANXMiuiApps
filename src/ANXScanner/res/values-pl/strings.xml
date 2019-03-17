@@ -31,7 +31,7 @@
     <string name="app_description_content">Skaner pozwala na skanowanie kodów QR, wizytówek oraz dokumentów. Po odinstalowaniu aplikacji, taka funkcjonalność nie będzie dostępna.</string>
     <string name="app_description_title">O Skanerze</string>
     <string name="app_details">Aplikacja:</string>
-    <string name="app_name">Skaner</string>
+    <string name="app_name">AnX Skaner</string>
     <string name="back">Wstecz</string>
     <string name="barcode_into_rectangle">Umieść kod wewnątrz ramki</string>
     <string name="birthday">Urodziny:</string>

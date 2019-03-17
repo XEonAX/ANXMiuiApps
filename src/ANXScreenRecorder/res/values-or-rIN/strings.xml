@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ସ୍କ୍ରିନ୍ ରେକର୍ଡର</string>
+    <string name="app_name">AnX ସ୍କ୍ରିନ୍ ରେକର୍ଡର</string>
     <string name="app_notification_info">ପୃଷ୍ଠଭୂମିରେ ସ୍କ୍ରିନ୍ ରେକର୍ଡର କାମ କରୁଛି</string>
     <string name="app_notification_title">ସ୍କ୍ରିନ୍ ରେକର୍ଡର</string>
     <string name="auto_stop_title">ସଫଳତାର ସହିତ ଭିଡିଓ ସଞ୍ଚିତ ହେଲା</string>

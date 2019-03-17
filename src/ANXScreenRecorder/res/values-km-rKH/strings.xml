@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ម៉ាស៊ីនថត​លើអេក្រង់</string>
+    <string name="app_name">AnX ម៉ាស៊ីនថត​លើអេក្រង់</string>
     <string name="app_notification_info">ម៉ាស៊ីនថត​លើអេក្រង់​កំពុង​ដំណើរការ​នៅផ្ទៃ​ខាងក្រោយ</string>
     <string name="app_notification_title">ម៉ាស៊ីនថត​លើអេក្រង់</string>
     <string name="auto_stop_title">បានរក្សាទុក​វីដេអូ​ជាស្ថាពរ</string>

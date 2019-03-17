@@ -31,7 +31,7 @@
     <string name="app_description_content">Skannerin avulla voit skannata QR-koodeja, asiakirjoja, käyntikortteja ja paljon muuta. Varmista, että voit käyttää näitä ominaisuuksia ennen sovelluksen asennuksen poistamista.</string>
     <string name="app_description_title">Tietoja Skannerista</string>
     <string name="app_details">Sovellus:</string>
-    <string name="app_name">Skanneri</string>
+    <string name="app_name">AnX Skanneri</string>
     <string name="back">Takaisin</string>
     <string name="barcode_into_rectangle">Aseta koodi kehyksen sisälle</string>
     <string name="birthday">Syntymäpäivä:</string>

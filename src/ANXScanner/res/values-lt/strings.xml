@@ -31,7 +31,7 @@
     <string name="app_description_content">Skaitytuvas jums leidžia nuskaityti QR kodus, vizitines korteles ir dokumentus. Prieš pašalindami šią programą, įsitikinkite, kad galite apsieiti be šių funkcijų.</string>
     <string name="app_description_title">Apie Skaitytuvą</string>
     <string name="app_details">Programa:</string>
-    <string name="app_name">Skaitytuvas</string>
+    <string name="app_name">AnX Skaitytuvas</string>
     <string name="back">Atgal</string>
     <string name="barcode_into_rectangle">Patalpinkite kodą į rėmelio vidų</string>
     <string name="birthday">Gimtadienis:</string>

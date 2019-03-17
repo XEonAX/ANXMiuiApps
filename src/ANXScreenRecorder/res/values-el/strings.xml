@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Εγγραφή Οθόνης</string>
+    <string name="app_name">AnX Εγγραφή Οθόνης</string>
     <string name="app_notification_info">Ο Εγγραφέας οθόνης εκτελείται στο παρασκήνιο</string>
     <string name="app_notification_title">Εγγραφή Οθόνης</string>
     <string name="auto_stop_title">Επιτυχής αποθήκευση βίντεου</string>

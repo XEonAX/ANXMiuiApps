@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Rikorder tal-iskrin</string>
+    <string name="app_name">AnX Rikorder tal-iskrin</string>
     <string name="app_notification_info">L-iSkrin Rikorder qed jaħdem fl-isfond</string>
     <string name="app_notification_title">Rikorder tal-iskrin</string>
     <string name="auto_stop_title">"Il-vidjo issejvjat b'suċċess"</string>

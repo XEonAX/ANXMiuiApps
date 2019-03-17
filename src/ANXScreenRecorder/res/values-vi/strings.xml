@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Quay phim Màn hình</string>
+    <string name="app_name">AnX Quay phim Màn hình</string>
     <string name="app_notification_info">Quay phim Màn hình đang làm việc trong nền</string>
     <string name="app_notification_title">Quay phim Màn hình</string>
     <string name="auto_stop_title">Video đã lưu thành công</string>

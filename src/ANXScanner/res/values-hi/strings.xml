@@ -31,7 +31,7 @@
     <string name="app_description_content">स्कैनर QR कोड, दस्तावेज़, बिजनेस कार्ड इत्यादि स्कैन करने की अनुमति देता है. ऐप्प को अनइंस्टॉल करने से पहले यह सुनिश्चित कर लें कि आपको इन फीचरों की कोई जरूरत नहीं है.</string>
     <string name="app_description_title">स्कैनर के बारे में</string>
     <string name="app_details">ऐप्प:</string>
-    <string name="app_name">स्कैनर</string>
+    <string name="app_name">AnX स्कैनर</string>
     <string name="back">वापस जाएं</string>
     <string name="barcode_into_rectangle">कोड को फ्रेम के अंदर रखें</string>
     <string name="birthday">जन्मदिन:</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">স্ক্ৰীণ ৰেকৰ্ডাৰ</string>
+    <string name="app_name">AnX স্ক্ৰীণ ৰেকৰ্ডাৰ</string>
     <string name="app_notification_info">স্ক্ৰীণ ৰেকৰ্ডাৰে পৃষ্ঠভূমিত কাম কৰি আছে</string>
     <string name="app_notification_title">স্ক্ৰীণ ৰেকৰ্ডাৰ</string>
     <string name="auto_stop_title">"ভিডিঅ' সফলভাৱে সংৰক্ষিত হ'ল"</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Ekran Qeydedici</string>
+    <string name="app_name">AnX Ekran Qeydedici</string>
     <string name="app_notification_info">Ekran Qeydedici arxa planda işləyir</string>
     <string name="app_notification_title">Ekran Qeydedici</string>
     <string name="auto_stop_title">Video uğurla yaddaşda saxlanıldı</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">స్క్రీన్ రికార్డర్</string>
+    <string name="app_name">AnX స్క్రీన్ రికార్డర్</string>
     <string name="app_notification_info">స్క్రీన్ రికార్డర్ నేపథ్యంలో పని చేస్తుంది</string>
     <string name="app_notification_title">స్క్రీన్ రికార్డర్</string>
     <string name="auto_stop_title">వీడియో విజయవంతంగా సేవ్ అయింది</string>

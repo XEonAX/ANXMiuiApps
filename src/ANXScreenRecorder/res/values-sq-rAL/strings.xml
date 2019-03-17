@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Regjistrues ekrani</string>
+    <string name="app_name">AnX Regjistrues ekrani</string>
     <string name="app_notification_info">Regjistruesi i ekranit po punon në sfond</string>
     <string name="app_notification_title">Regjistrues ekrani</string>
     <string name="auto_stop_title">Videoja u ruajt me sukses</string>

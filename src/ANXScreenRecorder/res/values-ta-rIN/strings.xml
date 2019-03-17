@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ஸ்க்ரீன் ரெக்கார்டர்</string>
+    <string name="app_name">AnX ஸ்க்ரீன் ரெக்கார்டர்</string>
     <string name="app_notification_info">திரை ரெக்கார்டர் பின்னணியில் இயங்குகிறது</string>
     <string name="app_notification_title">ஸ்க்ரீன் ரெக்கார்டர்</string>
     <string name="auto_stop_title">வீடியோ வெற்றிகரமாகச் சேமிக்கப்பட்டது</string>

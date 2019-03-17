@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">スクリーンレコーダー</string>
+    <string name="app_name">AnX スクリーンレコーダー</string>
     <string name="app_notification_info">スクリーンレコーダーがバックグラウンドで実行されています</string>
     <string name="app_notification_title">スクリーンレコーダー</string>
     <string name="auto_stop_title">ビデオは正常に保存されました</string>

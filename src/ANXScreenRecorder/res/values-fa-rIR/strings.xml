@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ضبط نمایشگر</string>
+    <string name="app_name">AnX ضبط نمایشگر</string>
     <string name="app_notification_info">ضبط نمایشگر در پس‌زمینه درحال کار کردن است</string>
     <string name="app_notification_title">ضبط نمایشگر</string>
     <string name="auto_stop_title">ویدئو با موفقیت ذخیره شد</string>

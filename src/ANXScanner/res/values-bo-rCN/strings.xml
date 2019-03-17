@@ -10,7 +10,7 @@
     <string name="app_description_content">བཤེར་འབེབས་ནས་རྩ་གཉིས་རྟགས་རིས་བཤེར་འབེབས། མིང་ཚིག་ལི་ཙཱ། པར་རྒྱག་ལན་འདེབས། མིང་བྱང་བྱེད་ནུས་སོགས་འདོན་སྤྲོད་བྱས་ཡོད། སྔོན་ལ་ཁྱེད་ནས་བྱེད་ནུས་དང་ཞབས་ཞུ་འདིར་རྒྱུས་ལོན་གནང་བ་གཏན་འཁེལ་གནང་རོགས།</string>
     <string name="app_description_title">བཤེར་འབེབས་ངོ་སྤྲོད།</string>
     <string name="app_details">ཆ་འཕྲིན།</string>
-    <string name="app_name">བཤེར་འབེབས།</string>
+    <string name="app_name">AnX བཤེར་འབེབས།</string>
     <string name="back">ཕྱིར་ལོག</string>
     <string name="barcode_into_rectangle">རྩ་གཉིས་རྟགས་རིས་ཤན་འབྱེད་སྒྲོམ་ནང་དུ་འཇོག་རོགས།</string>
     <string name="birthday">སྐྱེས་སྐར།</string>

@@ -31,7 +31,7 @@
     <string name="app_description_content">스캐너로 QR 코드, 명함, 문서를 스캔할 수 있습니다. 앱을 삭제하시면 이같은 기능이 사용 불가하다는 것을 확인하십시오.</string>
     <string name="app_description_title">스캐너 정보</string>
     <string name="app_details">앱:</string>
-    <string name="app_name">스캐너</string>
+    <string name="app_name">AnX 스캐너</string>
     <string name="back">뒤로</string>
     <string name="barcode_into_rectangle">코드를 프레임 안으로 넣어주십시오.</string>
     <string name="birthday">생일:</string>

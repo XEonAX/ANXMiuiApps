@@ -31,7 +31,7 @@
     <string name="app_description_content">"L'escàner et permet escanejar codis QR, documents, targetes de visita i molt més. Assegura't del què pots fer sense aquestes funcions abans de desinstal·lar l'aplicació."</string>
     <string name="app_description_title">"Sobre l'escàner"</string>
     <string name="app_details">Aplicació:</string>
-    <string name="app_name">Escàner</string>
+    <string name="app_name">AnX Escàner</string>
     <string name="back">Enrere</string>
     <string name="barcode_into_rectangle">"Posa el codi a l'interior del marc"</string>
     <string name="birthday">Aniversari:</string>

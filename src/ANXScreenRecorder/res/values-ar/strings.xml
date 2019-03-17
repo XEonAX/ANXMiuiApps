@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">مسجل الشاشة</string>
+    <string name="app_name">AnX مسجل الشاشة</string>
     <string name="app_notification_info">مسجل الشاشة يعمل في الخلفية</string>
     <string name="app_notification_title">مسجل الشاشة</string>
     <string name="auto_stop_title">تم حفظ الفيديو بنجاح</string>

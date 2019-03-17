@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Nahrávanie obrazovky</string>
+    <string name="app_name">AnX Nahrávanie obrazovky</string>
     <string name="app_notification_info">Prehrávač obrazovky pracuje na pozadí</string>
     <string name="app_notification_title">Nahrávanie obrazovky</string>
     <string name="auto_stop_title">Video uložené</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">བརྙན་ཤེལ་བརྙན་འཇུག</string>
+    <string name="app_name">AnX བརྙན་ཤེལ་བརྙན་འཇུག</string>
     <string name="app_notification_info">བརྙན་ཤེལ་བརྙན་འཇུག་ཞབས་ཞུ་ནི་སྟགས་བརྒྱབ་ཏུ་འཁོར་སྐྱོད་བྱེད་བཞིན་ཡོད།</string>
     <string name="app_notification_title">བརྙན་ཤེལ་བརྙན་འཇུག</string>
     <string name="auto_stop_title">བརྙན་ཟློས་ཉར་ཚགས་བྱས་ཟིན།</string>

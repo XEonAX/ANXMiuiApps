@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Pantaila-grabatzailea</string>
+    <string name="app_name">AnX Pantaila-grabatzailea</string>
     <string name="app_notification_info">Pantaila grabatzailea atzealdean lanean ari da</string>
     <string name="app_notification_title">Pantaila-grabatzailea</string>
     <string name="auto_stop_title">Bideoa arrakastaz gorde da.</string>

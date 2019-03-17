@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">螢幕錄製</string>
+    <string name="app_name">AnX 螢幕錄製</string>
     <string name="app_notification_info">螢幕錄製服務正在後台執行</string>
     <string name="app_notification_title">螢幕錄製</string>
     <string name="auto_stop_title">影片已儲存</string>

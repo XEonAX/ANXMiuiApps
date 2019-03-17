@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Képernyővideó-felvevő</string>
+    <string name="app_name">AnX Képernyővideó-felvevő</string>
     <string name="app_notification_info">A Képernyővideó-felvevő a háttérben működik</string>
     <string name="app_notification_title">Képernyővideó-felvevő</string>
     <string name="auto_stop_title">A videó sikeresen mentve</string>

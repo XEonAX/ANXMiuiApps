@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Запис екрану</string>
+    <string name="app_name">AnX Запис екрану</string>
     <string name="app_notification_info">Запис екрана працює в фоновому режимі</string>
     <string name="app_notification_title">Запис екрану</string>
     <string name="auto_stop_title">Відео успішно збережено</string>

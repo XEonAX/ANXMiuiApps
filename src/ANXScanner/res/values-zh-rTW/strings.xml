@@ -31,7 +31,7 @@
     <string name="app_description_content">掃一掃提供了二維碼掃描、單詞翻譯、拍照解題、名片辨識等功能。 請確認您已明確瞭解該功能和服務</string>
     <string name="app_description_title">掃一掃介紹</string>
     <string name="app_details">應用詳情：</string>
-    <string name="app_name">掃一掃</string>
+    <string name="app_name">AnX 掃一掃</string>
     <string name="back">返回</string>
     <string name="barcode_into_rectangle">請把二維碼放置在辨識框中</string>
     <string name="birthday">生日：</string>

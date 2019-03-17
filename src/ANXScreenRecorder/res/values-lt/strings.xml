@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Ekrano įrašymas</string>
+    <string name="app_name">AnX Ekrano įrašymas</string>
     <string name="app_notification_info">Ekrano įrašymas veikia fone</string>
     <string name="app_notification_title">Ekrano įrašymas</string>
     <string name="auto_stop_title">Vaizdo įrašas sėkmingai išsaugotas</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">સ્ક્રીન રેકોર્ડર</string>
+    <string name="app_name">AnX સ્ક્રીન રેકોર્ડર</string>
     <string name="app_notification_info">સ્ક્રીન રેકોર્ડર બેકગ્રાઉન્ડમાં કામ કરી રહ્યું છે</string>
     <string name="app_notification_title">સ્ક્રીન રેકોર્ડર</string>
     <string name="auto_stop_title">વિડિઓ સફળતાપૂર્વક સાચવ્યો</string>

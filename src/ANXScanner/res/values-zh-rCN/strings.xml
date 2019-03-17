@@ -31,7 +31,7 @@
     <string name="app_description_content">扫一扫提供了二维码扫描、单词翻译、拍照解题、名片识别等功能。请确认您已明确了解该功能和服务</string>
     <string name="app_description_title">扫一扫介绍</string>
     <string name="app_details">应用详情：</string>
-    <string name="app_name">扫一扫</string>
+    <string name="app_name">AnX 扫一扫</string>
     <string name="back">返回</string>
     <string name="barcode_into_rectangle">请把二维码放置在识别框中</string>
     <string name="birthday">生日：</string>

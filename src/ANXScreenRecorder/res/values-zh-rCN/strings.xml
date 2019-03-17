@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">屏幕录制</string>
+    <string name="app_name">AnX 屏幕录制</string>
     <string name="app_notification_info">屏幕录制服务正在后台运行</string>
     <string name="app_notification_title">屏幕录制</string>
     <string name="auto_stop_title">视频已保存</string>

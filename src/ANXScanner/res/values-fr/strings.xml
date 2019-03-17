@@ -31,7 +31,7 @@
     <string name="app_description_content">"Scanneur vous permet de lire les codes QR, les cartes de visite, des documents et plus. Assurez-vous de vous passer de ces fonctionnalités avant de désinstaller l'application."</string>
     <string name="app_description_title">À propos du Scanneur</string>
     <string name="app_details">Application :</string>
-    <string name="app_name">Scanneur</string>
+    <string name="app_name">AnX Scanneur</string>
     <string name="back">Retour</string>
     <string name="barcode_into_rectangle">Placez le code dans le cadre</string>
     <string name="birthday">Anniversaire :</string>

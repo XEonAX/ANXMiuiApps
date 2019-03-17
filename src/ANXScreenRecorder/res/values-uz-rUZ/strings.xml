@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Ekran yozuvi</string>
+    <string name="app_name">AnX Ekran yozuvi</string>
     <string name="app_notification_info">Ekran yozuvi fonda ishlamoqda</string>
     <string name="app_notification_title">Ekran yozuvi</string>
     <string name="auto_stop_title">Video muvaffaqiyatli saqlandi</string>

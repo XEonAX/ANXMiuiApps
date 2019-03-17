@@ -31,7 +31,7 @@
     <string name="app_description_content">Máy quét cho phép quét mã QR, tài liệu, danh thiếp và nhiều thứ khác. Chắc chắn rằng bạn có thể thực hiện mà không cần những tính năng này trước khi xóa ứng dụng.</string>
     <string name="app_description_title">Giới thiệu Máy quét</string>
     <string name="app_details">Ứng dụng:</string>
-    <string name="app_name">Máy quét</string>
+    <string name="app_name">AnX Máy quét</string>
     <string name="back">Quay lại</string>
     <string name="barcode_into_rectangle">Đặt mã vạch trong khung</string>
     <string name="birthday">Sinh nhật:</string>

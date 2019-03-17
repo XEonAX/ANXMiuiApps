@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Skärminspelare</string>
+    <string name="app_name">AnX Skärminspelare</string>
     <string name="app_notification_info">Skärminspelaren arbetar i bakgrunden</string>
     <string name="app_notification_title">Skärminspelare</string>
     <string name="auto_stop_title">Video sparad</string>

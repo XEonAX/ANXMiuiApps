@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ئېكران سىنلاش</string>
+    <string name="app_name">AnX ئېكران سىنلاش</string>
     <string name="app_notification_info">ئېكران سىنلاش مۇلازىمىتى ئارقا سۇپىدا ئىجرا قىلىنىۋاتىدۇ</string>
     <string name="app_notification_title">ئېكران سىنلاش</string>
     <string name="auto_stop_title">سىن ساقلاندى</string>

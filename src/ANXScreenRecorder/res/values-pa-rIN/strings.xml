@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ਸਕ੍ਰੀਨ ਰਿਕਾਰਡਰ</string>
+    <string name="app_name">AnX ਸਕ੍ਰੀਨ ਰਿਕਾਰਡਰ</string>
     <string name="app_notification_info">ਸਕ੍ਰੀਨ ਰਿਕਾਰਡਰ ਬੈਕਗ੍ਰਾਊਂਡ ਵਿੱਚ ਕੰਮ ਕਰ ਰਿਹਾ ਹੈ</string>
     <string name="app_notification_title">ਸਕ੍ਰੀਨ ਰਿਕਾਰਡਰ</string>
     <string name="auto_stop_title">ਵੀਡੀਓ ਸਫ਼ਲਤਾਪੂਰਵਕ ਸੁਰੱਖਿਅਤ ਕੀਤੀ ਗਈ</string>

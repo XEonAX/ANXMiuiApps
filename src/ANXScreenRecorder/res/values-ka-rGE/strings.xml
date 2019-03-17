@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ეკრანის ჩამწერი</string>
+    <string name="app_name">AnX ეკრანის ჩამწერი</string>
     <string name="app_notification_info">ეკრანის ჩამწერი მუშაობს უკანა ფონზე</string>
     <string name="app_notification_title">ეკრანის ჩამწერი</string>
     <string name="auto_stop_title">ვიდეო წარმატებით იქნა შენახული</string>

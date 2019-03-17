@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Экран Жазушы</string>
+    <string name="app_name">AnX Экран Жазушы</string>
     <string name="app_notification_info">Экран Жазушысы фондық режимде жұмыс істеуде</string>
     <string name="app_notification_title">Экран Жазушы</string>
     <string name="auto_stop_title">Видео сақтаулы</string>

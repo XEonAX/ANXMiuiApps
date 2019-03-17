@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Bildschirmaufnahme</string>
+    <string name="app_name">AnX Bildschirmaufnahme</string>
     <string name="app_notification_info">Bildschirmaufnahme läuft im Hintergrund</string>
     <string name="app_notification_title">Bildschirmaufnahme</string>
     <string name="auto_stop_title">Video erfolgreich gespeichert</string>

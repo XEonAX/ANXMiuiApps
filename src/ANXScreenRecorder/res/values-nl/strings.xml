@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Schermrecorder</string>
+    <string name="app_name">AnX Schermrecorder</string>
     <string name="app_notification_info">Schermrecorder werkt op de achtergrond</string>
     <string name="app_notification_title">Schermrecorder</string>
     <string name="auto_stop_title">Video succesvol opgeslagen</string>

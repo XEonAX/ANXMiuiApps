@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Snimač zaslona</string>
+    <string name="app_name">AnX Snimač zaslona</string>
     <string name="app_notification_info">Snimač zaslona radi u pozadini</string>
     <string name="app_notification_title">Snimač zaslona</string>
     <string name="auto_stop_title">Videozapis je uspješno spremljen</string>

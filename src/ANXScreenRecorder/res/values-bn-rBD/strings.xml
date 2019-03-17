@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">স্ক্রিন রেকর্ডার</string>
+    <string name="app_name">AnX স্ক্রিন রেকর্ডার</string>
     <string name="app_notification_info">স্ক্রিণ রেকর্ডর ব্যাকগ্রাউন্ডে কাজ করছে</string>
     <string name="app_notification_title">স্ক্রিন রেকর্ডার</string>
     <string name="auto_stop_title">ভিডিও সফলভাবে সেভ করা হয়েছে</string>

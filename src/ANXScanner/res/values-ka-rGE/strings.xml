@@ -10,7 +10,7 @@
     <string name="app_description_content">სკანერი გაძლევთ საშუალებას დაასკანეროთ QR–კოდები, დოკუმენტები, ბიზნეს ბარათები და სხვა. აპლიკაციის დეინსტალაციის წინ, დარწმუნდით იმაში, რომ ამ ფუნქციების გარეშე შეძლებთ გაძლებას.</string>
     <string name="app_description_title">სკანერის შესახებ</string>
     <string name="app_details">აპლიკაცია:</string>
-    <string name="app_name">სკანერი</string>
+    <string name="app_name">AnX სკანერი</string>
     <string name="back">უკან</string>
     <string name="barcode_into_rectangle">ჩასვით კოდი ჩარჩოში</string>
     <string name="birthday">დაბადების დღე:</string>
