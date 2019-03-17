@@ -1,5 +1,6 @@
 src/ANXScreenRecorder/build/
 src/ANXScanner/build
+src/ANXGallery/build
 out/
 .idea
 src/ANXMiuiAppsMagisk/system/priv-app/ANXScreenRecorder/ANXScreenRecorder.apk
