@@ -22,7 +22,7 @@ public class r {
     private static int I = 60;
     public static r a;
     /* renamed from: a */
-    private static ThreadPoolExecutor f54a;
+    private static ThreadPoolExecutor f51a;
     private static final AtomicInteger f = new AtomicInteger();
     private HandlerThread b = new HandlerThread(AppMonitor.TAG);
     private Handler mHandler;
@@ -54,7 +54,7 @@ public class r {
     }
 
     /* renamed from: a */
-    private static synchronized ThreadPoolExecutor m12a() {
+    private static synchronized ThreadPoolExecutor m10a() {
         ThreadPoolExecutor threadPoolExecutor;
         synchronized (r.class) {
             if (a == null) {

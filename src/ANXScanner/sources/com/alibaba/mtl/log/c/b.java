@@ -159,7 +159,7 @@ Caused by: jadx.core.utils.exceptions.CodegenException: MERGE can be used only i
      */
     /* Code decompiled incorrectly, please refer to instructions dump. */
     /* renamed from: a */
-    public synchronized boolean m17a(List<com.alibaba.mtl.log.model.a> list) {
+    public synchronized boolean m18a(List<com.alibaba.mtl.log.model.a> list) {
         SQLiteDatabase sQLiteDatabase;
         boolean z;
         SQLiteDatabase sQLiteDatabase2;

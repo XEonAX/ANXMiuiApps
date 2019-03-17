@@ -99,7 +99,7 @@ public class d implements ISGPluginManager {
         throw new SecException(199);
     }
 
-    /* JADX WARNING: Removed duplicated region for block: B:135:0x0563 A:{Catch:{ InstantiationException -> 0x0553, IllegalAccessException -> 0x069c, SecException -> 0x0563, all -> 0x0634, SecException -> 0x0274, all -> 0x014b }, Splitter: B:86:0x046d, ExcHandler: com.alibaba.wireless.security.open.SecException (r4_143 'e' com.alibaba.wireless.security.open.SecException)} */
+    /* JADX WARNING: Removed duplicated region for block: B:135:0x0563 A:{Splitter: B:86:0x046d, Catch:{ InstantiationException -> 0x0553, IllegalAccessException -> 0x069c, SecException -> 0x0563, all -> 0x0634, SecException -> 0x0274, all -> 0x014b }, ExcHandler: com.alibaba.wireless.security.open.SecException (r4_143 'e' com.alibaba.wireless.security.open.SecException)} */
     /* JADX WARNING: Missing block: B:135:0x0563, code:
             r4 = move-exception;
      */

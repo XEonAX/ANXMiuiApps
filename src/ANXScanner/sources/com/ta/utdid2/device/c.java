@@ -19,11 +19,11 @@ public class c {
     private static final Object f = new Object();
     private static final String o = (".UTSystemConfig" + File.separator + "Global");
     /* renamed from: a */
-    private com.ta.utdid2.c.a.c f90a = null;
+    private com.ta.utdid2.c.a.c f87a = null;
     /* renamed from: a */
-    private d f91a = null;
+    private d f88a = null;
     /* renamed from: a */
-    private Pattern f92a = Pattern.compile("[^0-9a-zA-Z=/+]+");
+    private Pattern f89a = Pattern.compile("[^0-9a-zA-Z=/+]+");
     private com.ta.utdid2.c.a.c b = null;
     private String l = null;
     private String m = "xx_utdid_key";

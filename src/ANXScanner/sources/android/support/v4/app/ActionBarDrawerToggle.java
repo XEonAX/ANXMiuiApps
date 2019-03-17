@@ -167,7 +167,7 @@ public class ActionBarDrawerToggle implements DrawerListener {
         this.mHomeAsUpIndicator = getThemeUpIndicator();
         this.mDrawerImage = ContextCompat.getDrawable(activity, drawerImageRes);
         this.mSlider = new SlideDrawable(this, this.mDrawerImage);
-        this.mSlider.setOffset(animate ? TOGGLE_DRAWABLE_OFFSET : 0.0f);
+        this.mSlider.setOffset(animate ? 0.33333334f : 0.0f);
     }
 
     public void syncState() {

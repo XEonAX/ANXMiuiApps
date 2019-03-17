@@ -24,7 +24,7 @@ public class d {
             e.b("ALPConfigManager", "ALPConfigManager", "本地SP存有配置,读取本地SP配置,memConfigInfo = " + this.a);
         }
         e.b("ALPConfigManager", "ALPConfigManager", "开始拉取服务端配置");
-        this.b.a(d(), new f(this, null));
+        this.b.a(d(), new f(this));
     }
 
     private void a(long j) {
@@ -45,7 +45,7 @@ public class d {
         if (this.d - System.currentTimeMillis() < 1000) {
             e.b("ALPConfigManager", "updateConfig", "配置马上要过期,触发拉去配置,expiredTime = " + this.d + "\n currentTime = " + System.currentTimeMillis());
             this.d = System.currentTimeMillis() + 30000;
-            this.b.a(d(), new f(this, null));
+            this.b.a(d(), new f(this));
         }
     }
 
