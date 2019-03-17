@@ -1,5 +1,5 @@
 .class public Lcom/xiaomi/scanner/setting/AboutActivity;
-.super Lmiui/app/Activity;
+.super Landroid/app/Activity;
 .source "AboutActivity.java"
 
 
@@ -9,7 +9,7 @@
 
     .prologue
     .line 17
-    invoke-direct {p0}, Lmiui/app/Activity;-><init>()V
+    invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
     return-void
 .end method
@@ -42,7 +42,7 @@
 
     .prologue
     .line 26
-    invoke-super {p0, p1}, Lmiui/app/Activity;->onCreate(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 28
     const v1, 0x7f03001b

@@ -41,7 +41,7 @@
 
 .field private mPreviewStatusListener:Lcom/xiaomi/scanner/ui/PreviewStatusListener;
 
-.field private mProgressDialog:Lmiui/app/ProgressDialog;
+.field private mProgressDialog:Landroid/app/ProgressDialog;
 
 .field private mShutterButton:Lcom/xiaomi/scanner/ui/ShutterButton;
 
@@ -549,19 +549,19 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/xiaomi/scanner/app/AppUI;->mProgressDialog:Lmiui/app/ProgressDialog;
+    iget-object v0, p0, Lcom/xiaomi/scanner/app/AppUI;->mProgressDialog:Landroid/app/ProgressDialog;
 
     if-eqz v0, :cond_0
 
     .line 532
-    iget-object v0, p0, Lcom/xiaomi/scanner/app/AppUI;->mProgressDialog:Lmiui/app/ProgressDialog;
+    iget-object v0, p0, Lcom/xiaomi/scanner/app/AppUI;->mProgressDialog:Landroid/app/ProgressDialog;
 
-    invoke-virtual {v0}, Lmiui/app/ProgressDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/ProgressDialog;->dismiss()V
 
     .line 533
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/xiaomi/scanner/app/AppUI;->mProgressDialog:Lmiui/app/ProgressDialog;
+    iput-object v0, p0, Lcom/xiaomi/scanner/app/AppUI;->mProgressDialog:Landroid/app/ProgressDialog;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -753,13 +753,13 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/xiaomi/scanner/app/AppUI;->mProgressDialog:Lmiui/app/ProgressDialog;
+    iget-object v0, p0, Lcom/xiaomi/scanner/app/AppUI;->mProgressDialog:Landroid/app/ProgressDialog;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/xiaomi/scanner/app/AppUI;->mProgressDialog:Lmiui/app/ProgressDialog;
+    iget-object v0, p0, Lcom/xiaomi/scanner/app/AppUI;->mProgressDialog:Landroid/app/ProgressDialog;
 
-    invoke-virtual {v0}, Lmiui/app/ProgressDialog;->isShowing()Z
+    invoke-virtual {v0}, Landroid/app/ProgressDialog;->isShowing()Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1940,14 +1940,14 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/xiaomi/scanner/app/AppUI;->mProgressDialog:Lmiui/app/ProgressDialog;
+    iget-object v0, p0, Lcom/xiaomi/scanner/app/AppUI;->mProgressDialog:Landroid/app/ProgressDialog;
 
     if-eqz v0, :cond_0
 
     .line 513
-    iget-object v0, p0, Lcom/xiaomi/scanner/app/AppUI;->mProgressDialog:Lmiui/app/ProgressDialog;
+    iget-object v0, p0, Lcom/xiaomi/scanner/app/AppUI;->mProgressDialog:Landroid/app/ProgressDialog;
 
-    invoke-virtual {v0}, Lmiui/app/ProgressDialog;->cancel()V
+    invoke-virtual {v0}, Landroid/app/ProgressDialog;->cancel()V
 
     .line 515
     :cond_0
@@ -1995,26 +1995,26 @@
 
     const/4 v2, 0x1
 
-    invoke-static {v0, p2, p1, v1, v2}, Lmiui/app/ProgressDialog;->show(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZZ)Lmiui/app/ProgressDialog;
+    invoke-static {v0, p2, p1, v1, v2}, Landroid/app/ProgressDialog;->show(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZZ)Landroid/app/ProgressDialog;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/xiaomi/scanner/app/AppUI;->mProgressDialog:Lmiui/app/ProgressDialog;
+    iput-object v0, p0, Lcom/xiaomi/scanner/app/AppUI;->mProgressDialog:Landroid/app/ProgressDialog;
 
     .line 519
-    iget-object v0, p0, Lcom/xiaomi/scanner/app/AppUI;->mProgressDialog:Lmiui/app/ProgressDialog;
+    iget-object v0, p0, Lcom/xiaomi/scanner/app/AppUI;->mProgressDialog:Landroid/app/ProgressDialog;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lmiui/app/ProgressDialog;->setCanceledOnTouchOutside(Z)V
+    invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setCanceledOnTouchOutside(Z)V
 
     .line 520
     if-eqz p3, :cond_1
 
     .line 521
-    iget-object v0, p0, Lcom/xiaomi/scanner/app/AppUI;->mProgressDialog:Lmiui/app/ProgressDialog;
+    iget-object v0, p0, Lcom/xiaomi/scanner/app/AppUI;->mProgressDialog:Landroid/app/ProgressDialog;
 
-    invoke-virtual {v0, p3}, Lmiui/app/ProgressDialog;->setOnKeyListener(Landroid/content/DialogInterface$OnKeyListener;)V
+    invoke-virtual {v0, p3}, Landroid/app/ProgressDialog;->setOnKeyListener(Landroid/content/DialogInterface$OnKeyListener;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 

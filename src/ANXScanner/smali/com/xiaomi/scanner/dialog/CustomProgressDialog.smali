@@ -1,5 +1,5 @@
 .class public Lcom/xiaomi/scanner/dialog/CustomProgressDialog;
-.super Lmiui/app/AlertDialog;
+.super Landroid/app/AlertDialog;
 .source "CustomProgressDialog.java"
 
 
@@ -16,7 +16,7 @@
 
     .prologue
     .line 36
-    invoke-direct {p0, p1}, Lmiui/app/AlertDialog;-><init>(Landroid/content/Context;)V
+    invoke-direct {p0, p1}, Landroid/app/AlertDialog;-><init>(Landroid/content/Context;)V
 
     .line 37
     return-void
@@ -72,7 +72,7 @@
     const/4 v6, 0x0
 
     .line 41
-    invoke-super {p0, p1}, Lmiui/app/AlertDialog;->onCreate(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/app/AlertDialog;->onCreate(Landroid/os/Bundle;)V
 
     .line 42
     invoke-virtual {p0}, Lcom/xiaomi/scanner/dialog/CustomProgressDialog;->getContext()Landroid/content/Context;

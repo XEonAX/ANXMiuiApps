@@ -1,5 +1,5 @@
 .class public Lcom/xiaomi/scanner/dialog/ErrorDialog;
-.super Lmiui/app/AlertDialog;
+.super Landroid/app/AlertDialog;
 .source "ErrorDialog.java"
 
 # interfaces
@@ -27,7 +27,7 @@
     .line 32
     const v0, 0x7f090136
 
-    invoke-direct {p0, p1, v0}, Lmiui/app/AlertDialog;-><init>(Landroid/content/Context;I)V
+    invoke-direct {p0, p1, v0}, Landroid/app/AlertDialog;-><init>(Landroid/content/Context;I)V
 
     .line 27
     iput-object v1, p0, Lcom/xiaomi/scanner/dialog/ErrorDialog;->mContentText:Ljava/lang/String;
@@ -114,7 +114,7 @@
 
     .prologue
     .line 43
-    invoke-super {p0, p1}, Lmiui/app/AlertDialog;->onCreate(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/app/AlertDialog;->onCreate(Landroid/os/Bundle;)V
 
     .line 44
     invoke-virtual {p0}, Lcom/xiaomi/scanner/dialog/ErrorDialog;->getContext()Landroid/content/Context;

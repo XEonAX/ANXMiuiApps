@@ -1,5 +1,5 @@
 .class public Lcom/xiaomi/scanner/module/study/app/FeedSearchActivity;
-.super Lmiui/app/Activity;
+.super Landroid/app/Activity;
 .source "FeedSearchActivity.java"
 
 # interfaces
@@ -53,7 +53,7 @@
 
     .prologue
     .line 38
-    invoke-direct {p0}, Lmiui/app/Activity;-><init>()V
+    invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
     .line 51
     const/4 v0, 0x0
@@ -221,7 +221,7 @@
 
     .line 124
     .local v3, "titleView":Landroid/view/View;
-    invoke-virtual {p0}, Lcom/xiaomi/scanner/module/study/app/FeedSearchActivity;->getActionBar()Lmiui/app/ActionBar;
+    invoke-virtual {p0}, Lcom/xiaomi/scanner/module/study/app/FeedSearchActivity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v1
 
@@ -707,7 +707,7 @@
 
     .prologue
     .line 58
-    invoke-super {p0, p1}, Lmiui/app/Activity;->onCreate(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 59
     const/4 v0, 0x3
@@ -731,7 +731,7 @@
 
     .prologue
     .line 188
-    invoke-super {p0}, Lmiui/app/Activity;->onDestroy()V
+    invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
 
     .line 189
     iget-object v0, p0, Lcom/xiaomi/scanner/module/study/app/FeedSearchActivity;->mPictureBitmap:Landroid/graphics/Bitmap;
@@ -766,7 +766,7 @@
 
     .prologue
     .line 182
-    invoke-super {p0}, Lmiui/app/Activity;->onPause()V
+    invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
     .line 183
     invoke-static {}, Lcom/xiaomi/scanner/stats/UsageStatistics;->recordPageEnd()V
@@ -780,7 +780,7 @@
 
     .prologue
     .line 176
-    invoke-super {p0}, Lmiui/app/Activity;->onResume()V
+    invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
     .line 177
     const-string v0, "FeedSearchActivity"

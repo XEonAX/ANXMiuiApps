@@ -1161,143 +1161,150 @@
 .end method
 
 .method public static isRightVersion()Z
-    .locals 12
+    # .locals 12
 
-    .prologue
-    const/4 v4, 0x1
+    # .prologue
+    # const/4 v4, 0x1
 
-    const/4 v5, 0x0
+    # const/4 v5, 0x0
 
-    .line 241
-    :try_start_0
-    const-string v6, "\\d+"
+    # .line 241
+    # :try_start_0
+    # const-string v6, "\\d+"
 
-    invoke-static {v6}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
+    # invoke-static {v6}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
-    move-result-object v2
+    # move-result-object v2
 
-    .line 242
-    .local v2, "pattern":Ljava/util/regex/Pattern;
-    const-string v6, "android.os.SystemProperties"
+    # .line 242
+    # .local v2, "pattern":Ljava/util/regex/Pattern;
+    # const-string v6, "android.os.SystemProperties"
 
-    .line 243
-    invoke-static {v6}, Lcom/xiaomi/scanner/util/ReflectUtil$ReflAgent;->getClass(Ljava/lang/String;)Lcom/xiaomi/scanner/util/ReflectUtil$ReflAgent;
+    # .line 243
+    # invoke-static {v6}, Lcom/xiaomi/scanner/util/ReflectUtil$ReflAgent;->getClass(Ljava/lang/String;)Lcom/xiaomi/scanner/util/ReflectUtil$ReflAgent;
 
-    move-result-object v6
+    # move-result-object v6
 
-    const-string v7, "get"
+    # const-string v7, "get"
 
-    const/4 v8, 0x1
+    # const/4 v8, 0x1
 
-    new-array v8, v8, [Ljava/lang/Class;
+    # new-array v8, v8, [Ljava/lang/Class;
 
-    const/4 v9, 0x0
+    # const/4 v9, 0x0
 
-    const-class v10, Ljava/lang/String;
+    # const-class v10, Ljava/lang/String;
 
-    aput-object v10, v8, v9
+    # aput-object v10, v8, v9
 
-    const/4 v9, 0x1
+    # const/4 v9, 0x1
 
-    new-array v9, v9, [Ljava/lang/Object;
+    # new-array v9, v9, [Ljava/lang/Object;
 
-    const/4 v10, 0x0
+    # const/4 v10, 0x0
 
-    const-string v11, "ro.miui.ui.version.name"
+    # const-string v11, "ro.miui.ui.version.name"
 
-    aput-object v11, v9, v10
+    # aput-object v11, v9, v10
 
-    .line 244
-    invoke-virtual {v6, v7, v8, v9}, Lcom/xiaomi/scanner/util/ReflectUtil$ReflAgent;->callStaticMethod(Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)Lcom/xiaomi/scanner/util/ReflectUtil$ReflAgent;
+    # .line 244
+    # invoke-virtual {v6, v7, v8, v9}, Lcom/xiaomi/scanner/util/ReflectUtil$ReflAgent;->callStaticMethod(Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)Lcom/xiaomi/scanner/util/ReflectUtil$ReflAgent;
 
-    move-result-object v6
+    # move-result-object v6
 
-    .line 245
-    invoke-virtual {v6}, Lcom/xiaomi/scanner/util/ReflectUtil$ReflAgent;->stringResult()Ljava/lang/String;
+    # .line 245
+    # invoke-virtual {v6}, Lcom/xiaomi/scanner/util/ReflectUtil$ReflAgent;->stringResult()Ljava/lang/String;
 
-    move-result-object v6
+    # move-result-object v6
 
-    .line 242
-    invoke-virtual {v2, v6}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+    # .line 242
+    # invoke-virtual {v2, v6}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
-    move-result-object v1
+    # move-result-object v1
 
-    .line 246
-    .local v1, "matcher":Ljava/util/regex/Matcher;
-    invoke-virtual {v1}, Ljava/util/regex/Matcher;->find()Z
+    # .line 246
+    # .local v1, "matcher":Ljava/util/regex/Matcher;
+    # invoke-virtual {v1}, Ljava/util/regex/Matcher;->find()Z
 
-    .line 247
-    invoke-virtual {v1}, Ljava/util/regex/Matcher;->group()Ljava/lang/String;
+    # .line 247
+    # invoke-virtual {v1}, Ljava/util/regex/Matcher;->group()Ljava/lang/String;
 
-    move-result-object v6
+    # move-result-object v6
 
-    invoke-static {v6}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    # invoke-static {v6}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v3
+    # move-result v3
 
-    .line 248
-    .local v3, "version":I
-    sget-object v6, Lcom/xiaomi/scanner/util/AppUtil;->TAG:Lcom/xiaomi/scanner/debug/Log$Tag;
+    # .line 248
+    # .local v3, "version":I
+    # sget-object v6, Lcom/xiaomi/scanner/util/AppUtil;->TAG:Lcom/xiaomi/scanner/debug/Log$Tag;
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    # new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    # invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, "current miui version is "
+    # const-string v8, "current miui version is "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    # invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    # move-result-object v7
 
-    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    # invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    # move-result-object v7
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    # invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    # move-result-object v7
 
-    invoke-static {v6, v7}, Lcom/xiaomi/scanner/debug/Log;->i(Lcom/xiaomi/scanner/debug/Log$Tag;Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    # invoke-static {v6, v7}, Lcom/xiaomi/scanner/debug/Log;->i(Lcom/xiaomi/scanner/debug/Log$Tag;Ljava/lang/String;)V
+    # :try_end_0
+    # .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 249
-    const/16 v6, 0x8
+    # .line 249
+    # const/16 v6, 0x8
 
-    if-lt v3, v6, :cond_0
+    # if-lt v3, v6, :cond_0
 
-    .line 252
-    .end local v1    # "matcher":Ljava/util/regex/Matcher;
-    .end local v3    # "version":I
-    :goto_0
-    return v4
+    # .line 252
+    # .end local v1    # "matcher":Ljava/util/regex/Matcher;
+    # .end local v3    # "version":I
+    # :goto_0
+    # return v4
 
-    .restart local v1    # "matcher":Ljava/util/regex/Matcher;
-    .restart local v3    # "version":I
-    :cond_0
-    move v4, v5
+    # .restart local v1    # "matcher":Ljava/util/regex/Matcher;
+    # .restart local v3    # "version":I
+    # :cond_0
+    # move v4, v5
 
-    .line 249
-    goto :goto_0
+    # .line 249
+    # goto :goto_0
 
-    .line 250
-    .end local v1    # "matcher":Ljava/util/regex/Matcher;
-    .end local v3    # "version":I
-    :catch_0
-    move-exception v0
+    # .line 250
+    # .end local v1    # "matcher":Ljava/util/regex/Matcher;
+    # .end local v3    # "version":I
+    # :catch_0
+    # move-exception v0
 
-    .line 251
-    .local v0, "e":Ljava/lang/Exception;
-    sget-object v4, Lcom/xiaomi/scanner/util/AppUtil;->TAG:Lcom/xiaomi/scanner/debug/Log$Tag;
+    # .line 251
+    # .local v0, "e":Ljava/lang/Exception;
+    # sget-object v4, Lcom/xiaomi/scanner/util/AppUtil;->TAG:Lcom/xiaomi/scanner/debug/Log$Tag;
 
-    const-string v6, "get version error"
+    # const-string v6, "get version error"
 
-    invoke-static {v4, v6, v0}, Lcom/xiaomi/scanner/debug/Log;->e(Lcom/xiaomi/scanner/debug/Log$Tag;Ljava/lang/String;Ljava/lang/Throwable;)V
+    # invoke-static {v4, v6, v0}, Lcom/xiaomi/scanner/debug/Log;->e(Lcom/xiaomi/scanner/debug/Log$Tag;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    move v4, v5
+    # move v4, v5
 
-    .line 252
-    goto :goto_0
+    # .line 252
+    # goto :goto_0
+
+    .locals 1
+    
+    const/4 v0, 0x1
+
+    return v0
+
 .end method
 
 .method public static isRtlLayout()Z
