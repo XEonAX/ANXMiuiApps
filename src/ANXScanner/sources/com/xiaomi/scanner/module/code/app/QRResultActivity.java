@@ -1,5 +1,6 @@
 package com.xiaomi.scanner.module.code.app;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,7 +15,6 @@ import com.xiaomi.scanner.stats.UsageStatistics;
 import com.xiaomi.scanner.util.AppUtil;
 import com.xiaomi.scanner.util.DeviceUtil;
 import com.xiaomi.scanner.util.DialogUtil;
-import miui.app.Activity;
 
 public class QRResultActivity extends Activity {
     private static final Tag TAG = new Tag("QRResultActivity");

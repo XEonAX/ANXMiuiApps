@@ -1,13 +1,13 @@
 package com.xiaomi.scanner.dialog;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.xiaomi.scanner.R;
-import miui.app.AlertDialog;
 
 public class CustomProgressDialog extends AlertDialog {
     private int mLogoId;

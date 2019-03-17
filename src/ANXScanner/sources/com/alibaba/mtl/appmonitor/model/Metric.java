@@ -9,7 +9,7 @@ import mtopsdk.common.util.SymbolExpUtil;
 public class Metric implements b {
     private DimensionSet b;
     /* renamed from: b */
-    private MeasureSet f46b;
+    private MeasureSet f44b;
     private boolean g;
     private String o;
     private String p;

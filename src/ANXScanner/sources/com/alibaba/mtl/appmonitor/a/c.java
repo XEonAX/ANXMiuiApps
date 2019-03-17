@@ -17,12 +17,12 @@ import java.util.Map;
 public class c extends d {
     private static final Long a = Long.valueOf(300000);
     /* renamed from: a */
-    private Metric f52a;
+    private Metric f51a;
     private DimensionValueSet b;
     /* renamed from: b */
-    private MeasureValueSet f53b;
+    private MeasureValueSet f52b;
     /* renamed from: b */
-    private Long f54b;
+    private Long f53b;
     private Map<String, MeasureValue> i;
 
     public boolean c() {
@@ -53,7 +53,7 @@ public class c extends d {
     }
 
     /* renamed from: a */
-    public boolean m12a(String str) {
+    public boolean m11a(String str) {
         MeasureValue measureValue = (MeasureValue) this.i.get(str);
         if (measureValue != null) {
             i.a("DurationEvent", "statEvent consumeTime. module:", this.o, " monitorPoint:", this.p, " measureName:", str, " time:", Double.valueOf(((double) System.currentTimeMillis()) - measureValue.getValue()));
@@ -76,7 +76,7 @@ public class c extends d {
     }
 
     /* renamed from: a */
-    public MeasureValueSet m11a() {
+    public MeasureValueSet m10a() {
         return this.b;
     }
 

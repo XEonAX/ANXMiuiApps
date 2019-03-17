@@ -1,5 +1,6 @@
 package com.xiaomi.scanner.dialog;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -8,7 +9,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 import com.xiaomi.scanner.R;
-import miui.app.AlertDialog;
 
 public class ErrorDialog extends AlertDialog implements OnClickListener {
     private String mContentText = null;

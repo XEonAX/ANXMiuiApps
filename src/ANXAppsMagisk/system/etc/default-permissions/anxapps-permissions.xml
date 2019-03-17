@@ -31,20 +31,81 @@
             fixed="true" />
     </exception>
     <exception package="com.miui.screenrecorder">
-        <permission name="android.permission.INTERNET" fixed="true" />
-        <permission name="android.permission.ACCESS_NETWORK_STATE" fixed="true" />
-        <permission name="android.permission.ACCESS_WIFI_STATE" fixed="true" />
-        <permission name="android.permission.SYSTEM_ALERT_WINDOW" fixed="true" />
-        <permission name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" fixed="true" />
-        <permission name="android.permission.READ_EXTERNAL_STORAGE" fixed="true" />
-        <permission name="android.permission.WRITE_EXTERNAL_STORAGE" fixed="true" />
-        <permission name="android.permission.WRITE_MEDIA_STORAGE" fixed="true" />
-        <permission name="android.permission.ACCESS_ALL_EXTERNAL_STORAGE" fixed="true" />
-        <permission name="android.permission.RECORD_AUDIO" fixed="true" />
-        <permission name="android.permission.BLUETOOTH" fixed="true" />
-        <permission name="android.permission.INTERACT_ACROSS_USERS" fixed="true" />
-        <permission name="com.android.launcher.permission.INSTALL_SHORTCUT" fixed="true" />
-        <permission name="android.permission.FOREGROUND_SERVICE" fixed="true" />
-        <permission name="android.permission.WRITE_SETTINGS" fixed="true" />
+        <permission name="android.permission.INTERNET" 
+            fixed="true" />
+        <permission name="android.permission.ACCESS_NETWORK_STATE" 
+            fixed="true" />
+        <permission name="android.permission.ACCESS_WIFI_STATE" 
+            fixed="true" />
+        <permission name="android.permission.SYSTEM_ALERT_WINDOW" 
+            fixed="true" />
+        <permission name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" 
+            fixed="true" />
+        <permission name="android.permission.READ_EXTERNAL_STORAGE" 
+            fixed="true" />
+        <permission name="android.permission.WRITE_EXTERNAL_STORAGE" 
+            fixed="true" />
+        <permission name="android.permission.WRITE_MEDIA_STORAGE" 
+            fixed="true" />
+        <permission name="android.permission.ACCESS_ALL_EXTERNAL_STORAGE" 
+            fixed="true" />
+        <permission name="android.permission.RECORD_AUDIO" 
+            fixed="true" />
+        <permission name="android.permission.BLUETOOTH" 
+            fixed="true" />
+        <permission name="android.permission.INTERACT_ACROSS_USERS" 
+            fixed="true" />
+        <permission name="com.android.launcher.permission.INSTALL_SHORTCUT" 
+            fixed="true" />
+        <permission name="android.permission.FOREGROUND_SERVICE" 
+            fixed="true" />
+        <permission name="android.permission.WRITE_SETTINGS" 
+            fixed="true" />
+    </exception>
+
+
+    <exception package="com.xiaomi.scanner">
+        <permission name="android.permission.CAMERA" 
+            fixed="true" />
+        <permission name="android.permission.READ_EXTERNAL_STORAGE" 
+            fixed="true" />
+        <permission name="android.permission.WRITE_EXTERNAL_STORAGE" 
+            fixed="true" />
+        <permission name="android.permission.READ_PRIVILEGED_PHONE_STATE" 
+            fixed="true" />
+        <permission name="android.permission.READ_PHONE_STATE" 
+            fixed="true" />
+        <permission name="android.permission.ACCESS_NETWORK_STATE" 
+            fixed="true" />
+        <permission name="android.permission.CHANGE_NETWORK_STATE" 
+            fixed="true" />
+        <permission name="android.permission.ACCESS_WIFI_STATE" 
+            fixed="true" />
+        <permission name="android.permission.CHANGE_WIFI_STATE" 
+            fixed="true" />
+        <permission name="android.permission.FLASHLIGHT" 
+            fixed="true" />
+        <permission name="android.permission.INTERNET" 
+            fixed="true" />
+        <permission name="android.permission.VIBRATE" 
+            fixed="true" />
+        <permission name="android.permission.START_ANY_ACTIVITY" 
+            fixed="true" />
+        <permission name="com.xiaomi.scanner.receiver.RECEIVER" 
+            fixed="true" />
+        <permission name="android.permission.CHANGE_CONFIGURATION" 
+            fixed="true" />
+        <permission name="android.permission.GET_TASKS" 
+            fixed="true" />
+        <permission name="android.permission.OVERRIDE_WIFI_CONFIG" 
+            fixed="true" />
+        <permission name="android.permission.WRITE_MEDIA_STORAGE" 
+            fixed="true" />
+        <permission name="android.permission.CONFIGURE_WIFI_DISPLAY" 
+            fixed="true" />
+        <permission name="com.miui.securitycenter.permission.PERM_USE_INFO" 
+            fixed="true" />
+        <permission name="android.permission.RUN_INSTRUMENTATION" 
+            fixed="true" />
     </exception>
 </exceptions>

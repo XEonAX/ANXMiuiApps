@@ -1,5 +1,6 @@
 package com.xiaomi.scanner.setting;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,7 +22,6 @@ import com.xiaomi.scanner.util.ScannerThreadPool;
 import com.xiaomi.scanner.util.ScannerThreadPool.ScanThreadCallback;
 import java.util.ArrayList;
 import java.util.List;
-import miui.app.Activity;
 
 public class SettingActivity extends Activity implements OnClickListener {
     private Spinner functionText;

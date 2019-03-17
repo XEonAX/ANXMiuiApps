@@ -1,9 +1,9 @@
 package com.miui.screenrecorder.activity;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.os.Bundle;
 import com.miui.screenrecorder.view.ScreenRecorderSettingsFragment;
-import miui.app.Activity;
 
 public class ScreenRecorderSettingActivity extends Activity {
     @TargetApi(11)

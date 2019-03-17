@@ -2,6 +2,7 @@ package com.xiaomi.scanner.module.study.app;
 
 import android.app.ActionBar;
 import android.app.ActionBar.LayoutParams;
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Build.VERSION;
@@ -30,7 +31,6 @@ import com.xiaomi.scanner.util.FileUtil;
 import com.xiaomi.scanner.util.PictureDecoder;
 import java.util.HashMap;
 import java.util.Map;
-import miui.app.Activity;
 
 public class FeedSearchActivity extends Activity implements CheckTopDoneListener, OnRequestPermissionsResultCallback {
     public static final String SEARCH_PIC_URL = "search_pic_url";

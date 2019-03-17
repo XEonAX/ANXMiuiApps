@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" 
     android:compileSdkVersion="22" 
     android:compileSdkVersionCodename="8.0.0" 
-    android:versionCode="20" 
-    android:versionName="20.OriginalDisfiguredAzurewingedmagpie" 
+    android:versionCode="23" 
+    android:versionName="23.UnnaturalJadedRobin" 
     package="com.miui.screenrecorder" 
     platformBuildVersionCode="22" 
     platformBuildVersionName="8.0.0">

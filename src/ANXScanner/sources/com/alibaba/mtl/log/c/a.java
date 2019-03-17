@@ -9,7 +9,7 @@ public interface a {
     List<com.alibaba.mtl.log.model.a> a(String str, int i);
 
     /* renamed from: a */
-    boolean m14a(List<com.alibaba.mtl.log.model.a> list);
+    boolean m15a(List<com.alibaba.mtl.log.model.a> list);
 
     void c(String str, String str2);
 

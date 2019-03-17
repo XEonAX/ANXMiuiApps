@@ -1,11 +1,11 @@
 package com.xiaomi.scanner.setting;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 import com.xiaomi.scanner.R;
-import miui.app.Activity;
 
 public class AboutActivity extends Activity {
     public static void showAbout(Context context) {

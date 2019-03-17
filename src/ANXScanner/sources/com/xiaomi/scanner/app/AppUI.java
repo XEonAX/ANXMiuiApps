@@ -1,6 +1,7 @@
 package com.xiaomi.scanner.app;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface.OnKeyListener;
 import android.content.res.Resources;
@@ -47,7 +48,6 @@ import com.xiaomi.scanner.util.ToastUtils;
 import com.xiaomi.scanner.util.Util;
 import java.util.List;
 import java.util.Locale;
-import miui.app.ProgressDialog;
 
 public class AppUI implements SurfaceTextureListener, OnSettingChangedListener, ModuleSelectListener, MessageDispatcher, FunctionUI, OnClickListener, OnTurnFlashListener {
     private static final Tag TAG = new Tag("AppUI");

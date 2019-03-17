@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:compileSdkVersion="26" 
+    android:compileSdkVersionCodename="8.0.0" 
     package="com.xiaomi.scanner" 
+    android:versionCode="23" 
+    android:versionName="23.UnnaturalJadedRobin" 
     platformBuildVersionCode="26" 
     platformBuildVersionName="8.0.0">
     <uses-permission android:name="android.permission.CAMERA"/>
@@ -23,11 +27,11 @@
     <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE"/>
     <uses-permission android:name="android.permission.CONFIGURE_WIFI_DISPLAY"/>
     <uses-permission android:name="com.miui.securitycenter.permission.PERM_USE_INFO"/>
+    <uses-permission android:name="android.permission.RUN_INSTRUMENTATION"/>
     <uses-feature android:name="android.hardware.camera"/>
     <uses-feature android:name="android.hardware.camera.autofocus"/>
     <permission android:name="com.xiaomi.scanner.receiver.RECEIVER" 
         android:protectionLevel="signature"/>
-    <uses-permission android:name="android.permission.RUN_INSTRUMENTATION"/>
     <application android:allowBackup="false" 
         android:extractNativeLibs="true" 
         android:hardwareAccelerated="true" 

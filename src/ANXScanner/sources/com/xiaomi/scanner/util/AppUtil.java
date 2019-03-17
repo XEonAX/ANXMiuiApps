@@ -33,8 +33,6 @@ import com.xiaomi.scanner.settings.SettingsManager;
 import com.xiaomi.scanner.util.ReflectUtil.ReflAgent;
 import java.util.List;
 import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class AppUtil {
     public static final long DELAY_TIME = 200;
@@ -60,6 +58,10 @@ public class AppUtil {
 
     public interface AppUtilListener {
         void packageInstalled(String str, boolean z, Object obj);
+    }
+
+    public static boolean isRightVersion() {
+        return true;
     }
 
     public static String getPhoneType() {
@@ -163,22 +165,6 @@ public class AppUtil {
 
     public static boolean isRtlLayout() {
         return TextUtils.getLayoutDirectionFromLocale(Locale.getDefault()) == 1;
-    }
-
-    public static boolean isRightVersion() {
-        try {
-            Matcher matcher = Pattern.compile("\\d+").matcher(ReflAgent.getClass("android.os.SystemProperties").callStaticMethod("get", new Class[]{String.class}, "ro.miui.ui.version.name").stringResult());
-            matcher.find();
-            int version = Integer.parseInt(matcher.group());
-            Log.i(TAG, "current miui version is " + version);
-            if (version >= 8) {
-                return true;
-            }
-            return false;
-        } catch (Exception e) {
-            Log.e(TAG, "get version error", e);
-            return false;
-        }
     }
 
     public static void saveUserAgreeToRun(boolean agree) {
