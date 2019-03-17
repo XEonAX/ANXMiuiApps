@@ -1,5 +1,5 @@
 .class public Lcom/miui/screenrecorder/activity/ScreenRecorderSettingActivity;
-.super Lmiui/app/Activity;
+.super Landroid/app/Activity;
 .source "ScreenRecorderSettingActivity.java"
 
 
@@ -9,7 +9,7 @@
 
     .prologue
     .line 16
-    invoke-direct {p0}, Lmiui/app/Activity;-><init>()V
+    invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
     return-void
 .end method
@@ -25,7 +25,7 @@
 
     .prologue
     .line 21
-    invoke-super {p0, p1}, Lmiui/app/Activity;->onCreate(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 22
     invoke-virtual {p0}, Lcom/miui/screenrecorder/activity/ScreenRecorderSettingActivity;->getFragmentManager()Landroid/app/FragmentManager;

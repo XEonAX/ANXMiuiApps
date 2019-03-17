@@ -1,5 +1,5 @@
 .class public Lcom/xiaomi/scanner/module/code/app/QRResultActivity;
-.super Lmiui/app/Activity;
+.super Landroid/app/Activity;
 .source "QRResultActivity.java"
 
 
@@ -41,7 +41,7 @@
 
     .prologue
     .line 25
-    invoke-direct {p0}, Lmiui/app/Activity;-><init>()V
+    invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
     .line 33
     const/4 v0, 0x0
@@ -199,7 +199,7 @@
 
     .prologue
     .line 37
-    invoke-super {p0, p1}, Lmiui/app/Activity;->onCreate(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 38
     const/4 v1, 0x3
@@ -292,7 +292,7 @@
 
     .prologue
     .line 73
-    invoke-super {p0}, Lmiui/app/Activity;->onDestroy()V
+    invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
 
     .line 74
     iget-object v0, p0, Lcom/xiaomi/scanner/module/code/app/QRResultActivity;->mConfirmDialog:Lcom/xiaomi/scanner/dialog/CtaDialog;
@@ -308,7 +308,7 @@
 
     .prologue
     .line 67
-    invoke-super {p0}, Lmiui/app/Activity;->onPause()V
+    invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
     .line 68
     invoke-static {}, Lcom/xiaomi/scanner/stats/UsageStatistics;->recordPageEnd()V
@@ -322,7 +322,7 @@
 
     .prologue
     .line 61
-    invoke-super {p0}, Lmiui/app/Activity;->onResume()V
+    invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
     .line 62
     const-string v0, "QRResultActivity"
