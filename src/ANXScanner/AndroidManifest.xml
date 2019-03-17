@@ -1,4 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.xiaomi.scanner" platformBuildVersionCode="26" platformBuildVersionName="8.0.0">
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" 
+    package="com.xiaomi.scanner" 
+    platformBuildVersionCode="26" 
+    platformBuildVersionName="8.0.0">
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -21,10 +25,24 @@
     <uses-permission android:name="com.miui.securitycenter.permission.PERM_USE_INFO"/>
     <uses-feature android:name="android.hardware.camera"/>
     <uses-feature android:name="android.hardware.camera.autofocus"/>
-    <permission android:name="com.xiaomi.scanner.receiver.RECEIVER" android:protectionLevel="signature"/>
+    <permission android:name="com.xiaomi.scanner.receiver.RECEIVER" 
+        android:protectionLevel="signature"/>
     <uses-permission android:name="android.permission.RUN_INSTRUMENTATION"/>
-    <application android:allowBackup="true" android:extractNativeLibs="false" android:hardwareAccelerated="true" android:icon="@drawable/barcode_scanner" android:label="@string/app_name" android:name="com.xiaomi.scanner.app.ScannerApp" android:resizeableActivity="false" android:supportsRtl="true" android:theme="@style/ThemeCamera">
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.xiaomi.scanner.app.ScanActivity" android:screenOrientation="portrait" android:theme="@style/ThemeCameraNaviBar" android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+    <application android:allowBackup="true" 
+        android:extractNativeLibs="false" 
+        android:hardwareAccelerated="true" 
+        android:icon="@drawable/barcode_scanner" 
+        android:label="@string/app_name" 
+        android:name="com.xiaomi.scanner.app.ScannerApp" 
+        android:resizeableActivity="false" 
+        android:supportsRtl="true" 
+        android:theme="@style/ThemeCamera">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:launchMode="singleTop" 
+            android:name="com.xiaomi.scanner.app.ScanActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/ThemeCameraNaviBar" 
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <action android:name="miui.intent.action.scanbarcode"/>
@@ -38,20 +56,28 @@
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
                 <category android:name="android.intent.category.DEFAULT"/>
-                <data android:host="com.xiaomi.scanner" android:pathPattern="/main" android:scheme="scanner"/>
+                <data android:host="com.xiaomi.scanner" 
+                    android:pathPattern="/main" 
+                    android:scheme="scanner"/>
             </intent-filter>
             <intent-filter>
                 <action android:name="mi.quicksearch.intent.action.RETRIEVE"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
-            <meta-data android:name="mi.quicksearch.hints" android:resource="@xml/mi_quicksearch_hints"/>
+            <meta-data android:name="mi.quicksearch.hints" 
+                android:resource="@xml/mi_quicksearch_hints"/>
             <intent-filter>
                 <action android:name="android.intent.action.SEND"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <data android:mimeType="image/*"/>
             </intent-filter>
         </activity>
-        <activity android:allowTaskReparenting="true" android:label="@string/scan_result" android:name="com.xiaomi.scanner.module.code.app.QRResultActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@miui:style/Theme.Light">
+        <activity android:allowTaskReparenting="true" 
+            android:label="@string/scan_result" 
+            android:name="com.xiaomi.scanner.module.code.app.QRResultActivity" 
+            android:noHistory="true" 
+            android:screenOrientation="portrait" 
+            android:theme="@miui:style/Theme.Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <action android:name="miui.intent.action.receiverResultBarcodeScanner"/>
@@ -59,62 +85,113 @@
                 <category android:name="miui.intent.category.SYSAPP_TOOL"/>
             </intent-filter>
         </activity>
-        <activity android:label="@string/about_title" android:launchMode="singleTop" android:name="com.xiaomi.scanner.setting.AboutActivity" android:screenOrientation="portrait" android:theme="@miui:style/Theme.Light"/>
-        <activity android:label="@string/setting_title" android:launchMode="singleTop" android:name="com.xiaomi.scanner.setting.SettingActivity" android:screenOrientation="portrait" android:theme="@miui:style/Theme.Light"/>
-        <meta-data android:name="mi_stat_channel" android:value="XiaoMi_Rom"/>
-        <meta-data android:name="app_description_title" android:resource="@string/app_description_title"/>
-        <meta-data android:name="app_description_content" android:resource="@string/app_description_content"/>
-        <meta-data android:name="android.max_aspect" android:value="2.2"/>
-        <meta-data android:name="notch.config" android:value="none"/>
-        <meta-data android:name="homework_appid" android:value="xiaomisaoyisao"/>
-        <uses-library android:name="miui-stat.jar" android:required="true"/>
-        <receiver android:exported="true" android:name="com.xiaomi.scanner.module.code.app.BarCodeScannerReceiver" android:permission="com.xiaomi.scanner.receiver.RECEIVER">
+        <activity android:label="@string/about_title" 
+            android:launchMode="singleTop" 
+            android:name="com.xiaomi.scanner.setting.AboutActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@miui:style/Theme.Light"/>
+        <activity android:label="@string/setting_title" 
+            android:launchMode="singleTop" 
+            android:name="com.xiaomi.scanner.setting.SettingActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@miui:style/Theme.Light"/>
+        <meta-data android:name="mi_stat_channel" 
+            android:value="XiaoMi_Rom"/>
+        <meta-data android:name="app_description_title" 
+            android:resource="@string/app_description_title"/>
+        <meta-data android:name="app_description_content" 
+            android:resource="@string/app_description_content"/>
+        <meta-data android:name="android.max_aspect" 
+            android:value="2.2"/>
+        <meta-data android:name="notch.config" 
+            android:value="none"/>
+        <meta-data android:name="homework_appid" 
+            android:value="xiaomisaoyisao"/>
+        <uses-library android:name="miui-stat.jar" 
+            android:required="true"/>
+        <receiver android:exported="true" 
+            android:name="com.xiaomi.scanner.module.code.app.BarCodeScannerReceiver" 
+            android:permission="com.xiaomi.scanner.receiver.RECEIVER">
             <intent-filter android:priority="-1">
                 <action android:name="com.xiaomi.scanner.receiver.senderbarcodescanner"/>
             </intent-filter>
         </receiver>
-        <service android:enabled="true" android:exported="true" android:name="com.xiaomi.scanner.app.RemoteService">
+        <service android:enabled="true" 
+            android:exported="true" 
+            android:name="com.xiaomi.scanner.app.RemoteService">
             <intent-filter>
                 <action android:name="com.xiaomi.scanner.app.RemoteService"/>
             </intent-filter>
         </service>
-        <provider android:authorities="com.xiaomi.scanner.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
-            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/filepaths"/>
+        <provider android:authorities="com.xiaomi.scanner.fileprovider" 
+            android:exported="false" 
+            android:grantUriPermissions="true" 
+            android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" 
+                android:resource="@xml/filepaths"/>
         </provider>
-        <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:exported="false" android:name="com.alibaba.alibclinkpartner.ui.ALPEntranceActivity">
+        <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" 
+            android:exported="false" 
+            android:name="com.alibaba.alibclinkpartner.ui.ALPEntranceActivity">
             <intent-filter>
                 <action android:name="com.alibaba.intent.action.GETWAY"/>
                 <category android:name="android.intent.category.DEFAULT"/>
-                <data android:host="linkpartner" android:pathPrefix="/entrance" android:scheme="tbopen"/>
+                <data android:host="linkpartner" 
+                    android:pathPrefix="/entrance" 
+                    android:scheme="tbopen"/>
             </intent-filter>
         </activity>
-        <activity android:label="@string/study_scan_result" android:name="com.xiaomi.scanner.module.study.app.FeedSearchActivity" android:screenOrientation="portrait" android:theme="@miui:style/Theme.Light">
+        <activity android:label="@string/study_scan_result" 
+            android:name="com.xiaomi.scanner.module.study.app.FeedSearchActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@miui:style/Theme.Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.ali.auth.third.ui.webview.BaseWebViewActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar"/>
-        <activity android:name="com.ali.auth.third.ui.LoginWebViewActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar"/>
-        <activity android:name="com.ali.auth.third.ui.LoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.ali.auth.third.ui.webview.BaseWebViewActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@android:style/Theme.Black.NoTitleBar"/>
+        <activity android:name="com.ali.auth.third.ui.LoginWebViewActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@android:style/Theme.Black.NoTitleBar"/>
+        <activity android:name="com.ali.auth.third.ui.LoginActivity" 
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <activity android:name="com.ali.auth.third.ui.QrLoginConfirmActivity"/>
-        <activity android:name="com.ali.auth.third.ui.QrLoginActivity" android:theme="@style/ali_auth_qr_activity_style"/>
-        <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:name="com.alibaba.alibclinkpartner.ui.ALPWebviewActivity"/>
-        <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:name="com.alibaba.alibclinkpartner.ui.ALPCallbackActivity"/>
-        <activity android:exported="false" android:name="com.alibaba.imagesearch.ui.PailitaoActivity" android:screenOrientation="portrait">
-            <meta-data android:name="android.max_aspect" android:value="2.1"/>
+        <activity android:name="com.ali.auth.third.ui.QrLoginActivity" 
+            android:theme="@style/ali_auth_qr_activity_style"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" 
+            android:name="com.alibaba.alibclinkpartner.ui.ALPWebviewActivity"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" 
+            android:name="com.alibaba.alibclinkpartner.ui.ALPCallbackActivity"/>
+        <activity android:exported="false" 
+            android:name="com.alibaba.imagesearch.ui.PailitaoActivity" 
+            android:screenOrientation="portrait">
+            <meta-data android:name="android.max_aspect" 
+                android:value="2.1"/>
         </activity>
-        <activity android:exported="false" android:launchMode="singleTask" android:name="com.alibaba.imagesearch.ui.SearchResultActivity" android:screenOrientation="portrait">
-            <meta-data android:name="android.max_aspect" android:value="2.1"/>
+        <activity android:exported="false" 
+            android:launchMode="singleTask" 
+            android:name="com.alibaba.imagesearch.ui.SearchResultActivity" 
+            android:screenOrientation="portrait">
+            <meta-data android:name="android.max_aspect" 
+                android:value="2.1"/>
         </activity>
-        <activity android:exported="false" android:name="com.alibaba.imagesearch.ui.PailitaoRouterActivity" android:theme="@style/com_taobao_tae_sdk_pailitao_notitle"/>
-        <activity android:exported="false" android:name="com.alibaba.baichuan.android.trade.ui.AlibcWebViewActivity" android:screenOrientation="portrait">
+        <activity android:exported="false" 
+            android:name="com.alibaba.imagesearch.ui.PailitaoRouterActivity" 
+            android:theme="@style/com_taobao_tae_sdk_pailitao_notitle"/>
+        <activity android:exported="false" 
+            android:name="com.alibaba.baichuan.android.trade.ui.AlibcWebViewActivity" 
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="COM_TAOBAO_TAE_SDK_TRADE_WEB_VIEW_ACTION"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:exported="true" android:launchMode="singleTask" android:name="com.alibaba.baichuan.android.trade.ui.AlibcBackActivity">
+        <activity android:exported="true" 
+            android:launchMode="singleTask" 
+            android:name="com.alibaba.baichuan.android.trade.ui.AlibcBackActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -122,10 +199,21 @@
                 <data android:scheme="alisdk"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.app.H5PayActivity" android:screenOrientation="behind"/>
-        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.auth.AuthActivity" android:screenOrientation="behind"/>
-        <activity android:exported="false" android:name="com.alibaba.baichuan.trade.biz.auth.AlibcAuthActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent"/>
-        <meta-data android:name="android.support.VERSION" android:value="26.1.0"/>
-        <meta-data android:name="android.arch.lifecycle.VERSION" android:value="27.0.0-SNAPSHOT"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" 
+            android:exported="false" 
+            android:name="com.alipay.sdk.app.H5PayActivity" 
+            android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" 
+            android:exported="false" 
+            android:name="com.alipay.sdk.auth.AuthActivity" 
+            android:screenOrientation="behind"/>
+        <activity android:exported="false" 
+            android:name="com.alibaba.baichuan.trade.biz.auth.AlibcAuthActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@android:style/Theme.Translucent"/>
+        <meta-data android:name="android.support.VERSION" 
+            android:value="26.1.0"/>
+        <meta-data android:name="android.arch.lifecycle.VERSION" 
+            android:value="27.0.0-SNAPSHOT"/>
     </application>
 </manifest>
