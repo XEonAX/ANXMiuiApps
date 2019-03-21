@@ -23,7 +23,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class e {
     private static e a;
     /* renamed from: a */
-    private AtomicInteger f50a = new AtomicInteger(0);
+    private AtomicInteger f53a = new AtomicInteger(0);
     private AtomicInteger b = new AtomicInteger(0);
     private AtomicInteger c = new AtomicInteger(0);
     private Map<String, c> j = new ConcurrentHashMap();
@@ -238,7 +238,7 @@ public class e {
     }
 
     /* renamed from: a */
-    public void m9a(int i) {
+    public void m11a(int i) {
         final Map a = a(i);
         r.a().b(new Runnable() {
             public void run() {

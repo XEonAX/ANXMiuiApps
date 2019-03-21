@@ -14,13 +14,13 @@ import java.util.Map.Entry;
 public class c {
     private Editor a = null;
     /* renamed from: a */
-    private SharedPreferences f83a = null;
+    private SharedPreferences f86a = null;
     /* renamed from: a */
-    private a f84a = null;
+    private a f87a = null;
     /* renamed from: a */
-    private b f85a = null;
+    private b f88a = null;
     /* renamed from: a */
-    private d f86a = null;
+    private d f89a = null;
     private String e = "";
     private String f = "";
     private boolean g = false;
@@ -308,7 +308,7 @@ public class c {
     }
 
     /* renamed from: a */
-    private File m25a(String str) {
+    private File m27a(String str) {
         if (Environment.getExternalStorageDirectory() == null) {
             return null;
         }

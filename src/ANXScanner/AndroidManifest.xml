@@ -3,8 +3,8 @@
     android:compileSdkVersion="26" 
     android:compileSdkVersionCodename="8.0.0" 
     package="com.xiaomi.scanner" 
-    android:versionCode="24" 
-    android:versionName="24.EvergreenStaidSlug" 
+    android:versionCode="25" 
+    android:versionName="25.OverdueLightgreenRhea" 
     platformBuildVersionCode="26" 
     platformBuildVersionName="8.0.0">
     <uses-permission android:name="android.permission.CAMERA"/>

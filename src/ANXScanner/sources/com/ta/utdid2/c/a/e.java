@@ -169,7 +169,7 @@ class e {
     }
 
     /* renamed from: a */
-    public static final HashMap m26a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
+    public static final HashMap m25a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
         HashMap hashMap = new HashMap();
         int eventType = xmlPullParser.getEventType();
         do {
@@ -209,7 +209,7 @@ class e {
     }
 
     /* renamed from: a */
-    public static final int[] m27a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
+    public static final int[] m26a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
         try {
             int[] iArr = new int[Integer.parseInt(xmlPullParser.getAttributeValue(null, "num"))];
             int i = 0;
