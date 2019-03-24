@@ -10,6 +10,7 @@ import com.miui.gallery.cloud.CloudUtils;
 import com.miui.gallery.share.baby.BabyShareAlbumOwnerActivity;
 import com.miui.gallery.share.baby.BabyShareAlbumSharerActivity;
 import com.miui.gallery.util.ToastUtils;
+import miui.provider.ExtraContacts.SmartDialer;
 
 public class UIHelper {
     public static void showAlbumShareInfo(Activity activity, Path path, int requestCode) {
@@ -59,10 +60,10 @@ public class UIHelper {
             case -111:
                 resId = R.string.error_socket_timeout;
                 break;
-            case -10:
+            case SmartDialer.SEARCH_THE_YELLOWPAGE_TAG /*-10*/:
                 resId = R.string.operation_successful;
                 break;
-            case -9:
+            case SmartDialer.SEND_SMS_TAG /*-9*/:
                 resId = R.string.error_repeat_apply;
                 break;
             case -4:

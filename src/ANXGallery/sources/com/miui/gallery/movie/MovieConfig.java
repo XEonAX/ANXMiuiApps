@@ -2,7 +2,7 @@ package com.miui.gallery.movie;
 
 import android.content.Context;
 import java.io.File;
-import miui.os.FileUtils;
+import miui.os.C0002FileUtils;
 
 public class MovieConfig {
     public static String sAssetInstallRootPath;
@@ -19,7 +19,7 @@ public class MovieConfig {
             sAudioDir = movieDir + File.separator + "audio";
             sAssetStorePath = sTemplateDir + File.separator + "movie_asset_store" + File.separator + "asset_store";
             sAssetInstallRootPath = sTemplateDir + File.separator + "movie_asset_store" + File.separator + "assets";
-            FileUtils.addNoMedia(movieDir);
+            C0002FileUtils.addNoMedia(movieDir);
             sInited = true;
         }
     }

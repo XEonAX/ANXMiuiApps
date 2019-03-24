@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
 import android.util.Log;
+import com.miui.internal.view.menu.MenuBuilder;
 import com.nexstreaming.app.common.task.Task;
 import com.nexstreaming.app.common.task.Task.TaskError;
 import java.io.DataInputStream;
@@ -188,7 +189,7 @@ class g {
             eVar = null;
         }
         boolean z2 = false;
-        if (!((-65536 & readInt2) == 0 && (-65536 & readInt3) == 0)) {
+        if (!((MenuBuilder.CATEGORY_MASK & readInt2) == 0 && (MenuBuilder.CATEGORY_MASK & readInt3) == 0)) {
             readInt = a(readInt);
             readInt2 = a(readInt2);
             readInt3 = a(readInt3);

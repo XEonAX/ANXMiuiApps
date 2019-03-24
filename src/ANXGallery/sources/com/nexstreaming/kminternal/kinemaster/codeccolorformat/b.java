@@ -36,7 +36,7 @@ public class b extends a {
         this.c.start();
         this.h = this.c.getInputBuffers();
         this.i = this.c.getOutputBuffers();
-        this.f = mediaFormat.getInteger(nexExportFormat.TAG_FORMAT_WIDTH);
+        this.f = mediaFormat.getInteger("width");
         this.g = mediaFormat.getInteger(nexExportFormat.TAG_FORMAT_HEIGHT);
     }
 
@@ -102,7 +102,7 @@ public class b extends a {
             case -2:
                 this.e = this.c.getOutputFormat();
                 if (this.e != null) {
-                    this.f = this.e.getInteger(nexExportFormat.TAG_FORMAT_WIDTH);
+                    this.f = this.e.getInteger("width");
                     this.g = this.e.getInteger(nexExportFormat.TAG_FORMAT_HEIGHT);
                 }
                 Log.d("WrapMediaDecoder", "New format " + this.e);

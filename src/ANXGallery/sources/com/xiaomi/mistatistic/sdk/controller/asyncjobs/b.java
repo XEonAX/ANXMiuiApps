@@ -1,7 +1,7 @@
 package com.xiaomi.mistatistic.sdk.controller.asyncjobs;
 
 import android.text.TextUtils;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
+import com.miui.internal.vip.VipConstants;
 import com.xiaomi.mistatistic.sdk.controller.h;
 import com.xiaomi.mistatistic.sdk.controller.j;
 import com.xiaomi.mistatistic.sdk.controller.o;
@@ -11,6 +11,9 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.TimeZone;
+import miui.yellowpage.Tag.TagWebService.CommonResult;
+import miui.yellowpage.YellowPageContract.HttpRequest;
+import miui.yellowpage.YellowPageStatistic.Display;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -203,7 +206,7 @@ public class b implements com.xiaomi.mistatistic.sdk.controller.e.a {
         instance.set(13, 0);
         instance.set(14, 0);
         long timeInMillis = instance.getTimeInMillis();
-        long j2 = 86400000 + timeInMillis;
+        long j2 = VipConstants.DAY + timeInMillis;
         if (j < timeInMillis || j >= j2) {
             return false;
         }
@@ -222,7 +225,7 @@ public class b implements com.xiaomi.mistatistic.sdk.controller.e.a {
         if (jSONObject == null) {
             JSONArray jSONArray = new JSONArray();
             jSONObject = new JSONObject();
-            jSONObject.put("category", "mistat_pa");
+            jSONObject.put(Display.CATEGORY, "mistat_pa");
             jSONObject.put("values", jSONArray);
             this.d.put("mistat_pa", jSONObject);
             this.g.getJSONArray("content").put(jSONObject);
@@ -246,7 +249,7 @@ public class b implements com.xiaomi.mistatistic.sdk.controller.e.a {
         if (jSONObject == null) {
             JSONArray jSONArray = new JSONArray();
             jSONObject = new JSONObject();
-            jSONObject.put("category", "mistat_monitor");
+            jSONObject.put(Display.CATEGORY, "mistat_monitor");
             jSONObject.put("values", jSONArray);
             this.d.put("mistat_monitor", jSONObject);
             this.g.getJSONArray("content").put(jSONObject);
@@ -263,7 +266,7 @@ public class b implements com.xiaomi.mistatistic.sdk.controller.e.a {
         if (jSONObject == null) {
             JSONArray jSONArray = new JSONArray();
             jSONObject = new JSONObject();
-            jSONObject.put("category", "mistat_session");
+            jSONObject.put(Display.CATEGORY, "mistat_session");
             jSONObject.put("values", jSONArray);
             this.d.put("mistat_session", jSONObject);
             this.g.getJSONArray("content").put(jSONObject);
@@ -283,7 +286,7 @@ public class b implements com.xiaomi.mistatistic.sdk.controller.e.a {
         if (jSONObject == null) {
             JSONArray jSONArray = new JSONArray();
             jSONObject = new JSONObject();
-            jSONObject.put("category", "mistat_session_extra");
+            jSONObject.put(Display.CATEGORY, "mistat_session_extra");
             jSONObject.put("values", jSONArray);
             this.d.put("mistat_session_extra", jSONObject);
             this.g.getJSONArray("content").put(jSONObject);
@@ -302,7 +305,7 @@ public class b implements com.xiaomi.mistatistic.sdk.controller.e.a {
             jSONObject = new JSONObject();
             JSONArray jSONArray = new JSONArray();
             JSONArray jSONArray2 = new JSONArray();
-            jSONObject.put("category", "mistat_pv");
+            jSONObject.put(Display.CATEGORY, "mistat_pv");
             jSONObject.put("values", jSONArray);
             jSONObject.put("source", jSONArray2);
             this.d.put("mistat_pv", jSONObject);
@@ -335,7 +338,7 @@ public class b implements com.xiaomi.mistatistic.sdk.controller.e.a {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
             JSONArray jSONArray = new JSONArray();
-            jSONObject.put("category", "mistat_pt");
+            jSONObject.put(Display.CATEGORY, "mistat_pt");
             jSONObject.put("values", jSONArray);
             this.d.put("mistat_pt", jSONObject);
             this.g.getJSONArray("content").put(jSONObject);
@@ -361,7 +364,7 @@ public class b implements com.xiaomi.mistatistic.sdk.controller.e.a {
         if (jSONObject2 == null) {
             JSONObject jSONObject3 = new JSONObject();
             JSONArray jSONArray = new JSONArray();
-            jSONObject3.put("category", statEventPojo.mCategory);
+            jSONObject3.put(Display.CATEGORY, statEventPojo.mCategory);
             jSONObject3.put("values", jSONArray);
             this.d.put(statEventPojo.mCategory, jSONObject3);
             this.g.getJSONArray("content").put(jSONObject3);
@@ -370,12 +373,12 @@ public class b implements com.xiaomi.mistatistic.sdk.controller.e.a {
         } else {
             jSONObject = jSONObject2;
         }
-        if ("event".equals(statEventPojo.mType) && TextUtils.isEmpty(statEventPojo.mExtra)) {
+        if (CommonResult.RESULT_TYPE_EVENT.equals(statEventPojo.mType) && TextUtils.isEmpty(statEventPojo.mExtra)) {
             jSONObject2 = (JSONObject) this.e.get(statEventPojo.mKey);
             if (jSONObject2 == null || obj != null) {
                 jSONObject2 = new JSONObject();
                 jSONObject2.put("key", statEventPojo.mKey);
-                jSONObject2.put(nexExportFormat.TAG_FORMAT_TYPE, statEventPojo.mType);
+                jSONObject2.put("type", statEventPojo.mType);
                 jSONObject2.put("value", Long.parseLong(statEventPojo.mValue));
                 jSONObject.getJSONArray("values").put(jSONObject2);
                 this.e.put(statEventPojo.mKey, jSONObject2);
@@ -387,14 +390,14 @@ public class b implements com.xiaomi.mistatistic.sdk.controller.e.a {
         } else {
             jSONObject2 = new JSONObject();
             jSONObject2.put("key", statEventPojo.mKey);
-            jSONObject2.put(nexExportFormat.TAG_FORMAT_TYPE, statEventPojo.mType);
+            jSONObject2.put("type", statEventPojo.mType);
             if ("count".equals(statEventPojo.mType) || "numeric".equals(statEventPojo.mType)) {
                 jSONObject2.put("value", Long.parseLong(statEventPojo.mValue));
             } else {
                 jSONObject2.put("value", statEventPojo.mValue);
             }
             if (!TextUtils.isEmpty(statEventPojo.mExtra)) {
-                jSONObject2.put("params", new JSONObject(statEventPojo.mExtra));
+                jSONObject2.put(HttpRequest.PARAMS, new JSONObject(statEventPojo.mExtra));
             }
             jSONObject.getJSONArray("values").put(jSONObject2);
         }

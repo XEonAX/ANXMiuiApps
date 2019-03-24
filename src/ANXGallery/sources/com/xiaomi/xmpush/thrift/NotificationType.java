@@ -1,5 +1,7 @@
 package com.xiaomi.xmpush.thrift;
 
+import miui.yellowpage.YellowPageContract.AntispamNumber;
+
 public enum NotificationType {
     Invalid("INVALID"),
     BarClick("bar:click"),
@@ -28,7 +30,7 @@ public enum NotificationType {
     UploadClientLog("upload_client_log"),
     NotificationBarInfo("notification_bar_info"),
     SyncMIID("sync_miid"),
-    UploadTinyData("upload"),
+    UploadTinyData(AntispamNumber.UPLOAD),
     GeoUpdateLoc("geo_update_loc"),
     GeoRegsiter("geo_reg"),
     GeoRegsiterResult("geo_reg_result"),

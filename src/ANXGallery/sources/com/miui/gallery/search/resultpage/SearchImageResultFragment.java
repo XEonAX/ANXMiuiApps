@@ -23,7 +23,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
 import com.miui.gallery.R;
 import com.miui.gallery.model.ImageLoadParams;
-import com.miui.gallery.provider.GalleryContract.Search;
+import com.miui.gallery.provider.GalleryContract;
 import com.miui.gallery.search.SearchConstants;
 import com.miui.gallery.search.SearchConstants.SearchType;
 import com.miui.gallery.search.core.QueryInfo;
@@ -55,6 +55,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import miui.yellowpage.YellowPageContract.Search;
 
 public class SearchImageResultFragment extends SearchImageResultFragmentBase {
     private ChoiceModeListener mChoiceModeListener = new ChoiceModeListener(this, null);
@@ -145,7 +146,7 @@ public class SearchImageResultFragment extends SearchImageResultFragmentBase {
                             mode.finish();
                         }
                     }, SearchImageResultFragment.this.mGridViewWrapper.getCheckedItems());
-                    BaseSamplingStatHelper.recordCountEvent("search", "produce");
+                    BaseSamplingStatHelper.recordCountEvent(Search.DIRECTORY, "produce");
                     break;
                 case R.id.action_send /*2131886850*/:
                     SearchImageResultFragment.this.onSend(null, null);
@@ -235,7 +236,7 @@ public class SearchImageResultFragment extends SearchImageResultFragmentBase {
                     this.mLikelyGuide = this.mLikelyGuideStub.inflate();
                     this.mLikelyGuide.findViewById(R.id.click_view).setOnClickListener(new OnClickListener() {
                         public void onClick(View v) {
-                            Builder uriBuilder = Search.URI_LIKELY_RESULT_PAGE.buildUpon().appendQueryParameter("title", SearchImageResultFragment.this.mQueryText).appendQueryParameter("tagName", SearchImageResultFragment.this.mQueryText);
+                            Builder uriBuilder = GalleryContract.Search.URI_LIKELY_RESULT_PAGE.buildUpon().appendQueryParameter("title", SearchImageResultFragment.this.mQueryText).appendQueryParameter("tagName", SearchImageResultFragment.this.mQueryText);
                             Bundle extras = new Bundle(3);
                             extras.putBoolean("start_activity_for_result", true);
                             extras.putInt("request_code", 1);
@@ -308,7 +309,7 @@ public class SearchImageResultFragment extends SearchImageResultFragmentBase {
         this.mGridViewWrapper.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 SearchImageResultFragment.this.goToPhotoPage(adapterView, position, "from_image_result");
-                BaseSamplingStatHelper.recordNumericPropertyEvent("search", "click_micro_thumb", (long) position);
+                BaseSamplingStatHelper.recordNumericPropertyEvent(Search.DIRECTORY, "click_micro_thumb", (long) position);
             }
         });
         this.mFilterVisibleImageThreshold = getResources().getInteger(R.integer.search_filter_visible_image_threshold);

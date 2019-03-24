@@ -1,6 +1,7 @@
 package com.xiaomi.push.service;
 
 import android.content.Context;
+import android.content.SystemIntent;
 import android.os.IBinder.DeathRecipient;
 import android.os.Message;
 import android.os.Messenger;
@@ -106,7 +107,7 @@ public class PushClientsManager {
                         return "clear peer job";
                     }
                 }, 0);
-                if ("9".equals(this.info.chid) && "com.xiaomi.xmsf".equals(ClientLoginInfo.this.mPushService.getPackageName())) {
+                if ("9".equals(this.info.chid) && SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(ClientLoginInfo.this.mPushService.getPackageName())) {
                     ClientLoginInfo.this.mPushService.executeJobDelayed(new Job(0) {
                         public void process() {
                             if (PushClientsManager.getInstance().getClientLoginInfoByChidAndUserId(PeerWatcher.this.info.chid, PeerWatcher.this.info.userId).peer == null) {

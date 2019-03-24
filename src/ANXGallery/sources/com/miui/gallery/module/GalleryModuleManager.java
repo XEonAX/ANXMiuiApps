@@ -103,10 +103,10 @@ public class GalleryModuleManager {
             });
         }
         if (localOnly) {
-            ModuleManager.getInstance().loadModules(new CacheRepository(this.mContext, true), new String[]{module});
+            ModuleManager.getInstance().loadModules(new CacheRepository(this.mContext, true), module);
             return;
         }
-        ModuleManager.getInstance().loadModules(new CacheRepository(this.mContext, false), new String[]{module});
+        ModuleManager.getInstance().loadModules(new CacheRepository(this.mContext, false), module);
     }
 
     public void scheduleModuleDownLoadJob(String module) {

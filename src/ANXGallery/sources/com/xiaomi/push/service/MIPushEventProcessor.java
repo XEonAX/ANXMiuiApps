@@ -5,6 +5,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
+import android.content.SystemIntent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
@@ -33,6 +34,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import miui.provider.ExtraTelephony.FirewallLog;
 
 public class MIPushEventProcessor {
     public void processChannelOpenResult(Context context, ClientLoginInfo loginInfo, boolean succeeded, int reason, String msg) {
@@ -116,7 +118,7 @@ public class MIPushEventProcessor {
                 }
                 MyLog.w("Drop a message for push closed, msgid=" + msgId);
                 sendAppAbsentAck(pushService, container, container.packageName);
-            } else if (ActionType.SendMessage != container.getAction() || TextUtils.equals(pushService.getPackageName(), "com.xiaomi.xmsf") || TextUtils.equals(pushService.getPackageName(), container.packageName)) {
+            } else if (ActionType.SendMessage != container.getAction() || TextUtils.equals(pushService.getPackageName(), SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE) || TextUtils.equals(pushService.getPackageName(), container.packageName)) {
                 if (!(metaInfo == null || metaInfo.getId() == null)) {
                     MyLog.w(String.format("receive a message, appid=%1$s, msgid= %2$s", new Object[]{container.getAppid(), metaInfo.getId()}));
                 }
@@ -327,13 +329,13 @@ public class MIPushEventProcessor {
                 } else {
                     sendAckMessage(pushService, container);
                 }
-                if (container.getAction() != ActionType.UnRegistration && !"com.xiaomi.xmsf".equals(pushService.getPackageName())) {
+                if (container.getAction() != ActionType.UnRegistration && !SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(pushService.getPackageName())) {
                     pushService.stopSelf();
                     return;
                 }
                 return;
             }
-            if (!"com.xiaomi.xmsf".contains(container.packageName) || container.isEncryptAction() || metaInfo == null || metaInfo.getExtra() == null || !metaInfo.getExtra().containsKey("ab")) {
+            if (!SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.contains(container.packageName) || container.isEncryptAction() || metaInfo == null || metaInfo.getExtra() == null || !metaInfo.getExtra().containsKey("ab")) {
                 if (shouldSendBroadcast(pushService, realTargetPackage, container, metaInfo)) {
                     if (!(metaInfo == null || TextUtils.isEmpty(metaInfo.getId()))) {
                         if (MIPushNotificationHelper.isPassThoughMessage(container)) {
@@ -441,7 +443,7 @@ public class MIPushEventProcessor {
     }
 
     private static boolean isMIUIPushMessage(XmPushActionContainer container) {
-        return "com.xiaomi.xmsf".equals(container.packageName) && container.getMetaInfo() != null && container.getMetaInfo().getExtra() != null && container.getMetaInfo().getExtra().containsKey("miui_package_name");
+        return SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(container.packageName) && container.getMetaInfo() != null && container.getMetaInfo().getExtra() != null && container.getMetaInfo().getExtra().containsKey("miui_package_name");
     }
 
     private static boolean predefinedNotification(XmPushActionContainer container) {
@@ -559,7 +561,7 @@ public class MIPushEventProcessor {
                 try {
                     XmPushActionContainer ackContainer = MIPushEventProcessor.constructAckMessage(xMPushService, xmPushActionContainer);
                     ackContainer.metaInfo.putToExtra("error", str);
-                    ackContainer.metaInfo.putToExtra("reason", str2);
+                    ackContainer.metaInfo.putToExtra(FirewallLog.REASON, str2);
                     MIPushHelper.sendPacket(xMPushService, ackContainer);
                 } catch (Throwable e) {
                     MyLog.e(e);

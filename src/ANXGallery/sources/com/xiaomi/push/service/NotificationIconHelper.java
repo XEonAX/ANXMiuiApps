@@ -19,6 +19,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.net.URL;
+import miui.hybrid.Response;
 
 public class NotificationIconHelper {
     private static long currentPicFileSize;
@@ -120,7 +121,7 @@ public class NotificationIconHelper {
             int contentLen = conn.getContentLength();
             if (!isSizeLimited || contentLen <= 102400) {
                 int responseCode = conn.getResponseCode();
-                if (responseCode != 200) {
+                if (responseCode != Response.CODE_GENERIC_ERROR) {
                     MyLog.w("Invalid Http Response Code " + responseCode + " received");
                     getDataResult = null;
                     IOUtils.closeQuietly(null);

@@ -59,6 +59,8 @@ import java.util.HashMap;
 import java.util.Map;
 import miui.preference.PreferenceFragment;
 import miui.preference.ValuePreference;
+import miui.util.PlayerActions.Out;
+import miui.yellowpage.YellowPageContract.Settings;
 
 public class GallerySettingsFragment extends PreferenceFragment implements OnPreferenceChangeListener, OnPreferenceClickListener {
     private static final int[] DOWNLOAD_TYPE_ENTRIES = new int[]{R.string.download_type_thumbnail_desc, R.string.download_type_origin_desc};
@@ -258,7 +260,7 @@ public class GallerySettingsFragment extends PreferenceFragment implements OnPre
     public void onResume() {
         boolean z = true;
         super.onResume();
-        BaseSamplingStatHelper.recordPageStart(getActivity(), "settings");
+        BaseSamplingStatHelper.recordPageStart(getActivity(), Settings.DIRECTORY);
         if (this.mObserverHandle == null) {
             sSyncStatusObserverWrapper.setSyncStatusObserverWorker(this.mSyncStatusObserver);
             this.mObserverHandle = ContentResolver.addStatusChangeListener(1, sSyncStatusObserverWrapper);
@@ -321,7 +323,7 @@ public class GallerySettingsFragment extends PreferenceFragment implements OnPre
             AIAlbumStatusHelper.unregisterAIAlbumStatusReceiver(getActivity(), this.mAIAlbumStatusObserver);
             this.mAIAlbumStatusObserver = null;
         }
-        BaseSamplingStatHelper.recordPageEnd(getActivity(), "settings");
+        BaseSamplingStatHelper.recordPageEnd(getActivity(), Settings.DIRECTORY);
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -390,7 +392,7 @@ public class GallerySettingsFragment extends PreferenceFragment implements OnPre
         if (preference == this.mShowLocalAlbumOnlyPref) {
             boolean isOnlyShowLocal = ((Boolean) newValue).booleanValue();
             LocalMode.setOnlyShowLocalPhoto(isOnlyShowLocal);
-            BaseSamplingStatHelper.recordStringPropertyEvent("album", "show_local_album_only", String.valueOf(isOnlyShowLocal));
+            BaseSamplingStatHelper.recordStringPropertyEvent(Out.KEY_ALBUM, "show_local_album_only", String.valueOf(isOnlyShowLocal));
             activity.getContentResolver().notifyChange(Media.URI, null, false);
             activity.getContentResolver().notifyChange(Album.URI, null, false);
             activity.getContentResolver().notifyChange(PeopleFace.PERSONS_URI, null, false);
@@ -410,12 +412,12 @@ public class GallerySettingsFragment extends PreferenceFragment implements OnPre
             AIAlbumStatusHelper.setAIAlbumLocalStatus(activity, ((Boolean) newValue).booleanValue());
             params = new HashMap(1);
             params.put("switchTo", newValue.toString());
-            BaseSamplingStatHelper.recordCountEvent("settings", "settings_change_ai_album_switch", params);
+            BaseSamplingStatHelper.recordCountEvent(Settings.DIRECTORY, "settings_change_ai_album_switch", params);
         } else if (this.mFaceLocalStatusPref != null && preference == this.mFaceLocalStatusPref) {
             AIAlbumStatusHelper.setFaceAlbumStatus(activity, ((Boolean) newValue).booleanValue());
             params = new HashMap(1);
             params.put("switchTo", newValue.toString());
-            BaseSamplingStatHelper.recordCountEvent("settings", "settings_change_face_switch", params);
+            BaseSamplingStatHelper.recordCountEvent(Settings.DIRECTORY, "settings_change_face_switch", params);
         } else if (preference == this.mImpunityDeclarationPref) {
             CTA.setRemindConnectNetworkEveryTime(((Boolean) newValue).booleanValue());
         } else if (preference == this.mBackupOnlyInWifiPref) {

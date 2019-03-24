@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import miui.reflect.Field;
 
 public class ExifInterface {
     private static final Charset ASCII = Charset.forName("US-ASCII");
@@ -1051,7 +1052,7 @@ Caused by: jadx.core.utils.exceptions.CodegenException: PHI can be used only in 
             double minutes = Double.parseDouble(pair[0].trim()) / Double.parseDouble(pair[1].trim());
             pair = parts[2].split("/");
             double result = ((minutes / 60.0d) + degrees) + ((Double.parseDouble(pair[0].trim()) / Double.parseDouble(pair[1].trim())) / 3600.0d);
-            if (!ref.equals("S")) {
+            if (!ref.equals(Field.SHORT_SIGNATURE_PRIMITIVE)) {
                 if (!ref.equals("W")) {
                     if (ref.equals("N")) {
                         return result;

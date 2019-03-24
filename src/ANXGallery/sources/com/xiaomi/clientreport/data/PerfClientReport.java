@@ -1,6 +1,7 @@
 package com.xiaomi.clientreport.data;
 
 import com.xiaomi.channel.commonutils.logger.MyLog;
+import miui.yellowpage.Tag.TagWebService.CommonResult;
 import org.json.JSONObject;
 
 public class PerfClientReport extends BaseClientReport {
@@ -18,7 +19,7 @@ public class PerfClientReport extends BaseClientReport {
             if (jo == null) {
                 return null;
             }
-            jo.put("code", this.code);
+            jo.put(CommonResult.RESULT_CODE, this.code);
             jo.put("perfCounts", this.perfCounts);
             jo.put("perfLatencies", this.perfLatencies);
             return jo;

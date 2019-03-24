@@ -39,6 +39,7 @@ import com.miui.gallery.util.ToastUtils;
 import com.miui.privacy.LockSettingsHelper;
 import java.util.Locale;
 import miui.date.DateUtils;
+import miui.hybrid.Response;
 
 public class PhotoDetailFragment extends BaseFragment {
     private Future<Address> mAddressFuture;
@@ -47,7 +48,7 @@ public class PhotoDetailFragment extends BaseFragment {
             if (PhotoDetailFragment.this.mDetailInfo != null) {
                 switch (v.getId()) {
                     case R.id.path_title /*2131886632*/:
-                        String obj = PhotoDetailFragment.this.mDetailInfo.getDetail(200);
+                        String obj = PhotoDetailFragment.this.mDetailInfo.getDetail(Response.CODE_GENERIC_ERROR);
                         if (obj != null) {
                             IntentUtil.jumpToExplore(PhotoDetailFragment.this.mActivity, FileUtils.getParentFolderPath(obj));
                             return;
@@ -106,10 +107,10 @@ public class PhotoDetailFragment extends BaseFragment {
         public PhotoDetailInfo loadInBackground() {
             if (this.mDataItem != null) {
                 this.mDetailInfo = this.mDataItem.getDetailInfo(getContext());
-                String obj = this.mDetailInfo.getDetail(200);
+                String obj = this.mDetailInfo.getDetail(Response.CODE_GENERIC_ERROR);
                 if (obj != null) {
                     String path = obj;
-                    this.mDetailInfo.addDetail(201, StorageUtils.getPathForDisplay(getContext(), path));
+                    this.mDetailInfo.addDetail(Response.CODE_CONFIG_ERROR, StorageUtils.getPathForDisplay(getContext(), path));
                     this.mDetailInfo.addDetail(BaiduSceneResult.CHURCH, Boolean.valueOf(StorageUtils.isInExternalStorage(getContext(), path)));
                 }
             }
@@ -320,7 +321,7 @@ public class PhotoDetailFragment extends BaseFragment {
         Object obj = detailInfo.getDetail(1);
         if (obj != null) {
             long time = ((Long) obj).longValue();
-            this.mTimeTitle.setText(DateUtils.formatDateTime(time, 896));
+            this.mTimeTitle.setText(DateUtils.formatDateTime(time, DateUtils.FORMAT_SHOW_DATE));
             StringBuilder builder = new StringBuilder();
             builder.append(DateUtils.formatDateTime(time, 1024));
             builder.append("    ").append(DateUtils.formatDateTime(time, 44));
@@ -374,7 +375,7 @@ public class PhotoDetailFragment extends BaseFragment {
 
     private void bindTakenParams(PhotoDetailInfo detailInfo) {
         StringBuilder builder = new StringBuilder();
-        Object obj = detailInfo.getDetail(BaiduSceneResult.SHOOTING);
+        Object obj = detailInfo.getDetail(101);
         if (obj != null) {
             builder.append(obj);
         }
@@ -386,15 +387,15 @@ public class PhotoDetailFragment extends BaseFragment {
             boolean isShow = true;
             this.mTakenParamsTitle.setText(builder.toString());
             builder.setLength(0);
-            obj = detailInfo.getDetail(BaiduSceneResult.TEMPLE);
+            obj = detailInfo.getDetail(105);
             if (obj != null) {
                 builder.append(genAperture((String) obj)).append("    ");
             }
-            obj = detailInfo.getDetail(BaiduSceneResult.GARDEN);
+            obj = detailInfo.getDetail(107);
             if (obj != null) {
                 builder.append(genExposureTime((String) obj)).append("    ");
             }
-            obj = detailInfo.getDetail(BaiduSceneResult.ANCIENT_CHINESE_ARCHITECTURE);
+            obj = detailInfo.getDetail(108);
             if (obj != null) {
                 builder.append(genISO(obj));
             }
@@ -406,11 +407,11 @@ public class PhotoDetailFragment extends BaseFragment {
                 setItemVisible(this.mTakenParamsSub, false);
             }
             builder.setLength(0);
-            obj = detailInfo.getDetail(BaiduSceneResult.MOUNTAINEERING);
+            obj = detailInfo.getDetail(103);
             if (obj != null) {
                 builder.append(genFocalLength(obj)).append("    ");
             }
-            obj = detailInfo.getDetail(BaiduSceneResult.TAEKWONDO);
+            obj = detailInfo.getDetail(102);
             if (obj != null) {
                 builder.append(genFlashFired(Integer.parseInt((String) obj)));
             }
@@ -430,7 +431,7 @@ public class PhotoDetailFragment extends BaseFragment {
     private void bindPath(PhotoDetailInfo detailInfo) {
         OnClickListener clickListener = null;
         int colorRes = R.color.info_title_color;
-        Object obj = detailInfo.getDetail(201);
+        Object obj = detailInfo.getDetail(Response.CODE_CONFIG_ERROR);
         if (obj != null) {
             this.mPath.setText((String) obj);
             setItemVisible(this.mPathItem, true);

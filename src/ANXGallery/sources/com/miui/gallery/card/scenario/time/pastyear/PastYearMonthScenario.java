@@ -2,7 +2,6 @@ package com.miui.gallery.card.scenario.time.pastyear;
 
 import com.miui.gallery.GalleryApp;
 import com.miui.gallery.R;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import com.miui.gallery.assistant.model.MediaFeatureItem;
 import com.miui.gallery.card.Card;
 import com.miui.gallery.card.CardUtil;
@@ -14,7 +13,7 @@ import java.util.List;
 
 public class PastYearMonthScenario extends TimeScenario {
     public PastYearMonthScenario() {
-        super(BaiduSceneResult.MOUNTAINEERING, 1, 7);
+        super(103, 1, 7);
     }
 
     public boolean onPrepare(List<Record> records, List<Card> cards) {

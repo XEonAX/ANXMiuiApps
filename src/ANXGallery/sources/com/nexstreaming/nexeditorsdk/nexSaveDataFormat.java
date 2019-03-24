@@ -6,6 +6,7 @@ import com.nexstreaming.nexeditorsdk.nexAssetPackageManager.ItemMethodType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import miui.hybrid.Response;
 
 public final class nexSaveDataFormat {
     public nexCollageOf collage;
@@ -165,7 +166,7 @@ public final class nexSaveDataFormat {
     }
 
     public static class nexProjectOf {
-        public int mAudioFadeInTime = 200;
+        public int mAudioFadeInTime = Response.CODE_GENERIC_ERROR;
         public int mAudioFadeOutTime = 5000;
         public int mBGMTrimEndTime;
         public int mBGMTrimStartTime;

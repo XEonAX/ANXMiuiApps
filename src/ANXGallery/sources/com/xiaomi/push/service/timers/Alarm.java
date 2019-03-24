@@ -1,6 +1,7 @@
 package com.xiaomi.push.service.timers;
 
 import android.content.Context;
+import android.content.SystemIntent;
 import android.content.pm.PackageInfo;
 import android.content.pm.ServiceInfo;
 import android.os.Build.VERSION;
@@ -23,7 +24,7 @@ public final class Alarm {
 
     public static void initialize(Context context) {
         context = context.getApplicationContext();
-        if ("com.xiaomi.xmsf".equals(context.getPackageName())) {
+        if (SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(context.getPackageName())) {
             sAlarmInstance = new AlarmManagerTimer(context);
             return;
         }
@@ -74,7 +75,7 @@ public final class Alarm {
     public static synchronized void changePolicy(Context ctx, int level) {
         synchronized (Alarm.class) {
             int oldLevel = sLevel;
-            if (!"com.xiaomi.xmsf".equals(ctx.getPackageName())) {
+            if (!SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(ctx.getPackageName())) {
                 if (level == 2) {
                     sLevel = 2;
                 } else {

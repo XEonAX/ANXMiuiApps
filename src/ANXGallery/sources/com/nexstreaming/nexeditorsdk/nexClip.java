@@ -36,6 +36,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import miui.hybrid.Response;
 
 public class nexClip implements Cloneable {
     public static final int AVC_Profile_Baseline = 66;
@@ -776,7 +777,7 @@ public class nexClip implements Cloneable {
             clipInfo.mClipType = 4;
             clipInfo.mVideoBitrate = mediaInfo.w();
             i = clipInfo.mAudioTotalTime - clipInfo.mVideoTotalTime;
-            if (i > 200 || i < -200) {
+            if (i > Response.CODE_GENERIC_ERROR || i < -200) {
                 Log.w(TAG, "AudioTotalTime=" + clipInfo.mAudioTotalTime + ", VideoTotalTime=" + clipInfo.mVideoTotalTime + ", diff=" + i);
             }
             if (clipInfo.mTotalTime == 0) {
@@ -1277,7 +1278,7 @@ public class nexClip implements Cloneable {
             i7 |= nexEngine.ExportHEVCHighTierLevel52;
         }
         if (z4) {
-            i7 |= nexEngine.ExportHEVCMainTierLevel6;
+            i7 |= 1048576;
         }
         final OnGetVideoClipDetailThumbnailsListener onGetVideoClipDetailThumbnailsListener2 = onGetVideoClipDetailThumbnailsListener;
         onGetVideoClipDetailThumbnailsListener2 = onGetVideoClipDetailThumbnailsListener;
@@ -1420,7 +1421,7 @@ public class nexClip implements Cloneable {
     }
 
     public boolean setClipVolume(int i) {
-        if (i < 0 || i > 200) {
+        if (i < 0 || i > Response.CODE_GENERIC_ERROR) {
             return false;
         }
         this.m_ClipVolume = i;

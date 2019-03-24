@@ -1,6 +1,7 @@
 package com.xiaomi.push.log;
 
 import android.content.Context;
+import android.content.res.MiuiConfiguration;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
@@ -166,7 +167,7 @@ public class MIPushLog2File implements LoggerInterface {
                         bw = bw2;
                     }
                     File newLogFile = new File(dir, "log1.txt");
-                    if (newLogFile.length() >= 1048576) {
+                    if (newLogFile.length() >= MiuiConfiguration.THEME_FLAG_ALARMSTYLE) {
                         File oldLogFile = new File(dir, "log0.txt");
                         if (oldLogFile.exists() && oldLogFile.isFile()) {
                             oldLogFile.delete();

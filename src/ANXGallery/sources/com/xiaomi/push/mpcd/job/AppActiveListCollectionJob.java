@@ -5,6 +5,7 @@ import android.app.ActivityManager.RunningTaskInfo;
 import android.content.Context;
 import android.text.TextUtils;
 import com.xiaomi.xmpush.thrift.ClientCollectionType;
+import miui.provider.ExtraContacts.ConferenceCalls;
 
 public class AppActiveListCollectionJob extends CollectionJob {
     public AppActiveListCollectionJob(Context context, int period) {
@@ -17,7 +18,7 @@ public class AppActiveListCollectionJob extends CollectionJob {
             for (RunningTaskInfo taskInfo : ((ActivityManager) this.context.getSystemService("activity")).getRunningTasks(10)) {
                 if (!(taskInfo == null || taskInfo.topActivity == null)) {
                     if (builder.length() > 0) {
-                        builder.append(";");
+                        builder.append(ConferenceCalls.SPLIT_EXPRESSION);
                     }
                     builder.append(taskInfo.topActivity.getPackageName());
                 }

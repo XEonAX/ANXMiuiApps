@@ -14,6 +14,7 @@ import com.miui.gallery.threadpool.ThreadPool.JobContext;
 import com.miui.gallery.util.Log;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
+import miui.extension.target.ActivityTarget;
 
 public class PendingTaskService extends JobService {
     private ConcurrentHashMap<Integer, Future> mRunningQueue = null;
@@ -53,7 +54,7 @@ public class PendingTaskService extends JobService {
 
     public void onCreate() {
         super.onCreate();
-        Log.d("PendingTaskService", "onCreate");
+        Log.d("PendingTaskService", ActivityTarget.ACTION_ON_CREATE);
         this.mThreadPool = new ThreadPool(2, 4);
         this.mRunningQueue = new ConcurrentHashMap();
     }

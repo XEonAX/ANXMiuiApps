@@ -1,5 +1,6 @@
 package com.miui.gallery.picker;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.DataSetObserver;
 import android.graphics.Typeface;
@@ -18,6 +19,7 @@ import com.miui.gallery.util.BaseBuildUtil;
 import java.util.ArrayList;
 import miui.app.ActionBar;
 import miui.gallery.support.MiuiSdkCompat;
+import miui.view.EditActionMode;
 
 public class PickAlbumDetailActivityBase extends PickerActivity {
     protected PickAlbumDetailFragmentBase mAlbumDetailFragment;
@@ -51,8 +53,8 @@ public class PickAlbumDetailActivityBase extends PickerActivity {
             } else {
                 this.mPickerTitle.setTypeface(Typeface.MONOSPACE);
             }
-            this.mCancelButton = (Button) titleView.findViewById(16908313);
-            this.mDoneButton = (Button) titleView.findViewById(16908314);
+            this.mCancelButton = (Button) titleView.findViewById(EditActionMode.BUTTON1);
+            this.mDoneButton = (Button) titleView.findViewById(EditActionMode.BUTTON2);
             updateDoneButtonVisibility();
             this.mSelectAllButton = (Button) titleView.findViewById(16908315);
             setup();
@@ -117,12 +119,12 @@ public class PickAlbumDetailActivityBase extends PickerActivity {
             int i = 1;
             boolean z = (this.mActivity.mAlbumDetailFragment != null && this.mActivity.mAlbumDetailFragment.isAllSelected()) || this.mActivity.getPicker().isFull();
             this.mAllSelected = z;
-            PickAlbumDetailActivityBase pickAlbumDetailActivityBase = this.mActivity;
+            Context context = this.mActivity;
             Button button = this.mSelectAllButton;
             if (!this.mAllSelected) {
                 i = 0;
             }
-            MiuiSdkCompat.setEditActionModeButton(pickAlbumDetailActivityBase, button, i);
+            MiuiSdkCompat.setEditActionModeButton(context, button, i);
         }
 
         public void applyTheme() {

@@ -366,7 +366,7 @@ public class CleanerFragment extends BaseFragment {
     public boolean onBackPressed() {
         if (this.mProgressBar.isRotating() || this.mScannerManager.isScanning()) {
             if (this.mExitConfirmDialog == null) {
-                this.mExitConfirmDialog = new Builder(this.mActivity).setPositiveButton(R.string.cleaner_scan_exit_dialog_positive, new DialogInterface.OnClickListener() {
+                this.mExitConfirmDialog = new Builder(this.mActivity).setPositiveButton((int) R.string.cleaner_scan_exit_dialog_positive, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         CleanerFragment.this.onExit();
                         BaseSamplingStatHelper.recordCountEvent("cleaner", "cleaner_scan_exit_confirm");
@@ -379,7 +379,7 @@ public class CleanerFragment extends BaseFragment {
                     public void onCancel(DialogInterface dialog) {
                         CleanerFragment.this.onExitCancel();
                     }
-                }).setTitle(R.string.cleaner_scan_exit_dialog_title).setMessage(R.string.cleaner_scan_exit_dialog_message).create();
+                }).setTitle((int) R.string.cleaner_scan_exit_dialog_title).setMessage((int) R.string.cleaner_scan_exit_dialog_message).create();
             }
             this.mExitConfirmDialog.show();
             HashMap<String, String> params = new HashMap();

@@ -17,6 +17,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import miui.hybrid.Response;
 
 public class nexProject extends b {
     private static String TAG = "nexProject";
@@ -85,7 +86,7 @@ public class nexProject extends b {
         this.mEmptyTheme = false;
         this.mProjectVolume = 100;
         this.mManualVolCtl = 0;
-        this.mAudioFadeInTime = 200;
+        this.mAudioFadeInTime = Response.CODE_GENERIC_ERROR;
         this.mAudioFadeOutTime = 5000;
         this.mOpeningTitle = null;
         this.mEndingTitle = null;
@@ -128,7 +129,7 @@ public class nexProject extends b {
         this.mEmptyTheme = false;
         this.mProjectVolume = 100;
         this.mManualVolCtl = 0;
-        this.mAudioFadeInTime = 200;
+        this.mAudioFadeInTime = Response.CODE_GENERIC_ERROR;
         this.mAudioFadeOutTime = 5000;
         this.mOpeningTitle = null;
         this.mEndingTitle = null;
@@ -163,7 +164,7 @@ public class nexProject extends b {
         this.mEmptyTheme = false;
         this.mProjectVolume = 100;
         this.mManualVolCtl = 0;
-        this.mAudioFadeInTime = 200;
+        this.mAudioFadeInTime = Response.CODE_GENERIC_ERROR;
         this.mAudioFadeOutTime = 5000;
         this.mOpeningTitle = null;
         this.mEndingTitle = null;
@@ -198,7 +199,7 @@ public class nexProject extends b {
         this.mEmptyTheme = false;
         this.mProjectVolume = 100;
         this.mManualVolCtl = 0;
-        this.mAudioFadeInTime = 200;
+        this.mAudioFadeInTime = Response.CODE_GENERIC_ERROR;
         this.mAudioFadeOutTime = 5000;
         this.mOpeningTitle = null;
         this.mEndingTitle = null;
@@ -986,7 +987,7 @@ public class nexProject extends b {
             i4 = 0;
         }
         totalTime = (i4 + totalTime) + 500;
-        int[] iArr = new int[]{13, 25, 50, 75, 100, BaiduSceneResult.TRAVEL_OTHER, 150, 175, 200, 400};
+        int[] iArr = new int[]{13, 25, 50, 75, 100, BaiduSceneResult.TRAVEL_OTHER, 150, 175, Response.CODE_GENERIC_ERROR, 400};
         i4 = 0;
         while (i2 < iArr.length && totalTime <= Math.round((float) ((i3 * 100) / iArr[i2]))) {
             i4 = iArr[i2];
@@ -1112,7 +1113,7 @@ public class nexProject extends b {
         this.mEmptyTheme = false;
         this.mProjectVolume = 100;
         this.mManualVolCtl = 0;
-        this.mAudioFadeInTime = 200;
+        this.mAudioFadeInTime = Response.CODE_GENERIC_ERROR;
         this.mAudioFadeOutTime = 5000;
         this.mOpeningTitle = null;
         this.mEndingTitle = null;

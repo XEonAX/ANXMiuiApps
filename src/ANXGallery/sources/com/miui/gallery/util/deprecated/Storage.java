@@ -9,11 +9,11 @@ import com.miui.gallery.util.StaticContext;
 import com.miui.gallery.util.StorageUtils;
 import java.io.File;
 import java.lang.reflect.Method;
-import miui.os.Environment;
+import miui.os.C0001Environment;
 
 public class Storage {
     public static String getPrimaryStorageRoot() {
-        return Environment.getExternalStorageDirectory().getPath();
+        return C0001Environment.getExternalStorageDirectory().getPath();
     }
 
     public static String getExternalSDCardRoot() {
@@ -28,7 +28,7 @@ public class Storage {
             return System.getenv("SECONDARY_STORAGE");
         } else {
             try {
-                Method method = Environment.class.getMethod("getSecondaryStorageDirectory", new Class[0]);
+                Method method = C0001Environment.class.getMethod("getSecondaryStorageDirectory", new Class[0]);
                 if (method == null) {
                     return null;
                 }

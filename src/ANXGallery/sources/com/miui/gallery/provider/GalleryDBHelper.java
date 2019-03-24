@@ -42,10 +42,14 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TimeZone;
+import miui.content.ExtraIntent;
+import miui.provider.ExtraContacts.ConferenceCalls;
+import miui.util.PlayerActions.Out;
+import miui.yellowpage.Tag.TagWebService.CommonResult;
 
 public class GalleryDBHelper extends SQLiteOpenHelper {
     private static final String[] sCloudControlTables = new String[]{"cloudControl"};
-    private static final String[] sCloudTables = new String[]{"cloud", "shareAlbum", "shareUser", "shareImage", "cloudUser", "cloudCache", "newFlagCache", "userInfo", "ownerSubUbifocus", "peopleFace", "faceToImages", "peopleRecommend", "shareSubUbifocus", "event", "eventPhoto", "albumCoverKey", "recent_discovered_media", "discovery_message", "cloudSetting"};
+    private static final String[] sCloudTables = new String[]{"cloud", "shareAlbum", "shareUser", "shareImage", "cloudUser", "cloudCache", "newFlagCache", "userInfo", "ownerSubUbifocus", "peopleFace", "faceToImages", "peopleRecommend", "shareSubUbifocus", CommonResult.RESULT_TYPE_EVENT, "eventPhoto", "albumCoverKey", "recent_discovered_media", "discovery_message", "cloudSetting"};
     private static GalleryDBHelper sDBHelper;
     private static final String[] sPeopleFaceTables = new String[]{"peopleFace", "faceToImages", "peopleRecommend"};
     private static HashMap<String, Integer> sViewNameVersionMap = new HashMap();
@@ -398,7 +402,7 @@ public class GalleryDBHelper extends SQLiteOpenHelper {
         this.mNewFlagCacheColumns.add(new TableColumn("newUserFlag", "integer"));
         this.mUserInfoColumns.add(new TableColumn("_id", "integer"));
         this.mUserInfoColumns.add(new TableColumn("date_modified", "integer"));
-        this.mUserInfoColumns.add(new TableColumn("user_id", "text"));
+        this.mUserInfoColumns.add(new TableColumn(ExtraIntent.EXTRA_XIAOMI_ACCOUNT_USER_ID, "text"));
         this.mUserInfoColumns.add(new TableColumn("alias_nick", "text"));
         this.mUserInfoColumns.add(new TableColumn("miliao_nick", "text"));
         this.mUserInfoColumns.add(new TableColumn("miliao_icon_url", "text"));
@@ -516,7 +520,7 @@ public class GalleryDBHelper extends SQLiteOpenHelper {
         this.mShareSubUbiImageColumns.add(new TableColumn("secretKey", "blob"));
         this.mPeopleFaceColumns.add(new TableColumn("_id", "integer"));
         this.mPeopleFaceColumns.add(new TableColumn("serverId", "text"));
-        this.mPeopleFaceColumns.add(new TableColumn(nexExportFormat.TAG_FORMAT_TYPE, "text"));
+        this.mPeopleFaceColumns.add(new TableColumn("type", "text"));
         this.mPeopleFaceColumns.add(new TableColumn("groupId", "text"));
         this.mPeopleFaceColumns.add(new TableColumn("localGroupId", "text"));
         this.mPeopleFaceColumns.add(new TableColumn("localFlag", "integer"));
@@ -559,7 +563,7 @@ public class GalleryDBHelper extends SQLiteOpenHelper {
         this.mDiscoveryMessageColumns.add(new TableColumn("message", "text"));
         this.mDiscoveryMessageColumns.add(new TableColumn("title", "text"));
         this.mDiscoveryMessageColumns.add(new TableColumn("subTitle", "text"));
-        this.mDiscoveryMessageColumns.add(new TableColumn(nexExportFormat.TAG_FORMAT_TYPE, "integer"));
+        this.mDiscoveryMessageColumns.add(new TableColumn("type", "integer"));
         this.mDiscoveryMessageColumns.add(new TableColumn("priority", "integer"));
         this.mDiscoveryMessageColumns.add(new TableColumn("receiveTime", "integer"));
         this.mDiscoveryMessageColumns.add(new TableColumn("updateTime", "integer"));
@@ -636,7 +640,7 @@ public class GalleryDBHelper extends SQLiteOpenHelper {
     }
 
     public void onCreate(SQLiteDatabase db) {
-        createTable(db, "album", this.mAlbumColumns);
+        createTable(db, Out.KEY_ALBUM, this.mAlbumColumns);
         createTable(db, "cloud", this.mCloudColumns);
         createTable(db, "cloudSetting", this.mCloudSettingColumns);
         createTable(db, "shareAlbum", this.mShareAlbumColumns);
@@ -654,7 +658,7 @@ public class GalleryDBHelper extends SQLiteOpenHelper {
         createTable(db, "peopleFace", this.mPeopleFaceColumns);
         createTable(db, "faceToImages", this.mFace2ImagesColumns);
         createTable(db, "peopleRecommend", this.mPeopleRecommendColumns);
-        createTable(db, "event", this.mEventColumns);
+        createTable(db, CommonResult.RESULT_TYPE_EVENT, this.mEventColumns);
         createTable(db, "eventPhoto", this.mEventPhotoColumns);
         createTable(db, "albumCoverKey", this.mAlbumCoverKeyColumns);
         createTable(db, "discoveryMessage", this.mDiscoveryMessageColumns);
@@ -859,12 +863,12 @@ public class GalleryDBHelper extends SQLiteOpenHelper {
 
     private static void createViewExtendedCloud(SQLiteDatabase db) {
         db.execSQL("DROP VIEW IF EXISTS extended_cloud;");
-        db.execSQL("CREATE VIEW extended_cloud AS " + ("SELECT " + "cloud._id AS _id,cloud.sha1 AS sha1,microthumbfile AS microthumbfile,thumbnailFile AS thumbnailFile,localFile AS localFile,serverType AS serverType,title AS title,duration AS duration,description AS description,location AS location,size AS size,localGroupId AS localGroupId,mimeType AS mimeType,exifGPSLatitude AS exifGPSLatitude,exifGPSLatitudeRef AS exifGPSLatitudeRef,exifGPSLongitude AS exifGPSLongitude,exifGPSLongitudeRef AS exifGPSLongitudeRef,exifOrientation AS exifOrientation,secretKey AS secretKey,localFlag AS localFlag,mixedDateTime AS mixedDateTime,dateTaken AS dateTaken,exifImageWidth AS exifImageWidth,exifImageLength AS exifImageLength,serverStatus AS serverStatus,dateModified AS dateModified,creatorId AS creatorId,serverTag AS serverTag,serverId AS serverId,fileName AS fileName,groupId AS groupId,ubiSubImageCount AS ubiSubImageCount,ubiSubIndex AS ubiSubIndex,ubiFocusIndex AS ubiFocusIndex,babyInfoJson AS babyInfoJson,isFavorite AS isFavorite,specialTypeFlags AS specialTypeFlags" + " FROM " + "(SELECT * FROM cloud ORDER BY mixedDateTime DESC,dateModified DESC,_id DESC ) cloud" + " LEFT OUTER JOIN " + "favorites" + " ON " + "cloud" + "." + "sha1" + " = " + "favorites" + "." + "sha1") + ";");
+        db.execSQL("CREATE VIEW extended_cloud AS " + ("SELECT " + "cloud._id AS _id,cloud.sha1 AS sha1,microthumbfile AS microthumbfile,thumbnailFile AS thumbnailFile,localFile AS localFile,serverType AS serverType,title AS title,duration AS duration,description AS description,location AS location,size AS size,localGroupId AS localGroupId,mimeType AS mimeType,exifGPSLatitude AS exifGPSLatitude,exifGPSLatitudeRef AS exifGPSLatitudeRef,exifGPSLongitude AS exifGPSLongitude,exifGPSLongitudeRef AS exifGPSLongitudeRef,exifOrientation AS exifOrientation,secretKey AS secretKey,localFlag AS localFlag,mixedDateTime AS mixedDateTime,dateTaken AS dateTaken,exifImageWidth AS exifImageWidth,exifImageLength AS exifImageLength,serverStatus AS serverStatus,dateModified AS dateModified,creatorId AS creatorId,serverTag AS serverTag,serverId AS serverId,fileName AS fileName,groupId AS groupId,ubiSubImageCount AS ubiSubImageCount,ubiSubIndex AS ubiSubIndex,ubiFocusIndex AS ubiFocusIndex,babyInfoJson AS babyInfoJson,isFavorite AS isFavorite,specialTypeFlags AS specialTypeFlags" + " FROM " + "(SELECT * FROM cloud ORDER BY mixedDateTime DESC,dateModified DESC,_id DESC ) cloud" + " LEFT OUTER JOIN " + "favorites" + " ON " + "cloud" + "." + "sha1" + " = " + "favorites" + "." + "sha1") + ConferenceCalls.SPLIT_EXPRESSION);
     }
 
     public static void createViewExtendedFaceImage(SQLiteDatabase db) {
         db.execSQL("DROP VIEW IF EXISTS extended_faceImage;");
-        db.execSQL("CREATE VIEW extended_faceImage AS " + ("SELECT " + "peopleFace._id AS _id,peopleFace.serverId AS serverId,peopleFace.groupId AS groupId,peopleFace.localGroupId AS localGroupId,microthumbfile AS microthumbfile,thumbnailFile AS thumbnailFile,dateTaken AS dateTaken,mixedDateTime AS mixedDateTime,mimeType AS mimeType,duration AS duration,location AS location,size AS size,exifImageWidth AS exifImageWidth,exifImageLength AS exifImageLength,exifOrientation AS exifOrientation,exifGPSLatitude AS exifGPSLatitude,exifGPSLatitudeRef AS exifGPSLatitudeRef,exifGPSLongitude AS exifGPSLongitude,exifGPSLongitudeRef AS exifGPSLongitudeRef,serverType AS serverType,localFile AS localFile,specialTypeFlags AS specialTypeFlags,fileName AS fileName,sha1 AS sha1,title AS title,dateModified AS dateModified,ubiSubImageCount AS ubiSubImageCount,ubiSubIndex AS ubiSubIndex,ubiFocusIndex AS ubiFocusIndex,secretKey AS secretKey,faceXScale AS faceXScale,faceYScale AS faceYScale,faceWScale AS faceWScale,faceHScale AS faceHScale,leftEyeXScale AS leftEyeXScale,leftEyeYScale AS leftEyeYScale,RightEyeXScale AS RightEyeXScale,RightEyeYScale AS RightEyeYScale,peopleFace.localFlag AS localFlag,peopleFace.serverStatus AS serverStatus,cloud._id AS photo_id,cloud.serverId AS photo_server_id,faceCoverScore AS faceCoverScore" + " FROM " + "peopleFace" + " JOIN " + "faceToImages" + " JOIN " + "cloud" + " ON " + "peopleFace" + "." + "serverId" + " = " + "faceId" + " AND " + "imageServerId" + " = " + "cloud" + "." + "serverId" + " WHERE " + nexExportFormat.TAG_FORMAT_TYPE + " = '" + "FACE" + "'" + " AND (" + "cloud" + "." + "localFlag" + " not in (" + 11 + ", " + 0 + ", " + -1 + ", " + 2 + ")" + " OR ( " + "cloud" + "." + "localFlag" + " = " + 0 + " AND " + "cloud" + "." + "serverStatus" + " = '" + "custom" + "'))" + " AND " + "cloud" + "." + "groupId" + " != " + 1000 + " AND " + "cloud" + "." + "localGroupId" + " != " + -1000 + " ORDER BY " + "cloud" + "." + "_id" + " desc ") + ";");
+        db.execSQL("CREATE VIEW extended_faceImage AS " + ("SELECT " + "peopleFace._id AS _id,peopleFace.serverId AS serverId,peopleFace.groupId AS groupId,peopleFace.localGroupId AS localGroupId,microthumbfile AS microthumbfile,thumbnailFile AS thumbnailFile,dateTaken AS dateTaken,mixedDateTime AS mixedDateTime,mimeType AS mimeType,duration AS duration,location AS location,size AS size,exifImageWidth AS exifImageWidth,exifImageLength AS exifImageLength,exifOrientation AS exifOrientation,exifGPSLatitude AS exifGPSLatitude,exifGPSLatitudeRef AS exifGPSLatitudeRef,exifGPSLongitude AS exifGPSLongitude,exifGPSLongitudeRef AS exifGPSLongitudeRef,serverType AS serverType,localFile AS localFile,specialTypeFlags AS specialTypeFlags,fileName AS fileName,sha1 AS sha1,title AS title,dateModified AS dateModified,ubiSubImageCount AS ubiSubImageCount,ubiSubIndex AS ubiSubIndex,ubiFocusIndex AS ubiFocusIndex,secretKey AS secretKey,faceXScale AS faceXScale,faceYScale AS faceYScale,faceWScale AS faceWScale,faceHScale AS faceHScale,leftEyeXScale AS leftEyeXScale,leftEyeYScale AS leftEyeYScale,RightEyeXScale AS RightEyeXScale,RightEyeYScale AS RightEyeYScale,peopleFace.localFlag AS localFlag,peopleFace.serverStatus AS serverStatus,cloud._id AS photo_id,cloud.serverId AS photo_server_id,faceCoverScore AS faceCoverScore" + " FROM " + "peopleFace" + " JOIN " + "faceToImages" + " JOIN " + "cloud" + " ON " + "peopleFace" + "." + "serverId" + " = " + "faceId" + " AND " + "imageServerId" + " = " + "cloud" + "." + "serverId" + " WHERE " + "type" + " = '" + "FACE" + "'" + " AND (" + "cloud" + "." + "localFlag" + " not in (" + 11 + ", " + 0 + ", " + -1 + ", " + 2 + ")" + " OR ( " + "cloud" + "." + "localFlag" + " = " + 0 + " AND " + "cloud" + "." + "serverStatus" + " = '" + "custom" + "'))" + " AND " + "cloud" + "." + "groupId" + " != " + 1000 + " AND " + "cloud" + "." + "localGroupId" + " != " + -1000 + " ORDER BY " + "cloud" + "." + "_id" + " desc ") + ConferenceCalls.SPLIT_EXPRESSION);
     }
 
     private static void addColumn(SQLiteDatabase db, String tableName, TableColumn tableColumn) {
@@ -925,8 +929,8 @@ public class GalleryDBHelper extends SQLiteOpenHelper {
                 }
             }
             if (this.mOldVersion < 15 && !isReCreateAlbumTable) {
-                addColumn(db, "album", (TableColumn) this.mAlbumColumns.get(10));
-                db.execSQL(String.format(Locale.US, "UPDATE %s SET %s=%d", new Object[]{"album", ((TableColumn) this.mAlbumColumns.get(10)).mName, Integer.valueOf(1)}));
+                addColumn(db, Out.KEY_ALBUM, (TableColumn) this.mAlbumColumns.get(10));
+                db.execSQL(String.format(Locale.US, "UPDATE %s SET %s=%d", new Object[]{Out.KEY_ALBUM, ((TableColumn) this.mAlbumColumns.get(10)).mName, Integer.valueOf(1)}));
             }
             if (this.mOldVersion < 18) {
                 Log.d("GalleryDBHelper", "upgrade to 18");
@@ -1615,7 +1619,7 @@ public class GalleryDBHelper extends SQLiteOpenHelper {
     }
 
     private void upgradeTo59(SQLiteDatabase db) {
-        createTable(db, "event", this.mEventColumns);
+        createTable(db, CommonResult.RESULT_TYPE_EVENT, this.mEventColumns);
         createTable(db, "eventPhoto", this.mEventPhotoColumns);
     }
 

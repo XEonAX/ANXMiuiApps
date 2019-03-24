@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import miui.telephony.phonenumber.CountryCode;
 
 public class AlbumManager {
     private static Map<Long, Long> ALBUM_ATTRIBUTES;
@@ -38,7 +39,7 @@ public class AlbumManager {
     private static String SQL_EXCLUDE_BABY_ALBUM = "AND (babyInfoJson IS NULL)";
     private static String SQL_EXCLUDE_MEDIA_IN_BABY_ALBUM = "AND (localGroupId in (SELECT _id FROM cloud WHERE serverType=0 AND babyInfoJson IS NULL )) ";
     private static final String SQL_RECENT_ALBUM_COVER = (", _id AS cover_id, (" + Cloud.ALIAS_CLEAR_FIRST + ") AS " + "cover_path" + ", " + "sha1" + " AS " + "cover_sha1" + ", " + " CASE WHEN localFlag = 0  THEN 0 WHEN localFlag IN (5, 6, 9) THEN 1 ELSE 3 END " + " AS " + "cover_sync_state" + ", " + "size" + " AS " + "cover_size" + ", " + "max(" + "dateModified" + ") AS latest_photo ");
-    private static final String SQL_SHARE_ALBUM = ("SELECT * FROM (" + SQL_SHARE_ALBUM_BASIC + ")" + " LEFT JOIN " + "(SELECT " + 2147383647 + "+" + "localGroupId" + " AS " + "_id" + "%s" + SQL_SHARE_ALBUM_COVER + ", 0 AS size " + "FROM " + "shareImage" + " " + "WHERE " + "(localFlag NOT IN (11, 0, -1, 2) OR (localFlag=0 AND serverStatus='custom'))" + " " + "%s" + "GROUP BY " + "localGroupId" + ") USING (" + "_id" + ")");
+    private static final String SQL_SHARE_ALBUM = ("SELECT * FROM (" + SQL_SHARE_ALBUM_BASIC + ")" + " LEFT JOIN " + "(SELECT " + 2147383647 + CountryCode.GSM_GENERAL_IDD_CODE + "localGroupId" + " AS " + "_id" + "%s" + SQL_SHARE_ALBUM_COVER + ", 0 AS size " + "FROM " + "shareImage" + " " + "WHERE " + "(localFlag NOT IN (11, 0, -1, 2) OR (localFlag=0 AND serverStatus='custom'))" + " " + "%s" + "GROUP BY " + "localGroupId" + ") USING (" + "_id" + ")");
     private static final String SQL_SHARE_ALBUM_BASIC = ("SELECT 2147383647+_id AS _id, attributes AS attributes, sharealbum.fileName AS name, NULL AS local_path, localFlag AS flag, dateTaken AS top_time, peopleId AS face_people_id, babyInfoJson AS baby_info, sharerInfo AS baby_sharer_info, serverId AS serverId, NULL AS thumbnail_info, " + SQL_SHARE_ALBUM_SORT_BY + ", " + 0 + " AS " + "immutable" + " " + "FROM " + "shareAlbum" + " " + "WHERE " + "serverId" + " IS NOT NULL " + "%s");
     private static final String SQL_SHARE_ALBUM_COVER = (", 1073741823+_id AS cover_id, (" + ShareImage.ALIAS_CLEAR_FIRST + ") AS " + "cover_path" + ", " + "sha1" + " AS " + "cover_sha1" + ", " + " CASE WHEN localFlag = 0  THEN 0 WHEN localFlag IN (5, 6, 9) THEN 1 ELSE 3 END " + " AS " + "cover_sync_state" + ", " + "size" + " AS " + "cover_size" + ", " + "max(" + " CASE WHEN mixedDateTime NOT NULL THEN mixedDateTime ELSE dateTaken END " + ") AS latest_photo ");
     private static String SQL_SHARE_ALBUM_NOT_HIDDEN = "AND (attributes & 16 = 0)";

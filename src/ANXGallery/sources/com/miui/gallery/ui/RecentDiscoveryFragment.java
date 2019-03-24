@@ -37,6 +37,7 @@ import com.miui.gallery.util.SoundUtils;
 import com.miui.gallery.util.ToastUtils;
 import com.miui.gallery.widget.editwrapper.EditableListViewWrapperDeprecated;
 import com.miui.gallery.widget.editwrapper.MultiChoiceModeListener;
+import com.miui.internal.vip.VipConstants;
 import com.tonicartos.widget.stickygridheaders.StickyGridHeadersGridView;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -334,7 +335,7 @@ public class RecentDiscoveryFragment extends BaseMediaFragment {
     private void recordOldestOperatedPicture() {
         if (this.mOldestDateModified < Long.MAX_VALUE) {
             HashMap<String, String> params = new HashMap();
-            params.put("days_ago", String.valueOf((System.currentTimeMillis() - this.mOldestDateModified) / 86400000));
+            params.put("days_ago", String.valueOf((System.currentTimeMillis() - this.mOldestDateModified) / VipConstants.DAY));
             BaseSamplingStatHelper.recordCountEvent("recent_album", "recent_album_oldest_operated_picture", params);
         }
     }

@@ -1,8 +1,10 @@
 package cn.kuaipan.android.kss.upload;
 
+import android.content.res.MiuiConfiguration;
 import android.util.Log;
 import cn.kuaipan.android.http.KscHttpResponse;
 import cn.kuaipan.android.kss.KssDef;
+import com.miui.internal.widget.ActionModeView;
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 
@@ -45,12 +47,12 @@ public class ServerExpect implements KssDef {
 
     public void validate() {
         if (this.nextChunkSize >= 0) {
-            this.nextChunkSize -= this.nextChunkSize % 65536;
+            this.nextChunkSize -= this.nextChunkSize % MiuiConfiguration.THEME_FLAG_CLOCK;
             this.nextChunkSize = Math.min(this.nextChunkSize, MAX_CHUNKSIZE);
-            this.nextChunkSize = Math.max(this.nextChunkSize, 65536);
+            this.nextChunkSize = Math.max(this.nextChunkSize, MiuiConfiguration.THEME_FLAG_CLOCK);
         }
         if (this.uploadDelay > 0 && !this.factoryMode) {
-            this.uploadDelay = Math.min(this.uploadDelay, 300);
+            this.uploadDelay = Math.min(this.uploadDelay, ActionModeView.ANIMATION_DURATION);
         }
     }
 

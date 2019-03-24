@@ -32,6 +32,7 @@ import com.miui.gallery.video.editor.widget.DisplayWrapper.IProgress;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import java.util.HashMap;
 import java.util.List;
+import miui.hybrid.Response;
 
 public class VideoEditorFragment extends Fragment implements OnBackPressedListener {
     private Activity mActivity;
@@ -154,7 +155,7 @@ public class VideoEditorFragment extends Fragment implements OnBackPressedListen
                 case 3:
                     ToolsUtil.hideView(VideoEditorFragment.this.mProgressingView);
                     break;
-                case 200:
+                case Response.CODE_GENERIC_ERROR /*200*/:
                     ToolsUtil.hideView(VideoEditorFragment.this.mProgressingView);
                     break;
                 case 500:

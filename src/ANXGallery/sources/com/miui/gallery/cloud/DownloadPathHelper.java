@@ -12,6 +12,7 @@ import com.miui.gallery.util.StorageUtils;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import miui.os.C0002FileUtils;
 
 public class DownloadPathHelper {
     public static String getDownloadFolderPath(DBImage dbImage) {
@@ -120,7 +121,7 @@ public class DownloadPathHelper {
 
     public static String addPostfixToFileName(String fileName, String postfix) {
         String fileNameWithoutExt = FileUtils.getFileNameWithoutExtension(fileName) + "_" + postfix;
-        String ext = miui.os.FileUtils.getExtension(fileName);
+        String ext = C0002FileUtils.getExtension(fileName);
         return TextUtils.isEmpty(ext) ? fileNameWithoutExt : fileNameWithoutExt + "." + ext;
     }
 

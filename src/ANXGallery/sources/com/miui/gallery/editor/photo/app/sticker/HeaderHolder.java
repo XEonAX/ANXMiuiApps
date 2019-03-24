@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.View;
 import android.widget.TextView;
 import com.miui.gallery.editor.photo.core.common.model.StickerCategory;
+import miui.cloud.backup.data.KeyStringSettingItem;
 
 public class HeaderHolder extends ViewHolder {
     private TextView mTitle;
@@ -19,7 +20,7 @@ public class HeaderHolder extends ViewHolder {
     void bind(StickerCategory category) {
         if (this.mTitle != null) {
             Context context = this.mTitle.getContext();
-            int nameResId = context.getResources().getIdentifier(category.name, "string", "com.miui.gallery");
+            int nameResId = context.getResources().getIdentifier(category.name, KeyStringSettingItem.TYPE, "com.miui.gallery");
             if (nameResId != 0) {
                 this.mTitle.setText(context.getString(nameResId));
             }

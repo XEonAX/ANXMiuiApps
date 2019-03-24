@@ -2,6 +2,7 @@ package android.support.v7.widget;
 
 import android.view.View;
 import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
+import miui.date.DateUtils;
 
 class ViewBoundsCheck {
     BoundFlags mBoundFlags = new BoundFlags();
@@ -64,7 +65,7 @@ class ViewBoundsCheck {
             if ((this.mBoundFlags & 1792) != 0 && (this.mBoundFlags & (compare(this.mChildEnd, this.mRvStart) << 8)) == 0) {
                 return false;
             }
-            if ((this.mBoundFlags & 28672) == 0 || (this.mBoundFlags & (compare(this.mChildEnd, this.mRvEnd) << 12)) != 0) {
+            if ((this.mBoundFlags & DateUtils.FORMAT_ABBREV_ALL) == 0 || (this.mBoundFlags & (compare(this.mChildEnd, this.mRvEnd) << 12)) != 0) {
                 return true;
             }
             return false;

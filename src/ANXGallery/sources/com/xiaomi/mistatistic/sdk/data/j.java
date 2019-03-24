@@ -3,6 +3,7 @@ package com.xiaomi.mistatistic.sdk.data;
 import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import com.xiaomi.mistatistic.sdk.BuildSetting;
 import com.xiaomi.mistatistic.sdk.controller.t;
+import miui.yellowpage.YellowPageStatistic.Display;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -27,7 +28,7 @@ public class j extends AbstractEvent {
 
     public JSONObject valueToJSon() throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("category", getCategory());
+        jSONObject.put(Display.CATEGORY, getCategory());
         jSONObject.put(nexExportFormat.TAG_FORMAT_PATH, this.a);
         jSONObject.put("source", this.b);
         return jSONObject;

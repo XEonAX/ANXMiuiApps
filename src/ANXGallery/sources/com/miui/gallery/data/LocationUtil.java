@@ -3,6 +3,9 @@ package com.miui.gallery.data;
 import android.content.Context;
 import android.text.TextUtils;
 import com.miui.gallery.util.Log;
+import miui.cloud.backup.data.KeyStringSettingItem;
+import miui.reflect.Field;
+import miui.telephony.PhoneNumberUtils;
 
 public class LocationUtil {
     private static int INT_COORDINATE_FACTOR = 1000000;
@@ -22,7 +25,7 @@ public class LocationUtil {
             if (TextUtils.isEmpty(ref)) {
                 return result;
             }
-            if (!ref.equals("S")) {
+            if (!ref.equals(Field.SHORT_SIGNATURE_PRIMITIVE)) {
                 if (!ref.equals("W")) {
                     return result;
                 }
@@ -49,7 +52,7 @@ public class LocationUtil {
         if (TextUtils.isEmpty(cityId)) {
             return null;
         }
-        int resID = context.getResources().getIdentifier("cityname_" + cityId, "string", context.getPackageName());
+        int resID = context.getResources().getIdentifier("cityname_" + cityId, KeyStringSettingItem.TYPE, context.getPackageName());
         if (resID != 0) {
             return context.getResources().getString(resID);
         }
@@ -62,6 +65,6 @@ public class LocationUtil {
     }
 
     public static boolean isLocationValidate(String location) {
-        return (TextUtils.isEmpty(location) || "-1".equals(location) || "-2".equals(location)) ? false : true;
+        return (TextUtils.isEmpty(location) || "-1".equals(location) || PhoneNumberUtils.PRIVATE_NUMBER.equals(location)) ? false : true;
     }
 }

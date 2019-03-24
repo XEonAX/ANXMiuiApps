@@ -4,7 +4,6 @@ import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Build.VERSION;
-import com.nexstreaming.nexeditorsdk.nexEngine;
 import com.nostra13.universalimageloader.cache.disc.DiskCache;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
 import com.nostra13.universalimageloader.cache.disc.impl.ext.LruDiskCache;
@@ -97,7 +96,7 @@ public class DefaultConfigurationFactory {
             if (hasHoneycomb() && isLargeHeap(context)) {
                 memoryClass = getLargeMemoryClass(am);
             }
-            memoryCacheSize = (nexEngine.ExportHEVCMainTierLevel6 * memoryClass) / 8;
+            memoryCacheSize = (1048576 * memoryClass) / 8;
         }
         return new LruMemoryCache(memoryCacheSize);
     }
@@ -108,7 +107,7 @@ public class DefaultConfigurationFactory {
 
     @TargetApi(11)
     private static boolean isLargeHeap(Context context) {
-        return (context.getApplicationInfo().flags & nexEngine.ExportHEVCMainTierLevel6) != 0;
+        return (context.getApplicationInfo().flags & 1048576) != 0;
     }
 
     @TargetApi(11)

@@ -2,6 +2,7 @@ package com.miui.gallery.ui;
 
 import android.app.ActionBar.LayoutParams;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
@@ -99,12 +100,12 @@ public class PhotoPreviewSelectFragment extends PhotoPageFragmentBase {
             } else {
                 allSelected = true;
             }
-            Object obj = PhotoPreviewSelectFragment.this.mActivity;
+            Context context = PhotoPreviewSelectFragment.this.mActivity;
             Button button = this.mSelectAllBtn;
             if (!allSelected) {
                 i = 0;
             }
-            MiuiSdkCompat.setEditActionModeButton(obj, button, i);
+            MiuiSdkCompat.setEditActionModeButton(context, button, i);
             super.updateSelectMode();
         }
 

@@ -12,9 +12,10 @@ import com.miui.gallery.threadpool.ThreadManager;
 import com.miui.gallery.threadpool.ThreadPool.Job;
 import com.miui.gallery.threadpool.ThreadPool.JobContext;
 import com.miui.gallery.util.face.PeopleCursorHelper;
+import miui.mipub.MipubStat;
 
 public class BabyFaceFinder implements FutureListener<Boolean> {
-    private static final Long TIME_INTERVAL_FOR_CHECK_CANDIDATE_PEOPLE = Long.valueOf(604800000);
+    private static final Long TIME_INTERVAL_FOR_CHECK_CANDIDATE_PEOPLE = Long.valueOf(MipubStat.STAT_EXPIRY_DATA);
     private Boolean mFoundBabyAlbums;
     private Future mFuture;
     private BabyAlbumsFoundListener mListener;

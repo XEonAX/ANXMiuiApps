@@ -1,7 +1,6 @@
 package com.adobe.xmp.options;
 
 import com.adobe.xmp.XMPException;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 
 public final class PropertyOptions extends Options {
     public PropertyOptions(int options) throws XMPException {
@@ -115,9 +114,9 @@ public final class PropertyOptions extends Options {
 
     public void assertConsistency(int options) throws XMPException {
         if ((options & 256) > 0 && (options & 512) > 0) {
-            throw new XMPException("IsStruct and IsArray options are mutually exclusive", BaiduSceneResult.MOUNTAINEERING);
+            throw new XMPException("IsStruct and IsArray options are mutually exclusive", 103);
         } else if ((options & 2) > 0 && (options & 768) > 0) {
-            throw new XMPException("Structs and arrays can't have \"value\" options", BaiduSceneResult.MOUNTAINEERING);
+            throw new XMPException("Structs and arrays can't have \"value\" options", 103);
         }
     }
 }

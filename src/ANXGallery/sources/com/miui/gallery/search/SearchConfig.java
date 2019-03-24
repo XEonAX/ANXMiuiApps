@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import miui.yellowpage.Tag.TagYellowPage;
 import org.json.JSONException;
 
 public class SearchConfig {
@@ -197,7 +198,7 @@ public class SearchConfig {
                 return str;
             }
             Map<String, List> extraInfo = new HashMap(1);
-            extraInfo.put("extraInfo", extras);
+            extraInfo.put(TagYellowPage.EXTRA_INFO, extras);
             try {
                 return GsonUtils.toJson(extraInfo);
             } catch (JSONException e) {

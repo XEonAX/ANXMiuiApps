@@ -4,9 +4,11 @@ import com.google.gson.JsonParseException;
 import com.miui.gallery.movie.entity.MovieResource;
 import com.miui.gallery.net.BaseGalleryRequest;
 import com.miui.gallery.net.base.ErrorCode;
+import com.miui.internal.vip.VipConstants;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import miui.yellowpage.Tag.TagYellowPage;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,7 +23,7 @@ public abstract class LocalResourceRequest extends BaseGalleryRequest {
         addParam("id", Long.toString(getParentId()));
         setUseCache(true);
         setCacheExpires(2592000000L);
-        setCacheSoftTtl(System.currentTimeMillis() + 86400000);
+        setCacheSoftTtl(System.currentTimeMillis() + VipConstants.DAY);
     }
 
     protected void onRequestSuccess(JSONObject data) throws Exception {
@@ -39,7 +41,7 @@ public abstract class LocalResourceRequest extends BaseGalleryRequest {
                     resource.id = object.optLong("id");
                     resource.icon = object.optString("icon");
                     resource.label = object.optString("text");
-                    resource.extra = object.optString("extraInfo");
+                    resource.extra = object.optString(TagYellowPage.EXTRA_INFO);
                     try {
                         JSONObject extraObject = new JSONObject(resource.extra);
                         resource.enName = extraObject.optString("enName");

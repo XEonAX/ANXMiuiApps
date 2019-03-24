@@ -202,7 +202,7 @@ public class BaiduSceneResult implements ISceneResult {
         this.tagThresholds[90] = 0.5f;
         this.tagThresholds[92] = 0.5f;
         this.tagThresholds[99] = 0.03f;
-        this.tagThresholds[MOUNTAINEERING] = 0.5f;
+        this.tagThresholds[103] = 0.5f;
         this.tagThresholds[ID_CARD] = 0.001f;
         this.tagThresholds[BANK_CARD] = 0.001f;
         this.tagThresholds[128] = 0.001f;

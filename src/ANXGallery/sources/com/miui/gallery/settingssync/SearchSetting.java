@@ -3,13 +3,14 @@ package com.miui.gallery.settingssync;
 import com.miui.gallery.GalleryApp;
 import com.miui.gallery.settingssync.GallerySettingsSyncContract.SyncableSetting;
 import com.miui.gallery.ui.AIAlbumStatusHelper;
+import miui.yellowpage.YellowPageContract.Search;
 
 class SearchSetting implements SyncableSetting {
     SearchSetting() {
     }
 
     public String getName() {
-        return "search";
+        return Search.DIRECTORY;
     }
 
     public Boolean isEnabled() {

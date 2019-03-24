@@ -12,7 +12,7 @@ import com.miui.gallery.cloud.baby.BabyInfo;
 import com.miui.gallery.data.DBShareAlbum;
 import com.miui.gallery.util.GalleryUtils;
 import com.miui.gallery.util.SyncLog;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
+import com.miui.internal.analytics.NormalPolicy;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -81,14 +81,14 @@ public final class SyncSharerUserForAlbum extends SyncUserBase {
     }
 
     protected final boolean handleDataJson(JSONObject dataJson) throws JSONException {
-        if (CloudUtils.getLongAttributeFromJson(dataJson, nexExportFormat.TAG_FORMAT_TAG) > ((SyncTagItem) getCurrentSyncTag().get(0)).currentValue) {
+        if (CloudUtils.getLongAttributeFromJson(dataJson, "tag") > ((SyncTagItem) getCurrentSyncTag().get(0)).currentValue) {
             resetUsersInLocalDB();
         }
         return addUsers(dataJson);
     }
 
     protected final boolean handleUser(JSONObject schemaJson) throws JSONException {
-        if ("normal".equals(schemaJson.getString("status"))) {
+        if (NormalPolicy.TAG.equals(schemaJson.getString("status"))) {
             String peopleId = schemaJson.optString(BabyAlbumUtils.BABY_PEOPLE_ID);
             String userId = schemaJson.optString("userId");
             if (!(TextUtils.isEmpty(peopleId) || TextUtils.isEmpty(userId) || !userId.equals(GalleryCloudUtils.getAccountName()))) {

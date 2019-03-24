@@ -3,6 +3,7 @@ package com.xiaomi.settingsdk.backup.data;
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
 import android.util.Log;
+import miui.cloud.backup.SettingsBackupConsts;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -23,7 +24,7 @@ public class KeyJsonSettingItem extends SettingItem<JSONObject> {
         try {
             return new JSONObject(rawValue);
         } catch (JSONException e) {
-            Log.e("SettingsBackup", "JSONException occorred when stringToValue()", e);
+            Log.e(SettingsBackupConsts.TAG, "JSONException occorred when stringToValue()", e);
             return null;
         }
     }

@@ -354,9 +354,9 @@ public class MenuBuilder implements Menu {
     }
 
     private static int getOrdering(int categoryOrder) {
-        int index = (-65536 & categoryOrder) >> 16;
+        int index = (com.miui.internal.view.menu.MenuBuilder.CATEGORY_MASK & categoryOrder) >> 16;
         if (index >= 0 && index < sCategoryToOrder.length) {
-            return (sCategoryToOrder[index] << 16) | (65535 & categoryOrder);
+            return (sCategoryToOrder[index] << 16) | (com.miui.internal.view.menu.MenuBuilder.USER_MASK & categoryOrder);
         }
         throw new IllegalArgumentException("order does not contain a valid category.");
     }

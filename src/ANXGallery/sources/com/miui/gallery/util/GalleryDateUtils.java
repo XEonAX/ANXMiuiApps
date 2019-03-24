@@ -3,18 +3,19 @@ package com.miui.gallery.util;
 import android.text.TextUtils;
 import com.miui.gallery.GalleryApp;
 import com.miui.gallery.R;
+import com.miui.internal.vip.VipConstants;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 import miui.date.DateUtils;
-import miui.util.Pools;
-import miui.util.Pools.Manager;
-import miui.util.Pools.Pool;
+import miui.util.C0014Pools;
+import miui.util.Pools.C0000Manager;
+import miui.util.Pools.C0007Pool;
 import miui.util.cache.LruCache;
 
 public class GalleryDateUtils {
-    private static final Pool<Calendar> CALENDAR_POOL = Pools.createSoftReferencePool(new Manager<Calendar>() {
+    private static final C0007Pool<Calendar> CALENDAR_POOL = C0014Pools.createSoftReferencePool(new C0000Manager<Calendar>() {
         public Calendar createInstance() {
             return Calendar.getInstance();
         }
@@ -91,7 +92,7 @@ public class GalleryDateUtils {
         if (cacheDate != null) {
             return cacheDate;
         }
-        StringBuilder stringBuilder = (StringBuilder) Pools.getStringBuilderPool().acquire();
+        StringBuilder stringBuilder = (StringBuilder) C0014Pools.getStringBuilderPool().acquire();
         Calendar cal = (Calendar) CALENDAR_POOL.acquire();
         long now = System.currentTimeMillis();
         cal.setTimeInMillis(now);
@@ -106,11 +107,11 @@ public class GalleryDateUtils {
         } else if (sameYear) {
             DateUtils.formatDateTime(stringBuilder, time, 4096 | 384);
         } else {
-            DateUtils.formatDateTime(stringBuilder, time, 4096 | 896);
+            DateUtils.formatDateTime(stringBuilder, time, 4096 | DateUtils.FORMAT_SHOW_DATE);
         }
         CALENDAR_POOL.release(cal);
         String result = stringBuilder.toString();
-        Pools.getStringBuilderPool().release(stringBuilder);
+        C0014Pools.getStringBuilderPool().release(stringBuilder);
         sDateCache.put(Long.valueOf(time), result, 1);
         return result;
     }
@@ -146,7 +147,7 @@ public class GalleryDateUtils {
         if (date1 == null || date2 == null) {
             return false;
         }
-        if (Math.abs(date1.getTime() - date2.getTime()) > 86400000 || date1.getDate() != date2.getDate()) {
+        if (Math.abs(date1.getTime() - date2.getTime()) > VipConstants.DAY || date1.getDate() != date2.getDate()) {
             return false;
         }
         return true;

@@ -16,10 +16,12 @@ import com.miui.gallery.pendingtask.base.PendingTaskInfo;
 import com.miui.gallery.pendingtask.base.PendingTaskService;
 import com.miui.gallery.stat.BaseSamplingStatHelper;
 import com.miui.gallery.util.Log;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
+import com.miui.internal.vip.VipConstants;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
+import miui.mipub.MipubStat;
+import miui.provider.ExtraTelephony.FirewallLog;
 
 public class PendingTaskManager {
     private static final int[] TIME_STAGE = new int[]{1, 2, 3, 6, 12, 24, 48, 72, 168};
@@ -76,7 +78,7 @@ public class PendingTaskManager {
 
     public void checkTaskList() {
         recordExpireCount();
-        long startTime = System.currentTimeMillis() - 604800000;
+        long startTime = System.currentTimeMillis() - MipubStat.STAT_EXPIRY_DATA;
         List<PendingTaskInfo> list = GalleryEntityManager.getInstance().query(PendingTaskInfo.class, String.format("%s > %s", new Object[]{"createTime", Long.valueOf(startTime)}), null);
         if (list != null && !list.isEmpty()) {
             int rescheduleCount = 0;
@@ -239,8 +241,8 @@ public class PendingTaskManager {
     }
 
     private static void recordExpireCount() {
-        long startTime = (System.currentTimeMillis() - 604800000) - 86400000;
-        List<PendingTaskInfo> list = GalleryEntityManager.getInstance().query(PendingTaskInfo.class, String.format("%s > %s AND %s < %s", new Object[]{"createTime", Long.valueOf(startTime), "createTime", Long.valueOf(System.currentTimeMillis() - 604800000)}), null);
+        long startTime = (System.currentTimeMillis() - MipubStat.STAT_EXPIRY_DATA) - VipConstants.DAY;
+        List<PendingTaskInfo> list = GalleryEntityManager.getInstance().query(PendingTaskInfo.class, String.format("%s > %s AND %s < %s", new Object[]{"createTime", Long.valueOf(startTime), "createTime", Long.valueOf(System.currentTimeMillis() - MipubStat.STAT_EXPIRY_DATA)}), null);
         if (list != null && list.size() > 0) {
             HashMap<String, String> params = new HashMap();
             params.put("count", String.valueOf(list.size()));
@@ -258,7 +260,7 @@ public class PendingTaskManager {
     private static void recordProcessDuration(int taskType, long cost) {
         if (cost >= 600000) {
             HashMap<String, String> params = new HashMap();
-            params.put(nexExportFormat.TAG_FORMAT_TYPE, String.valueOf(taskType));
+            params.put("type", String.valueOf(taskType));
             params.put("cost", String.valueOf(cost));
             BaseSamplingStatHelper.recordCountEvent("pending_task", "pending_task_process_cost", params);
         }
@@ -275,8 +277,8 @@ public class PendingTaskManager {
 
     private static void recordDropReason(int taskType, String reason) {
         HashMap<String, String> params = new HashMap();
-        params.put(nexExportFormat.TAG_FORMAT_TYPE, String.valueOf(taskType));
-        params.put("reason", reason);
+        params.put("type", String.valueOf(taskType));
+        params.put(FirewallLog.REASON, reason);
         BaseSamplingStatHelper.recordCountEvent("pending_task", "pending_task_drop_reason", params);
     }
 }

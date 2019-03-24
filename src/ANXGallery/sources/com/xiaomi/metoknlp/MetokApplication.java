@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.os.Handler;
 import android.os.HandlerThread;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import com.xiaomi.metoknlp.a.d;
 import com.xiaomi.metoknlp.b.a;
 import com.xiaomi.metoknlp.b.c;
@@ -41,7 +40,7 @@ public class MetokApplication extends ContextWrapper {
         this.mHandlerThread.start();
         this.mHandler = new g(this, this.mHandlerThread.getLooper());
         d.f(context);
-        this.mHandler.sendEmptyMessageDelayed(BaiduSceneResult.SHOOTING, 1000);
+        this.mHandler.sendEmptyMessageDelayed(101, 1000);
     }
 
     public void notifyDataChange(String str) {
@@ -92,6 +91,6 @@ public class MetokApplication extends ContextWrapper {
     }
 
     private void updateConfig() {
-        this.mHandler.sendEmptyMessageDelayed(BaiduSceneResult.TAEKWONDO, 10000);
+        this.mHandler.sendEmptyMessageDelayed(102, 10000);
     }
 }

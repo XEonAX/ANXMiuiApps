@@ -86,6 +86,8 @@ import com.tonicartos.widget.stickygridheaders.StickyGridHeadersGridView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import miui.provider.ExtraTelephony.FirewallLog;
+import miui.yellowpage.Tag.TagYellowPage;
 
 public class FacePageFragment extends BaseMediaFragment implements CheckoutStatusListener, OnPageChangedListener {
     private FacePageAdapter mAdapter;
@@ -751,7 +753,7 @@ public class FacePageFragment extends BaseMediaFragment implements CheckoutStatu
                 return true;
             case R.id.action_change_mode_to_photo /*2131886845*/:
                 changeDisplayMode();
-                recordDisplayModeCountEvent("photo");
+                recordDisplayModeCountEvent(TagYellowPage.PHOTO);
                 return true;
             case R.id.action_merge_to /*2131886846*/:
                 showMergeHandler();
@@ -793,7 +795,7 @@ public class FacePageFragment extends BaseMediaFragment implements CheckoutStatu
 
     private void recordDisplayModeCountEvent(String mode) {
         Map<String, String> params = new HashMap();
-        params.put("mode", mode);
+        params.put(FirewallLog.MODE, mode);
         BaseSamplingStatHelper.recordCountEvent("face", "face_change_display_mode", params);
     }
 

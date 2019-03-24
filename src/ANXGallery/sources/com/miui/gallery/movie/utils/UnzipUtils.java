@@ -2,7 +2,6 @@ package com.miui.gallery.movie.utils;
 
 import com.miui.gallery.util.FileUtils;
 import com.miui.gallery.util.Log;
-import com.nexstreaming.nexeditorsdk.nexEngine;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -28,7 +27,7 @@ public class UnzipUtils {
         try {
             ZipInputStream zipInputStream2 = new ZipInputStream(new FileInputStream(zipFile));
             try {
-                byte[] buffer = new byte[nexEngine.ExportHEVCMainTierLevel6];
+                byte[] buffer = new byte[1048576];
                 for (ZipEntry zipEntry = zipInputStream2.getNextEntry(); zipEntry != null; zipEntry = zipInputStream2.getNextEntry()) {
                     File file;
                     if (zipEntry.isDirectory()) {

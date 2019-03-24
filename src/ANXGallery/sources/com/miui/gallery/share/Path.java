@@ -5,6 +5,7 @@ import android.os.Parcelable;
 import android.os.Parcelable.Creator;
 import android.text.TextUtils;
 import java.util.WeakHashMap;
+import miui.util.PlayerActions.Out;
 
 public class Path implements Parcelable {
     public static final Creator<Path> CREATOR = new Creator<Path>() {
@@ -69,7 +70,7 @@ public class Path implements Parcelable {
     }
 
     public String toString() {
-        return (this.mIsOtherShared ? "other" : "owner") + "/" + String.valueOf(this.mId);
+        return (this.mIsOtherShared ? Out.KEY_OTHER : "owner") + "/" + String.valueOf(this.mId);
     }
 
     public static Path fromString(String pathStr) {
@@ -78,7 +79,7 @@ public class Path implements Parcelable {
         }
         Path aPath = new Path();
         int index = pathStr.indexOf("/");
-        aPath.mIsOtherShared = pathStr.indexOf("other") != -1;
+        aPath.mIsOtherShared = pathStr.indexOf(Out.KEY_OTHER) != -1;
         aPath.mId = Long.parseLong(pathStr.substring(index + 1));
         return aPath;
     }

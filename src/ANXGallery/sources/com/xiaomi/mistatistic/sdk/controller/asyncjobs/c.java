@@ -1,6 +1,7 @@
 package com.xiaomi.mistatistic.sdk.controller.asyncjobs;
 
 import android.content.Context;
+import android.content.MiuiIntent;
 import android.text.TextUtils;
 import com.xiaomi.mistatistic.sdk.BuildSetting;
 import com.xiaomi.mistatistic.sdk.controller.d;
@@ -15,6 +16,7 @@ import com.xiaomi.mistatistic.sdk.controller.s;
 import com.xiaomi.mistatistic.sdk.controller.t;
 import java.util.Map;
 import java.util.TreeMap;
+import miui.telephony.TelephonyConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -55,7 +57,7 @@ public class c implements com.xiaomi.mistatistic.sdk.controller.e.a {
                 i = 2;
             }
             treeMap.put("channel", d.d());
-            treeMap.put("device_id", c);
+            treeMap.put(TelephonyConstants.EXTRA_DEVICE_ID, c);
             treeMap.put("id_type", String.valueOf(i));
             treeMap.put("policy", String.valueOf(f));
             treeMap.put("interval", String.valueOf(e));
@@ -93,7 +95,7 @@ public class c implements com.xiaomi.mistatistic.sdk.controller.e.a {
                 String string = jSONObject.getString("status");
                 a(jSONObject);
                 b(jSONObject);
-                if ("ok".equals(string)) {
+                if (MiuiIntent.COMMAND_ICON_PANEL_OK.equals(string)) {
                     return true;
                 }
                 j.c("RDUJ", "result status isn't ok, " + string);

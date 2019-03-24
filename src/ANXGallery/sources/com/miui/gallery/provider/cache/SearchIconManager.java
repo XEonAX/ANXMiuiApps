@@ -27,6 +27,8 @@ import com.miui.gallery.util.uil.CloudUriAdapter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import miui.util.PlayerActions.Out;
+import miui.yellowpage.YellowPageContract.ImageLookup;
 
 public class SearchIconManager {
     private static final UriMatcher sIconURIMatcher = new UriMatcher(-1);
@@ -277,8 +279,8 @@ public class SearchIconManager {
 
     static {
         sIconURIMatcher.addURI("people", null, 1);
-        sIconURIMatcher.addURI("album", null, 2);
-        sIconURIMatcher.addURI("image", null, 3);
+        sIconURIMatcher.addURI(Out.KEY_ALBUM, null, 2);
+        sIconURIMatcher.addURI(ImageLookup.DIRECTORY_IMAGE, null, 3);
     }
 
     private SearchIconItem queryIcon(Uri iconUri) {

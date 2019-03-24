@@ -4,6 +4,7 @@ import android.net.NetworkInfo;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import miui.hybrid.Response;
 
 /* compiled from: ConnectivityMonitor */
 class d extends Handler {
@@ -16,14 +17,14 @@ class d extends Handler {
 
     public void handleMessage(Message message) {
         switch (message.what) {
-            case 200:
+            case Response.CODE_GENERIC_ERROR /*200*/:
                 synchronized (this.af.j) {
                     for (a a : this.af.j) {
                         a.a((NetworkInfo) message.obj);
                     }
                 }
                 return;
-            case 201:
+            case Response.CODE_CONFIG_ERROR /*201*/:
                 synchronized (this.af.j) {
                     for (a a2 : this.af.j) {
                         a2.b((NetworkInfo) message.obj);

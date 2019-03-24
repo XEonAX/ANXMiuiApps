@@ -8,6 +8,7 @@ import android.content.Context;
 import android.os.Build.VERSION;
 import com.miui.gallery.R;
 import com.nexstreaming.nexeditorsdk.nexCrop;
+import miui.app.constants.ThemeManagerConstants;
 
 public class NotificationHelper {
     public static int getBabyAlbumNotificationId(boolean isSharer, int id) {
@@ -60,7 +61,7 @@ public class NotificationHelper {
                 default:
                     return;
             }
-            NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService(ThemeManagerConstants.COMPONENT_CODE_NOTIFICATION);
             if (notificationManager != null && !notificationManager.getNotificationChannels().contains(channel)) {
                 notificationManager.createNotificationChannel(channel);
             }

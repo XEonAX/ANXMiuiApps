@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
+import miui.date.Calendar;
 import org.json.JSONObject;
 
 public class NvsStreamingContext {
@@ -550,7 +551,7 @@ public class NvsStreamingContext {
                 }
                 z = z3;
                 if (z) {
-                    final int randomTime = NvsTimeUtil.getRandomTime(30000, 60000);
+                    final int randomTime = NvsTimeUtil.getRandomTime(30000, Calendar.MILLISECOND_OF_MINUTE);
                     new Thread() {
                         public void run() {
                             try {

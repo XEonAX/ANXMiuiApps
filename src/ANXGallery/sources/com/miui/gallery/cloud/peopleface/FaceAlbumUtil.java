@@ -3,7 +3,7 @@ package com.miui.gallery.cloud.peopleface;
 import android.content.ContentValues;
 import com.miui.gallery.cloud.baby.BabyAlbumUtils;
 import com.miui.gallery.model.PeopleContactInfo;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
+import miui.app.constants.ThemeManagerConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -19,8 +19,8 @@ public class FaceAlbumUtil {
         if (schemaJson.has("status")) {
             values.put("serverStatus", schemaJson.getString("status"));
         }
-        if (schemaJson.has(nexExportFormat.TAG_FORMAT_TYPE)) {
-            values.put(nexExportFormat.TAG_FORMAT_TYPE, schemaJson.getString(nexExportFormat.TAG_FORMAT_TYPE));
+        if (schemaJson.has("type")) {
+            values.put("type", schemaJson.getString("type"));
         }
         if (schemaJson.has("eTag")) {
             values.put("eTag", schemaJson.getString("eTag"));
@@ -36,8 +36,8 @@ public class FaceAlbumUtil {
             values.put("peopleName", peopleContent.getString("peopleName"));
             values.put("visibilityType", Integer.valueOf(1));
         }
-        if (peopleContent.has("contact")) {
-            String contactInfo = peopleContent.getJSONObject("contact").toString();
+        if (peopleContent.has(ThemeManagerConstants.COMPONENT_CODE_CONTACT)) {
+            String contactInfo = peopleContent.getJSONObject(ThemeManagerConstants.COMPONENT_CODE_CONTACT).toString();
             values.put("peopleContactJsonInfo", contactInfo);
             PeopleContactInfo peopleInfo = PeopleContactInfo.fromJson(contactInfo);
             if (peopleInfo != null) {

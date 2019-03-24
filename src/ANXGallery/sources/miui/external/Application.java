@@ -3,6 +3,7 @@ package miui.external;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.util.Log;
+import com.miui.internal.util.PackageConstants;
 import java.lang.reflect.InvocationTargetException;
 import miui.external.SdkConstants.SdkError;
 
@@ -40,12 +41,12 @@ public class Application extends android.app.Application implements SdkConstants
                 t = t.getCause();
             }
         }
-        Log.e("miuisdk", "MIUI SDK encounter errors, please contact miuisdk@xiaomi.com for support.", t);
+        Log.e(PackageConstants.LOG_TAG, "MIUI SDK encounter errors, please contact miuisdk@xiaomi.com for support.", t);
         SdkErrorInstrumentation.handleSdkError(SdkError.GENERIC);
     }
 
     private void handleUnknownError(String phase, int code) {
-        Log.e("miuisdk", "MIUI SDK encounter errors, please contact miuisdk@xiaomi.com for support. phase: " + phase + " code: " + code);
+        Log.e(PackageConstants.LOG_TAG, "MIUI SDK encounter errors, please contact miuisdk@xiaomi.com for support. phase: " + phase + " code: " + code);
         SdkErrorInstrumentation.handleSdkError(SdkError.GENERIC);
     }
 

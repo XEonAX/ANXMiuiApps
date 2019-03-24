@@ -1,5 +1,6 @@
 package com.xiaomi.push.service;
 
+import android.content.SystemIntent;
 import android.text.TextUtils;
 import com.xiaomi.channel.commonutils.logger.MyLog;
 import com.xiaomi.push.service.XMPushService.Job;
@@ -62,7 +63,7 @@ public class LongConnUploader implements TinyDataUploader {
     }
 
     private String getAppId(String pkgName) {
-        if ("com.xiaomi.xmsf".equals(pkgName)) {
+        if (SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(pkgName)) {
             return "1000271";
         }
         return this.mPushService.getSharedPreferences("pref_registered_pkg_names", 0).getString(pkgName, null);

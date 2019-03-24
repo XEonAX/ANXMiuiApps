@@ -19,6 +19,7 @@ import com.miui.gallery.util.Log;
 import com.miui.gallery.util.MiscUtil;
 import java.util.ArrayList;
 import java.util.List;
+import miui.text.ExtraTextUtils;
 
 public class ClusterGroupRequest<E extends ImageFeatureItem> extends AlgorithmRequest<ClusteGroupResult> {
     private final List<E> mImageFeatureItems;
@@ -107,6 +108,6 @@ public class ClusterGroupRequest<E extends ImageFeatureItem> extends AlgorithmRe
     }
 
     private long generateGroupId(long startNano) {
-        return (System.currentTimeMillis() * 1000000) + ((System.nanoTime() - startNano) % 1000000);
+        return (System.currentTimeMillis() * ExtraTextUtils.MB) + ((System.nanoTime() - startNano) % ExtraTextUtils.MB);
     }
 }

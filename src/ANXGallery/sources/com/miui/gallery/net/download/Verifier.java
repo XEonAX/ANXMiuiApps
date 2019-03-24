@@ -3,6 +3,7 @@ package com.miui.gallery.net.download;
 import com.miui.gallery.util.Log;
 import java.security.MessageDigest;
 import java.util.Arrays;
+import miui.security.DigestUtils;
 
 public abstract class Verifier {
     private String mAlgorithm;
@@ -10,7 +11,7 @@ public abstract class Verifier {
 
     public static final class Sha1 extends Verifier {
         public Sha1(String hex) {
-            super("SHA-1", Verifier.decode(hex, 40));
+            super(DigestUtils.ALGORITHM_SHA_1, Verifier.decode(hex, 40));
         }
     }
 

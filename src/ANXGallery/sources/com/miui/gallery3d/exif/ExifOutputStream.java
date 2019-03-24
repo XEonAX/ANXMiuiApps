@@ -1,5 +1,6 @@
 package com.miui.gallery3d.exif;
 
+import com.miui.internal.view.menu.MenuBuilder;
 import java.io.BufferedOutputStream;
 import java.io.FilterOutputStream;
 import java.io.IOException;
@@ -91,14 +92,14 @@ class ExifOutputStream extends FilterOutputStream {
                                 this.mBuffer.rewind();
                                 short marker = this.mBuffer.getShort();
                                 if (marker == (short) -31) {
-                                    this.mByteToSkip = (this.mBuffer.getShort() & 65535) - 2;
+                                    this.mByteToSkip = (this.mBuffer.getShort() & MenuBuilder.USER_MASK) - 2;
                                     this.mState = 2;
                                 } else if (JpegHeader.isSofMarker(marker)) {
                                     this.out.write(this.mBuffer.array(), 0, 4);
                                     this.mState = 2;
                                 } else {
                                     this.out.write(this.mBuffer.array(), 0, 4);
-                                    this.mByteToCopy = (this.mBuffer.getShort() & 65535) - 2;
+                                    this.mByteToCopy = (this.mBuffer.getShort() & MenuBuilder.USER_MASK) - 2;
                                 }
                                 this.mBuffer.rewind();
                                 break;
@@ -130,7 +131,7 @@ class ExifOutputStream extends FilterOutputStream {
             ArrayList<ExifTag> nullTags = stripNullValueTags(this.mExifData);
             createRequiredIfdAndTag();
             int exifSize = calculateAllOffset();
-            if (exifSize + 8 > 65535) {
+            if (exifSize + 8 > MenuBuilder.USER_MASK) {
                 throw new IOException("Exif header is too large (>64Kb)");
             }
             OrderedDataOutputStream dataOutputStream = new OrderedDataOutputStream(this.out);

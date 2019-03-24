@@ -36,6 +36,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import miui.app.constants.ThemeManagerConstants;
+import miui.text.ExtraTextUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -86,7 +88,7 @@ public class NvsThemeHelper {
     private String m_themeAssetID;
     private NvsTimeline m_timeline;
     private long seed = 1000;
-    private long timeBase = 1000000;
+    private long timeBase = ExtraTextUtils.MB;
 
     public class NvsThemeAsset {
         public boolean isDownload = false;
@@ -874,7 +876,7 @@ public class NvsThemeHelper {
                     usedFileList.add(desc);
                 }
             }
-        } else if (nNewCount == NVS_USE_ALL_PHOTO) {
+        } else if (nNewCount == -2) {
             for (i = 0; i < files.size(); i++) {
                 desc = (NvsImageFileDesc) files.get(i);
                 desc.show = true;
@@ -1697,7 +1699,7 @@ public class NvsThemeHelper {
             } else {
                 nvsThemeAsset.m_transOffset = 500;
             }
-            String assetPath = getAssetPath(fxDescobj, "theme", themeID, context == null);
+            String assetPath = getAssetPath(fxDescobj, ThemeManagerConstants.COMPONENT_CODE_MASK, themeID, context == null);
             nvsThemeAsset.m_themeId = installAssetToContext(assetPath, checkUpdateAsset(curThemeasset == null ? null : curThemeasset.m_themeId.toString(), assetPath, 4));
             if (nvsThemeAsset.m_themeId == null) {
                 Log.d(TAG, "Failed to install theme package!");

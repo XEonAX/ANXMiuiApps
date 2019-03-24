@@ -10,6 +10,7 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore.Audio;
 import android.provider.MediaStore.Images.Media;
 import android.provider.MediaStore.Video;
+import miui.yellowpage.YellowPageContract.ImageLookup;
 
 public class ConvertFilepathUtil {
     public static String getPath(Context context, Uri uri) {
@@ -34,7 +35,7 @@ public class ConvertFilepathUtil {
             } else {
                 String type = DocumentsContract.getDocumentId(uri).split(":")[0];
                 Uri contentUri = null;
-                if ("image".equals(type)) {
+                if (ImageLookup.DIRECTORY_IMAGE.equals(type)) {
                     contentUri = Media.EXTERNAL_CONTENT_URI;
                 } else if ("video".equals(type)) {
                     contentUri = Video.Media.EXTERNAL_CONTENT_URI;

@@ -81,7 +81,6 @@ import com.miui.gallery.util.uil.CloudImageLoader;
 import com.miui.gallery.view.animation.AnimationListenerAdapter;
 import com.miui.gallery.widget.CircleStrokeProgressBar;
 import com.miui.gallery.widget.GalleryVideoView;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import com.nexstreaming.nexeditorsdk.nexProject;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.DisplayImageOptions.Builder;
@@ -96,6 +95,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import miui.view.animation.CubicEaseOutInterpolator;
 import miui.view.animation.SineEaseInOutInterpolator;
+import miui.yellowpage.Tag.TagYellowPage;
 import uk.co.senab.photoview.PhotoView;
 import uk.co.senab.photoview.PhotoViewAttacher.OnScaleStageChangedListener;
 
@@ -324,9 +324,9 @@ public class PhotoPageImageItem extends PhotoPageItem {
             }
             this.mHandler.removeCallbacks(this.mHideDefinitionRunnable);
             if (this.mIsHdPhoto) {
-                BaseSamplingStatHelper.recordCountEvent("photo", "photo_hd_satisfy_count");
+                BaseSamplingStatHelper.recordCountEvent(TagYellowPage.PHOTO, "photo_hd_satisfy_count");
                 if (this.mIsEverEnterHd) {
-                    BaseSamplingStatHelper.recordCountEvent("photo", "photo_hd_enter_count");
+                    BaseSamplingStatHelper.recordCountEvent(TagYellowPage.PHOTO, "photo_hd_enter_count");
                 }
             }
             this.mIsHdPhoto = false;
@@ -1342,8 +1342,8 @@ public class PhotoPageImageItem extends PhotoPageItem {
                     }
                 });
                 HashMap<String, String> params = new HashMap();
-                params.put(nexExportFormat.TAG_FORMAT_TYPE, MediaFile.getMimeTypeForFile(originPath));
-                BaseSamplingStatHelper.recordCountEvent("photo", "photo_not_support_region", params);
+                params.put("type", MediaFile.getMimeTypeForFile(originPath));
+                BaseSamplingStatHelper.recordCountEvent(TagYellowPage.PHOTO, "photo_not_support_region", params);
             }
         }
 
@@ -1421,7 +1421,7 @@ public class PhotoPageImageItem extends PhotoPageItem {
     }
 
     private void statMaxScale() {
-        BaseSamplingStatHelper.recordCountEvent("photo", "photo_item_select_count");
+        BaseSamplingStatHelper.recordCountEvent(TagYellowPage.PHOTO, "photo_item_select_count");
         if (this.mMaxScale > 1.0f) {
             HashMap<String, String> params = new HashMap();
             params.put("maxScale", String.valueOf(this.mMaxScale));
@@ -1431,7 +1431,7 @@ public class PhotoPageImageItem extends PhotoPageItem {
                     params.put("maxScaleToOrigin", String.valueOf((this.mMaxScale * baseRect.width()) / ((float) this.mDataItem.getWidth())));
                 }
             }
-            BaseSamplingStatHelper.recordCountEvent("photo", "photo_max_scale", params);
+            BaseSamplingStatHelper.recordCountEvent(TagYellowPage.PHOTO, "photo_max_scale", params);
         }
     }
 

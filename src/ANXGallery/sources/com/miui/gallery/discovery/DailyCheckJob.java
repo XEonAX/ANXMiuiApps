@@ -8,6 +8,7 @@ import com.miui.gallery.assistant.manager.ImageFeatureManger;
 import com.miui.gallery.assistant.process.ExistImageFeatureTask;
 import com.miui.gallery.pendingtask.PendingTaskManager;
 import com.miui.gallery.util.Log;
+import com.miui.internal.vip.VipConstants;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class DailyCheckJob extends AbstractJob {
@@ -34,6 +35,6 @@ public class DailyCheckJob extends AbstractJob {
     }
 
     public JobInfo getJobInfo(Context context, ComponentName cn) {
-        return new Builder(this.mJobId, cn).setRequiresDeviceIdle(true).setPeriodic(86400000).build();
+        return new Builder(this.mJobId, cn).setRequiresDeviceIdle(true).setPeriodic(VipConstants.DAY).build();
     }
 }

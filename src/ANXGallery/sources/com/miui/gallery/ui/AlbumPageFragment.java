@@ -61,6 +61,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import miui.util.PlayerActions.Out;
 
 public class AlbumPageFragment extends BaseAlbumPageFragment implements DisplayStatusCallback {
     private AlbumPageAdapterWrapper mAlbumPageAdapterWrapper;
@@ -92,7 +93,7 @@ public class AlbumPageFragment extends BaseAlbumPageFragment implements DisplayS
             if (!AlbumPageFragment.this.mHasEnterPrivateEntry) {
                 AlbumPageFragment.this.enterPrivateEntry();
                 AlbumPageFragment.this.mHasEnterPrivateEntry = true;
-                BaseSamplingStatHelper.recordCountEvent("album", "enter_privacy_mode");
+                BaseSamplingStatHelper.recordCountEvent(Out.KEY_ALBUM, "enter_privacy_mode");
             }
         }
     };
@@ -151,19 +152,19 @@ public class AlbumPageFragment extends BaseAlbumPageFragment implements DisplayS
                 params.put("album_name", ((AlbumPageAdapter) this.mWrapped).getAlbumName(position));
                 params.put("album_server_id", ((AlbumPageAdapter) this.mWrapped).getServerId(position));
                 params.put("album_image_count", String.valueOf(((AlbumPageAdapter) this.mWrapped).getAlbumCount(position)));
-                BaseSamplingStatHelper.recordCountEvent("album", "view_system_album", params);
+                BaseSamplingStatHelper.recordCountEvent(Out.KEY_ALBUM, "view_system_album", params);
             } else if (!TextUtils.isEmpty(localPath)) {
                 params = new HashMap();
-                params.put("album_path", localPath.toLowerCase());
+                params.put(Out.KEY_ALBUM_PATH, localPath.toLowerCase());
                 params.put("album_attribute", String.valueOf(((AlbumPageAdapter) this.mWrapped).getAttributes(position)));
                 params.put("album_image_count", String.valueOf(((AlbumPageAdapter) this.mWrapped).getAlbumCount(position)));
                 params.put("baby_album", String.valueOf(((AlbumPageAdapter) this.mWrapped).isBabyAlbum(position)));
-                BaseSamplingStatHelper.recordCountEvent("album", "view_album", params);
+                BaseSamplingStatHelper.recordCountEvent(Out.KEY_ALBUM, "view_album", params);
             } else if (((AlbumPageAdapter) this.mWrapped).isOtherShareAlbum(position)) {
                 params = new HashMap();
                 params.put("album_image_count", String.valueOf(((AlbumPageAdapter) this.mWrapped).getAlbumCount(position)));
                 params.put("baby_album", String.valueOf(((AlbumPageAdapter) this.mWrapped).isBabyAlbum(position)));
-                BaseSamplingStatHelper.recordCountEvent("album", "view_share_album", params);
+                BaseSamplingStatHelper.recordCountEvent(Out.KEY_ALBUM, "view_share_album", params);
             }
         }
     }
@@ -343,7 +344,7 @@ public class AlbumPageFragment extends BaseAlbumPageFragment implements DisplayS
             Map<String, String> params = BaseSamplingStatHelper.generatorCommonParams();
             params.put("costs", String.valueOf(costs));
             params.put("count", String.valueOf(count));
-            BaseSamplingStatHelper.recordCountEvent("album", firstTime ? "album_minimum_load_time" : "album_full_load_time", params);
+            BaseSamplingStatHelper.recordCountEvent(Out.KEY_ALBUM, firstTime ? "album_minimum_load_time" : "album_full_load_time", params);
         }
     }
 
@@ -359,7 +360,7 @@ public class AlbumPageFragment extends BaseAlbumPageFragment implements DisplayS
             AlbumCreatorDialogFragment creator = new AlbumCreatorDialogFragment();
             creator.setOnAlbumOperationDoneListener(AlbumPageFragment.this.mOnAlbumCreatedListener);
             creator.showAllowingStateLoss(AlbumPageFragment.this.getFragmentManager(), "AlbumCreatorDialogFragment");
-            BaseSamplingStatHelper.recordCountEvent("album", "create_album");
+            BaseSamplingStatHelper.recordCountEvent(Out.KEY_ALBUM, "create_album");
         }
     }
 
@@ -475,7 +476,7 @@ public class AlbumPageFragment extends BaseAlbumPageFragment implements DisplayS
     }
 
     public String getPageName() {
-        return "album";
+        return Out.KEY_ALBUM;
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -618,7 +619,7 @@ public class AlbumPageFragment extends BaseAlbumPageFragment implements DisplayS
     private void statAlbumEmpty() {
         HashMap<String, String> params = new HashMap();
         params.put("login", String.valueOf(AccountCache.getAccount() != null));
-        BaseSamplingStatHelper.recordCountEvent("album", "album_empty", params);
+        BaseSamplingStatHelper.recordCountEvent(Out.KEY_ALBUM, "album_empty", params);
     }
 
     private void startToLoadAlbums() {

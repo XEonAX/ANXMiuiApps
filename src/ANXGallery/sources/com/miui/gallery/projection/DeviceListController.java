@@ -183,7 +183,7 @@ public class DeviceListController implements OnClickListener {
                 if (this.mDeviceAdapter == null) {
                     this.mDeviceAdapter = new DeviceSelectorAdapter(this.mActivity, this.mDeviceList);
                 }
-                Builder onCancelListener = new Builder(this.mActivity).setTitle(com.miui.gallery.R.string.projection_multi_title).setSingleChoiceItems(this.mDeviceAdapter, this.mActiveDeviceIndex, this).setOnCancelListener(new OnCancelListener() {
+                Builder onCancelListener = new Builder(this.mActivity).setTitle((int) com.miui.gallery.R.string.projection_multi_title).setSingleChoiceItems(this.mDeviceAdapter, this.mActiveDeviceIndex, (OnClickListener) this).setOnCancelListener(new OnCancelListener() {
                     public void onCancel(DialogInterface dialog) {
                         DeviceListController.this.mNeedShowDeviceList.set(false);
                     }
@@ -221,7 +221,7 @@ public class DeviceListController implements OnClickListener {
     private void showDeviceNotFoundDialog() {
         if (activityAlive()) {
             if (this.mDeviceNotFoundDialog == null) {
-                this.mDeviceNotFoundDialog = new Builder(this.mActivity).setTitle(com.miui.gallery.R.string.cast_devices_unavailable_title).setMessage(com.miui.gallery.R.string.cast_devices_unavailable_desc).setCancelable(true).setPositiveButton(com.miui.gallery.R.string.have_known, null).setOnDismissListener(new OnDismissListener() {
+                this.mDeviceNotFoundDialog = new Builder(this.mActivity).setTitle((int) com.miui.gallery.R.string.cast_devices_unavailable_title).setMessage((int) com.miui.gallery.R.string.cast_devices_unavailable_desc).setCancelable(true).setPositiveButton((int) com.miui.gallery.R.string.have_known, null).setOnDismissListener(new OnDismissListener() {
                     public void onDismiss(DialogInterface dialog) {
                         DeviceListController.this.mNeedShowDeviceList.set(false);
                     }

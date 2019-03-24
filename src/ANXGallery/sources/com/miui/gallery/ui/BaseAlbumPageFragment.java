@@ -48,6 +48,7 @@ import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.util.HashMap;
 import miui.app.AlertDialog;
 import miui.app.AlertDialog.Builder;
+import miui.util.PlayerActions.Out;
 
 public abstract class BaseAlbumPageFragment extends BaseFragment {
     protected CursorConvertCallback<AlbumList> mAlbumConvertCallback = new AlbumConvertCallback();
@@ -206,7 +207,7 @@ public abstract class BaseAlbumPageFragment extends BaseFragment {
     private void statAlbumOperation(Album entity, String operation) {
         HashMap<String, String> params = new HashMap();
         params.put(nexExportFormat.TAG_FORMAT_PATH, entity.getLocalPath());
-        BaseSamplingStatHelper.recordCountEvent("album", operation, params);
+        BaseSamplingStatHelper.recordCountEvent(Out.KEY_ALBUM, operation, params);
     }
 
     public boolean onContextItemSelected(MenuItem item) {
@@ -315,12 +316,12 @@ public abstract class BaseAlbumPageFragment extends BaseFragment {
             string = "";
         }
         objArr[2] = string;
-        String msg = resources.getString(R.string.delete_album_msg_format, objArr);
+        CharSequence msg = resources.getString(R.string.delete_album_msg_format, objArr);
         Builder builder = new Builder(getActivity());
         if (addDeleteCloudOption) {
             builder.setCheckBox(false, getString(R.string.delete_from_cloud));
         }
-        builder.setTitle(R.string.delete).setMessage(msg).setPositiveButton(17039370, new OnClickListener() {
+        builder.setTitle((int) R.string.delete).setMessage(msg).setPositiveButton(17039370, new OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 int deleteOptions = 0;
                 if (addDeleteCloudOption && !((AlertDialog) dialog).isChecked()) {

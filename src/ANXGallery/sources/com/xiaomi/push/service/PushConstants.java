@@ -1,5 +1,7 @@
 package com.xiaomi.push.service;
 
+import miui.provider.ExtraTelephony.Phonelist;
+
 public abstract class PushConstants {
     public static String ACTION_BATCH_SEND_MESSAGE = "com.xiaomi.push.BATCH_SEND_MESSAGE";
     public static String ACTION_CHANGE_HOST = "com.xiaomi.push.CHANGE_HOST";
@@ -33,7 +35,7 @@ public abstract class PushConstants {
     public static String EXTRA_USER_RES = "ext_user_res";
     public static String NOTIFICATION_CLICK_DEFAULT = "1";
     public static String NOTIFICATION_CLICK_INTENT = "2";
-    public static String NOTIFICATION_CLICK_WEB_PAGE = "3";
+    public static String NOTIFICATION_CLICK_WEB_PAGE = Phonelist.TYPE_VIP;
     public static String PUSH_DESCRIPTION = "description";
     public static String PUSH_NOTIFY_ID = "notifyId";
     public static String PUSH_TITLE = "title";

@@ -4,6 +4,7 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
+import miui.util.CoderUtils;
 
 /* compiled from: AesUtils */
 public class c {
@@ -48,7 +49,7 @@ public class c {
 
     public static byte[] c(String str, String str2, String str3) {
         try {
-            Cipher instance = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            Cipher instance = Cipher.getInstance(CoderUtils.AES_ALGORITHM);
             instance.init(1, new SecretKeySpec(a(str2), "AES"), new IvParameterSpec(str3.getBytes()));
             return instance.doFinal(str.getBytes("utf-8"));
         } catch (Exception e) {

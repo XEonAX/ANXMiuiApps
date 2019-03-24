@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import miui.yellowpage.YellowPageStatistic.Display;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -154,7 +155,7 @@ public class n {
                 if (b("monitor_start") == 0) {
                     m.c(b, "monitor_start", currentTimeMillis);
                 }
-                String string = jSONObject.getString("category");
+                String string = jSONObject.getString(Display.CATEGORY);
                 if (!TextUtils.isEmpty(string)) {
                     if (string.equals("mistat_basic")) {
                         b(str, jSONObject);
@@ -272,7 +273,7 @@ public class n {
         JSONObject jSONObject = new JSONObject();
         if (statEventPojo != null) {
             try {
-                jSONObject.put("category", statEventPojo.mCategory);
+                jSONObject.put(Display.CATEGORY, statEventPojo.mCategory);
                 jSONObject.put("key", statEventPojo.mKey);
             } catch (Throwable e) {
                 j.a("PMM", "pojoToJson exception", e);

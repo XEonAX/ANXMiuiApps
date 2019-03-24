@@ -1,6 +1,5 @@
 package com.miui.gallery.card.scenario.time.pastyear;
 
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import com.miui.gallery.assistant.model.MediaFeatureItem;
 import com.miui.gallery.card.Card;
 import com.miui.gallery.card.scenario.DateUtils;
@@ -8,6 +7,7 @@ import com.miui.gallery.card.scenario.Record;
 import com.miui.gallery.card.scenario.time.HolidayConfig;
 import com.miui.gallery.card.scenario.time.HolidayScenario;
 import com.miui.gallery.util.assistant.HolidaysUtil;
+import com.miui.internal.vip.VipConstants;
 import java.util.LinkedList;
 import java.util.List;
 import miui.date.Calendar;
@@ -16,13 +16,13 @@ public class ChineseHolidayScenario extends HolidayScenario {
     private final List<HolidayConfig> mHolidayConfig = new LinkedList();
 
     public ChineseHolidayScenario() {
-        super(BaiduSceneResult.SHOOTING, 1, 7);
+        super(101, 1, 7);
         this.mHolidayConfig.add(new HolidayConfig(100, Integer.MAX_VALUE, 1));
-        this.mHolidayConfig.add(new HolidayConfig(BaiduSceneResult.SHOOTING, Integer.MAX_VALUE, 1));
-        this.mHolidayConfig.add(new HolidayConfig(BaiduSceneResult.TAEKWONDO, Integer.MAX_VALUE, 1));
-        this.mHolidayConfig.add(new HolidayConfig(BaiduSceneResult.MOUNTAINEERING, Integer.MAX_VALUE, 3));
-        this.mHolidayConfig.add(new HolidayConfig(BaiduSceneResult.SPORTS_OTHER, Integer.MAX_VALUE, 1));
-        this.mHolidayConfig.add(new HolidayConfig(BaiduSceneResult.TEMPLE, Integer.MAX_VALUE, 3));
+        this.mHolidayConfig.add(new HolidayConfig(101, Integer.MAX_VALUE, 1));
+        this.mHolidayConfig.add(new HolidayConfig(102, Integer.MAX_VALUE, 1));
+        this.mHolidayConfig.add(new HolidayConfig(103, Integer.MAX_VALUE, 3));
+        this.mHolidayConfig.add(new HolidayConfig(104, Integer.MAX_VALUE, 1));
+        this.mHolidayConfig.add(new HolidayConfig(105, Integer.MAX_VALUE, 3));
     }
 
     public boolean onPrepare(List<Record> records, List<Card> cards) {
@@ -35,7 +35,7 @@ public class ChineseHolidayScenario extends HolidayScenario {
             long pastYearTime = HolidaysUtil.getChineseHolidayDatetimeOfPastYear(calendar, this.mYear);
             if (pastYearTime <= 0) {
                 Calendar calendarNextDay = (Calendar) calendar.clone();
-                calendarNextDay.setTimeInMillis(calendar.getTimeInMillis() + 86400000);
+                calendarNextDay.setTimeInMillis(calendar.getTimeInMillis() + VipConstants.DAY);
                 pastYearTime = HolidaysUtil.getChineseHolidayDatetimeOfPastYear(calendarNextDay, this.mYear);
             }
             if (pastYearTime > 0) {

@@ -10,6 +10,7 @@ import com.miui.gallery.data.DBCloud;
 import com.miui.gallery.data.DBItem;
 import com.miui.gallery.data.DBShareAlbum;
 import com.miui.gallery.share.AlbumShareOperations.IncomingInvitation;
+import com.miui.internal.analytics.NormalPolicy;
 
 public class CloudSharerMediaSet {
     private static final Uri BASE_OTHER_SET_URI = GalleryCloudUtils.SHARE_ALBUM_URI;
@@ -92,7 +93,7 @@ public class CloudSharerMediaSet {
     }
 
     public boolean isNormalStatus() {
-        return "normal".equals(getAlbumStatus());
+        return NormalPolicy.TAG.equals(getAlbumStatus());
     }
 
     public synchronized int getAlbumShareState(String uiState) {

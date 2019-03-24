@@ -21,6 +21,7 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
+import miui.yellowpage.YellowPageContract.MipubPhoneEvent;
 
 public abstract class Connection {
     public static boolean DEBUG_ENABLED;
@@ -220,7 +221,7 @@ public abstract class Connection {
 
     private String getDesc(int connectStatus) {
         if (connectStatus == 1) {
-            return "connected";
+            return MipubPhoneEvent.EXTRA_DATA_CONNECTED;
         }
         if (connectStatus == 0) {
             return "connecting";

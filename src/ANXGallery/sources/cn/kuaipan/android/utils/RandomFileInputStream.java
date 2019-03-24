@@ -1,5 +1,6 @@
 package cn.kuaipan.android.utils;
 
+import android.content.res.MiuiConfiguration;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -104,7 +105,7 @@ public class RandomFileInputStream extends InputStream {
             throw new IOException("Number of bytes to skip cannot be negative");
         }
         long skipped = 0;
-        int chunk = count < 8192 ? (int) count : 8192;
+        int chunk = count < MiuiConfiguration.THEME_FLAG_STATUSBAR ? (int) count : 8192;
         synchronized (this) {
             for (long i = count / ((long) chunk); i >= 0; i--) {
                 if (Thread.currentThread().isInterrupted()) {

@@ -2,6 +2,7 @@ package com.xiaomi.micloudsdk.provider;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SystemIntent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
@@ -13,7 +14,7 @@ final class MiCloudSettingsV18 {
     private static final HashSet<String> NEED_CATCH_EXCEPTION_PACKAGES = new HashSet(1);
 
     static {
-        NEED_CATCH_EXCEPTION_PACKAGES.add("com.xiaomi.xmsf");
+        NEED_CATCH_EXCEPTION_PACKAGES.add(SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE);
     }
 
     public static boolean putInt(Context context, String name, int value) {

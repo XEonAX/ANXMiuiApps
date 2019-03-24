@@ -2,6 +2,7 @@ package com.xiaomi.mistatistic.sdk.data;
 
 import com.xiaomi.mistatistic.sdk.BuildSetting;
 import com.xiaomi.mistatistic.sdk.controller.t;
+import miui.yellowpage.YellowPageStatistic.Display;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -26,7 +27,7 @@ public class l extends AbstractEvent {
 
     public JSONObject valueToJSon() throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("category", getCategory());
+        jSONObject.put(Display.CATEGORY, getCategory());
         jSONObject.put("start", this.a);
         jSONObject.put("end", this.b);
         jSONObject.put("env", this.c);

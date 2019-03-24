@@ -1,7 +1,10 @@
 package com.miui.gallery.search;
 
 import com.miui.gallery.search.core.suggestion.RankInfo;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
+import miui.provider.ExtraContacts.DefaultAccount;
+import miui.util.PlayerActions.Out;
+import miui.yellowpage.Tag.TagSearch.GeoInfo;
+import miui.yellowpage.YellowPageContract.Search;
 
 public class SearchConstants {
 
@@ -9,8 +12,8 @@ public class SearchConstants {
         SEARCH_TYPE_HINT("hint"),
         SEARCH_TYPE_HISTORY("history"),
         SEARCH_TYPE_NAVIGATION("navigation"),
-        SEARCH_TYPE_SUGGESTION("suggestion"),
-        SEARCH_TYPE_SEARCH("search"),
+        SEARCH_TYPE_SUGGESTION(Search.SUGGESTION),
+        SEARCH_TYPE_SEARCH(Search.DIRECTORY),
         SEARCH_TYPE_RESULT("result"),
         SEARCH_TYPE_RESULT_LIST("list"),
         SEARCH_TYPE_FILTER("filter"),
@@ -24,13 +27,13 @@ public class SearchConstants {
     }
 
     public enum SectionType {
-        SECTION_TYPE_DEFAULT("default"),
+        SECTION_TYPE_DEFAULT(DefaultAccount.NAME),
         SECTION_TYPE_RECOMMEND("recommend"),
         SECTION_TYPE_PEOPLE("people"),
-        SECTION_TYPE_ALBUM("album"),
+        SECTION_TYPE_ALBUM(Out.KEY_ALBUM),
         SECTION_TYPE_LOCATION("location"),
-        SECTION_TYPE_TAG(nexExportFormat.TAG_FORMAT_TAG),
-        SECTION_TYPE_FEATURE("feature"),
+        SECTION_TYPE_TAG("tag"),
+        SECTION_TYPE_FEATURE(GeoInfo.FEATURE),
         SECTION_TYPE_LOCATION_LIST("locationList"),
         SECTION_TYPE_TAG_LIST("tagList"),
         SECTION_TYPE_IMAGE_LIST("imageList"),
@@ -38,10 +41,10 @@ public class SearchConstants {
         SECTION_TYPE_WARNING("warning"),
         SECTION_TYPE_FILTER("facet"),
         SECTION_TYPE_OCR("ocr"),
-        SECTION_TYPE_OTHER("other"),
+        SECTION_TYPE_OTHER(Out.KEY_OTHER),
         SECTION_TYPE_NO_RESULT("noResult"),
         SECTION_TYPE_GUIDE("guide"),
-        SECTION_TYPE_SUGGESTION("suggestion"),
+        SECTION_TYPE_SUGGESTION(Search.SUGGESTION),
         SECTION_TYPE_APP_SCREENSHOT("appScreenshot");
         
         private final String name;

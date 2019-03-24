@@ -15,6 +15,7 @@ import com.miui.gallery.preference.GalleryPreferences.Sync;
 import com.miui.gallery.util.MiscUtil;
 import com.miui.gallery.util.StorageUtils;
 import com.miui.gallery.util.SyncLog;
+import com.miui.internal.vip.VipConstants;
 
 public class SyncConditionManager {
     private static final Checker[] sCheckers = new Checker[14];
@@ -309,7 +310,7 @@ public class SyncConditionManager {
             if (free < 20971520) {
                 SyncLog.d("SyncConditionManager", "space free little %s", Long.valueOf(free));
                 long interval = System.currentTimeMillis() - sSpaceCheckTime;
-                if (interval > 0 && interval < 3600000) {
+                if (interval > 0 && interval < VipConstants.HOUR) {
                     SyncLog.d("SyncConditionManager", "interval %s", Long.valueOf(interval));
                     return 2;
                 }

@@ -2,10 +2,12 @@ package com.adobe.xmp.impl;
 
 import com.adobe.xmp.XMPException;
 import com.adobe.xmp.options.PropertyOptions;
+import com.miui.internal.vip.utils.JsonParser;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import miui.hybrid.Response;
 
 class XMPNode implements Comparable {
     static final /* synthetic */ boolean $assertionsDisabled = (!XMPNode.class.desiredAssertionStatus());
@@ -313,14 +315,14 @@ class XMPNode implements Comparable {
     }
 
     private void assertChildNotExisting(String childName) throws XMPException {
-        if (!"[]".equals(childName) && findChildByName(childName) != null) {
-            throw new XMPException("Duplicate property or field node '" + childName + "'", 203);
+        if (!JsonParser.EMPTY_ARRAY.equals(childName) && findChildByName(childName) != null) {
+            throw new XMPException("Duplicate property or field node '" + childName + "'", Response.CODE_PERMISSION_ERROR);
         }
     }
 
     private void assertQualifierNotExisting(String qualifierName) throws XMPException {
-        if (!"[]".equals(qualifierName) && findQualifierByName(qualifierName) != null) {
-            throw new XMPException("Duplicate '" + qualifierName + "' qualifier", 203);
+        if (!JsonParser.EMPTY_ARRAY.equals(qualifierName) && findQualifierByName(qualifierName) != null) {
+            throw new XMPException("Duplicate '" + qualifierName + "' qualifier", Response.CODE_PERMISSION_ERROR);
         }
     }
 }

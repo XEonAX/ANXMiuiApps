@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Color;
 import android.media.ExifInterface;
 import android.util.Log;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import com.nexstreaming.kminternal.kinemaster.config.a;
 import com.nexstreaming.nexeditorsdk.exception.nexSDKException;
 import com.nexstreaming.nexeditorsdk.nexCrop.CropMode;
@@ -14,6 +13,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import miui.provider.ExtraContacts.DefaultAccount;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -48,8 +48,8 @@ final class e {
     int n = -1;
     int o = 100;
     int p = 0;
-    String q = "default";
-    int r = BaiduSceneResult.SHOOTING;
+    String q = DefaultAccount.NAME;
+    int r = 101;
     String s = "";
     String t = "";
     String u;
@@ -63,7 +63,7 @@ final class e {
     }
 
     public static e a(JSONObject jSONObject, int i) {
-        String a = a(jSONObject, nexExportFormat.TAG_FORMAT_TYPE);
+        String a = a(jSONObject, "type");
         if (!a.equals("scene")) {
             return null;
         }
@@ -111,23 +111,23 @@ final class e {
             }
         }
         String a3 = a(jSONObject, "speed_control");
-        if (!a3.equals("default")) {
+        if (!a3.equals(DefaultAccount.NAME)) {
             eVar.o = Integer.parseInt(a3);
         }
         a3 = a(jSONObject, "brightness");
-        if (!a3.equals("default")) {
+        if (!a3.equals(DefaultAccount.NAME)) {
             eVar.k = Integer.parseInt(a3);
         }
         a3 = a(jSONObject, "contrast");
-        if (!a3.equals("default")) {
+        if (!a3.equals(DefaultAccount.NAME)) {
             eVar.l = Integer.parseInt(a3);
         }
         a3 = a(jSONObject, "saturation");
-        if (!a3.equals("default")) {
+        if (!a3.equals(DefaultAccount.NAME)) {
             eVar.m = Integer.parseInt(a3);
         }
         a3 = a(jSONObject, "color_filter");
-        if (!a3.equals("default")) {
+        if (!a3.equals(DefaultAccount.NAME)) {
             eVar.n = Integer.parseInt(a3);
         }
         eVar.y = a(jSONObject, "vignette");
@@ -513,7 +513,7 @@ final class e {
                 return "clip,no";
             }
             if (str.equals("crop_mode")) {
-                return "default";
+                return DefaultAccount.NAME;
             }
             if (str.equals("transition_name")) {
                 return "none";
@@ -527,7 +527,7 @@ final class e {
             if (str.equals("use_particle_video")) {
                 return "1";
             }
-            return "default";
+            return DefaultAccount.NAME;
         }
     }
 

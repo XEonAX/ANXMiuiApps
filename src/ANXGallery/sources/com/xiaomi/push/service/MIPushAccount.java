@@ -1,9 +1,11 @@
 package com.xiaomi.push.service;
 
 import android.content.Context;
+import android.content.SystemIntent;
 import com.xiaomi.channel.commonutils.android.AppInfoUtils;
 import com.xiaomi.push.service.PushClientsManager.ClientLoginInfo;
 import java.util.Locale;
+import miui.provider.ExtraTelephony.Phonelist;
 
 public class MIPushAccount {
     public final String account;
@@ -25,7 +27,7 @@ public class MIPushAccount {
     }
 
     private static boolean isMIUIPush(Context context) {
-        return context.getPackageName().equals("com.xiaomi.xmsf");
+        return context.getPackageName().equals(SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE);
     }
 
     public ClientLoginInfo toClientLoginInfo(XMPushService pushService) {
@@ -39,7 +41,7 @@ public class MIPushAccount {
         clientLoginInfo.userId = this.account;
         clientLoginInfo.security = this.security;
         clientLoginInfo.token = this.token;
-        clientLoginInfo.chid = "5";
+        clientLoginInfo.chid = Phonelist.TYPE_CLOUDS_WHITE;
         clientLoginInfo.authMethod = "XMPUSH-PASS";
         clientLoginInfo.kick = false;
         String packageNames = "";
@@ -57,7 +59,7 @@ public class MIPushAccount {
     }
 
     public static boolean isAbTestSupported(Context context) {
-        return "com.xiaomi.xmsf".equals(context.getPackageName()) && isMIUIAlphaVersion();
+        return SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(context.getPackageName()) && isMIUIAlphaVersion();
     }
 
     public static boolean isMIUIAlphaVersion() {

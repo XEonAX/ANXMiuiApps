@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.SystemIntent;
 import android.content.pm.PackageInfo;
 import android.os.Build.VERSION;
 import android.os.Handler;
@@ -12,7 +13,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import com.xiaomi.channel.commonutils.android.MIUIUtils;
 import com.xiaomi.channel.commonutils.logger.MyLog;
 import com.xiaomi.channel.commonutils.misc.BuildSettings;
@@ -54,8 +54,8 @@ public class ServiceClient {
             return false;
         }
         try {
-            PackageInfo pkgInfo = this.mContext.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4);
-            if (pkgInfo == null || pkgInfo.versionCode < BaiduSceneResult.SPORTS_OTHER) {
+            PackageInfo pkgInfo = this.mContext.getPackageManager().getPackageInfo(SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE, 4);
+            if (pkgInfo == null || pkgInfo.versionCode < 104) {
                 return false;
             }
             return true;

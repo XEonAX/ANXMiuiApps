@@ -14,6 +14,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import miui.hybrid.Response;
 import org.keyczar.Keyczar;
 
 public abstract class HttpUtils {
@@ -129,6 +130,6 @@ public abstract class HttpUtils {
     }
 
     static int getHttpPostTxtTraffic(int urlLen, int postDataLen, int retDateLen) {
-        return ((((((postDataLen + 200) / 1448) * BaiduSceneResult.VARIOUS_TICKETS) + 1011) + postDataLen) + urlLen) + retDateLen;
+        return ((((((postDataLen + Response.CODE_GENERIC_ERROR) / 1448) * BaiduSceneResult.VARIOUS_TICKETS) + 1011) + postDataLen) + urlLen) + retDateLen;
     }
 }

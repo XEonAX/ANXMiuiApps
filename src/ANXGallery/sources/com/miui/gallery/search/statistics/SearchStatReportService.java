@@ -13,10 +13,11 @@ import com.miui.gallery.util.NotificationHelper;
 import com.miui.gallery.util.PrivacyAgreementUtils;
 import java.util.ArrayList;
 import java.util.List;
+import miui.yellowpage.YellowPageContract.AntispamNumber;
 
 public class SearchStatReportService extends IntentServiceBase {
     public static String EXTRA_LOG_ITEM = "log_item";
-    public static String EXTRA_UPLOAD = "upload";
+    public static String EXTRA_UPLOAD = AntispamNumber.UPLOAD;
 
     protected Notification getNotification() {
         return NotificationHelper.getEmptyNotification(getApplicationContext());

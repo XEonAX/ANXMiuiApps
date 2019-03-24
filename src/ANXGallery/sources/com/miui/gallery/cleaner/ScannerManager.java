@@ -8,6 +8,7 @@ import com.miui.gallery.threadpool.FutureHandler;
 import com.miui.gallery.threadpool.ThreadManager;
 import com.miui.gallery.threadpool.ThreadPool.Job;
 import com.miui.gallery.threadpool.ThreadPool.JobContext;
+import com.miui.internal.widget.ActionModeView;
 import com.nexstreaming.nexeditorsdk.nexClip;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,7 +17,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 public class ScannerManager {
-    public static final int[] TIME_COST_STAGE = new int[]{5, 10, 15, 25, 40, 60, nexClip.kClip_Rotate_180, 300};
+    public static final int[] TIME_COST_STAGE = new int[]{5, 10, 15, 25, 40, 60, nexClip.kClip_Rotate_180, ActionModeView.ANIMATION_DURATION};
     private static ScannerManager instance;
     private ScanObserverHolder mObserverHolder = new ScanObserverHolder();
     private OnScanResultUpdateListener mOnScanResultUpdateListener = new OnScanResultUpdateListener() {

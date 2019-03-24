@@ -30,6 +30,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import miui.provider.ExtraTelephony.FirewallLog;
 
 public abstract class CreateImageBase implements Operation {
     protected Context mContext;
@@ -203,7 +204,7 @@ public abstract class CreateImageBase implements Operation {
         Map<String, String> params = new HashMap();
         params.put("localFile", oldData.getLocalFile() + " : " + newData.getLocalFile());
         params.put("localGroupId", oldData.getLocalGroupId() + " : " + newData.getLocalGroupId());
-        params.put("reason", String.valueOf(CloudUtils.canUpload(oldData.getLocalFile())));
+        params.put(FirewallLog.REASON, String.valueOf(CloudUtils.canUpload(oldData.getLocalFile())));
         BaseSamplingStatHelper.recordErrorEvent("Sync", "sync_cannot_upload", params);
         if (isInvalid) {
             params.clear();

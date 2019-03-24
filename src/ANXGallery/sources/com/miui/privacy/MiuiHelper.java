@@ -3,6 +3,7 @@ package com.miui.privacy;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
+import android.content.MiuiIntent;
 
 class MiuiHelper implements IPrivacyHelper {
     MiuiHelper() {
@@ -11,7 +12,7 @@ class MiuiHelper implements IPrivacyHelper {
     public void startSetPrivacyPasswordActivity(Fragment fragment, int requestCode) {
         Intent intent = new Intent();
         intent.setClassName("com.android.settings", "com.android.settings.PrivacyPasswordChooseLockPattern");
-        intent.setAction("android.app.action.PRIVACY_PASSWORD_SET_NEW_PASSWORD");
+        intent.setAction(MiuiIntent.ACTION_PRIVACY_PASSWORD_CHOOSE_ACCESS_CONTROL);
         intent.putExtra("android.intent.extra.shortcut.NAME", fragment.getActivity().getPackageName());
         fragment.startActivityForResult(intent, requestCode);
     }
@@ -19,7 +20,7 @@ class MiuiHelper implements IPrivacyHelper {
     public void startAuthenticatePasswordActivity(Fragment fragment, int requestCode) {
         Intent intent = new Intent();
         intent.setClassName("com.android.settings", "com.android.settings.PrivacyPasswordConfirmLockPattern");
-        intent.setAction("android.app.action.PRIVACY_PASSWORD_CONFIRM_PASSWORD");
+        intent.setAction(MiuiIntent.ACTION_PRIVACY_PASSWORD_CHECK_ACCESS_CONTROL);
         intent.putExtra("android.intent.extra.shortcut.NAME", fragment.getActivity().getPackageName());
         fragment.startActivityForResult(intent, requestCode);
     }
@@ -31,7 +32,7 @@ class MiuiHelper implements IPrivacyHelper {
     public void startAuthenticatePasswordActivity(Activity activity, int requestCode) {
         Intent intent = new Intent();
         intent.setClassName("com.android.settings", "com.android.settings.PrivacyPasswordConfirmLockPattern");
-        intent.setAction("android.app.action.PRIVACY_PASSWORD_CONFIRM_PASSWORD");
+        intent.setAction(MiuiIntent.ACTION_PRIVACY_PASSWORD_CHECK_ACCESS_CONTROL);
         intent.putExtra("android.intent.extra.shortcut.NAME", activity.getPackageName());
         activity.startActivityForResult(intent, requestCode);
     }

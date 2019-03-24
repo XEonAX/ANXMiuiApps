@@ -54,6 +54,7 @@ import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.CircleBitmapDisplayer.CircleDrawable;
 import com.nostra13.universalimageloader.core.download.ImageDownloader.Scheme;
 import java.util.Iterator;
+import miui.app.constants.ThemeManagerConstants;
 
 public class InputFaceNameFragment extends BaseFragment {
     public static DisplayImageOptions sDisplayImageOptions = new Builder().cacheInMemory(true).considerExifParams(true).showImageForEmptyUri(R.drawable.default_face_cover).showImageOnFail(R.drawable.default_face_cover).resetViewBeforeLoading(true).imageScaleType(ImageScaleType.EXACTLY).bitmapConfig(Config.RGB_565).displayer(new PeopleItemBitmapDisplayer(false)).usingRegionDecoderFace(true).build();
@@ -237,7 +238,7 @@ public class InputFaceNameFragment extends BaseFragment {
         }
 
         private int getItemViewTypeByCursor(Cursor cursor) {
-            return InputFaceNameFragment.getPhoneNumber(cursor).equalsIgnoreCase("contact") ? this.CONTECT_HEADER_VIEW : this.NORMAL_VIEW;
+            return InputFaceNameFragment.getPhoneNumber(cursor).equalsIgnoreCase(ThemeManagerConstants.COMPONENT_CODE_CONTACT) ? this.CONTECT_HEADER_VIEW : this.NORMAL_VIEW;
         }
 
         public int getViewTypeCount() {
@@ -463,7 +464,7 @@ public class InputFaceNameFragment extends BaseFragment {
     private Cursor getContactTipRowCursor() {
         MatrixCursor cursor = new MatrixCursor(sProjection);
         String tip = isAdded() ? getString(R.string.contact_tip) : "";
-        cursor.addRow(new Object[]{String.valueOf(-1), tip, "contact", null, null});
+        cursor.addRow(new Object[]{String.valueOf(-1), tip, ThemeManagerConstants.COMPONENT_CODE_CONTACT, null, null});
         return cursor;
     }
 
@@ -499,7 +500,7 @@ public class InputFaceNameFragment extends BaseFragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 Cursor cur = (Cursor) InputFaceNameFragment.this.mMergeAdapter.getItem(position);
                 String phone = InputFaceNameFragment.getPhoneNumber(cur);
-                if (!phone.equalsIgnoreCase("contact")) {
+                if (!phone.equalsIgnoreCase(ThemeManagerConstants.COMPONENT_CODE_CONTACT)) {
                     String name = cur.getString(cur.getColumnIndex(Phone.DISPLAY_NAME));
                     boolean isRepeatName = InputFaceNameFragment.this.validateIsRepeatName(name);
                     if (isRepeatName || !TextUtils.isEmpty(InputFaceNameFragment.this.mOriginalName) || InputFaceNameFragment.this.mOnlyUseContactAdapter || TextUtils.isEmpty(phone) || InputFaceNameFragment.this.mIsRelationSetted) {

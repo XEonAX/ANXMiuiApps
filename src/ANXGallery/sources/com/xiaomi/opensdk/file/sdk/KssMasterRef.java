@@ -22,6 +22,7 @@ import com.xiaomi.opensdk.file.model.UploadContext;
 import com.xiaomi.opensdk.file.model.UploadParameter;
 import com.xiaomi.opensdk.file.utils.FileSDKUtils;
 import java.io.File;
+import miui.hybrid.Response;
 import org.json.JSONException;
 
 public class KssMasterRef implements KssDef {
@@ -117,7 +118,7 @@ public class KssMasterRef implements KssDef {
                 if (TextUtils.isEmpty(errMsg)) {
                     throw new KscException(503000, "Unknow error when requestDownload.");
                 }
-                throw new ServerMsgException(200, errMsg, "Failed on requestDownload");
+                throw new ServerMsgException(Response.CODE_GENERIC_ERROR, errMsg, "Failed on requestDownload");
             }
             this.mDownloader.download(savePath, append, kscListener, requestResult);
         } catch (JSONException e) {

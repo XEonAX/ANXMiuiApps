@@ -93,7 +93,7 @@ public class a {
                 case 56: goto L_0x004b;
                 case 57: goto L_0x004b;
                 case 69: goto L_0x0046;
-                case com.miui.gallery.assistant.jni.filter.BaiduSceneResult.SHOOTING :int: goto L_0x0046;
+                case 101: goto L_0x0046;
                 default: goto L_0x0044;
             };
      */
@@ -202,7 +202,7 @@ public class a {
     /* JADX WARNING: Missing block: B:38:0x009b, code:
             switch(r11.b) {
                 case 69: goto L_0x00ab;
-                case com.miui.gallery.assistant.jni.filter.BaiduSceneResult.SHOOTING :int: goto L_0x00ab;
+                case 101: goto L_0x00ab;
                 default: goto L_0x009e;
             };
      */

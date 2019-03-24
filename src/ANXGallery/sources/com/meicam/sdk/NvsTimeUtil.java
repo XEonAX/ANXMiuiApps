@@ -1,5 +1,6 @@
 package com.meicam.sdk;
 
+import com.miui.internal.vip.VipConstants;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -46,7 +47,7 @@ public class NvsTimeUtil {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             Date parse = simpleDateFormat.parse(str);
             Date parse2 = simpleDateFormat.parse(str2);
-            return (int) ((parse2.getTime() - parse.getTime()) / 3600000);
+            return (int) ((parse2.getTime() - parse.getTime()) / VipConstants.HOUR);
         } catch (Exception e) {
             e.printStackTrace();
             return i;

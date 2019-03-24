@@ -39,6 +39,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import miui.mipub.MipubStat;
 
 public class SearchImageResultHelper extends SearchResultHelper {
     private static final String[] OUT_PROJECTION = StringUtils.mergeStringArray(QUERY_PROJECTION, new String[]{"item_collapse_visibility"});
@@ -410,7 +411,7 @@ public class SearchImageResultHelper extends SearchResultHelper {
                 sectionExtra.put("create_date", createDate.toString());
             }
             if (createTime != null) {
-                sectionExtra.put("create_time", String.valueOf(createTime));
+                sectionExtra.put(MipubStat.STAT_CREATE_TIME, String.valueOf(createTime));
             }
             if (title != null) {
                 sectionExtra.put("title", title);

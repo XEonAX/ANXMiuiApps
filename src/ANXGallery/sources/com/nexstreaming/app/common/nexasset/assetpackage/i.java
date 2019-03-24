@@ -12,6 +12,11 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import miui.cloud.backup.data.KeyStringSettingItem;
+import miui.provider.ExtraContacts.ConferenceCalls.MembersColumns;
+import miui.provider.ExtraContacts.DefaultAccount;
+import miui.provider.Weather.AQIInfo;
+import miui.yellowpage.YellowPageContract.ImageLookup;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -92,7 +97,7 @@ public class i {
                 case SWITCH:
                     return "switch";
                 case IMAGE:
-                    return "image";
+                    return ImageLookup.DIRECTORY_IMAGE;
                 case RANGE:
                     return "range";
                 case RECT:
@@ -231,7 +236,7 @@ public class i {
         String name = xmlPullParser.getName();
         if (xmlPullParser.getEventType() == 2 && (name.equalsIgnoreCase("effect") || name.equalsIgnoreCase("renderitem") || name.equalsIgnoreCase("overlay"))) {
             if (name.equalsIgnoreCase("effect")) {
-                if ("transition".equalsIgnoreCase(xmlPullParser.getAttributeValue(null, nexExportFormat.TAG_FORMAT_TYPE))) {
+                if ("transition".equalsIgnoreCase(xmlPullParser.getAttributeValue(null, "type"))) {
                     cVar.a = a(xmlPullParser.getAttributeValue(null, "effectoffset"), 100);
                     name = xmlPullParser.getAttributeValue(null, "effectoverlap");
                     if (name == null) {
@@ -240,11 +245,11 @@ public class i {
                     cVar.b = a(name, 100);
                 }
             } else if (name.equalsIgnoreCase("renderitem")) {
-                if ("transition".equalsIgnoreCase(xmlPullParser.getAttributeValue(null, nexExportFormat.TAG_FORMAT_TYPE))) {
+                if ("transition".equalsIgnoreCase(xmlPullParser.getAttributeValue(null, "type"))) {
                     cVar.a = a(xmlPullParser.getAttributeValue(null, "transitionoffset"), 100);
                     cVar.b = a(xmlPullParser.getAttributeValue(null, "transitionoverlap"), 100);
                 }
-                cVar.c = a(xmlPullParser.getAttributeValue(null, nexExportFormat.TAG_FORMAT_WIDTH), 0);
+                cVar.c = a(xmlPullParser.getAttributeValue(null, "width"), 0);
                 cVar.d = a(xmlPullParser.getAttributeValue(null, nexExportFormat.TAG_FORMAT_HEIGHT), 0);
             }
             cVar.e = new ArrayList();
@@ -272,7 +277,7 @@ public class i {
         xmlPullParser.require(2, null, "userfield");
         a aVar = new a();
         aVar.e = xmlPullParser.getAttributeValue(null, "id");
-        aVar.b = xmlPullParser.getAttributeValue(null, "default");
+        aVar.b = xmlPullParser.getAttributeValue(null, DefaultAccount.NAME);
         aVar.f = Integer.MAX_VALUE;
         aVar.g = a(xmlPullParser.getAttributeValue(null, "maxlines"), 1) > 1;
         aVar.h = false;
@@ -280,13 +285,13 @@ public class i {
         aVar.j = 100;
         aVar.k = 1;
         aVar.l = a(xmlPullParser.getAttributeValue(null, "step"), null);
-        String attributeValue = xmlPullParser.getAttributeValue(null, "label");
+        String attributeValue = xmlPullParser.getAttributeValue(null, MembersColumns.LABEL);
         if (attributeValue != null) {
             aVar.m = new HashMap();
-            aVar.m.put("label", new HashMap());
-            ((Map) aVar.m.get("label")).put("", attributeValue);
+            aVar.m.put(MembersColumns.LABEL, new HashMap());
+            ((Map) aVar.m.get(MembersColumns.LABEL)).put("", attributeValue);
         }
-        String attributeValue2 = xmlPullParser.getAttributeValue(null, nexExportFormat.TAG_FORMAT_TYPE);
+        String attributeValue2 = xmlPullParser.getAttributeValue(null, "type");
         if ("selection".equalsIgnoreCase(attributeValue2)) {
             aVar.a = ItemParameterType.CHOICE;
         } else if ("color".equalsIgnoreCase(attributeValue2)) {
@@ -308,7 +313,7 @@ public class i {
                     if (aVar.m == null) {
                         aVar.m = new HashMap();
                     }
-                    attributeValue = "label";
+                    attributeValue = MembersColumns.LABEL;
                     String attributeValue3 = xmlPullParser.getAttributeValue(null, "locale");
                     String attributeValue4 = xmlPullParser.getAttributeValue(null, "value");
                     f(xmlPullParser);
@@ -330,7 +335,7 @@ public class i {
                 } else if (aVar.o != null) {
                     throw new XmlPullParserException("multiple <icon> tags not allowed" + xmlPullParser.getPositionDescription());
                 } else {
-                    aVar.o = xmlPullParser.getAttributeValue(null, "src");
+                    aVar.o = xmlPullParser.getAttributeValue(null, AQIInfo.SRC);
                 }
             }
         }
@@ -380,7 +385,7 @@ public class i {
         xmlPullParser.require(2, null, "parameter");
         a aVar = new a();
         aVar.e = xmlPullParser.getAttributeValue(null, "id");
-        aVar.b = xmlPullParser.getAttributeValue(null, "default");
+        aVar.b = xmlPullParser.getAttributeValue(null, DefaultAccount.NAME);
         aVar.f = a(xmlPullParser.getAttributeValue(null, "maxlen"), Integer.MAX_VALUE);
         aVar.g = a(xmlPullParser.getAttributeValue(null, "multiline"), false);
         aVar.h = a(xmlPullParser.getAttributeValue(null, "private"), false);
@@ -388,7 +393,7 @@ public class i {
         aVar.j = a(xmlPullParser.getAttributeValue(null, "maxvalue"), 100);
         aVar.k = a(xmlPullParser.getAttributeValue(null, "step"), 1);
         aVar.l = a(xmlPullParser.getAttributeValue(null, "bounds"), null);
-        String attributeValue = xmlPullParser.getAttributeValue(null, nexExportFormat.TAG_FORMAT_TYPE);
+        String attributeValue = xmlPullParser.getAttributeValue(null, "type");
         if ("choice".equalsIgnoreCase(attributeValue)) {
             aVar.a = ItemParameterType.CHOICE;
         } else if ("point".equalsIgnoreCase(attributeValue)) {
@@ -416,7 +421,7 @@ public class i {
             aVar.a = ItemParameterType.SWITCH;
             aVar.c = xmlPullParser.getAttributeValue(null, "off");
             aVar.d = xmlPullParser.getAttributeValue(null, "on");
-        } else if ("image".equalsIgnoreCase(attributeValue)) {
+        } else if (ImageLookup.DIRECTORY_IMAGE.equalsIgnoreCase(attributeValue)) {
             aVar.a = ItemParameterType.IMAGE;
         } else {
             throw new XmlPullParserException("unrecognized parameter type" + xmlPullParser.getPositionDescription());
@@ -424,7 +429,7 @@ public class i {
         while (xmlPullParser.next() != 3) {
             if (xmlPullParser.getEventType() == 2) {
                 attributeValue = xmlPullParser.getName();
-                if (attributeValue.equalsIgnoreCase("string")) {
+                if (attributeValue.equalsIgnoreCase(KeyStringSettingItem.TYPE)) {
                     if (aVar.m == null) {
                         aVar.m = new HashMap();
                     }
@@ -449,7 +454,7 @@ public class i {
                 } else if (aVar.o != null) {
                     throw new XmlPullParserException("multiple <icon> tags not allowed" + xmlPullParser.getPositionDescription());
                 } else {
-                    aVar.o = xmlPullParser.getAttributeValue(null, "src");
+                    aVar.o = xmlPullParser.getAttributeValue(null, AQIInfo.SRC);
                 }
             }
         }
@@ -463,7 +468,7 @@ public class i {
         while (xmlPullParser.next() != 3) {
             if (xmlPullParser.getEventType() == 2) {
                 String name = xmlPullParser.getName();
-                if (name.equalsIgnoreCase("string")) {
+                if (name.equalsIgnoreCase(KeyStringSettingItem.TYPE)) {
                     String attributeValue = xmlPullParser.getAttributeValue(null, "name");
                     String attributeValue2 = xmlPullParser.getAttributeValue(null, "lang");
                     String g = g(xmlPullParser);
@@ -483,7 +488,7 @@ public class i {
                 } else if (bVar.b != null) {
                     throw new XmlPullParserException("multiple <icon> tags not allowed" + xmlPullParser.getPositionDescription());
                 } else {
-                    bVar.b = xmlPullParser.getAttributeValue(null, "src");
+                    bVar.b = xmlPullParser.getAttributeValue(null, AQIInfo.SRC);
                 }
             }
         }
@@ -495,11 +500,11 @@ public class i {
         com.nexstreaming.app.common.nexasset.assetpackage.g.a bVar = new b();
         bVar.c = xmlPullParser.getAttributeValue(null, "value");
         bVar.b = xmlPullParser.getAttributeValue(null, "icon");
-        String attributeValue = xmlPullParser.getAttributeValue(null, "label");
+        String attributeValue = xmlPullParser.getAttributeValue(null, MembersColumns.LABEL);
         if (attributeValue != null) {
             bVar.a = new HashMap();
-            bVar.a.put("label", new HashMap());
-            ((Map) bVar.a.get("label")).put("", attributeValue);
+            bVar.a.put(MembersColumns.LABEL, new HashMap());
+            ((Map) bVar.a.get(MembersColumns.LABEL)).put("", attributeValue);
         }
         while (xmlPullParser.next() != 3) {
             if (xmlPullParser.getEventType() == 2) {
@@ -507,7 +512,7 @@ public class i {
                     if (bVar.a == null) {
                         bVar.a = new HashMap();
                     }
-                    attributeValue = "label";
+                    attributeValue = MembersColumns.LABEL;
                     String attributeValue2 = xmlPullParser.getAttributeValue(null, "locale");
                     String attributeValue3 = xmlPullParser.getAttributeValue(null, "value");
                     f(xmlPullParser);

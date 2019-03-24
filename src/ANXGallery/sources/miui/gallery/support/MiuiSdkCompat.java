@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.Button;
 import com.android.internal.SystemPropertiesCompat;
 import com.miui.gallery.util.LazyValue;
+import com.miui.internal.util.PackageConstants;
 import miui.R;
 import miui.util.AppConstants;
 import miui.view.EditActionMode;
@@ -18,7 +19,7 @@ public class MiuiSdkCompat {
     };
     private static final LazyValue<Context, Integer> MIUI_SDK_LEVEL = new LazyValue<Context, Integer>() {
         protected Integer onInit(Context context) {
-            return Integer.valueOf(AppConstants.getSdkLevel(context, "com.miui.core"));
+            return Integer.valueOf(AppConstants.getSdkLevel(context, PackageConstants.PACKAGE_NAME));
         }
     };
     private static final LazyValue<Void, Integer> MIUI_VERSION_CODE = new LazyValue<Void, Integer>() {

@@ -9,13 +9,14 @@ import com.nexstreaming.app.common.nexasset.overlay.OverlayAsset;
 import com.nexstreaming.app.common.nexasset.overlay.OverlayAssetFactory;
 import com.nexstreaming.kminternal.kinemaster.config.a;
 import java.io.IOException;
+import miui.provider.ExtraCalendarContracts;
 import org.xmlpull.v1.XmlPullParserException;
 
 public class nexOverlayFilter {
     private static final int kMaxStringTrackCount = 8;
     private String cacheEncodeOption = "";
     private OverlayAsset cachedOverlayAsset;
-    private int height = 700;
+    private int height = ExtraCalendarContracts.CALENDAR_ACCESS_LEVEL_LOCAL;
     private String id;
     private boolean isRelativeHeight = true;
     private boolean isRelativeWidth = true;
@@ -25,7 +26,7 @@ public class nexOverlayFilter {
     private float relativeWidth = 1.0f;
     private boolean updateBound;
     private boolean updateOption;
-    private int width = 700;
+    private int width = ExtraCalendarContracts.CALENDAR_ACCESS_LEVEL_LOCAL;
 
     nexOverlayFilter(String str) {
         this.id = str;

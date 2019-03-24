@@ -3,12 +3,15 @@ package com.nexstreaming.nexeditorsdk;
 import android.content.Context;
 import android.graphics.Rect;
 import android.util.Log;
+import com.miui.internal.widget.ActionBarMovableLayout;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import miui.provider.ExtraContacts.DefaultAccount;
+import miui.provider.ExtraTelephony.Phonelist;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -98,19 +101,19 @@ final class c {
             if (jSONObject.has("template_default_effect_scale")) {
                 this.p = !jSONObject.getString("template_default_effect_scale").equals("0");
             }
-            if (jSONObject.has("template_default_image_duration") && !jSONObject.getString("template_default_image_duration").equals("default")) {
+            if (jSONObject.has("template_default_image_duration") && !jSONObject.getString("template_default_image_duration").equals(DefaultAccount.NAME)) {
                 this.h = Integer.parseInt(jSONObject.getString("template_default_image_duration"));
             }
-            if (jSONObject.has("template_project_vol_fade_in_time") && !jSONObject.getString("template_project_vol_fade_in_time").equals("default")) {
+            if (jSONObject.has("template_project_vol_fade_in_time") && !jSONObject.getString("template_project_vol_fade_in_time").equals(DefaultAccount.NAME)) {
                 this.i = Integer.parseInt(jSONObject.getString("template_project_vol_fade_in_time"));
             }
-            if (jSONObject.has("template_project_vol_fade_out_time") && !jSONObject.getString("template_project_vol_fade_out_time").equals("default")) {
+            if (jSONObject.has("template_project_vol_fade_out_time") && !jSONObject.getString("template_project_vol_fade_out_time").equals(DefaultAccount.NAME)) {
                 this.j = Integer.parseInt(jSONObject.getString("template_project_vol_fade_out_time"));
             }
-            if (jSONObject.has("template_single_project_vol_fade_in_time") && !jSONObject.getString("template_single_project_vol_fade_in_time").equals("default")) {
+            if (jSONObject.has("template_single_project_vol_fade_in_time") && !jSONObject.getString("template_single_project_vol_fade_in_time").equals(DefaultAccount.NAME)) {
                 this.k = Integer.parseInt(jSONObject.getString("template_single_project_vol_fade_in_time"));
             }
-            if (jSONObject.has("template_single_project_vol_fade_out_time") && !jSONObject.getString("template_single_project_vol_fade_out_time").equals("default")) {
+            if (jSONObject.has("template_single_project_vol_fade_out_time") && !jSONObject.getString("template_single_project_vol_fade_out_time").equals(DefaultAccount.NAME)) {
                 this.l = Integer.parseInt(jSONObject.getString("template_single_project_vol_fade_out_time"));
             }
             if (jSONObject.has("template_single_video")) {
@@ -368,7 +371,7 @@ final class c {
         if (this.B.isEmpty() || (!(clone.getTotalClipCount(true) == 1 && clone.getClip(0, true).getClipType() == 1) && (clone.getTotalTime() >= d() || a(clone)))) {
             if (this.m != 1) {
                 int totalClipCount = clone.getTotalClipCount(true) - 1;
-                while (totalClipCount >= 0 && c >= 800 && e > 0) {
+                while (totalClipCount >= 0 && c >= ActionBarMovableLayout.DEFAULT_SPRING_BACK_DURATION && e > 0) {
                     int i;
                     nexClip clip = clone.getClip(totalClipCount, true);
                     if (clip.getClipType() == 1) {
@@ -623,7 +626,7 @@ final class c {
                         } else if (projectDuration <= i5) {
                             nexproject.remove(clip);
                             nexproject2.add(clip);
-                            eVar.a("3", clip, true, this.q, this.r);
+                            eVar.a(Phonelist.TYPE_VIP, clip, true, this.q, this.r);
                             eVar.a(nexproject2, clip);
                             eVar.a(nexproject2, clip, this.s, z);
                             b(nexproject2);
@@ -641,7 +644,7 @@ final class c {
                                 } else {
                                     nexproject.remove(clip);
                                     nexproject2.add(clip);
-                                    eVar.a("3", clip, true, this.q, this.r);
+                                    eVar.a(Phonelist.TYPE_VIP, clip, true, this.q, this.r);
                                     eVar.a(nexproject2, clip);
                                     eVar.a(nexproject2, clip, this.s, z);
                                     b(nexproject2);
@@ -661,7 +664,7 @@ final class c {
                             }
                             dup.getVideoClipEdit().setTrim(clip.getVideoClipEdit().getStartTrimTime(), clip.getVideoClipEdit().getStartTrimTime() + i7);
                             clip.getVideoClipEdit().setTrim(clip.getVideoClipEdit().getStartTrimTime() + i7, clip.getVideoClipEdit().getEndTrimTime());
-                            eVar.a("4", dup, true, this.q, this.r);
+                            eVar.a(Phonelist.TYPE_CLOUDS_BLACK, dup, true, this.q, this.r);
                             eVar.a(nexproject2, dup);
                             eVar.a(nexproject2, dup, this.s, z);
                             if (this.t) {

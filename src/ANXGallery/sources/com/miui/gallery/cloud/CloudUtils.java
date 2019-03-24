@@ -74,7 +74,6 @@ import com.miui.gallery.util.deprecated.Preference;
 import com.miui.gallery.util.deviceprovider.ApplicationHelper;
 import com.miui.os.Rom;
 import com.miui.settings.Settings;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -90,11 +89,13 @@ import java.util.Locale;
 import java.util.Map;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
+import miui.app.constants.ThemeManagerConstants;
 import miui.os.ExtraFileUtils;
+import miui.provider.ExtraContacts.ConferenceCalls.MembersColumns;
+import miui.yellowpage.YellowPageContract.ImageLookup;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.message.BasicNameValuePair;
-import org.jcodec.containers.mp4.boxes.Box;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -476,7 +477,7 @@ public class CloudUtils {
             JSONArray array = schemaJson.getJSONArray("renderInfos");
             for (int i = 0; i < array.length(); i++) {
                 JSONObject obj = array.getJSONObject(i);
-                if (obj.has(nexExportFormat.TAG_FORMAT_TYPE) && obj.getString(nexExportFormat.TAG_FORMAT_TYPE).equalsIgnoreCase(BabyAlbumUtils.BABY_BABY)) {
+                if (obj.has("type") && obj.getString("type").equalsIgnoreCase(BabyAlbumUtils.BABY_BABY)) {
                     values.put("babyInfoJson", obj.toString());
                     if (obj.has("peopleId")) {
                         values.put("peopleId", obj.getString("peopleId"));
@@ -820,13 +821,13 @@ public class CloudUtils {
         if (schemaJson.has("status")) {
             values.put("serverStatus", schemaJson.getString("status"));
         }
-        if (schemaJson.has(nexExportFormat.TAG_FORMAT_TAG)) {
-            values.put("serverTag", Long.valueOf(getLongAttributeFromJson(schemaJson, nexExportFormat.TAG_FORMAT_TAG)));
+        if (schemaJson.has("tag")) {
+            values.put("serverTag", Long.valueOf(getLongAttributeFromJson(schemaJson, "tag")));
         }
-        if (schemaJson.has(nexExportFormat.TAG_FORMAT_TYPE)) {
-            String serverType = schemaJson.getString(nexExportFormat.TAG_FORMAT_TYPE);
+        if (schemaJson.has("type")) {
+            String serverType = schemaJson.getString("type");
             int type = 0;
-            if (serverType.equals("image")) {
+            if (serverType.equals(ImageLookup.DIRECTORY_IMAGE)) {
                 type = 1;
             } else if (serverType.equals("video")) {
                 type = 2;
@@ -845,7 +846,7 @@ public class CloudUtils {
             if (array.length() > 0) {
                 for (int i = 0; i < array.length(); i++) {
                     JSONObject obj = array.getJSONObject(i);
-                    if (obj.has("label") && "pet".equalsIgnoreCase(obj.getString("label"))) {
+                    if (obj.has(MembersColumns.LABEL) && "pet".equalsIgnoreCase(obj.getString(MembersColumns.LABEL))) {
                         values.put("lables", Integer.valueOf(1));
                         break;
                     }
@@ -1764,10 +1765,10 @@ public class CloudUtils {
             intent.addFlags(67108864);
             intent.addFlags(2);
         }
-        builder.setContentIntent(PendingIntent.getActivity(context, 0, intent, Box.MAX_BOX_SIZE));
+        builder.setContentIntent(PendingIntent.getActivity(context, 0, intent, 134217728));
         Notification n = builder.build();
         n.flags = 16;
-        ((NotificationManager) context.getSystemService("notification")).notify(id, n);
+        ((NotificationManager) context.getSystemService(ThemeManagerConstants.COMPONENT_CODE_NOTIFICATION)).notify(id, n);
     }
 
     public static boolean checkAccount(Activity activity, boolean isBlock, Runnable runOnPostExecute) {

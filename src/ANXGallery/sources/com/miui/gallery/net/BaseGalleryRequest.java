@@ -6,6 +6,7 @@ import com.miui.gallery.net.base.RequestError;
 import com.miui.gallery.net.json.BaseJsonRequest;
 import com.miui.gallery.preference.BaseGalleryPreferences.CTA;
 import com.miui.gallery.util.Log;
+import miui.yellowpage.Tag.TagWebService.CommonResult;
 import org.json.JSONObject;
 
 public class BaseGalleryRequest extends BaseJsonRequest<GalleryResponse> {
@@ -16,8 +17,8 @@ public class BaseGalleryRequest extends BaseJsonRequest<GalleryResponse> {
     protected final void handleResponse(JSONObject response) {
         if (response != null) {
             try {
-                if (response.has("code")) {
-                    if (response.getInt("code") != ErrorCode.SUCCESS.CODE) {
+                if (response.has(CommonResult.RESULT_CODE)) {
+                    if (response.getInt(CommonResult.RESULT_CODE) != ErrorCode.SUCCESS.CODE) {
                         handleError(ErrorCode.SERVER_ERROR, response.optString("description"), response);
                         return;
                     } else if (response.isNull("data")) {

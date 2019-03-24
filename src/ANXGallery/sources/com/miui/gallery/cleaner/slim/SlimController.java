@@ -22,6 +22,7 @@ import com.miui.gallery.util.SafeDBUtil;
 import com.miui.gallery.util.SafeDBUtil.QueryHandler;
 import com.miui.gallery.util.deleterecorder.DeleteRecord;
 import com.miui.gallery.util.deleterecorder.DeleteRecorder;
+import com.miui.internal.widget.ActionModeView;
 import com.nexstreaming.nexeditorsdk.nexClip;
 import java.io.File;
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ import java.util.LinkedList;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 public class SlimController {
-    public static final int[] TIME_COST_STAGE = new int[]{5, 10, 15, 25, 40, 60, nexClip.kClip_Rotate_180, 300};
+    public static final int[] TIME_COST_STAGE = new int[]{5, 10, 15, 25, 40, 60, nexClip.kClip_Rotate_180, ActionModeView.ANIMATION_DURATION};
     private static SlimController instance;
     private long[] mIds;
     private volatile boolean mIsRemainItemsToInit;

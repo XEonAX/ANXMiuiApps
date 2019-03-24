@@ -5,6 +5,7 @@ import android.app.Notification;
 import android.content.Intent;
 import com.miui.gallery.service.IntentServiceBase;
 import com.miui.gallery.util.NotificationHelper;
+import miui.accounts.ExtraAccountManager;
 
 public class AccountChangeService extends IntentServiceBase {
     protected Notification getNotification() {
@@ -20,13 +21,13 @@ public class AccountChangeService extends IntentServiceBase {
         super.onHandleIntent(intent);
         String action = intent.getAction();
         if ("delete_account".equals(action)) {
-            Account preAccount = (Account) intent.getParcelableExtra("extra_account");
-            if (intent.getBooleanExtra("extra_wipe_data", true)) {
+            Account preAccount = (Account) intent.getParcelableExtra(ExtraAccountManager.EXTRA_ACCOUNT);
+            if (intent.getBooleanExtra(ExtraAccountManager.EXTRA_WIPE_DATA, true)) {
                 wipeDataStrategy = 2;
             }
             DeleteAccount.deleteAccountInTask(null, preAccount, wipeDataStrategy, null);
         } else if ("add_account".equals(action)) {
-            AddAccount.onAddAccount(this, (Account) intent.getParcelableExtra("extra_account"));
+            AddAccount.onAddAccount(this, (Account) intent.getParcelableExtra(ExtraAccountManager.EXTRA_ACCOUNT));
         }
     }
 }

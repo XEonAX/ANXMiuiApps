@@ -10,6 +10,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.MiuiIntent;
+import android.content.SystemIntent;
 import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -144,8 +146,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import miui.provider.Notes.Data;
 import miui.view.animation.CubicEaseOutInterpolator;
 import miui.widget.GuidePopupWindow;
+import miui.yellowpage.Tag.TagYellowPage;
+import miui.yellowpage.YellowPageContract.MipubPhoneEvent;
 
 public class PhotoPageFragment extends PhotoPageFragmentBase {
     private boolean isFromCamera;
@@ -607,7 +612,7 @@ public class PhotoPageFragment extends PhotoPageFragmentBase {
                     PhotoPageFragment.this.mDualCameraManager.tryChangeStereoBtnVisible(false);
                 }
                 TalkBackUtil.requestAnnouncementEvent(this.mSlipLayout, PhotoPageFragment.this.getString(R.string.enter_choice_mode));
-                BaseSamplingStatHelper.recordCountEvent("photo", "fast_share_mode_enter");
+                BaseSamplingStatHelper.recordCountEvent(TagYellowPage.PHOTO, "fast_share_mode_enter");
                 if (!(this.mShareTargetIntent == null || item == null)) {
                     if (this.mShareTargetIntent.getBooleanExtra("assistant_need_beauty", false) && (PhotoPageFragment.this.mPagerHelper.getCurrentItem() instanceof PhotoPageImageItem)) {
                         this.mChoiceMode.setRenderChecked(PhotoPageFragment.this.mPager.getCurrentItem(), item.getKey(), true);
@@ -638,7 +643,7 @@ public class PhotoPageFragment extends PhotoPageFragmentBase {
             PhotoPageFragment.this.setActionBarVisible(this.mBarsVisibleBeforeSlip);
             this.mBarsVisibleBeforeSlip = false;
             TalkBackUtil.requestAnnouncementEvent(this.mSlipLayout, PhotoPageFragment.this.getString(R.string.exit_choice_mode));
-            BaseSamplingStatHelper.recordCountEvent("photo", "fast_share_mode_exit");
+            BaseSamplingStatHelper.recordCountEvent(TagYellowPage.PHOTO, "fast_share_mode_exit");
         }
 
         public void onSlipStateChanged(int state) {
@@ -993,15 +998,15 @@ public class PhotoPageFragment extends PhotoPageFragmentBase {
                     switch (v.getId()) {
                         case R.id.fancycolor_enter /*2131886084*/:
                             IntentUtil.startFancyColorAction(photo, PhotoPageFragment.this, PhotoPageFragment.this.mStartWhenLocked);
-                            BaseSamplingStatHelper.recordCountEvent("photo", "view_fancy_color");
+                            BaseSamplingStatHelper.recordCountEvent(TagYellowPage.PHOTO, "view_fancy_color");
                             return;
                         case R.id.freeview_enter /*2131886085*/:
                             IntentUtil.startFreeViewAction(photo, PhotoPageFragment.this, PhotoPageFragment.this.mStartWhenLocked);
-                            BaseSamplingStatHelper.recordCountEvent("photo", "view_free_view");
+                            BaseSamplingStatHelper.recordCountEvent(TagYellowPage.PHOTO, "view_free_view");
                             return;
                         case R.id.refocus_enter /*2131886105*/:
                             IntentUtil.startRefocusAction(photo, PhotoPageFragment.this, PhotoPageFragment.this.mStartWhenLocked);
-                            BaseSamplingStatHelper.recordCountEvent("photo", "view_refocus");
+                            BaseSamplingStatHelper.recordCountEvent(TagYellowPage.PHOTO, "view_refocus");
                             return;
                         default:
                             return;
@@ -1461,7 +1466,7 @@ public class PhotoPageFragment extends PhotoPageFragmentBase {
                 return;
             }
             WallpaperUtils.setWallPapers(PhotoPageFragment.this.mActivity, originUri, mimeType);
-            BaseSamplingStatHelper.recordCountEvent("photo", "set_as_wallpaper");
+            BaseSamplingStatHelper.recordCountEvent(TagYellowPage.PHOTO, "set_as_wallpaper");
         }
 
         private void setSlideWallpaper(Uri originUri, String sha1) {
@@ -1470,7 +1475,7 @@ public class PhotoPageFragment extends PhotoPageFragmentBase {
                 return;
             }
             SlideWallpaperUtils.setSlideWallpaper(PhotoPageFragment.this.mActivity, originUri, sha1);
-            BaseSamplingStatHelper.recordCountEvent("photo", "set_as_slidewallpaper");
+            BaseSamplingStatHelper.recordCountEvent(TagYellowPage.PHOTO, "set_as_slidewallpaper");
         }
 
         private void onGetWallpaperFileFailed() {
@@ -1547,7 +1552,7 @@ public class PhotoPageFragment extends PhotoPageFragmentBase {
                     z2 = true;
                 }
                 setMenuItemVisibility(R.id.action_set_slide_wallpaper, z2);
-                if (PhotoPageFragment.this.mStartWhenLockedAndSecret || !PhotoOperationsUtil.isSupportedOptions(supportOptions, nexEngine.ExportHEVCMainTierLevel6)) {
+                if (PhotoPageFragment.this.mStartWhenLockedAndSecret || !PhotoOperationsUtil.isSupportedOptions(supportOptions, 1048576)) {
                     z2 = false;
                 } else {
                     z2 = true;
@@ -1938,7 +1943,7 @@ public class PhotoPageFragment extends PhotoPageFragmentBase {
             this.isOrientationLocked = true;
             Map map = new HashMap();
             map.put("lock", Integer.valueOf(uiRotation));
-            BaseSamplingStatHelper.recordCountEvent("photo", "orientation_lock_by_accelerometer", map);
+            BaseSamplingStatHelper.recordCountEvent(TagYellowPage.PHOTO, "orientation_lock_by_accelerometer", map);
         }
 
         private void unlock() {
@@ -1946,7 +1951,7 @@ public class PhotoPageFragment extends PhotoPageFragmentBase {
             this.isOrientationLocked = false;
             Map map = new HashMap();
             map.put("unlock", Integer.valueOf(this.mSensorRotation));
-            BaseSamplingStatHelper.recordCountEvent("photo", "orientation_lock_by_accelerometer", map);
+            BaseSamplingStatHelper.recordCountEvent(TagYellowPage.PHOTO, "orientation_lock_by_accelerometer", map);
         }
 
         public void settleItem(BaseDataItem item) {
@@ -2091,8 +2096,8 @@ public class PhotoPageFragment extends PhotoPageFragmentBase {
         public void onReceive(Context context, Intent intent) {
             BaseDataItem dataItem;
             PhotoPageItem targetItem = null;
-            if ("com.miui.gallery.SAVE_TO_CLOUD".equals(intent.getAction())) {
-                String filePath = intent.getStringExtra("extra_file_path");
+            if (SystemIntent.ACTION_SAVE_TO_CLOUD_GALLERY.equals(intent.getAction())) {
+                String filePath = intent.getStringExtra(SystemIntent.EXTRA_FILE_PATH);
                 if (!TextUtils.isEmpty(filePath) && PhotoPageFragment.this.mPager != null) {
                     int count = PhotoPageFragment.this.mPagerHelper.getActiveItemCount();
                     for (int i = 0; i < count; i++) {
@@ -2226,7 +2231,7 @@ public class PhotoPageFragment extends PhotoPageFragmentBase {
                         title = PhotoPageFragment.this.getResources().getString(R.string.operation_projection);
                         break;
                 }
-                Object state = this.mConnectState == 1 ? "init" : this.mConnectState == 2 ? "connecting" : "connected";
+                Object state = this.mConnectState == 1 ? "init" : this.mConnectState == 2 ? "connecting" : MipubPhoneEvent.EXTRA_DATA_CONNECTED;
                 if (isBigScreenSupported(this.mCurItem)) {
                     Log.i("ProjectionManager", "refreshProjectState: [%s] [visible]", state);
                     MenuManager access$2000 = PhotoPageFragment.this.mMenuManager;
@@ -2282,12 +2287,12 @@ public class PhotoPageFragment extends PhotoPageFragmentBase {
                     setConnectState(1);
                     this.mHandler.sendEmptyMessage(3);
                     ToastUtils.makeText(PhotoPageFragment.this.mActivity, (int) R.string.projection_device_connection_failed);
-                    BaseSamplingStatHelper.recordCountEvent("photo", "project_photo_fail");
+                    BaseSamplingStatHelper.recordCountEvent(TagYellowPage.PHOTO, "project_photo_fail");
                     return;
                 case 0:
                     setConnectState(3);
                     this.mHandler.sendEmptyMessage(1);
-                    BaseSamplingStatHelper.recordCountEvent("photo", "project_photo_success");
+                    BaseSamplingStatHelper.recordCountEvent(TagYellowPage.PHOTO, "project_photo_success");
                     return;
                 default:
                     return;
@@ -2580,7 +2585,7 @@ public class PhotoPageFragment extends PhotoPageFragmentBase {
         private void doShowGuidance() {
             this.mGuideView = new GuidePopupWindow(PhotoPageFragment.this.mActivity);
             this.mGuideView.setArrowMode(0);
-            this.mGuideView.setGuideText(R.string.feature_guidance_video_editor_smart_effects);
+            this.mGuideView.setGuideText((int) R.string.feature_guidance_video_editor_smart_effects);
             View root = PhotoPageFragment.this.getView();
             if (root != null) {
                 View anchor = root.findViewWithTag(Integer.valueOf(R.id.action_edit));
@@ -2924,7 +2929,7 @@ public class PhotoPageFragment extends PhotoPageFragmentBase {
             data.putString("photo_uri", uri.toString());
         }
         if (type != null) {
-            data.putString("mime_type", type);
+            data.putString(Data.MIME_TYPE, type);
         }
         PhotoPageFragment fragment = new PhotoPageFragment();
         fragment.setArguments(data);
@@ -2943,7 +2948,7 @@ public class PhotoPageFragment extends PhotoPageFragmentBase {
                 }
                 this.mPhotoRefreshReceiver = new PhotoRefreshReceiver(this, null);
                 IntentFilter filter = new IntentFilter();
-                filter.addAction("com.miui.gallery.SAVE_TO_CLOUD");
+                filter.addAction(SystemIntent.ACTION_SAVE_TO_CLOUD_GALLERY);
                 LocalBroadcastManager.getInstance(this.mActivity).registerReceiver(this.mPhotoRefreshReceiver, filter);
             }
             this.mIsNightMode = MiscUtil.isNightMode(getActivity());
@@ -2968,7 +2973,7 @@ public class PhotoPageFragment extends PhotoPageFragmentBase {
         }
         this.isFromCamera = args.getBoolean("from_MiuiCamera", false);
         if (this.isFromCamera) {
-            this.mStartWhenLocked = args.getBoolean("StartActivityWhenLocked", false);
+            this.mStartWhenLocked = args.getBoolean(MiuiIntent.EXTRA_START_ACTIVITY_WHEN_LOCKED, false);
             boolean z = this.mStartWhenLocked && isSecureKeyguard();
             this.mStartWhenLockedAndSecret = z;
         }
@@ -3599,7 +3604,7 @@ public class PhotoPageFragment extends PhotoPageFragmentBase {
     }
 
     public String getPageName() {
-        return "photo";
+        return TagYellowPage.PHOTO;
     }
 
     public void onDestroy() {
@@ -3650,7 +3655,7 @@ public class PhotoPageFragment extends PhotoPageFragmentBase {
         if (isUserShowBar) {
             map.put("showBarIndex", String.valueOf(this.mUserShowBarIndex));
         }
-        BaseSamplingStatHelper.recordCountEvent("photo", "photo_user_show_menu_bar", map);
+        BaseSamplingStatHelper.recordCountEvent(TagYellowPage.PHOTO, "photo_user_show_menu_bar", map);
     }
 
     private void doOnItemChanged(int position) {
@@ -3832,6 +3837,6 @@ public class PhotoPageFragment extends PhotoPageFragmentBase {
         if (item.isSecret()) {
             return "photo_secret";
         }
-        return "photo";
+        return TagYellowPage.PHOTO;
     }
 }

@@ -75,6 +75,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import miui.yellowpage.YellowPageStatistic.Display;
 
 public class HomePageFragment extends BaseMediaFragment implements DisplayStatusCallback, OnAppFocusedListener {
     public static final String[] PHOTOS_LOADER_PROJECTION = HomePageAdapter.PROJECTION;
@@ -109,7 +110,7 @@ public class HomePageFragment extends BaseMediaFragment implements DisplayStatus
                 HomePageFragment.this.mSearchBarController.setEnable(false);
             }
             ImageSelectionTipFragment.showImageSelectionTipDialogIfNecessary(HomePageFragment.this.getActivity());
-            BaseSamplingStatHelper.recordCountEvent("home", "action_mode_create");
+            BaseSamplingStatHelper.recordCountEvent(Display.HOME, "action_mode_create");
             BaseSamplingStatHelper.recordNumericPropertyEvent("best_image", "best_image_count", (long) ImageFeatureCacheManager.getInstance().getBestImageCount(false));
             return true;
         }
@@ -131,7 +132,7 @@ public class HomePageFragment extends BaseMediaFragment implements DisplayStatus
                                 mode.finish();
                                 Map map = new HashMap();
                                 map.put("count", Integer.valueOf(count));
-                                BaseSamplingStatHelper.recordCountEvent("home", "delete_photo", map);
+                                BaseSamplingStatHelper.recordCountEvent(Display.HOME, "delete_photo", map);
                             }
                         }
                     }, -1, "", 1, 26, HomePageFragment.this.mHomeGridViewWrapper.getCheckedItemIds());
@@ -149,7 +150,7 @@ public class HomePageFragment extends BaseMediaFragment implements DisplayStatus
                             Map map = new HashMap();
                             map.put("count", Integer.valueOf(selectedItems.size()));
                             map.put("best_image_count", Integer.valueOf(bestImageCount));
-                            BaseSamplingStatHelper.recordCountEvent("home", "produce", map);
+                            BaseSamplingStatHelper.recordCountEvent(Display.HOME, "produce", map);
                             mode.finish();
                         }
                     }, HomePageFragment.this.mHomeGridViewWrapper.getCheckedItems());
@@ -161,7 +162,7 @@ public class HomePageFragment extends BaseMediaFragment implements DisplayStatus
                     MediaAndAlbumOperations.addToAlbum(HomePageFragment.this.mActivity, new OnAddAlbumListener() {
                         public void onComplete(long[] result, boolean deleteOrigin) {
                             mode.finish();
-                            BaseSamplingStatHelper.recordCountEvent("home", "add_to_album");
+                            BaseSamplingStatHelper.recordCountEvent(Display.HOME, "add_to_album");
                         }
                     }, 1, true, true, HomePageFragment.this.mHomeGridViewWrapper.getCheckedItemIds());
                     return true;
@@ -339,7 +340,7 @@ public class HomePageFragment extends BaseMediaFragment implements DisplayStatus
                 public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                     ImageLoadParams item = new ImageLoadParams(HomePageFragment.this.mHomePageAdapter.getItemKey(position), HomePageFragment.this.mHomePageAdapter.getLocalPath(position), ThumbConfig.get().sMicroTargetSize, HomePageFragment.this.mHomePageAdapter.getItemDecodeRectF(position), position, HomePageFragment.this.mHomePageAdapter.getMimeType(position), HomePageFragment.this.mHomePageAdapter.getFileLength(position));
                     IntentUtil.gotoPhotoPage(HomePageFragment.this, adapterView, HomePageFragment.PHOTOS_PAGE_URI, position, HomePageFragment.this.mHomePageAdapter.getCount(), "alias_show_in_homepage=1 AND sha1 NOT NULL", null, "alias_sort_time DESC ", item);
-                    BaseSamplingStatHelper.recordNumericPropertyEvent("home", "click_micro_thumb", (long) position);
+                    BaseSamplingStatHelper.recordNumericPropertyEvent(Display.HOME, "click_micro_thumb", (long) position);
                 }
             });
             this.mHomePageTopBarController = new HomePageTopBarController(getActivity(), this.mDrawer, R.id.home_page_top_bar);
@@ -504,7 +505,7 @@ public class HomePageFragment extends BaseMediaFragment implements DisplayStatus
     }
 
     public String getPageName() {
-        return "home";
+        return Display.HOME;
     }
 
     public void onDestroy() {
@@ -535,7 +536,7 @@ public class HomePageFragment extends BaseMediaFragment implements DisplayStatus
     private void statHomeEmpty() {
         HashMap<String, String> params = new HashMap();
         params.put("login", String.valueOf(AccountCache.getAccount() != null));
-        BaseSamplingStatHelper.recordCountEvent("home", "home_empty", params);
+        BaseSamplingStatHelper.recordCountEvent(Display.HOME, "home_empty", params);
     }
 
     public void onConfigurationChanged(Configuration newConfig) {
@@ -669,7 +670,7 @@ public class HomePageFragment extends BaseMediaFragment implements DisplayStatus
             this.mHomeGridViewWrapper.stopActionMode();
             Map map = new HashMap();
             map.put("count", Integer.valueOf(selectedItems.size()));
-            BaseSamplingStatHelper.recordCountEvent("home", "send", map);
+            BaseSamplingStatHelper.recordCountEvent(Display.HOME, "send", map);
         }
     }
 }

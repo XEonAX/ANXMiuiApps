@@ -27,6 +27,7 @@ import com.miui.gallery.widget.recyclerview.GalleryRecyclerView;
 import com.miui.gallery.widget.recyclerview.ItemClickSupport.OnItemClickListener;
 import com.miui.gallery.widget.recyclerview.SectionedDividerItemDecoration;
 import java.util.HashMap;
+import miui.util.PlayerActions.Out;
 
 public class AlbumLocalPageFragment extends BaseAlbumPageFragment implements OnItemClickListener {
     private AlbumPagePhotoLoaderCallback mAlbumPagePhotoLoaderCallback;
@@ -121,10 +122,10 @@ public class AlbumLocalPageFragment extends BaseAlbumPageFragment implements OnI
         String localPath = this.mAlbumPageAdapter.getAlbumLocalPath(position);
         if (!TextUtils.isEmpty(localPath)) {
             HashMap<String, String> params = new HashMap();
-            params.put("album_path", localPath.toLowerCase());
+            params.put(Out.KEY_ALBUM_PATH, localPath.toLowerCase());
             params.put("album_attribute", String.valueOf(this.mAlbumPageAdapter.getAttributes(position)));
             params.put("album_image_count", String.valueOf(this.mAlbumPageAdapter.getAlbumCount(position)));
-            BaseSamplingStatHelper.recordCountEvent("album", "view_other_album", params);
+            BaseSamplingStatHelper.recordCountEvent(Out.KEY_ALBUM, "view_other_album", params);
         }
     }
 

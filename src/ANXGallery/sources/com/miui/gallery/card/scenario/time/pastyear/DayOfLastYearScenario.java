@@ -5,6 +5,7 @@ import com.miui.gallery.card.Card;
 import com.miui.gallery.card.scenario.DateUtils;
 import com.miui.gallery.card.scenario.Record;
 import com.miui.gallery.card.scenario.time.TimeScenario;
+import com.miui.internal.vip.VipConstants;
 import java.util.List;
 
 public abstract class DayOfLastYearScenario extends TimeScenario {
@@ -30,7 +31,7 @@ public abstract class DayOfLastYearScenario extends TimeScenario {
             if (lastYearDateTime >= 0 && !recordTargets.contains(Long.valueOf(lastYearDateTime))) {
                 setTargetTime(lastYearDateTime);
                 setStartTime(lastYearDateTime);
-                setEndTime(86400000 + lastYearDateTime);
+                setEndTime(VipConstants.DAY + lastYearDateTime);
                 List<Long> list = loadMediaItem();
                 if (list != null && list.size() >= getMinImageCount()) {
                     return true;

@@ -9,7 +9,7 @@ import android.content.SyncResult;
 import android.content.SyncStats;
 import android.os.Bundle;
 import android.util.Log;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
+import com.miui.internal.vip.VipConstants;
 import com.xiaomi.micloudsdk.exception.CloudServerException;
 import com.xiaomi.micloudsdk.sync.utils.SyncRecordUtils;
 import com.xiaomi.micloudsdk.sync.utils.SyncTimeUtils;
@@ -40,7 +40,7 @@ public class MiCloudExceptionHandler {
                         reason = "auth_token_error";
                         handleUnauthorizedException(context, account, authority, syncResult, authType, extTokenStr, extras);
                         break;
-                    case BaiduSceneResult.SHOOTING /*101*/:
+                    case 101:
                         reason = "time_unavailable";
                         break;
                     case 1000:
@@ -104,7 +104,7 @@ public class MiCloudExceptionHandler {
 
     private static void handleUnauthorizedException(Context context, Account account, String authority, SyncResult syncResult, String authType, String extTokenStr, Bundle extras) {
         String prefTokenxpiredDay = String.format("TokenExpiredDay_%s", new Object[]{authority});
-        long today = System.currentTimeMillis() / 86400000;
+        long today = System.currentTimeMillis() / VipConstants.DAY;
         if (PrefUtils.getLong(context, prefTokenxpiredDay, Long.valueOf(0)).longValue() == today) {
             Log.w("MiCloudExceptionHandler", "Http unauthorized error. Suspend sync.");
             handleException(context, authority, syncResult, (long) SyncTimeUtils.getSyncSuspendTime(context, authority));

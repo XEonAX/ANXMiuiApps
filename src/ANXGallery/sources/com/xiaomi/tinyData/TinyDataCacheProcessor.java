@@ -1,6 +1,7 @@
 package com.xiaomi.tinyData;
 
 import android.content.Context;
+import android.content.SystemIntent;
 import android.text.TextUtils;
 import com.xiaomi.channel.commonutils.logger.MyLog;
 import com.xiaomi.channel.commonutils.network.Network;
@@ -51,7 +52,7 @@ public class TinyDataCacheProcessor implements PingCallBack {
     }
 
     private String getAppId(String pkgName) {
-        if ("com.xiaomi.xmsf".equals(pkgName)) {
+        if (SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(pkgName)) {
             return "1000271";
         }
         return this.mContext.getSharedPreferences("pref_registered_pkg_names", 0).getString(pkgName, null);

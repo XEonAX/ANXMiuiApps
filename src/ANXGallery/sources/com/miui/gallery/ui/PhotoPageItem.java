@@ -91,6 +91,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import miui.view.animation.CubicEaseInInterpolator;
 import miui.view.animation.CubicEaseOutInterpolator;
+import miui.yellowpage.Tag.TagYellowPage;
 import uk.co.senab.photoview.PhotoView;
 import uk.co.senab.photoview.PhotoViewAttacher.OnBackgroundAlphaChangedListener;
 import uk.co.senab.photoview.PhotoViewAttacher.OnExitListener;
@@ -236,7 +237,7 @@ public abstract class PhotoPageItem extends RelativeLayout implements TrimMemory
             onRotateStateChanged(this.isRotating);
             ArrayMap<String, String> param = new ArrayMap(1);
             param.put("toDegree", String.valueOf(toDegrees));
-            BaseSamplingStatHelper.recordCountEvent("photo", "manual_rotate", param);
+            BaseSamplingStatHelper.recordCountEvent(TagYellowPage.PHOTO, "manual_rotate", param);
         }
 
         protected int getVerticalMargin() {
@@ -844,19 +845,19 @@ public abstract class PhotoPageItem extends RelativeLayout implements TrimMemory
         private void statShowError(DownloadType type, ErrorCode code) {
             HashMap<String, String> params = new HashMap();
             params.put("errorcode", code.toString());
-            BaseSamplingStatHelper.recordCountEvent("photo", String.format(Locale.US, "photo_download_show_error_%s", new Object[]{type}), params);
+            BaseSamplingStatHelper.recordCountEvent(TagYellowPage.PHOTO, String.format(Locale.US, "photo_download_show_error_%s", new Object[]{type}), params);
         }
 
         private void statClickError(DownloadType type, ErrorTip tip) {
             HashMap<String, String> params = new HashMap();
             params.put("errorTip", tip.toString());
-            BaseSamplingStatHelper.recordCountEvent("photo", String.format(Locale.US, "photo_download_click_error_%s", new Object[]{type}), params);
+            BaseSamplingStatHelper.recordCountEvent(TagYellowPage.PHOTO, String.format(Locale.US, "photo_download_click_error_%s", new Object[]{type}), params);
         }
 
         private void statActionError(DownloadType type, ErrorTip tip) {
             HashMap<String, String> params = new HashMap();
             params.put("errorTip", tip.toString());
-            BaseSamplingStatHelper.recordCountEvent("photo", String.format(Locale.US, "photo_download_click_error_action_%s", new Object[]{type}), params);
+            BaseSamplingStatHelper.recordCountEvent(TagYellowPage.PHOTO, String.format(Locale.US, "photo_download_click_error_action_%s", new Object[]{type}), params);
         }
     }
 

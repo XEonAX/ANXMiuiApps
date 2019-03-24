@@ -10,6 +10,7 @@ import com.miui.gallery.discovery.AbstractJob;
 import com.miui.gallery.preference.GalleryPreferences.CloudControl;
 import com.miui.gallery.stat.BaseSamplingStatHelper;
 import com.miui.gallery.util.Log;
+import com.miui.internal.vip.VipConstants;
 import java.util.Map;
 
 public class FetchCloudControlDataJob extends AbstractJob {
@@ -37,6 +38,6 @@ public class FetchCloudControlDataJob extends AbstractJob {
     }
 
     public JobInfo getJobInfo(Context context, ComponentName cn) {
-        return new Builder(this.mJobId, cn).setRequiredNetworkType(2).setRequiresCharging(false).setRequiresDeviceIdle(false).setPeriodic(86400000).build();
+        return new Builder(this.mJobId, cn).setRequiredNetworkType(2).setRequiresCharging(false).setRequiresDeviceIdle(false).setPeriodic(VipConstants.DAY).build();
     }
 }

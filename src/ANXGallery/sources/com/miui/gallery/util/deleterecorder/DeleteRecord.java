@@ -5,10 +5,11 @@ import android.database.Cursor;
 import android.text.TextUtils;
 import com.miui.gallery.dao.base.Entity;
 import com.miui.gallery.dao.base.TableColumn;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import miui.provider.ExtraTelephony.FirewallLog;
+import miui.provider.Weather.WeatherBaseColumns;
 
 public class DeleteRecord extends Entity {
     private String mFilePath;
@@ -33,25 +34,25 @@ public class DeleteRecord extends Entity {
 
     protected List<TableColumn> getTableColumns() {
         ArrayList<TableColumn> columns = new ArrayList();
-        Entity.addColumn(columns, "timestamp", "INTEGER");
+        Entity.addColumn(columns, WeatherBaseColumns.TIMESTAMP, "INTEGER");
         Entity.addColumn(columns, "filePath", "TEXT");
-        Entity.addColumn(columns, "reason", "INTEGER");
-        Entity.addColumn(columns, nexExportFormat.TAG_FORMAT_TAG, "TEXT");
+        Entity.addColumn(columns, FirewallLog.REASON, "INTEGER");
+        Entity.addColumn(columns, "tag", "TEXT");
         return columns;
     }
 
     protected void onInitFromCursor(Cursor cursor) {
-        this.mTimestamp = Entity.getLong(cursor, "timestamp");
+        this.mTimestamp = Entity.getLong(cursor, WeatherBaseColumns.TIMESTAMP);
         this.mFilePath = Entity.getString(cursor, "filePath");
-        this.mReason = Entity.getInt(cursor, "reason");
-        this.mTag = Entity.getString(cursor, nexExportFormat.TAG_FORMAT_TAG);
+        this.mReason = Entity.getInt(cursor, FirewallLog.REASON);
+        this.mTag = Entity.getString(cursor, "tag");
     }
 
     protected void onConvertToContents(ContentValues values) {
-        values.put("timestamp", Long.valueOf(this.mTimestamp));
+        values.put(WeatherBaseColumns.TIMESTAMP, Long.valueOf(this.mTimestamp));
         values.put("filePath", this.mFilePath);
-        values.put("reason", Integer.valueOf(this.mReason));
-        values.put(nexExportFormat.TAG_FORMAT_TAG, this.mTag);
+        values.put(FirewallLog.REASON, Integer.valueOf(this.mReason));
+        values.put("tag", this.mTag);
     }
 
     public boolean equals(Object obj) {

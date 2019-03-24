@@ -17,7 +17,7 @@ import com.miui.gallery.util.NotificationHelper;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Locale;
-import org.jcodec.containers.mp4.boxes.Box;
+import miui.app.constants.ThemeManagerConstants;
 import org.json.JSONObject;
 
 public class NotificationMessageHandler extends MessageHandler {
@@ -39,7 +39,7 @@ public class NotificationMessageHandler extends MessageHandler {
         try {
             JSONObject jSONObject = new JSONObject(message.getData());
             int id = getPushNotificationId(jSONObject.optInt("id", 0));
-            NotificationManager nm = (NotificationManager) context.getSystemService("notification");
+            NotificationManager nm = (NotificationManager) context.getSystemService(ThemeManagerConstants.COMPONENT_CODE_NOTIFICATION);
             if (nm == null) {
                 Log.d("NotificationMessageHandler", "notification manager is null");
             } else if (jSONObject.optBoolean("isCancel", false)) {
@@ -101,7 +101,7 @@ public class NotificationMessageHandler extends MessageHandler {
                 intent.setPackage("com.miui.gallery");
                 intent.putExtra("notification_content_intent", contentIntent);
                 intent.putExtra("notification_content_id", id);
-                PendingIntent pi = PendingIntent.getActivity(context, 0, intent, Box.MAX_BOX_SIZE);
+                PendingIntent pi = PendingIntent.getActivity(context, 0, intent, 134217728);
                 Builder builder = new Builder(context);
                 builder.setTicker(title);
                 builder.setContentTitle(title);

@@ -19,7 +19,6 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import com.nexstreaming.app.common.task.Task;
 import com.nexstreaming.app.common.task.Task.Event;
 import com.nexstreaming.app.common.task.Task.OnFailListener;
@@ -67,6 +66,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import miui.hybrid.Response;
 import org.keyczar.Keyczar;
 
 public final class nexEngine implements Callback {
@@ -1516,7 +1516,7 @@ public final class nexEngine implements Callback {
                     }
                     if (nexEngine.this.bNeedScaling) {
                         nexEngine.this.bNeedScaling = false;
-                        i = i2 | nexEngine.ExportHEVCMainTierLevel6;
+                        i = i2 | 1048576;
                     } else {
                         i = i2;
                     }
@@ -1550,7 +1550,7 @@ public final class nexEngine implements Callback {
     }
 
     public int export(String str, int i, int i2, int i3, long j, int i4) {
-        return export(str, i, i2, i3, j, i4, export_audio_sampling_rate, 0, 0, export_fps, ExportCodec_AVC);
+        return export(str, i, i2, i3, j, i4, 44100, 0, 0, export_fps, ExportCodec_AVC);
     }
 
     public nexErrorCode exportJpeg(String str, int i, int i2, int i3, final OnCaptureListener onCaptureListener) {
@@ -1581,7 +1581,7 @@ public final class nexEngine implements Callback {
     }
 
     public nexErrorCode export(nexExportFormat nexexportformat, nexExportListener nexexportlistener) {
-        String string = nexexportformat.getString(nexExportFormat.TAG_FORMAT_TYPE);
+        String string = nexexportformat.getString("type");
         if (string == null) {
             return nexErrorCode.ARGUMENT_FAILED;
         }
@@ -1595,7 +1595,7 @@ public final class nexEngine implements Callback {
                 Log.w(TAG, "[" + this.mId + "]already external export state");
                 return nexErrorCode.INVALID_STATE;
             }
-            parseInt = Integer.parseInt((String) nexexportformat.formats.get(nexExportFormat.TAG_FORMAT_WIDTH));
+            parseInt = Integer.parseInt((String) nexexportformat.formats.get("width"));
             parseInt2 = Integer.parseInt((String) nexexportformat.formats.get(nexExportFormat.TAG_FORMAT_HEIGHT));
             parseInt3 = Integer.parseInt((String) nexexportformat.formats.get(nexExportFormat.TAG_FORMAT_INTERVAL_TIME));
             parseInt4 = Integer.parseInt((String) nexexportformat.formats.get(nexExportFormat.TAG_FORMAT_START_TIME));
@@ -1625,9 +1625,9 @@ public final class nexEngine implements Callback {
         }
         final nexExportListener nexexportlistener2;
         if (string.compareTo("bitmap") == 0) {
-            parseInt = Integer.parseInt((String) nexexportformat.formats.get(nexExportFormat.TAG_FORMAT_WIDTH));
+            parseInt = Integer.parseInt((String) nexexportformat.formats.get("width"));
             parseInt2 = Integer.parseInt((String) nexexportformat.formats.get(nexExportFormat.TAG_FORMAT_HEIGHT));
-            int parseInt6 = Integer.parseInt((String) nexexportformat.formats.get(nexExportFormat.TAG_FORMAT_TAG));
+            int parseInt6 = Integer.parseInt((String) nexexportformat.formats.get("tag"));
             if (nexexportlistener == null) {
                 return nexErrorCode.ARGUMENT_FAILED;
             }
@@ -1643,7 +1643,7 @@ public final class nexEngine implements Callback {
             }).getValue());
         } else if (string.compareTo("jpeg") == 0) {
             final String str = (String) nexexportformat.formats.get(nexExportFormat.TAG_FORMAT_PATH);
-            parseInt2 = Integer.parseInt((String) nexexportformat.formats.get(nexExportFormat.TAG_FORMAT_WIDTH));
+            parseInt2 = Integer.parseInt((String) nexexportformat.formats.get("width"));
             parseInt3 = Integer.parseInt((String) nexexportformat.formats.get(nexExportFormat.TAG_FORMAT_HEIGHT));
             parseInt = Integer.parseInt((String) nexexportformat.formats.get(nexExportFormat.TAG_FORMAT_QUALITY));
             if (str == null || str.length() <= 0 || parseInt2 <= 0 || parseInt3 <= 0 || parseInt <= 0 || parseInt > 100) {
@@ -1686,7 +1686,7 @@ public final class nexEngine implements Callback {
         } else {
             try {
                 String str2 = (String) nexexportformat.formats.get(nexExportFormat.TAG_FORMAT_PATH);
-                parseInt3 = Integer.parseInt((String) nexexportformat.formats.get(nexExportFormat.TAG_FORMAT_WIDTH));
+                parseInt3 = Integer.parseInt((String) nexexportformat.formats.get("width"));
                 parseInt4 = Integer.parseInt((String) nexexportformat.formats.get(nexExportFormat.TAG_FORMAT_HEIGHT));
                 int parseInt7 = Integer.parseInt((String) nexexportformat.formats.get(nexExportFormat.TAG_FORMAT_VIDEO_CODEC));
                 parseInt5 = Integer.parseInt((String) nexexportformat.formats.get(nexExportFormat.TAG_FORMAT_VIDEO_BITRATE));
@@ -1759,7 +1759,7 @@ public final class nexEngine implements Callback {
                     }
                     if (nexEngine.this.bNeedScaling) {
                         nexEngine.this.bNeedScaling = false;
-                        i |= nexEngine.ExportHEVCMainTierLevel6;
+                        i |= 1048576;
                     }
                     int i2 = i | 4096;
                     nexEngine.this.mVideoEditor.a(nexEngine.sExportVideoTrackUUIDMode, null);
@@ -1884,12 +1884,12 @@ public final class nexEngine implements Callback {
 
     public boolean setTotalAudioVolumeWhilePlay(int i, int i2) {
         if (i == 100) {
-            i = BaiduSceneResult.SHOOTING;
+            i = 101;
         }
         if (i2 == 100) {
-            i2 = BaiduSceneResult.SHOOTING;
+            i2 = 101;
         }
-        if (i < 0 || i > 200 || i2 < 0 || i2 > 200 || this.mVideoEditor.setVolumeWhilePlay(i, i2) != 0) {
+        if (i < 0 || i > Response.CODE_GENERIC_ERROR || i2 < 0 || i2 > Response.CODE_GENERIC_ERROR || this.mVideoEditor.setVolumeWhilePlay(i, i2) != 0) {
             return false;
         }
         return true;

@@ -5,6 +5,7 @@ import com.xiaomi.push.service.PushClientsManager.ClientLoginInfo;
 import com.xiaomi.push.service.PushClientsManager.ClientStatus;
 import com.xiaomi.push.service.XMPushService.Job;
 import java.util.Collection;
+import miui.provider.ExtraTelephony.Phonelist;
 
 public class MIPushAppRegisterJob extends Job {
     private String appId;
@@ -39,7 +40,7 @@ public class MIPushAppRegisterJob extends Job {
             return;
         }
         ClientLoginInfo loginInfo;
-        Collection<ClientLoginInfo> infos = PushClientsManager.getInstance().getAllClientLoginInfoByChid("5");
+        Collection<ClientLoginInfo> infos = PushClientsManager.getInstance().getAllClientLoginInfoByChid(Phonelist.TYPE_CLOUDS_WHITE);
         if (infos.isEmpty()) {
             loginInfo = account.toClientLoginInfo(this.pushService);
             MIPushHelper.prepareClientLoginInfo(this.pushService, loginInfo);

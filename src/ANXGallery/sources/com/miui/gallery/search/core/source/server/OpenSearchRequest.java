@@ -8,6 +8,7 @@ import com.miui.gallery.search.utils.SearchLog;
 import com.miui.gallery.search.utils.SearchUtils;
 import com.miui.gallery.stat.BaseSamplingStatHelper;
 import com.miui.gallery.util.PrivacyAgreementUtils;
+import miui.yellowpage.YellowPageContract.Search;
 
 public class OpenSearchRequest {
     public static int request() {
@@ -24,13 +25,13 @@ public class OpenSearchRequest {
         try {
             Object[] response = new Builder().setMethod(1001).setUserPath(Builder.getDefaultUserPath(userID)).setUserId(userID).setQueryAppendPath("hint").setUseCache(false).build().executeSync();
             if (response != null && response.length > 0) {
-                BaseSamplingStatHelper.recordCountEvent("search", "request_open_search_succeeded");
+                BaseSamplingStatHelper.recordCountEvent(Search.DIRECTORY, "request_open_search_succeeded");
                 return 0;
             }
         } catch (Throwable e) {
             SearchLog.e("OpenSearchRequest", e);
         }
-        BaseSamplingStatHelper.recordCountEvent("search", "request_open_search_failed");
+        BaseSamplingStatHelper.recordCountEvent(Search.DIRECTORY, "request_open_search_failed");
         return 9;
     }
 }

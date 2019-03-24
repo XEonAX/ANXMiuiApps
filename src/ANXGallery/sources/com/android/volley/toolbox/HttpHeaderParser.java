@@ -97,7 +97,7 @@ public class HttpHeaderParser {
     }
 
     private static SimpleDateFormat newRfc1123Formatter() {
-        SimpleDateFormat formatter = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.US);
+        SimpleDateFormat formatter = new SimpleDateFormat(DateUtils.PATTERN_RFC1123, Locale.US);
         formatter.setTimeZone(TimeZone.getTimeZone("GMT"));
         return formatter;
     }

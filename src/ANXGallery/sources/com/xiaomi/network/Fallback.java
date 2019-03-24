@@ -1,12 +1,14 @@
 package com.xiaomi.network;
 
 import android.text.TextUtils;
+import com.miui.internal.vip.VipConstants;
 import com.xiaomi.channel.commonutils.string.XMStringUtils;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import miui.yellowpage.YellowPageContract.Permission;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,7 +16,7 @@ import org.json.JSONObject;
 public class Fallback {
     public String city;
     public String country;
-    private long effectDuration = 86400000;
+    private long effectDuration = VipConstants.DAY;
     private ArrayList<WeightedHost> fallbackHosts = new ArrayList();
     public String host;
     public String ip;
@@ -226,7 +228,7 @@ public class Fallback {
         jsonObject.put("cty", this.country);
         jsonObject.put("isp", this.isp);
         jsonObject.put("ip", this.ip);
-        jsonObject.put("host", this.host);
+        jsonObject.put(Permission.HOST, this.host);
         jsonObject.put("xf", this.xforward);
         JSONArray ja = new JSONArray();
         Iterator it = this.fallbackHosts.iterator();
@@ -247,7 +249,7 @@ public class Fallback {
         this.country = jsonObject.optString("cty");
         this.isp = jsonObject.optString("isp");
         this.ip = jsonObject.optString("ip");
-        this.host = jsonObject.optString("host");
+        this.host = jsonObject.optString(Permission.HOST);
         this.xforward = jsonObject.optString("xf");
         JSONArray ja = jsonObject.getJSONArray("fbs");
         for (int i = 0; i < ja.length(); i++) {

@@ -1,6 +1,8 @@
 package com.miui.gallery.cloudcontrol.strategies;
 
+import android.content.res.MiuiConfiguration;
 import com.google.gson.annotations.SerializedName;
+import com.miui.internal.vip.VipConstants;
 
 public class CloudGuideStrategy extends BaseStrategy {
     @SerializedName("life_before_slimmed")
@@ -23,10 +25,10 @@ public class CloudGuideStrategy extends BaseStrategy {
     private long mWeakStrategyVideoCount;
 
     public void doAdditionalProcessing() {
-        this.mLifeBeforeSlimmed *= 86400000;
-        this.mSlimImmediatelySize *= 1048576;
-        this.mWeakStrategyMediaSize *= 1048576;
-        this.mStrictStrategyMediaSizeWhenLowSpace *= 1048576;
+        this.mLifeBeforeSlimmed *= VipConstants.DAY;
+        this.mSlimImmediatelySize *= MiuiConfiguration.THEME_FLAG_ALARMSTYLE;
+        this.mWeakStrategyMediaSize *= MiuiConfiguration.THEME_FLAG_ALARMSTYLE;
+        this.mStrictStrategyMediaSizeWhenLowSpace *= MiuiConfiguration.THEME_FLAG_ALARMSTYLE;
     }
 
     public String toString() {

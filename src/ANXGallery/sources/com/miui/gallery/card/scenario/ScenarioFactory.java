@@ -30,6 +30,7 @@ import com.miui.gallery.card.scenario.time.recent.YesterdaySportsScenario;
 import com.miui.gallery.cloudcontrol.strategies.AssistantScenarioStrategy.CloudTimeScenarioRule;
 import com.miui.gallery.cloudcontrol.strategies.AssistantScenarioStrategy.ScenarioRule;
 import com.miui.gallery.util.Log;
+import miui.hybrid.Response;
 
 public class ScenarioFactory {
     private static final SparseArray<Class<? extends Scenario>> sScenarioClass = new SparseArray();
@@ -40,23 +41,23 @@ public class ScenarioFactory {
         sScenarioClass.put(BaiduSceneResult.MOTORCYCLE, AnnualPetsScenario.class);
         sScenarioClass.put(BaiduSceneResult.STATION, AnnualFoodsScenario.class);
         sScenarioClass.put(BaiduSceneResult.CHURCH, LastMonthScenario.class);
-        sScenarioClass.put(BaiduSceneResult.ANCIENT_CHINESE_ARCHITECTURE, LastSeasonScenario.class);
+        sScenarioClass.put(108, LastSeasonScenario.class);
         sScenarioClass.put(BaiduSceneResult.CASTLE, LastWeekendScenario.class);
         sScenarioClass.put(BaiduSceneResult.BRIDGE, RecentTravelScenario.class);
         sScenarioClass.put(BaiduSceneResult.CAR, YesterdayActivitiesScenario.class);
         sScenarioClass.put(BaiduSceneResult.BUILDING_OTHER, YesterdayPartyScenario.class);
         sScenarioClass.put(BaiduSceneResult.FERRY, YesterdaySportsScenario.class);
-        sScenarioClass.put(BaiduSceneResult.SHOOTING, ChineseHolidayScenario.class);
+        sScenarioClass.put(101, ChineseHolidayScenario.class);
         sScenarioClass.put(BaiduSceneResult.STREET_VIEW, PastYearActivities.class);
-        sScenarioClass.put(BaiduSceneResult.MOUNTAINEERING, PastYearMonthScenario.class);
+        sScenarioClass.put(103, PastYearMonthScenario.class);
         sScenarioClass.put(BaiduSceneResult.WESTERN_ARCHITECTURE, PastYearParty.class);
-        sScenarioClass.put(BaiduSceneResult.SPORTS_OTHER, PastYearSeasonScenario.class);
+        sScenarioClass.put(104, PastYearSeasonScenario.class);
         sScenarioClass.put(BaiduSceneResult.FOUNTAIN, PastYearSports.class);
-        sScenarioClass.put(BaiduSceneResult.TAEKWONDO, SolarHolidayScenario.class);
+        sScenarioClass.put(102, SolarHolidayScenario.class);
         sScenarioClass.put(401, CatMonthlyScenario.class);
         sScenarioClass.put(402, DogMonthlyScenario.class);
         sScenarioClass.put(403, FoodMonthlyScenario.class);
-        sScenarioClass.put(201, PastTravelScenario.class);
+        sScenarioClass.put(Response.CODE_CONFIG_ERROR, PastTravelScenario.class);
         sScenarioClass.put(404, PastWeekendScenario.class);
         sScenarioClass.put(501, RecentMemoryScenario.class);
     }

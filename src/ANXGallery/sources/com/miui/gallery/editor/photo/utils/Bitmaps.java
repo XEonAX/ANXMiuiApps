@@ -13,7 +13,6 @@ import com.miui.gallery.stat.BaseSamplingStatHelper;
 import com.miui.gallery.util.ExifUtil;
 import com.miui.gallery.util.Log;
 import com.nexstreaming.nexeditorsdk.nexClip;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -101,7 +100,7 @@ public final class Bitmaps {
         } catch (OutOfMemoryError error) {
             Log.e("Graphics", "ensureBitmapSize error:" + error.toString());
             HashMap<String, String> params = new HashMap();
-            params.put(nexExportFormat.TAG_FORMAT_TYPE, "copy");
+            params.put("type", "copy");
             params.put("model", Build.MODEL);
             BaseSamplingStatHelper.recordCountEvent("photo_editor", "memory_error", params);
             if (bitmap == null) {

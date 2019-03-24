@@ -18,6 +18,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
+import miui.mipub.MipubStat;
 
 public class PastWeekendScenario extends TimeScenario {
     protected static final String SELECTION = (ScenarioConstants.CAMERA_BASE_SELECTION + " AND " + "mixedDateTime" + " > %s" + " AND " + "mixedDateTime" + " < %s");
@@ -67,7 +68,7 @@ public class PastWeekendScenario extends TimeScenario {
                                 return true;
                             }
                         }
-                        nextTraverseTime = weekEndStartTime + 604800000;
+                        nextTraverseTime = weekEndStartTime + MipubStat.STAT_EXPIRY_DATA;
                     } else {
                         continue;
                     }

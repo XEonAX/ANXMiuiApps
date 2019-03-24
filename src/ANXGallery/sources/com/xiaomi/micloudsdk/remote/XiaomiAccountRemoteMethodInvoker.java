@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import com.miui.app.ServiceInstalled;
+import miui.content.ExtraIntent;
 
 public abstract class XiaomiAccountRemoteMethodInvoker<R> extends RemoteMethodInvoker<R> {
     private static final ServiceInstalled ACCOUNT_NEW_SERVICE_INSTALLED = new ServiceInstalled(new Intent("com.xiaomi.account.action.BIND_XIAOMI_ACCOUNT_SERVICE").setPackage("com.xiaomi.account"));
@@ -16,7 +17,7 @@ public abstract class XiaomiAccountRemoteMethodInvoker<R> extends RemoteMethodIn
         if (((Boolean) ACCOUNT_NEW_SERVICE_INSTALLED.get(context)).booleanValue()) {
             return bindAccountService(context, "com.xiaomi.account.action.BIND_XIAOMI_ACCOUNT_SERVICE", conn);
         }
-        return bindAccountService(context, "android.intent.action.BIND_XIAOMI_ACCOUNT_SERVICE", conn);
+        return bindAccountService(context, ExtraIntent.ACTION_BIND_XIAOMI_ACCOUNT_SERVICE, conn);
     }
 
     private static boolean bindAccountService(Context context, String action, ServiceConnection conn) {

@@ -1,5 +1,6 @@
 package android.support.v4.util;
 
+import com.miui.internal.vip.utils.JsonParser;
 import java.util.ConcurrentModificationException;
 import java.util.Map;
 
@@ -414,7 +415,7 @@ public class SimpleArrayMap<K, V> {
 
     public String toString() {
         if (isEmpty()) {
-            return "{}";
+            return JsonParser.EMPTY_OBJECT;
         }
         StringBuilder buffer = new StringBuilder(this.mSize * 28);
         buffer.append('{');

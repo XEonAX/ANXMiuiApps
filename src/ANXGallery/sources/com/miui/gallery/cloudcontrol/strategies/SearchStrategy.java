@@ -3,6 +3,7 @@ package com.miui.gallery.cloudcontrol.strategies;
 import com.google.gson.annotations.SerializedName;
 import com.miui.gallery.cloudcontrol.CloudControlManager;
 import com.miui.gallery.cloudcontrol.FeatureProfile.Status;
+import miui.yellowpage.YellowPageContract.Search;
 
 public class SearchStrategy extends BaseStrategy {
     @SerializedName("search-data")
@@ -32,7 +33,7 @@ public class SearchStrategy extends BaseStrategy {
     }
 
     public static SearchStrategy createDefault() {
-        boolean searchStatus = CloudControlManager.getInstance().queryFeatureStatus("search") == Status.ENABLE;
+        boolean searchStatus = CloudControlManager.getInstance().queryFeatureStatus(Search.DIRECTORY) == Status.ENABLE;
         return new SearchStrategy(searchStatus, searchStatus);
     }
 }

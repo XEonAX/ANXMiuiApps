@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import com.miui.gallery.provider.GalleryContract.DiscoveryMessage;
 import com.miui.gallery.util.Log;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 
 public abstract class BaseMessageOperator<SaveParams> {
     protected static Uri sDiscoveryMessageUri = DiscoveryMessage.URI;
@@ -81,7 +80,7 @@ public abstract class BaseMessageOperator<SaveParams> {
         protected ContentValues prepareData() {
             if (this.mContentValues == null) {
                 this.mContentValues = new ContentValues();
-                this.mContentValues.put(nexExportFormat.TAG_FORMAT_TYPE, Integer.valueOf(this.mMessage.getType()));
+                this.mContentValues.put("type", Integer.valueOf(this.mMessage.getType()));
                 this.mContentValues.put("receiveTime", Long.valueOf(this.mMessage.getReceiveTime()));
                 this.mContentValues.put("updateTime", Long.valueOf(this.mMessage.getUpdateTime()));
                 this.mContentValues.put("extraData", this.mMessage.getMessageDetail().toJson());

@@ -1,5 +1,6 @@
 package com.nostra13.universalimageloader.core.assist.deque;
 
+import com.miui.internal.vip.utils.JsonParser;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -571,7 +572,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
             String str;
             Node<E> p = this.first;
             if (p == null) {
-                str = "[]";
+                str = JsonParser.EMPTY_ARRAY;
             } else {
                 StringBuilder sb = new StringBuilder();
                 sb.append('[');

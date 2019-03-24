@@ -37,7 +37,7 @@ public class RsaPublicKey extends KeyczarPublicKey {
 
         RsaStream() throws KeyczarException {
             try {
-                this.signature = Signature.getInstance(RsaPublicKey.SIG_ALGORITHM);
+                this.signature = Signature.getInstance("SHA1withRSA");
                 this.cipher = Cipher.getInstance(RsaPublicKey.this.getPadding().getCryptAlgorithm());
             } catch (Throwable e) {
                 throw new KeyczarException(e);
@@ -186,7 +186,7 @@ public class RsaPublicKey extends KeyczarPublicKey {
 
     private void initializeJceKey(BigInteger bigInteger, BigInteger bigInteger2) throws KeyczarException {
         try {
-            this.jcePublicKey = (RSAPublicKey) KeyFactory.getInstance(KEY_GEN_ALGORITHM).generatePublic(new RSAPublicKeySpec(bigInteger, bigInteger2));
+            this.jcePublicKey = (RSAPublicKey) KeyFactory.getInstance("RSA").generatePublic(new RSAPublicKeySpec(bigInteger, bigInteger2));
         } catch (Throwable e) {
             throw new KeyczarException(e);
         }

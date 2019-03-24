@@ -11,6 +11,7 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.UUID;
+import miui.telephony.TelephonyConstants;
 
 /* compiled from: DeviceIdHolder */
 public class g {
@@ -46,7 +47,7 @@ public class g {
             if (TextUtils.isEmpty(d)) {
                 try {
                     Context applicationContext = context.getApplicationContext();
-                    Object a = m.a(applicationContext, "device_id", "");
+                    Object a = m.a(applicationContext, TelephonyConstants.EXTRA_DEVICE_ID, "");
                     if (TextUtils.isEmpty(a)) {
                         if (BuildSetting.isInternationalBuild() || t.c()) {
                             a = b(context);
@@ -59,7 +60,7 @@ public class g {
                             String c = t.c(applicationContext);
                             d = t.c(f(context) + c + t.a());
                         }
-                        m.b(applicationContext, "device_id", d);
+                        m.b(applicationContext, TelephonyConstants.EXTRA_DEVICE_ID, d);
                     } else {
                         d = a;
                     }

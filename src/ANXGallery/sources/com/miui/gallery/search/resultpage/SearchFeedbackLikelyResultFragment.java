@@ -230,12 +230,12 @@ public class SearchFeedbackLikelyResultFragment extends SearchImageResultFragmen
             z = false;
         }
         button.setEnabled(z);
-        Object obj = this.mActivity;
+        Context context = this.mActivity;
         button = this.mSelectAllBtn;
         if (!isCheckedAll()) {
             i = 0;
         }
-        MiuiSdkCompat.setEditActionModeButton(obj, button, i);
+        MiuiSdkCompat.setEditActionModeButton(context, button, i);
     }
 
     protected void restartFilterLoader(Bundle extras) {

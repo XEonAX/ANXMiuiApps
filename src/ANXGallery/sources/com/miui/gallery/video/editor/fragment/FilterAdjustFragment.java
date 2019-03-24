@@ -25,6 +25,7 @@ import com.miui.gallery.video.editor.widget.FilterView.OnItemSelectedListener;
 import com.miui.gallery.video.editor.widget.SingleChoiceRecycleView.SingleChoiceRecyclerViewAdapter;
 import java.util.ArrayList;
 import java.util.List;
+import miui.hybrid.Response;
 
 public class FilterAdjustFragment extends MenuFragment {
     private AdjustView mAdjustView;
@@ -172,7 +173,7 @@ public class FilterAdjustFragment extends MenuFragment {
     }
 
     public boolean doApply() {
-        if ((this.mAdjustView != null && this.mAdjustView.isTracking()) || this.mVideoEditor == null || this.mVideoEditor.getState() == 200) {
+        if ((this.mAdjustView != null && this.mAdjustView.isTracking()) || this.mVideoEditor == null || this.mVideoEditor.getState() == Response.CODE_GENERIC_ERROR) {
             return false;
         }
         this.mVideoEditor.saveEditState();

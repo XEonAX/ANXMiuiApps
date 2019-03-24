@@ -2,7 +2,6 @@ package com.xiaomi.micloudsdk.sync.utils;
 
 import android.content.Context;
 import android.util.Log;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import com.xiaomi.micloudsdk.exception.CloudServerException;
 import com.xiaomi.micloudsdk.provider.GdprUtils;
 import com.xiaomi.micloudsdk.sync.utils.SyncContentUtils.Reason;
@@ -33,7 +32,7 @@ public class SyncRecordUtils {
             case 100:
                 reason = Reason.AUTH_TOKEN_ERROR;
                 break;
-            case BaiduSceneResult.SHOOTING /*101*/:
+            case 101:
                 reason = Reason.TIME_UNAVAILABLE;
                 break;
             case 1000:

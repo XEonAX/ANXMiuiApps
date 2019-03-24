@@ -16,6 +16,7 @@ import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import miui.util.PlayerActions.Out;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
@@ -55,7 +56,7 @@ public abstract class CopyImageBase extends RequestOperationBase {
                 if (album != null) {
                     builder.append("_").append(album.getFileName()).append("_").append(album.getLocalFlag());
                 }
-                params.put("album", builder.toString());
+                params.put(Out.KEY_ALBUM, builder.toString());
                 params.put(nexExportFormat.TAG_FORMAT_PATH, image.getLocalFile());
                 params.put("localFlag", String.valueOf(image.getLocalFlag()));
                 BaseSamplingStatHelper.recordErrorEvent("Sync", "album_not_find_when_sync_media", params);
@@ -88,7 +89,7 @@ public abstract class CopyImageBase extends RequestOperationBase {
         }
         JSONObject postData = new JSONObject().put("content", requestCloudItem.dbCloud.toJSONObject());
         ArrayList<NameValuePair> parameters = new ArrayList();
-        parameters.add(new BasicNameValuePair(nexExportFormat.TAG_FORMAT_TAG, String.valueOf(requestCloudItem.dbCloud.getServerTag())));
+        parameters.add(new BasicNameValuePair("tag", String.valueOf(requestCloudItem.dbCloud.getServerTag())));
         parameters.add(new BasicNameValuePair(getAlbumIdTagName(), this.mAlbumId));
         if (isShared) {
             parameters.add(new BasicNameValuePair("sharedGalleryId", requestId));

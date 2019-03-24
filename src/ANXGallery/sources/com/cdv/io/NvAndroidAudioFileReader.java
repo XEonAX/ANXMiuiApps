@@ -9,6 +9,7 @@ import android.media.MediaFormat;
 import android.os.Build.VERSION;
 import android.util.Log;
 import java.nio.ByteBuffer;
+import miui.media.Mp3Encoder;
 
 public class NvAndroidAudioFileReader {
     private static final int ERROR_EOF = 1;
@@ -49,7 +50,7 @@ public class NvAndroidAudioFileReader {
         this.m_format = null;
         this.m_duration = 0;
         this.m_channelCount = 1;
-        this.m_sampleRate = 44100;
+        this.m_sampleRate = Mp3Encoder.DEFAULT_SAMPLE_RATE;
         this.m_bufferInfo = null;
         this.m_decoder = null;
         this.m_decoderSetupFailed = false;

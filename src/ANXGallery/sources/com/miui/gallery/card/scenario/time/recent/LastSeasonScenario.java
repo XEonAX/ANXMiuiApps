@@ -2,7 +2,6 @@ package com.miui.gallery.card.scenario.time.recent;
 
 import com.miui.gallery.GalleryApp;
 import com.miui.gallery.R;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import com.miui.gallery.assistant.model.MediaFeatureItem;
 import com.miui.gallery.card.Card;
 import com.miui.gallery.card.CardUtil;
@@ -10,11 +9,12 @@ import com.miui.gallery.card.scenario.DateUtils;
 import com.miui.gallery.card.scenario.Record;
 import com.miui.gallery.card.scenario.ScenarioConstants;
 import com.miui.gallery.card.scenario.time.TimeScenario;
+import com.miui.internal.vip.VipConstants;
 import java.util.List;
 
 public class LastSeasonScenario extends TimeScenario {
     public LastSeasonScenario() {
-        super(BaiduSceneResult.ANCIENT_CHINESE_ARCHITECTURE, 2, 6);
+        super(108, 2, 6);
     }
 
     public boolean onPrepare(List<Record> records, List<Card> cards) {
@@ -24,8 +24,8 @@ public class LastSeasonScenario extends TimeScenario {
         if (currentTime <= firstDayofSeason || currentTime - firstDayofSeason >= 172800000) {
             return false;
         }
-        long lastSeasonStart = DateUtils.getSeasonStartTime(firstDayofSeason - 86400000);
-        long lastSeasonEnd = DateUtils.getSeasonEndTime(firstDayofSeason - 86400000);
+        long lastSeasonStart = DateUtils.getSeasonStartTime(firstDayofSeason - VipConstants.DAY);
+        long lastSeasonEnd = DateUtils.getSeasonEndTime(firstDayofSeason - VipConstants.DAY);
         if (lastSeasonStart < 0 || lastSeasonEnd < 0 || recordStarts.contains(Long.valueOf(lastSeasonStart))) {
             return false;
         }

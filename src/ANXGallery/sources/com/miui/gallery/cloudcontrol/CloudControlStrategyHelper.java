@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Pattern;
+import miui.yellowpage.YellowPageContract.Search;
 
 public class CloudControlStrategyHelper {
     public static ArrayList<String> getAlbumsInWhiteList() {
@@ -92,7 +93,7 @@ public class CloudControlStrategyHelper {
     }
 
     public static SearchStrategy getSearchStrategy() {
-        SearchStrategy searchStrategy = (SearchStrategy) CloudControlManager.getInstance().queryFeatureStrategy("search");
+        SearchStrategy searchStrategy = (SearchStrategy) CloudControlManager.getInstance().queryFeatureStrategy(Search.DIRECTORY);
         if (searchStrategy == null) {
             return SearchStrategy.createDefault();
         }

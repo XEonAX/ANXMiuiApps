@@ -1,6 +1,7 @@
 package com.xiaomi.metoknlp.a;
 
 import android.text.TextUtils;
+import com.miui.internal.vip.utils.AuthHttpRequest;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -8,6 +9,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
+import miui.hybrid.Response;
 
 /* compiled from: HttpsUtils */
 public class b {
@@ -44,7 +46,7 @@ public class b {
                 try {
                     httpURLConnection2.setConnectTimeout(30000);
                     httpURLConnection2.setReadTimeout(30000);
-                    httpURLConnection2.setRequestMethod("GET");
+                    httpURLConnection2.setRequestMethod(AuthHttpRequest.METHOD_GET);
                     httpURLConnection2.setDoOutput(false);
                     if (map != null && map.size() > 0) {
                         for (String str32 : map.keySet()) {
@@ -52,7 +54,7 @@ public class b {
                         }
                     }
                     httpURLConnection2.connect();
-                    if (httpURLConnection2.getResponseCode() == 200) {
+                    if (httpURLConnection2.getResponseCode() == Response.CODE_GENERIC_ERROR) {
                         BufferedReader bufferedReader3 = new BufferedReader(new InputStreamReader(httpURLConnection2.getInputStream()));
                         try {
                             StringBuffer stringBuffer = new StringBuffer();

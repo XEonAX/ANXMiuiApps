@@ -12,12 +12,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
+import miui.util.HashUtils;
 import org.keyczar.Keyczar;
 
 public class CloudCoder {
     public static String hash4SHA1(String plain) {
         try {
-            return String.valueOf(Base64Coder.encode(MessageDigest.getInstance("SHA1").digest(plain.getBytes(Keyczar.DEFAULT_ENCODING))));
+            return String.valueOf(Base64Coder.encode(MessageDigest.getInstance(HashUtils.SHA1).digest(plain.getBytes(Keyczar.DEFAULT_ENCODING))));
         } catch (NoSuchAlgorithmException e) {
             MyLog.e("CloudCoder.hash4SHA1 ", e);
         } catch (UnsupportedEncodingException e2) {

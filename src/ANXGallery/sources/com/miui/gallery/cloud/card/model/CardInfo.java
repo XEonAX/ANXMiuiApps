@@ -3,6 +3,7 @@ package com.miui.gallery.cloud.card.model;
 import android.text.TextUtils;
 import com.google.gson.annotations.SerializedName;
 import java.util.List;
+import miui.provider.ExtraTelephony.DeletableSyncColumns;
 
 public class CardInfo {
     @SerializedName("description")
@@ -123,7 +124,7 @@ public class CardInfo {
     }
 
     public boolean isStatusDelete() {
-        return TextUtils.equals("deleted", this.mStatus);
+        return TextUtils.equals(DeletableSyncColumns.DELETED, this.mStatus);
     }
 
     public long getValidStartDate() {

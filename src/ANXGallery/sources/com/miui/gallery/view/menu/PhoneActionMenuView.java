@@ -24,6 +24,7 @@ import com.miui.gallery.widget.BottomMenu;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
+import miui.content.res.ThemeResources;
 import miui.util.ViewUtils;
 import miui.view.animation.CubicEaseOutInterpolator;
 
@@ -272,7 +273,7 @@ public class PhoneActionMenuView extends ActionMenuView {
 
     private int getStatusBarHeight() {
         Resources resources = getResources();
-        int resourceId = resources.getIdentifier("status_bar_height", "dimen", "android");
+        int resourceId = resources.getIdentifier("status_bar_height", "dimen", ThemeResources.FRAMEWORK_PACKAGE);
         if (resourceId > 0) {
             return resources.getDimensionPixelSize(resourceId);
         }

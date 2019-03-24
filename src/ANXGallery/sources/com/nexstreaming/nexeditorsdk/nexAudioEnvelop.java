@@ -5,6 +5,7 @@ import com.nexstreaming.nexeditorsdk.exception.InvalidRangeException;
 import com.nexstreaming.nexeditorsdk.nexSaveDataFormat.nexAudioEnvelopOf;
 import java.util.ArrayList;
 import java.util.Collection;
+import miui.hybrid.Response;
 
 public final class nexAudioEnvelop implements Cloneable {
     private static final int maxIndex = 65536;
@@ -66,8 +67,8 @@ public final class nexAudioEnvelop implements Cloneable {
     public int addVolumeEnvelope(int i, int i2) {
         if (i < 0) {
             throw new InvalidRangeException(0, this.m_totalTime, i);
-        } else if (i2 > 200 || i2 < 0) {
-            throw new InvalidRangeException(0, 200, i2);
+        } else if (i2 > Response.CODE_GENERIC_ERROR || i2 < 0) {
+            throw new InvalidRangeException(0, (int) Response.CODE_GENERIC_ERROR, i2);
         } else {
             int findTime2Index = findTime2Index(i, i2);
             this.m_modify = true;
@@ -115,8 +116,8 @@ public final class nexAudioEnvelop implements Cloneable {
     public void changeVolumeLevelValue(int i, int i2) {
         if (i > this.m_volumeEnvelopeLevel.size() - 1) {
             throw new InvalidRangeException(0, this.m_volumeEnvelopeLevel.size() - 1, i);
-        } else if (i2 > 200 || i2 < 0) {
-            throw new InvalidRangeException(0, 200, i2);
+        } else if (i2 > Response.CODE_GENERIC_ERROR || i2 < 0) {
+            throw new InvalidRangeException(0, (int) Response.CODE_GENERIC_ERROR, i2);
         } else {
             this.m_volumeEnvelopeLevel.set(i, Integer.valueOf(i2));
             this.m_modify = true;

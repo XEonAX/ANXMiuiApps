@@ -28,6 +28,7 @@ import com.nostra13.universalimageloader.core.assist.ImageSize;
 import com.nostra13.universalimageloader.core.assist.ViewScaleType;
 import com.nostra13.universalimageloader.core.imageaware.ImageAware;
 import com.nostra13.universalimageloader.core.imageaware.NonViewAware;
+import miui.yellowpage.Tag.TagYellowPage;
 
 public class ExternalPhotoPageActivity extends BaseActivity implements BrightnessProvider {
     private static final String[] REQUIRED_RUNTIME_PERMISSIONS = new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"};
@@ -46,7 +47,7 @@ public class ExternalPhotoPageActivity extends BaseActivity implements Brightnes
         prepareIfFromCamera();
         super.onCreate(savedInstanceState);
         String callingPackage = IntentUtil.getCallingPackage(this);
-        String str = "photo";
+        String str = TagYellowPage.PHOTO;
         String str2 = "external_view_photo";
         if (TextUtils.isEmpty(callingPackage)) {
             callingPackage = "Unknown";

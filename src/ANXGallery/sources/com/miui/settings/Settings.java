@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.miui.core.SdkHelper;
 import com.nexstreaming.nexeditorsdk.BuildConfig;
 import java.util.Locale;
-import miui.os.Build;
+import miui.os.C0015Build;
 
 public class Settings {
     public static String getDeviceName(Context context) {
@@ -17,14 +17,14 @@ public class Settings {
             }
             return name;
         }
-        return String.format(Locale.US, "%s %s", new Object[]{Build.MANUFACTURER, Build.MODEL});
+        return String.format(Locale.US, "%s %s", new Object[]{C0015Build.MANUFACTURER, C0015Build.MODEL});
     }
 
     public static String getRegion() {
-        return Build.getRegion();
+        return C0015Build.getRegion();
     }
 
     public static boolean checkRegion(String region) {
-        return Build.checkRegion(region);
+        return C0015Build.checkRegion(region);
     }
 }

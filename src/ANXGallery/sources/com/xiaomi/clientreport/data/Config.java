@@ -1,6 +1,7 @@
 package com.xiaomi.clientreport.data;
 
 import android.content.Context;
+import android.content.res.MiuiConfiguration;
 import android.text.TextUtils;
 import com.xiaomi.clientreport.util.ClientReportUtil;
 
@@ -66,7 +67,7 @@ public class Config {
         this.mEventEncrypted = true;
         this.mEventUploadSwitchOpen = false;
         this.mPerfUploadSwitchOpen = false;
-        this.mMaxFileLength = 1048576;
+        this.mMaxFileLength = MiuiConfiguration.THEME_FLAG_ALARMSTYLE;
         this.mEventUploadFrequency = 86400;
         this.mPerfUploadFrequency = 86400;
     }
@@ -75,7 +76,7 @@ public class Config {
         this.mEventEncrypted = true;
         this.mEventUploadSwitchOpen = false;
         this.mPerfUploadSwitchOpen = false;
-        this.mMaxFileLength = 1048576;
+        this.mMaxFileLength = MiuiConfiguration.THEME_FLAG_ALARMSTYLE;
         this.mEventUploadFrequency = 86400;
         this.mPerfUploadFrequency = 86400;
         if (builder.mEventEncrypted == 0) {
@@ -93,7 +94,7 @@ public class Config {
         if (builder.mMaxFileLength > -1) {
             this.mMaxFileLength = builder.mMaxFileLength;
         } else {
-            this.mMaxFileLength = 1048576;
+            this.mMaxFileLength = MiuiConfiguration.THEME_FLAG_ALARMSTYLE;
         }
         if (builder.mEventUploadFrequency > -1) {
             this.mEventUploadFrequency = builder.mEventUploadFrequency;
@@ -122,7 +123,7 @@ public class Config {
     }
 
     public static Config defaultConfig(Context context) {
-        return getBuilder().setEventEncrypted(true).setAESKey(ClientReportUtil.getEventKeyWithDefault(context)).setMaxFileLength(1048576).setEventUploadSwitchOpen(false).setEventUploadFrequency(86400).setPerfUploadSwitchOpen(false).setPerfUploadFrequency(86400).build(context);
+        return getBuilder().setEventEncrypted(true).setAESKey(ClientReportUtil.getEventKeyWithDefault(context)).setMaxFileLength(MiuiConfiguration.THEME_FLAG_ALARMSTYLE).setEventUploadSwitchOpen(false).setEventUploadFrequency(86400).setPerfUploadSwitchOpen(false).setPerfUploadFrequency(86400).build(context);
     }
 
     public static Builder getBuilder() {

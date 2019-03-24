@@ -4,6 +4,7 @@ import android.content.ContentProviderOperation;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.res.MiuiConfiguration;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.BitmapFactory.Options;
@@ -422,7 +423,7 @@ public class SaveToCloudUtil {
                         conflictEntry = entry;
                     }
                 }
-                if (needCheckExifSha1(saveToCloud.mName) && saveToCloud.mSize < 1048576) {
+                if (needCheckExifSha1(saveToCloud.mName) && saveToCloud.mSize < MiuiConfiguration.THEME_FLAG_ALARMSTYLE) {
                     it = entries.iterator();
                     while (it.hasNext()) {
                         entry = (CloudEntry) it.next();

@@ -12,6 +12,8 @@ import com.xiaomi.mistatistic.sdk.controller.l.b;
 import java.util.Map;
 import java.util.Random;
 import java.util.TreeMap;
+import miui.provider.ExtraNetwork;
+import miui.telephony.TelephonyConstants;
 import org.json.JSONObject;
 
 /* compiled from: ConfigProvider */
@@ -112,9 +114,9 @@ public class f {
                 treeMap.put("channel", d.d());
                 treeMap.put("app_id", d.b());
                 treeMap.put("sdk_version", "2.1.0");
-                treeMap.put("device_id", g.a(this.c));
+                treeMap.put(TelephonyConstants.EXTRA_DEVICE_ID, g.a(this.c));
                 treeMap.put("config_version", e());
-                treeMap.put("package_name", this.c.getPackageName());
+                treeMap.put(ExtraNetwork.FIREWALL_PACKAGE_NAME, this.c.getPackageName());
                 treeMap.put("app_version", d.e());
                 l.a(this.c, "http://data.mistat.xiaomi.com/getconfig", treeMap, bVar);
                 return;

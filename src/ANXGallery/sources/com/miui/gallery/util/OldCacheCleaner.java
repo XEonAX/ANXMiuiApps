@@ -7,6 +7,7 @@ import com.miui.gallery.util.MediaFileUtils.FileType;
 import com.miui.gallery.util.deprecated.Storage;
 import com.miui.gallery.util.uil.BlobCache;
 import java.io.File;
+import miui.yellowpage.YellowPageContract.Provider;
 
 public class OldCacheCleaner {
     public static void clean() {
@@ -20,7 +21,7 @@ public class OldCacheCleaner {
 
     private static void cleanThumbnailCache() {
         String THUMB_CACHE_FOLDER = ".cache/Gallery";
-        for (String miuiFilePath : StorageUtils.getPathsInExternalStorage(GalleryApp.sGetAndroidContext(), "MIUI")) {
+        for (String miuiFilePath : StorageUtils.getPathsInExternalStorage(GalleryApp.sGetAndroidContext(), Provider.PNAME_DEFAULT)) {
             MediaFileUtils.deleteFileType(FileType.TEMP, miuiFilePath + File.separator + ".cache/Gallery");
         }
     }

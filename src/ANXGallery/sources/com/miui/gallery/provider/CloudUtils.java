@@ -10,6 +10,7 @@ import com.miui.gallery.provider.GalleryContract.Cloud;
 import com.miui.gallery.util.SafeDBUtil;
 import com.miui.gallery.util.SafeDBUtil.QueryHandler;
 import java.util.ArrayList;
+import miui.yellowpage.YellowPageContract.MipubPhoneEvent;
 
 public class CloudUtils {
     public static Bundle create(Context context, String name) {
@@ -62,7 +63,7 @@ public class CloudUtils {
 
     private static long[] addToAlbum(Context context, int type, int dupType, long albumId, boolean operateSync, long... mediaIds) {
         Bundle args = new Bundle();
-        args.putInt("extra_type", type);
+        args.putInt(MipubPhoneEvent.URI_PARAM_TYPE, type);
         args.putInt("extra_src_type", 0);
         args.putLongArray("extra_src_media_ids", mediaIds);
         args.putInt("extra_dup_type", dupType);
@@ -72,7 +73,7 @@ public class CloudUtils {
 
     private static long[] addToAlbum(Context context, int type, long albumId, ArrayList<Uri> uris) {
         Bundle args = new Bundle();
-        args.putInt("extra_type", type);
+        args.putInt(MipubPhoneEvent.URI_PARAM_TYPE, type);
         args.putInt("extra_src_type", 1);
         args.putParcelableArrayList("extra_src_uris", uris);
         return context.getContentResolver().call(GalleryContract.AUTHORITY_URI, "add_to_album", String.valueOf(albumId), args).getLongArray("ids");

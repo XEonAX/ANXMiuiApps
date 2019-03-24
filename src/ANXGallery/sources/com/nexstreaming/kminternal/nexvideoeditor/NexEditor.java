@@ -47,6 +47,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import miui.provider.ExtraTelephony.Phonelist;
 
 public class NexEditor {
     private static File D = null;
@@ -921,7 +922,7 @@ public class NexEditor {
             setProperty("HardWareCodecMemSize", "" + NexEditorDeviceProfile.getDeviceProfile().getHardwareCodecMemSize());
             setProperty("HardWareDecMaxCount", "" + NexEditorDeviceProfile.getDeviceProfile().getHardwareDecMaxCount());
             setProperty("HardWareEncMaxCount", "" + NexEditorDeviceProfile.getDeviceProfile().getHardwareEncMaxCount());
-            setProperty("FeatureVersion", "3");
+            setProperty("FeatureVersion", Phonelist.TYPE_VIP);
             setProperty("useNexEditorSDK", "1");
             setProperty("DeviceExtendMode", "1");
             setProperty("forceDirectExport", "" + NexEditorDeviceProfile.getDeviceProfile().getForceDirectExport());
@@ -935,10 +936,10 @@ public class NexEditor {
             if (BuildConfig.KM_PROJECT.equals("Gionee")) {
                 setProperty("HardWareDecMaxCount", "2");
             } else {
-                setProperty("HardWareDecMaxCount", "4");
+                setProperty("HardWareDecMaxCount", Phonelist.TYPE_CLOUDS_BLACK);
             }
             setProperty("HardWareEncMaxCount", "1");
-            setProperty("FeatureVersion", "3");
+            setProperty("FeatureVersion", Phonelist.TYPE_VIP);
             setProperty("useNexEditorSDK", "1");
             setProperty("forceDirectExport", "" + NexEditorDeviceProfile.getDeviceProfile().getForceDirectExport());
             setProperty("DeviceExtendMode", "1");

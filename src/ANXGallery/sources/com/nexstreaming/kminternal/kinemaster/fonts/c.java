@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import miui.content.res.ThemeResources;
 
 /* compiled from: FontManager */
 public class c {
@@ -55,7 +56,7 @@ public class c {
         hashMap.put("chs", Integer.valueOf(0));
         hashMap.put("cht", Integer.valueOf(0));
         hashMap.put("japanese", Integer.valueOf(0));
-        hashMap.put("android", Integer.valueOf(0));
+        hashMap.put(ThemeResources.FRAMEWORK_PACKAGE, Integer.valueOf(0));
         return hashMap;
     }
 

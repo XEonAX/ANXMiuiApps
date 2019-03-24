@@ -6,6 +6,7 @@ import android.content.Intent.ShortcutIconResource;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutInfo.Builder;
 import android.content.pm.ShortcutManager;
+import android.content.res.MiuiConfiguration;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Icon;
 import android.os.Build.VERSION;
@@ -17,7 +18,7 @@ public class ShortcutUtil {
     public static void createShortcut(Context context, String id, String title, Bitmap bitmap, int defResId, Intent intent) {
         if (VERSION.SDK_INT < 26) {
             Intent shortcutIntent = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
-            shortcutIntent.setPackage(SystemPropertiesCompat.get("ro.miui.product.home", "com.miui.home"));
+            shortcutIntent.setPackage(SystemPropertiesCompat.get("ro.miui.product.home", MiuiConfiguration.LAUNCHER_PKG_NAME));
             shortcutIntent.putExtra("duplicate", false);
             shortcutIntent.putExtra("android.intent.extra.shortcut.NAME", title);
             if (bitmap != null) {

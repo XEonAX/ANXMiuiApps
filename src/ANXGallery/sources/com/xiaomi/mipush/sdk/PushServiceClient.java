@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.SystemIntent;
 import android.content.pm.PackageInfo;
 import android.database.ContentObserver;
 import android.os.Build.VERSION;
@@ -14,7 +15,7 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.text.TextUtils;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
+import com.miui.internal.analytics.XiaomiDispatcher;
 import com.xiaomi.channel.commonutils.android.MIUIUtils;
 import com.xiaomi.channel.commonutils.logger.MyLog;
 import com.xiaomi.channel.commonutils.network.Network;
@@ -329,8 +330,8 @@ public class PushServiceClient {
 
     private boolean serviceInstalled() {
         try {
-            PackageInfo pkgInfo = this.mContext.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4);
-            if (pkgInfo != null && pkgInfo.versionCode >= BaiduSceneResult.TEMPLE) {
+            PackageInfo pkgInfo = this.mContext.getPackageManager().getPackageInfo(SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE, 4);
+            if (pkgInfo != null && pkgInfo.versionCode >= 105) {
                 return true;
             }
             return false;
@@ -340,14 +341,14 @@ public class PushServiceClient {
     }
 
     private Intent createServiceIntent() {
-        if (!shouldUseMIUIPush() || "com.xiaomi.xmsf".equals(this.mContext.getPackageName())) {
+        if (!shouldUseMIUIPush() || SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(this.mContext.getPackageName())) {
             return createMyPushChannelIntent();
         }
         return createMIUIPushChannelIntent();
     }
 
     private Intent createGlobalServiceIntent() {
-        if (!"com.xiaomi.xmsf".equals(this.mContext.getPackageName())) {
+        if (!SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(this.mContext.getPackageName())) {
             return createGlobalServiceIntentForApp();
         }
         MyLog.v("pushChannel xmsf create own channel");
@@ -366,8 +367,8 @@ public class PushServiceClient {
     private Intent createMIUIPushChannelIntent() {
         Intent intent = new Intent();
         String pkgName = this.mContext.getPackageName();
-        intent.setPackage("com.xiaomi.xmsf");
-        intent.setClassName("com.xiaomi.xmsf", getPushServiceName());
+        intent.setPackage(SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE);
+        intent.setClassName(SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE, getPushServiceName());
         intent.putExtra("mipush_app_package", pkgName);
         disableMyPushService();
         return intent;
@@ -384,7 +385,7 @@ public class PushServiceClient {
 
     private String getPushServiceName() {
         try {
-            if (this.mContext.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4).versionCode >= BaiduSceneResult.PALACE) {
+            if (this.mContext.getPackageManager().getPackageInfo(SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE, 4).versionCode >= 106) {
                 return "com.xiaomi.push.service.XMPushService";
             }
         } catch (Exception e) {
@@ -457,7 +458,7 @@ public class PushServiceClient {
             return true;
         }
         try {
-            if (this.mContext.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4).versionCode >= BaiduSceneResult.ANCIENT_CHINESE_ARCHITECTURE) {
+            if (this.mContext.getPackageManager().getPackageInfo(SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE, 4).versionCode >= 108) {
                 return true;
             }
             return false;
@@ -516,7 +517,7 @@ public class PushServiceClient {
 
     private boolean isAutoTry() {
         String pkg = this.mContext.getPackageName();
-        if (pkg.contains("miui") || pkg.contains("xiaomi") || (this.mContext.getApplicationInfo().flags & 1) != 0) {
+        if (pkg.contains("miui") || pkg.contains(XiaomiDispatcher.TAG) || (this.mContext.getApplicationInfo().flags & 1) != 0) {
             return true;
         }
         return false;

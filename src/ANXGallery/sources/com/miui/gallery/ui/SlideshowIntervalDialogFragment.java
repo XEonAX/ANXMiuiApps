@@ -27,11 +27,11 @@ public class SlideshowIntervalDialogFragment extends GalleryDialogFragment {
 
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Activity activity = getActivity();
-        final EditText editText = (EditText) LayoutInflater.from(activity).inflate(R.layout.edit_text_dialog, null, false);
+        final View editText = (EditText) LayoutInflater.from(activity).inflate(R.layout.edit_text_dialog, null, false);
         editText.setText(String.valueOf(SlideShow.getSlideShowInterval()));
         editText.selectAll();
         editText.setRawInputType(2);
-        this.mDialog = new Builder(activity).setView(editText).setTitle(R.string.slideshow_interval_dialog_title).setPositiveButton(17039370, null).setNegativeButton(17039360, null).create();
+        this.mDialog = new Builder(activity).setView(editText).setTitle((int) R.string.slideshow_interval_dialog_title).setPositiveButton(17039370, null).setNegativeButton(17039360, null).create();
         this.mDialog.getWindow().setSoftInputMode(4);
         this.mDialog.setOnShowListener(new OnShowListener() {
             public void onShow(DialogInterface dialog) {

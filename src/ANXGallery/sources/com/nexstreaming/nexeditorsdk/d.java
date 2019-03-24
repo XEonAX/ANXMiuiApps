@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import miui.provider.ExtraContacts.DefaultAccount;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -23,7 +24,7 @@ final class d {
     float e;
     nexColorEffect f = null;
     Map<String, String> g = new HashMap();
-    String h = "default";
+    String h = DefaultAccount.NAME;
     String i = "";
     String j = "";
     float k;
@@ -45,7 +46,7 @@ final class d {
                 return "ALL";
             }
             if (str.equals("source_path")) {
-                return "default";
+                return DefaultAccount.NAME;
             }
             if (str.equals("start")) {
                 return "0";
@@ -54,10 +55,10 @@ final class d {
                 return "1";
             }
             if (str.equals("crop_mode") || str.equals("video_crop_mode")) {
-                return "default";
+                return DefaultAccount.NAME;
             }
             if (str.equals("image_crop_speed")) {
-                return "default";
+                return DefaultAccount.NAME;
             }
             if (str.equals("lut")) {
                 return "null";
@@ -77,7 +78,7 @@ final class d {
             if (str.equals("audio_res_pos")) {
                 return "0";
             }
-            return "default";
+            return DefaultAccount.NAME;
         }
     }
 

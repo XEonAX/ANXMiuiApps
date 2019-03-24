@@ -14,6 +14,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import miui.media.Recorder.ErrorCode;
+import miui.mipub.MipubStat;
+import miui.provider.ExtraTelephony.Mms;
 
 public class MessageHandleService extends BaseService {
     private static ConcurrentLinkedQueue<MessageHandleJob> jobQueue = new ConcurrentLinkedQueue();
@@ -82,7 +85,7 @@ public class MessageHandleService extends BaseService {
                 PushMessageReceiver receiver = job.getReceiver();
                 Intent intent = job.getIntent();
                 MiPushCommandMessage commandMessage;
-                switch (intent.getIntExtra("message_type", 1)) {
+                switch (intent.getIntExtra(MipubStat.STAT_MSG_TYPE, 1)) {
                     case 1:
                         PushMessageInterface message = PushMessageProcessor.getInstance(service).processIntent(intent);
                         int msgType = intent.getIntExtra("eventMessageType", -1);
@@ -100,7 +103,7 @@ public class MessageHandleService extends BaseService {
                                 return;
                             } else if (miPushMessage.isNotified()) {
                                 if (msgType == 1000) {
-                                    PushClientReportManager.getInstance(service.getApplicationContext()).reportEvent(service.getPackageName(), intent, 1007, "call notification callBack");
+                                    PushClientReportManager.getInstance(service.getApplicationContext()).reportEvent(service.getPackageName(), intent, ErrorCode.MAX_SIZE_REACHED, "call notification callBack");
                                 } else {
                                     PushClientReportManager.getInstance(service.getApplicationContext()).reportEvent(service.getPackageName(), intent, 3007, "call business callBack");
                                 }
@@ -139,7 +142,7 @@ public class MessageHandleService extends BaseService {
                         }
                         return;
                     case 5:
-                        if ("error_lack_of_permission".equals(intent.getStringExtra("error_type"))) {
+                        if ("error_lack_of_permission".equals(intent.getStringExtra(Mms.ERROR_TYPE))) {
                             String[] permissions = intent.getStringArrayExtra("error_message");
                             if (permissions != null) {
                                 receiver.onRequirePermissions(service, permissions);

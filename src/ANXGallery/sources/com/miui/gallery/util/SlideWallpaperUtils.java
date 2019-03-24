@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import com.miui.gallery.provider.GalleryOpenProvider;
 import com.miui.gallery.stat.BaseSamplingStatHelper;
+import miui.yellowpage.Tag.TagYellowPage;
 
 public class SlideWallpaperUtils {
     public static void setSlideWallpaper(Context context, Uri uri, String sha1) {
@@ -21,7 +22,7 @@ public class SlideWallpaperUtils {
             context.startActivity(intent);
         } catch (Throwable ex) {
             Log.w("SlideWallpaperUtils", ex);
-            BaseSamplingStatHelper.recordCountEvent("photo", "set_slide_wallpaper_fail");
+            BaseSamplingStatHelper.recordCountEvent(TagYellowPage.PHOTO, "set_slide_wallpaper_fail");
         }
     }
 

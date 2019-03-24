@@ -22,6 +22,7 @@ import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.opengles.GL10;
+import miui.text.ExtraTextUtils;
 
 /* compiled from: AssetPreviewView */
 public class a extends GLSurfaceView {
@@ -200,7 +201,7 @@ public class a extends GLSurfaceView {
     }
 
     private static long miliTime() {
-        return System.nanoTime() / 1000000;
+        return System.nanoTime() / ExtraTextUtils.MB;
     }
 
     public a(Context context) {

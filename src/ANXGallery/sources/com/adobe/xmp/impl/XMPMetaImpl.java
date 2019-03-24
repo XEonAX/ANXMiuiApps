@@ -5,7 +5,6 @@ import com.adobe.xmp.XMPMeta;
 import com.adobe.xmp.XMPUtils;
 import com.adobe.xmp.impl.xpath.XMPPathParser;
 import com.adobe.xmp.options.PropertyOptions;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import java.util.Iterator;
 
 public class XMPMetaImpl implements XMPMeta {
@@ -31,12 +30,12 @@ public class XMPMetaImpl implements XMPMeta {
         specificLang = Utils.normalizeLangValue(specificLang);
         XMPNode arrayNode = XMPNodeUtils.findNode(this.tree, XMPPathParser.expandXPath(schemaNS, altTextName), true, new PropertyOptions(7680));
         if (arrayNode == null) {
-            throw new XMPException("Failed to find or create array node", BaiduSceneResult.TAEKWONDO);
+            throw new XMPException("Failed to find or create array node", 102);
         }
         XMPNode currItem;
         if (!arrayNode.getOptions().isArrayAltText()) {
             if (arrayNode.hasChildren() || !arrayNode.getOptions().isArrayAlternate()) {
-                throw new XMPException("Specified property is no alt-text array", BaiduSceneResult.TAEKWONDO);
+                throw new XMPException("Specified property is no alt-text array", 102);
             }
             arrayNode.getOptions().setArrayAltText(true);
         }
@@ -52,7 +51,7 @@ public class XMPMetaImpl implements XMPMeta {
                     break;
                 }
             }
-            throw new XMPException("Language qualifier must be first", BaiduSceneResult.TAEKWONDO);
+            throw new XMPException("Language qualifier must be first", 102);
         }
         if (xdItem != null && arrayNode.getChildrenLength() > 1) {
             arrayNode.removeChild(xdItem);
@@ -140,7 +139,7 @@ public class XMPMetaImpl implements XMPMeta {
         if (valueType == 0 || !propNode.getOptions().isCompositeProperty()) {
             return evaluateNodeValue(valueType, propNode);
         }
-        throw new XMPException("Property must be simple when a value type is requested", BaiduSceneResult.TAEKWONDO);
+        throw new XMPException("Property must be simple when a value type is requested", 102);
     }
 
     public Integer getPropertyInteger(String schemaNS, String propName) throws XMPException {

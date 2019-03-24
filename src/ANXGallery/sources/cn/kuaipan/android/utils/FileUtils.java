@@ -5,6 +5,7 @@ import android.os.Environment;
 import android.util.Log;
 import java.io.File;
 import java.io.IOException;
+import miui.yellowpage.YellowPageContract.Cache;
 
 public class FileUtils {
     private static final File EXTERNAL_STORAGE_ANDROID_DATA_DIRECTORY = new File(new File(Environment.getExternalStorageDirectory(), "Android"), "data");
@@ -12,7 +13,7 @@ public class FileUtils {
     private static File sExternalCacheDir;
 
     public static File getExternalStorageAppCacheDirectory(String packageName) {
-        return new File(new File(EXTERNAL_STORAGE_ANDROID_DATA_DIRECTORY, packageName), "cache");
+        return new File(new File(EXTERNAL_STORAGE_ANDROID_DATA_DIRECTORY, packageName), Cache.DIRECTORY);
     }
 
     public static File getCacheDir(Context context, String folderName, boolean external) {

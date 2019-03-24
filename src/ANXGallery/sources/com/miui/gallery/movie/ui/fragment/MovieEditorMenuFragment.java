@@ -62,6 +62,7 @@ import com.miui.gallery.util.Log;
 import com.miui.gallery.util.ToastUtils;
 import java.util.ArrayList;
 import java.util.List;
+import miui.util.PlayerActions;
 import miui.view.animation.QuarticEaseOutInterpolator;
 
 public class MovieEditorMenuFragment extends Fragment implements MenuActivityListener {
@@ -190,7 +191,7 @@ public class MovieEditorMenuFragment extends Fragment implements MenuActivityLis
                 Intent intent = new Intent();
                 intent.setType("audio/*");
                 intent.setAction("android.intent.action.GET_CONTENT");
-                intent.setPackage("com.miui.player");
+                intent.setPackage(PlayerActions.BROADCAST_PREFIX);
                 try {
                     MovieEditorMenuFragment.this.startActivityForResult(intent, 1000);
                     return false;

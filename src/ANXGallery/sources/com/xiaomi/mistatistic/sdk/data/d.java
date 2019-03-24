@@ -1,6 +1,7 @@
 package com.xiaomi.mistatistic.sdk.data;
 
 import java.util.Map;
+import miui.yellowpage.Tag.TagWebService.CommonResult;
 
 /* compiled from: CustomIncrementalEvent */
 public class d extends e {
@@ -13,6 +14,6 @@ public class d extends e {
     }
 
     public String a() {
-        return "event";
+        return CommonResult.RESULT_TYPE_EVENT;
     }
 }

@@ -4,9 +4,11 @@ import android.util.Log;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
 import java.security.MessageDigest;
+import miui.provider.ExtraTelephony.Phonelist;
+import miui.provider.MiCloudSmsCmd;
 
 public class Encode {
-    static final String[] HEXDIGITS = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
+    static final String[] HEXDIGITS = new String[]{"0", "1", "2", Phonelist.TYPE_VIP, Phonelist.TYPE_CLOUDS_BLACK, Phonelist.TYPE_CLOUDS_WHITE, Phonelist.TYPE_STRONG_CLOUDS_BLACK, "7", "8", "9", "a", "b", "c", MiCloudSmsCmd.TYPE_DISCARD_TOKEN, "e", "f"};
 
     public static byte[] hexStringToByteArray(String string) {
         byte[] bytes = new byte[(string.length() / 2)];

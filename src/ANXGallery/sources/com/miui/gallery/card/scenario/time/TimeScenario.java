@@ -16,6 +16,7 @@ import com.miui.gallery.provider.GalleryContract.Cloud;
 import com.miui.gallery.util.BaseMiscUtil;
 import com.miui.gallery.util.SafeDBUtil;
 import com.miui.gallery.util.SafeDBUtil.QueryHandler;
+import com.miui.internal.vip.VipConstants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -92,11 +93,11 @@ public abstract class TimeScenario extends Scenario {
     }
 
     protected String getDatePeriodFromRecord(Record record) {
-        return DateUtils.getDatePeriodGraceful(getRecordStartTime(record), getRecordEndTime(record) - 3600000);
+        return DateUtils.getDatePeriodGraceful(getRecordStartTime(record), getRecordEndTime(record) - VipConstants.HOUR);
     }
 
     protected String getMonthPeriodFromRecord(Record record) {
-        return DateUtils.getMonthPeriodGraceful(getRecordStartTime(record), getRecordEndTime(record) - 3600000);
+        return DateUtils.getMonthPeriodGraceful(getRecordStartTime(record), getRecordEndTime(record) - VipConstants.HOUR);
     }
 
     protected List<ImageFeature> getCameraMediaIdsByStartEndTimeTags(Integer[] tags, long startTime, long endTime) {
@@ -138,7 +139,7 @@ public abstract class TimeScenario extends Scenario {
         }
         long startTime = ((ImageFeature) imageItems.get(0)).getImageDateTime();
         long endTime = ((ImageFeature) imageItems.get(imageItems.size() - 1)).getImageDateTime();
-        long dayEndTime = DateUtils.getDateTime(startTime) + 86400000;
+        long dayEndTime = DateUtils.getDateTime(startTime) + VipConstants.DAY;
         return new long[]{Math.max(startTime - 10800000, DateUtils.getDateTime(startTime)), Math.min(10800000 + endTime, dayEndTime)};
     }
 

@@ -39,6 +39,7 @@ import com.miui.gallery.request.HostManager;
 import com.miui.gallery.ui.BaseFragment;
 import com.miui.gallery.util.BaseMiscUtil;
 import com.miui.gallery.util.Log;
+import com.miui.internal.hybrid.HybridManager;
 import com.miui.os.Rom;
 import java.util.List;
 import miui.webkit.WebViewClient;
@@ -309,7 +310,7 @@ public class GalleryHybridFragment extends BaseFragment implements HybridOnRefre
     }
 
     public String getPageName() {
-        return "hybrid";
+        return HybridManager.TAG;
     }
 
     public void onAttach(Activity activity) {

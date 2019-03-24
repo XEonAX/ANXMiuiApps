@@ -5,6 +5,7 @@ import com.miui.gallery.stat.BaseSamplingStatHelper;
 import com.miui.gallery.util.BaseMiscUtil;
 import com.miui.gallery.util.Log;
 import java.util.ArrayList;
+import miui.yellowpage.Tag.TagYellowPage;
 
 public class PhotoPagerSamplingStatHelper {
     private static Uri mEditorSavedUri;
@@ -13,7 +14,7 @@ public class PhotoPagerSamplingStatHelper {
         if (BaseMiscUtil.isValid(uris)) {
             if (uris.size() == 1 && mEditorSavedUri != null && mEditorSavedUri.equals(uris.get(0))) {
                 Log.d("PhotoPagerSamplingStatHelper", "User share the photo after edit.");
-                BaseSamplingStatHelper.recordCountEvent("photo", "photo_share_after_edit");
+                BaseSamplingStatHelper.recordCountEvent(TagYellowPage.PHOTO, "photo_share_after_edit");
             }
             mEditorSavedUri = null;
         }

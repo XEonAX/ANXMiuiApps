@@ -1,6 +1,7 @@
 package com.xiaomi.push.service.clientReport;
 
 import android.content.Context;
+import android.content.SystemIntent;
 import android.text.TextUtils;
 import com.nexstreaming.nexeditorsdk.nexProject;
 import com.xiaomi.channel.commonutils.logger.MyLog;
@@ -94,7 +95,7 @@ public class PushClientReportHelper {
     }
 
     public static boolean isInXmsf(Context context) {
-        return (context == null || TextUtils.isEmpty(context.getPackageName()) || !"com.xiaomi.xmsf".equals(context.getPackageName())) ? false : true;
+        return (context == null || TextUtils.isEmpty(context.getPackageName()) || !SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(context.getPackageName())) ? false : true;
     }
 
     public static void sendData(Context context, List<String> dataList) {
@@ -127,7 +128,7 @@ public class PushClientReportHelper {
         clientUploadDataItem.setFromSdk(true);
         clientUploadDataItem.setTimestamp(System.currentTimeMillis());
         clientUploadDataItem.setPkgName(context.getPackageName());
-        clientUploadDataItem.setSourcePackage("com.xiaomi.xmsf");
+        clientUploadDataItem.setSourcePackage(SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE);
         clientUploadDataItem.setId(TinyDataHelper.nextTinyDataItemId());
         clientUploadDataItem.setName("quality_support");
         return clientUploadDataItem;

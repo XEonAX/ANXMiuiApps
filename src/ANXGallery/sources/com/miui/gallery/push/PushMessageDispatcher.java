@@ -14,6 +14,7 @@ import com.xiaomi.mipush.sdk.MiPushMessage;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import miui.provider.ExtraTelephony.UnderstandInfo;
 
 public class PushMessageDispatcher {
     public static void dispatch(Context context, MiPushMessage message) {
@@ -36,7 +37,7 @@ public class PushMessageDispatcher {
             if (messageType == null) {
                 Log.e("PushMessageDispatcher", "Unknown message type: %s", galleryMsg.getType());
                 params = new HashMap();
-                params.put("msg_type", galleryMsg.getType());
+                params.put(UnderstandInfo.MSG_TYPE, galleryMsg.getType());
                 BaseSamplingStatHelper.recordErrorEvent("mipush", "unknown_message_type", params);
                 return;
             }

@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Random;
 import java.util.regex.Pattern;
+import miui.util.HashUtils;
 import org.keyczar.Keyczar;
 
 public class XMStringUtils {
@@ -111,7 +112,7 @@ public class XMStringUtils {
             return null;
         }
         try {
-            MessageDigest lDigest = MessageDigest.getInstance("SHA1");
+            MessageDigest lDigest = MessageDigest.getInstance(HashUtils.SHA1);
             lDigest.update(getBytes(pInput));
             BigInteger lHashInt = new BigInteger(1, lDigest.digest());
             return String.format("%1$032X", new Object[]{lHashInt});

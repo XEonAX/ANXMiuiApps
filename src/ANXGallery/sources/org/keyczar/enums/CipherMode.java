@@ -1,12 +1,13 @@
 package org.keyczar.enums;
 
 import com.google.gson_nex.annotations.Expose;
+import miui.util.CoderUtils;
 
 public enum CipherMode {
-    CBC(0, "AES/CBC/PKCS5Padding", true),
+    CBC(0, CoderUtils.AES_ALGORITHM, true),
     CTR(1, "AES/CTR/NoPadding", true),
     ECB(2, "AES/ECB/NoPadding", false),
-    DET_CBC(3, "AES/CBC/PKCS5Padding", false);
+    DET_CBC(3, CoderUtils.AES_ALGORITHM, false);
     
     private String jceMode;
     @Expose

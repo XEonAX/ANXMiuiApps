@@ -3,6 +3,7 @@ package com.miui.gallery.ui;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.MiuiIntent;
 import android.graphics.RectF;
 import android.net.Uri;
 import android.text.TextUtils;
@@ -32,6 +33,7 @@ import com.miui.gallery.widget.CircleStrokeProgressBar;
 import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.io.File;
 import java.util.Map;
+import miui.provider.Weather.WeatherBaseColumns;
 
 public class PhotoPageVideoItem extends PhotoPageItem {
     private AntiDoubleClickListener mAntiDoubleClickListener = new AntiDoubleClickListener() {
@@ -241,7 +243,7 @@ public class PhotoPageVideoItem extends PhotoPageItem {
             if (getContext() instanceof Activity) {
                 Intent i = ((BaseActivity) getContext()).getIntent();
                 if (i != null) {
-                    showGalleryWhenLocked = i.getBooleanExtra("StartActivityWhenLocked", false);
+                    showGalleryWhenLocked = i.getBooleanExtra(MiuiIntent.EXTRA_START_ACTIVITY_WHEN_LOCKED, false);
                 } else {
                     showGalleryWhenLocked = false;
                 }
@@ -254,7 +256,7 @@ public class PhotoPageVideoItem extends PhotoPageItem {
             Map<String, String> params = new ArrayMap();
             params.put(nexExportFormat.TAG_FORMAT_PATH, StorageUtils.getRelativePath(getContext(), this.mDataItem.getOriginalPath()));
             params.put("duration", String.valueOf(this.mDataItem.getDuration()));
-            params.put("timestamp", String.valueOf(System.currentTimeMillis()));
+            params.put(WeatherBaseColumns.TIMESTAMP, String.valueOf(System.currentTimeMillis()));
             GalleryStatHelper.recordCountEvent("external_intent", "play_video", params);
             return;
         }

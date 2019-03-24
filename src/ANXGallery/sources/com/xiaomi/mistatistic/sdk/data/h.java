@@ -2,6 +2,8 @@ package com.xiaomi.mistatistic.sdk.data;
 
 import com.xiaomi.mistatistic.sdk.controller.j;
 import java.util.Map;
+import miui.yellowpage.YellowPageContract.HttpRequest;
+import miui.yellowpage.YellowPageStatistic.Display;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -25,11 +27,11 @@ public class h extends AbstractEvent {
 
     public JSONObject valueToJSon() throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("category", getCategory());
+        jSONObject.put(Display.CATEGORY, getCategory());
         jSONObject.put("start", this.a);
         jSONObject.put("end", this.mTS);
         if (this.b != null) {
-            jSONObject.put("params", new JSONObject(this.b));
+            jSONObject.put(HttpRequest.PARAMS, new JSONObject(this.b));
         }
         return jSONObject;
     }

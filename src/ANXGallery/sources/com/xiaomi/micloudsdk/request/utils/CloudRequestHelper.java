@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.zip.GZIPInputStream;
+import miui.hybrid.Response;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -62,7 +63,7 @@ public class CloudRequestHelper {
         }
         HttpResponse resp = excuteInternal(post);
         int statusCode = resp.getStatusLine().getStatusCode();
-        if (statusCode == 200) {
+        if (statusCode == Response.CODE_GENERIC_ERROR) {
             try {
                 String response = coder.decrypt(decodeGZipToString(resp));
                 String redirectUrl = CloudUtils.checkRedirect(response, redirectCount);
@@ -108,7 +109,7 @@ public class CloudRequestHelper {
         }
         HttpResponse resp = excuteInternal(request);
         int statusCode = resp.getStatusLine().getStatusCode();
-        if (statusCode == 200) {
+        if (statusCode == Response.CODE_GENERIC_ERROR) {
             try {
                 String response = coder.decrypt(decodeGZipToString(resp));
                 String redirectUrl = CloudUtils.checkRedirect(response, redirectCount);

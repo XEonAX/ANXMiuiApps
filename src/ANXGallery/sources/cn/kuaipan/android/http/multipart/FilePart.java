@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import miui.cloud.backup.data.KeyBinarySettingItem;
 import org.apache.http.util.EncodingUtils;
 
 public class FilePart extends PartBase {
@@ -19,7 +20,7 @@ public class FilePart extends PartBase {
         if (charset == null) {
             charset = "ISO-8859-1";
         }
-        super(name, contentType, charset, "binary");
+        super(name, contentType, charset, KeyBinarySettingItem.TYPE);
         if (partSource == null) {
             throw new IllegalArgumentException("Source may not be null");
         }

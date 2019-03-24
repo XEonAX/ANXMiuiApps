@@ -1,5 +1,6 @@
 package com.nexstreaming.kminternal.nexvideoeditor;
 
+import android.content.res.MiuiConfiguration;
 import android.graphics.Bitmap;
 import android.util.Log;
 import android.util.LruCache;
@@ -11,7 +12,7 @@ public class b {
 
     public static b a() {
         if (a == null) {
-            a = new b(((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8);
+            a = new b(((int) (Runtime.getRuntime().maxMemory() / MiuiConfiguration.THEME_FLAG_ALARM)) / 8);
         }
         return a;
     }

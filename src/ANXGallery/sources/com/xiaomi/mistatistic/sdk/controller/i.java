@@ -1,11 +1,13 @@
 package com.xiaomi.mistatistic.sdk.controller;
 
 import android.content.Context;
+import android.content.MiuiIntent;
 import android.os.Build;
 import android.os.Build.VERSION;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
+import com.miui.internal.vip.VipConstants;
 import com.xiaomi.mistatistic.sdk.BuildSetting;
 import com.xiaomi.mistatistic.sdk.controller.asyncjobs.a;
 import com.xiaomi.mistatistic.sdk.controller.l.b;
@@ -17,6 +19,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import miui.content.res.ThemeResources;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -58,7 +61,7 @@ public class i {
                                             try {
                                                 if (!TextUtils.isEmpty(str)) {
                                                     JSONObject jSONObject = new JSONObject(str);
-                                                    if ("ok".equals(jSONObject.getString("status"))) {
+                                                    if (MiuiIntent.COMMAND_ICON_PANEL_OK.equals(jSONObject.getString("status"))) {
                                                         i.this.a(jSONObject);
                                                         obj = 1;
                                                     }
@@ -133,7 +136,7 @@ public class i {
     }
 
     public boolean d() {
-        return System.currentTimeMillis() - m.a(d.a(), "rt_update_time", 0) > 86400000;
+        return System.currentTimeMillis() - m.a(d.a(), "rt_update_time", 0) > VipConstants.DAY;
     }
 
     public void a(HttpEvent httpEvent) {
@@ -216,7 +219,7 @@ public class i {
             t.a(a, f, treeMap);
             treeMap.put("app_package", d.g());
             treeMap.put("device_uuid", g.a(a));
-            treeMap.put("device_os", "android" + VERSION.SDK_INT);
+            treeMap.put("device_os", ThemeResources.FRAMEWORK_PACKAGE + VERSION.SDK_INT);
             treeMap.put("device_model", Build.MODEL);
             treeMap.put("app_version", d.e());
             treeMap.put("app_channel", d.d());

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowInsets;
 import android.view.WindowManager.LayoutParams;
+import miui.content.res.ThemeResources;
 
 public class WindowCompat {
     private static Boolean sIsNotch;
@@ -44,7 +45,7 @@ public class WindowCompat {
             }
             return sTopNotchHeight.intValue();
         }
-        int resourceId = activity.getResources().getIdentifier("notch_height", "dimen", "android");
+        int resourceId = activity.getResources().getIdentifier("notch_height", "dimen", ThemeResources.FRAMEWORK_PACKAGE);
         if (resourceId <= 0) {
             return 0;
         }

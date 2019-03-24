@@ -26,6 +26,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 import miui.date.DateUtils;
 import miui.graphics.BitmapFactory;
+import miui.hybrid.Response;
 
 public class BaseDataItem implements Serializable {
     private static String TAG = "BaseDataItem";
@@ -261,7 +262,7 @@ public class BaseDataItem implements Serializable {
     public PhotoDetailInfo getDetailInfo(Context context) {
         PhotoDetailInfo info = new PhotoDetailInfo();
         info.addDetail(1, Long.valueOf(getCreateTime()));
-        info.addDetail(200, getOriginalPath());
+        info.addDetail(Response.CODE_GENERIC_ERROR, getOriginalPath());
         info.addDetail(2, FileUtils.getFileName(getOriginalPath()));
         info.addDetail(3, Long.valueOf(getSize()));
         info.addDetail(9, getLocation());
@@ -435,7 +436,7 @@ public class BaseDataItem implements Serializable {
     }
 
     public String getViewTitle(Context context) {
-        return DateUtils.formatDateTime(getCreateTime(), 896);
+        return DateUtils.formatDateTime(getCreateTime(), DateUtils.FORMAT_SHOW_DATE);
     }
 
     public String getViewSubTitle(Context context) {

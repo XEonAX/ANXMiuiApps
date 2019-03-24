@@ -9,10 +9,11 @@ import android.text.TextUtils;
 import com.miui.account.AccountHelper;
 import miui.cloud.sync.MiCloudStatusInfo;
 import miui.cloud.sync.MiCloudStatusInfo.QuotaInfo;
+import miui.content.ExtraIntent;
 
 public class MiCloudStatusInfoReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
-        if ("com.xiaomi.action.MICLOUD_STATUS_INFO_CHANGED".equals(intent.getAction())) {
+        if (ExtraIntent.ACTION_MICLOUD_STATUS_INFO_CHANGED.equals(intent.getAction())) {
             handleSpaceFullIfNeeded(context);
         }
     }

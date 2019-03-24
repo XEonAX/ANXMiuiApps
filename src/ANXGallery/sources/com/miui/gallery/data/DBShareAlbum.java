@@ -6,7 +6,7 @@ import com.miui.gallery.cloud.CloudUtils;
 import com.miui.gallery.cloud.baby.BabyAlbumUtils;
 import com.miui.gallery.cloud.baby.BabyInfo;
 import com.miui.gallery.provider.GalleryDBHelper;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
+import com.miui.internal.analytics.NormalPolicy;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -74,13 +74,13 @@ public class DBShareAlbum implements DBItem {
         if (entryJson.has("status")) {
             values.put("albumStatus", entryJson.getString("status"));
         }
-        values.put("albumTag", entryJson.getString(nexExportFormat.TAG_FORMAT_TAG));
+        values.put("albumTag", entryJson.getString("tag"));
         values.put("creatorId", entryJson.getString("creatorId"));
         JSONObject contentJson = entryJson.getJSONObject("content");
         values.put("serverId", Long.valueOf(CloudUtils.getLongAttributeFromJson(contentJson, "id")));
         values.put("serverStatus", contentJson.getString("status"));
-        values.put("serverTag", contentJson.getString(nexExportFormat.TAG_FORMAT_TAG));
-        values.put("serverType", contentJson.getString(nexExportFormat.TAG_FORMAT_TYPE));
+        values.put("serverTag", contentJson.getString("tag"));
+        values.put("serverType", contentJson.getString("type"));
         values.put("fileName", contentJson.getString("fileName"));
         if (contentJson.has("dateModified")) {
             values.put("dateModified", contentJson.getString("dateModified"));
@@ -102,7 +102,7 @@ public class DBShareAlbum implements DBItem {
                 int i = 0;
                 while (i < array.length()) {
                     JSONObject obj = array.getJSONObject(i);
-                    if (obj.has(nexExportFormat.TAG_FORMAT_TYPE) && obj.getString(nexExportFormat.TAG_FORMAT_TYPE).equalsIgnoreCase(BabyAlbumUtils.BABY_BABY)) {
+                    if (obj.has("type") && obj.getString("type").equalsIgnoreCase(BabyAlbumUtils.BABY_BABY)) {
                         String babyInfoJson = obj.toString();
                         String peopleId = null;
                         if (old != null) {
@@ -194,6 +194,6 @@ public class DBShareAlbum implements DBItem {
     }
 
     public static boolean isNormalStatus(String serverStatus, String albumStatus) {
-        return "normal".equals(albumStatus) && "custom".equals(serverStatus);
+        return NormalPolicy.TAG.equals(albumStatus) && "custom".equals(serverStatus);
     }
 }

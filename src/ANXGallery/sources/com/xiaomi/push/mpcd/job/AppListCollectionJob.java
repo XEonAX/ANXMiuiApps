@@ -5,6 +5,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import com.xiaomi.channel.commonutils.android.AppInfoUtils;
 import com.xiaomi.xmpush.thrift.ClientCollectionType;
+import miui.hybrid.Response;
+import miui.provider.ExtraContacts.ConferenceCalls;
 
 public class AppListCollectionJob extends CollectionJob {
     public AppListCollectionJob(Context context, int period) {
@@ -19,12 +21,12 @@ public class AppListCollectionJob extends CollectionJob {
             for (PackageInfo info : packageManager.getInstalledPackages(128)) {
                 if ((info.applicationInfo.flags & 1) == 0) {
                     if (builder.length() > 0) {
-                        builder.append(";");
+                        builder.append(ConferenceCalls.SPLIT_EXPRESSION);
                     }
                     String label = info.applicationInfo.loadLabel(packageManager).toString();
                     builder.append(label).append(",").append(info.packageName).append(",").append(info.versionName).append(",").append(info.versionCode).append(",").append(AppInfoUtils.getAppPermissionBase64Str(this.context, info.packageName));
                     size++;
-                    if (size >= 200) {
+                    if (size >= Response.CODE_GENERIC_ERROR) {
                         break;
                     }
                 }

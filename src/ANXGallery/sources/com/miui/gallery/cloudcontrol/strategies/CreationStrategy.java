@@ -2,6 +2,7 @@ package com.miui.gallery.cloudcontrol.strategies;
 
 import android.text.TextUtils;
 import com.google.gson.annotations.SerializedName;
+import miui.hybrid.Response;
 
 public class CreationStrategy extends BaseStrategy {
     @SerializedName("collage_entry")
@@ -15,7 +16,7 @@ public class CreationStrategy extends BaseStrategy {
     @SerializedName("print_intent_uri")
     private String mPrintIntentUri = "xiaomiprint://start.uri.activity?action=createWork";
     @SerializedName("print_max_image_count")
-    private int mPrintMaxImageCount = 200;
+    private int mPrintMaxImageCount = Response.CODE_GENERIC_ERROR;
 
     public CreationStrategy(boolean isCollageEntryEnable, boolean isPhotoMovieEntryEnable, boolean isPrintEntryEnable) {
         this.mIsCollageEntryEnable = isCollageEntryEnable;
@@ -44,7 +45,7 @@ public class CreationStrategy extends BaseStrategy {
     }
 
     public int getPrintMaxImageCount() {
-        return this.mPrintMaxImageCount > 0 ? this.mPrintMaxImageCount : 200;
+        return this.mPrintMaxImageCount > 0 ? this.mPrintMaxImageCount : Response.CODE_GENERIC_ERROR;
     }
 
     public static CreationStrategy createDefault() {
@@ -59,7 +60,7 @@ public class CreationStrategy extends BaseStrategy {
             this.mMinPrintVersionCode = 34;
         }
         if (this.mPrintMaxImageCount <= 0) {
-            this.mPrintMaxImageCount = 200;
+            this.mPrintMaxImageCount = Response.CODE_GENERIC_ERROR;
         }
     }
 }

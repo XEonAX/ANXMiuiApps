@@ -7,6 +7,7 @@ import com.miui.gallery.video.editor.model.VideoEditorBaseModel;
 import com.miui.gallery.video.editor.util.ToolsUtil;
 import com.nexstreaming.nexeditorsdk.nexTemplateManager.Template;
 import java.util.HashMap;
+import miui.date.Calendar;
 
 public class SmartEffect extends VideoEditorBaseModel {
     private static HashMap<String, Integer> smartEffectNames = new HashMap<String, Integer>() {
@@ -99,7 +100,7 @@ public class SmartEffect extends VideoEditorBaseModel {
     }
 
     public boolean isLimitSixtySeconds() {
-        return this.mLongTime == 60000;
+        return this.mLongTime == Calendar.MILLISECOND_OF_MINUTE;
     }
 
     public boolean isLimitFourtySeconds() {

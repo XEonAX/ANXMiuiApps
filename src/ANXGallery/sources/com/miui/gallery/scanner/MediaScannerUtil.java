@@ -29,6 +29,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
+import miui.yellowpage.YellowPageContract.HttpRequest;
 
 public class MediaScannerUtil {
     private static final String[] FIND_NEW_MEDIA_PROJECTION = new String[]{"_id", "_data"};
@@ -239,7 +240,7 @@ public class MediaScannerUtil {
 
     private static void recordScannerException(String method, Exception e) {
         Map<String, String> params = BaseSamplingStatHelper.generatorCommonParams();
-        params.put("method", method);
+        params.put(HttpRequest.PARAM_METHOD, method);
         BaseSamplingStatHelper.recordErrorEvent("media_scanner", String.format(Locale.US, "scanner_%s", new Object[]{e.getClass().getSimpleName()}), params);
     }
 

@@ -10,7 +10,6 @@ import com.baidu.vis.ClassIfication.SDKExceptions.IlleagleCpuArch;
 import com.baidu.vis.ClassIfication.SDKExceptions.MissingModleFileInAssetFolder;
 import com.baidu.vis.ClassIfication.SDKExceptions.NV21BytesLengthNotMatch;
 import com.baidu.vis.ClassIfication.SDKExceptions.NoSDCardPermission;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -100,7 +99,7 @@ public class Util {
                             e2 = e5;
                             out = out2;
                             try {
-                                Log.e(nexExportFormat.TAG_FORMAT_TAG, "Failed to copy asset file: " + nnFileName, e2);
+                                Log.e("tag", "Failed to copy asset file: " + nnFileName, e2);
                                 if (in != null) {
                                 }
                                 if (out == null) {
@@ -132,7 +131,7 @@ public class Util {
                         }
                     } catch (IOException e8) {
                         e2 = e8;
-                        Log.e(nexExportFormat.TAG_FORMAT_TAG, "Failed to copy asset file: " + nnFileName, e2);
+                        Log.e("tag", "Failed to copy asset file: " + nnFileName, e2);
                         if (in != null) {
                             try {
                                 in.close();

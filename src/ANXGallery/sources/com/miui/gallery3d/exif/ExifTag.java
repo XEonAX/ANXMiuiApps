@@ -1,5 +1,6 @@
 package com.miui.gallery3d.exif;
 
+import com.miui.internal.view.menu.MenuBuilder;
 import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -194,7 +195,7 @@ public class ExifTag {
             return false;
         }
         if (obj instanceof Short) {
-            return setValue(((Short) obj).shortValue() & 65535);
+            return setValue(((Short) obj).shortValue() & MenuBuilder.USER_MASK);
         }
         if (obj instanceof String) {
             return setValue((String) obj);
@@ -229,7 +230,7 @@ public class ExifTag {
             Short[] arr = (Short[]) obj;
             fin = new int[arr.length];
             for (i = 0; i < arr.length; i++) {
-                fin[i] = arr[i] == null ? 0 : arr[i].shortValue() & 65535;
+                fin[i] = arr[i] == null ? 0 : arr[i].shortValue() & MenuBuilder.USER_MASK;
             }
             return setValue(fin);
         } else if (obj instanceof Integer[]) {
@@ -407,7 +408,7 @@ public class ExifTag {
 
     private boolean checkOverflowForUnsignedShort(int[] value) {
         for (int v : value) {
-            if (v > 65535 || v < 0) {
+            if (v > MenuBuilder.USER_MASK || v < 0) {
                 return true;
             }
         }

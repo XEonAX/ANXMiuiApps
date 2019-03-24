@@ -143,7 +143,7 @@ public class SearchFeedbackHelper {
         final FeedbackType feedbackType2 = feedbackType;
         final Activity activity2 = activity;
         final OnFeedbackCompleteListener onFeedbackCompleteListener = completeListener;
-        builder.setTitle(getFeedbackDialogText(activity, tagName, feedbackType)).setPositiveButton(R.string.ok, new OnClickListener() {
+        builder.setTitle(getFeedbackDialogText(activity, tagName, feedbackType)).setPositiveButton((int) R.string.ok, new OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 final boolean contribute = ((AlertDialog) dialog).isChecked();
                 ProcessTask<Void, Integer> feedbackTask = new ProcessTask(new ProcessCallback<Void, Integer>() {
@@ -163,7 +163,7 @@ public class SearchFeedbackHelper {
                 feedbackTask.showProgress(activity2, activity2.getString(R.string.operation_in_process));
                 feedbackTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
             }
-        }).setNegativeButton(R.string.cancel, null);
+        }).setNegativeButton((int) R.string.cancel, null);
         try {
             builder.create().show();
         } catch (IllegalStateException ex) {

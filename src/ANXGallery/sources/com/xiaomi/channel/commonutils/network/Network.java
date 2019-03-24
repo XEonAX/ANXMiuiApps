@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
+import com.miui.internal.vip.utils.AuthHttpRequest;
 import com.xiaomi.channel.commonutils.file.IOUtils;
 import com.xiaomi.channel.commonutils.string.MD5;
 import java.io.BufferedReader;
@@ -178,7 +179,7 @@ public class Network {
             conn.setDoInput(true);
             conn.setDoOutput(true);
             conn.setUseCaches(false);
-            conn.setRequestMethod("POST");
+            conn.setRequestMethod(AuthHttpRequest.METHOD_POST);
             conn.setRequestProperty("Connection", "Keep-Alive");
             conn.setRequestProperty("Content-Type", "multipart/form-data;boundary=*****");
             if (headers != null) {
@@ -464,10 +465,10 @@ public class Network {
     }
 
     public static HttpResponse doHttpPost(Context context, String url, Map<String, String> paramsMap) throws IOException {
-        return httpRequest(context, url, "POST", null, fromParamsMapToString(paramsMap));
+        return httpRequest(context, url, AuthHttpRequest.METHOD_POST, null, fromParamsMapToString(paramsMap));
     }
 
-    /* JADX WARNING: Removed duplicated region for block: B:40:0x014b A:{ExcHandler: all (r5_2 'e' java.lang.Throwable), PHI: r10 r11 , Splitter: B:1:0x0008} */
+    /* JADX WARNING: Removed duplicated region for block: B:40:0x014b A:{Splitter: B:1:0x0008, PHI: r10 r11 , ExcHandler: all (r5_2 'e' java.lang.Throwable)} */
     /* JADX WARNING: Missing block: B:40:0x014b, code:
             r5 = move-exception;
      */
@@ -485,7 +486,7 @@ public class Network {
             conn.setConnectTimeout(10000);
             conn.setReadTimeout(15000);
             if (httpMethod == null) {
-                httpMethod = "GET";
+                httpMethod = AuthHttpRequest.METHOD_GET;
             }
             conn.setRequestMethod(httpMethod);
             if (headers != null) {

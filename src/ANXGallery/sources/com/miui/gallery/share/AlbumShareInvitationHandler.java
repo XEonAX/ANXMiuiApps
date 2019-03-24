@@ -16,6 +16,7 @@ import com.miui.gallery.share.AlbumShareUIManager.BlockMessage;
 import com.miui.gallery.share.AlbumShareUIManager.OnCompletionListener;
 import com.miui.gallery.util.SyncUtil;
 import java.lang.ref.WeakReference;
+import miui.app.constants.ThemeManagerConstants;
 
 public class AlbumShareInvitationHandler {
 
@@ -38,7 +39,7 @@ public class AlbumShareInvitationHandler {
         }
 
         protected static void removeNotification() {
-            ((NotificationManager) GalleryApp.sGetAndroidContext().getSystemService("notification")).cancel(1);
+            ((NotificationManager) GalleryApp.sGetAndroidContext().getSystemService(ThemeManagerConstants.COMPONENT_CODE_NOTIFICATION)).cancel(1);
         }
     }
 

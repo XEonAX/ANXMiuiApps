@@ -28,6 +28,9 @@ import com.xiaomi.micloudsdk.request.utils.CloudUtils;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import miui.mipub.MipubStat;
+import miui.provider.ExtraTelephony.FirewallLog;
+import miui.util.PlayerActions.Out;
 import org.json.JSONObject;
 
 public class ScenarioAlbumTask extends ScenarioTask {
@@ -77,7 +80,7 @@ public class ScenarioAlbumTask extends ScenarioTask {
 
     private void statScenarioCreateFailed() {
         HashMap<String, String> params = new HashMap();
-        params.put("reason", "No enough image");
+        params.put(FirewallLog.REASON, "No enough image");
         BaseSamplingStatHelper.recordCountEvent("assistant", "assistant_card_create_failed", params);
     }
 
@@ -117,7 +120,7 @@ public class ScenarioAlbumTask extends ScenarioTask {
                         selectImages.remove(maxSelectedImageCount);
                     }
                 }
-                Uri detailUrl = CardUtil.getAlbumUri("album");
+                Uri detailUrl = CardUtil.getAlbumUri(Out.KEY_ALBUM);
                 Builder imageUri = new Builder(GalleryApp.sGetAndroidContext()).setTitle(scenario.generateTitle(record, selectImages)).setDescription(scenario.generateDescription(record, selectImages)).setDeletable(scenario.isDeletable()).setType(0).setImageUri(null);
                 if (detailUrl == null) {
                     str = null;
@@ -125,7 +128,7 @@ public class ScenarioAlbumTask extends ScenarioTask {
                     str = detailUrl.toString();
                 }
                 Card card = imageUri.setDetailUrl(str).setUniqueKey(record.getUniqueKey()).setAllMediaSha1s(CardUtil.getSha1sFromImages(mediaFeatureItems)).setSelectedMediaSha1s(CardUtil.getSha1sFromImages(selectImages)).setCoverMediaFeatureItems(CardUtil.getCardCovers(selectImages)).setScenarioId(record.getScenarioId()).setCreateBy(0).setValidStartTime(0).setValidEndTime(Long.MAX_VALUE).build();
-                List<Card> existCardList = GalleryEntityManager.getInstance().query(Card.class, "ignored = 0 AND scenarioId = " + record.getScenarioId() + " AND " + "createTime" + " > " + (System.currentTimeMillis() - 604800000), null, "createTime desc", null);
+                List<Card> existCardList = GalleryEntityManager.getInstance().query(Card.class, "ignored = 0 AND scenarioId = " + record.getScenarioId() + " AND " + "createTime" + " > " + (System.currentTimeMillis() - MipubStat.STAT_EXPIRY_DATA), null, "createTime desc", null);
                 if (BaseMiscUtil.isValid(existCardList)) {
                     for (Card cardLocal : existCardList) {
                         if (CardUtil.isDuplicated(card, cardLocal)) {

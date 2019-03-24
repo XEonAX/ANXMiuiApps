@@ -2,6 +2,7 @@ package com.nexstreaming.nexeditorsdk;
 
 import android.graphics.Bitmap;
 import android.graphics.ColorMatrix;
+import com.miui.internal.view.menu.MenuBuilder;
 import com.nexstreaming.kminternal.kinemaster.config.a;
 import com.nexstreaming.kminternal.kinemaster.editorwrapper.b;
 import com.nexstreaming.kminternal.kinemaster.editorwrapper.b.c;
@@ -23,7 +24,7 @@ public final class nexColorEffect implements Cloneable {
     public static final nexColorEffect PASTEL = new nexColorEffect("PASTEL", 0.08f, -0.06f, -0.5f, -11184811);
     public static final nexColorEffect PINK = new nexColorEffect("PINK", 0.1f, -0.3f, -0.6f, -6533297);
     public static final nexColorEffect PURPLE = new nexColorEffect("PURPLE", 0.08f, -0.06f, -0.3f, -5614132);
-    public static final nexColorEffect RED_ALERT = new nexColorEffect("RED_ALERT", -0.3f, -0.19f, -1.0f, -65536);
+    public static final nexColorEffect RED_ALERT = new nexColorEffect("RED_ALERT", -0.3f, -0.19f, -1.0f, MenuBuilder.CATEGORY_MASK);
     public static final nexColorEffect ROUGE = new nexColorEffect("ROUGE", 0.08f, -0.06f, -0.6f, -43691);
     public static final nexColorEffect SEPIA = new nexColorEffect("SEPIA", 0.12f, -0.12f, -0.3f, -9420268);
     public static final nexColorEffect SPRING = new nexColorEffect("SPRING", 0.08f, -0.06f, -0.3f, -5583787);

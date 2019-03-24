@@ -37,6 +37,7 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import miui.cloud.backup.data.KeyStringSettingItem;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -360,7 +361,7 @@ class StickerProvider extends AbstractStickerProvider {
                     if (cateName.startsWith("@string/")) {
                         cateName = cateName.substring(stringHeaderLength);
                         int catId = cateObj.getInt("id");
-                        if (resources.getIdentifier(cateName, "string", "com.miui.gallery") == 0) {
+                        if (resources.getIdentifier(cateName, KeyStringSettingItem.TYPE, "com.miui.gallery") == 0) {
                             Log.e("StickerProvider", "not valid category name string resource:" + cateName);
                         } else {
                             JSONArray items = cateObj.getJSONArray("items");

@@ -31,6 +31,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArraySet;
+import miui.cloud.backup.SettingsBackupConsts;
+import miui.provider.ExtraTelephony.FirewallLog;
 
 public class PrintInstallHelper {
     private static PrintInstallHelper sInstance;
@@ -61,7 +63,7 @@ public class PrintInstallHelper {
         }
 
         public void onReceive(Context context, Intent intent) {
-            if (TextUtils.equals(intent.getStringExtra("packageName"), PrintInstallHelper.this.mPackageName)) {
+            if (TextUtils.equals(intent.getStringExtra(SettingsBackupConsts.EXTRA_PACKAGE_NAME), PrintInstallHelper.this.mPackageName)) {
                 int errorCode = intent.getIntExtra("errorCode", 0);
                 int downloadStatus = intent.getIntExtra("status", 0);
                 Log.d("PrintInstallHelper", "install error code: %d, download status: %d", Integer.valueOf(errorCode), Integer.valueOf(downloadStatus));
@@ -69,7 +71,7 @@ public class PrintInstallHelper {
                     PrintInstallHelper.this.resumeInstall();
                 } else if (PrintInstallHelper.this.isInstallFinish(errorCode)) {
                     boolean isSuccess;
-                    int reason = intent.getIntExtra("reason", 0);
+                    int reason = intent.getIntExtra(FirewallLog.REASON, 0);
                     Map param;
                     if (PrintInstallHelper.this.isInstallSuccess(errorCode)) {
                         isSuccess = true;
@@ -225,7 +227,7 @@ public class PrintInstallHelper {
                             try {
                                 PrintInstallHelper.this.mDownloadManager = Stub.asInterface(service);
                                 Bundle args = new Bundle();
-                                args.putString("packageName", packageName);
+                                args.putString(SettingsBackupConsts.EXTRA_PACKAGE_NAME, packageName);
                                 args.putString("ref", "MiuiGallery");
                                 args.putString("senderPackageName", "com.miui.gallery");
                                 if (!isSilent) {

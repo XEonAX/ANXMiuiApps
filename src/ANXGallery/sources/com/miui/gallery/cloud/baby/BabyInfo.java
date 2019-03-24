@@ -5,7 +5,6 @@ import android.os.Parcelable;
 import android.os.Parcelable.Creator;
 import android.text.TextUtils;
 import com.miui.gallery.util.Log;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.util.Calendar;
 import java.util.TimeZone;
 import org.json.JSONObject;
@@ -129,7 +128,7 @@ public final class BabyInfo implements Parcelable {
         bd.append(this.mLocalFlag);
         bd.append(",");
         bd.append("'");
-        bd.append(nexExportFormat.TAG_FORMAT_TYPE);
+        bd.append("type");
         bd.append("':");
         bd.append("'");
         bd.append(BabyAlbumUtils.BABY_BABY);

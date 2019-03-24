@@ -3,6 +3,7 @@ package com.google.zxing.qrcode.encoder;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import com.google.zxing.qrcode.decoder.Mode;
 import com.google.zxing.qrcode.decoder.Version;
+import miui.hybrid.Response;
 
 public final class QRCode {
     private ErrorCorrectionLevel ecLevel;
@@ -16,7 +17,7 @@ public final class QRCode {
     }
 
     public String toString() {
-        StringBuilder result = new StringBuilder(200);
+        StringBuilder result = new StringBuilder(Response.CODE_GENERIC_ERROR);
         result.append("<<\n");
         result.append(" mode: ");
         result.append(this.mode);

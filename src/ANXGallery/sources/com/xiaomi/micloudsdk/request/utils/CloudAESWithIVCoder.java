@@ -9,6 +9,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+import miui.reflect.Field;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.keyczar.Keyczar;
@@ -22,8 +23,8 @@ public class CloudAESWithIVCoder extends AESWithIVCoder {
         checkThreadIdThrow();
         try {
             JSONObject result = new JSONObject(responseBody);
-            String edata = result.getString("D");
-            String[] elems = result.getString("S").split(":");
+            String edata = result.getString(Field.DOUBLE_SIGNATURE_PRIMITIVE);
+            String[] elems = result.getString(Field.SHORT_SIGNATURE_PRIMITIVE).split(":");
             if (elems.length != 2) {
                 throw new SecurityException("not 2 columns in security info");
             }

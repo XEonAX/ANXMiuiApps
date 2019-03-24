@@ -9,6 +9,7 @@ import com.miui.gallery.GalleryApp;
 import com.miui.gallery.provider.GalleryContract.CloudUser;
 import com.miui.gallery.provider.GalleryContract.ShareUser;
 import com.miui.gallery.share.AlbumShareUIManager.OnCompletionListener;
+import com.miui.internal.analytics.NormalPolicy;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -37,7 +38,7 @@ public abstract class CloudUserCache extends DBCache<String, List<CloudUserCache
         }
 
         protected String[] getSelectionArgs() {
-            return new String[]{"normal"};
+            return new String[]{NormalPolicy.TAG};
         }
     };
     private static final CloudUserCache sSharerUserCache = new CloudUserCache() {

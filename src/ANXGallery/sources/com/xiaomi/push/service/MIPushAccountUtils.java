@@ -3,6 +3,7 @@ package com.xiaomi.push.service;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.SystemIntent;
 import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.os.Build.VERSION;
@@ -20,6 +21,10 @@ import com.xiaomi.smack.ConnectionConfiguration;
 import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
+import miui.content.ExtraIntent;
+import miui.provider.ExtraNetwork;
+import miui.telephony.TelephonyConstants;
+import miui.yellowpage.Tag.TagWebService.CommonResult;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -39,20 +44,20 @@ public class MIPushAccountUtils {
             } else {
                 SharedPreferences sp = context.getSharedPreferences("mipush_account", 0);
                 String uuid = sp.getString(nexExportFormat.TAG_FORMAT_UUID, null);
-                String token = sp.getString("token", null);
+                String token = sp.getString(ExtraIntent.XIAOMI_KEY_AUTHTOKEN, null);
                 String security = sp.getString("security", null);
                 String appId = sp.getString("app_id", null);
                 String appToken = sp.getString("app_token", null);
-                String packageName = sp.getString("package_name", null);
-                String deviceId = sp.getString("device_id", null);
+                String packageName = sp.getString(ExtraNetwork.FIREWALL_PACKAGE_NAME, null);
+                String deviceId = sp.getString(TelephonyConstants.EXTRA_DEVICE_ID, null);
                 int envType = sp.getInt("env_type", 1);
                 if (!TextUtils.isEmpty(deviceId) && deviceId.startsWith("a-")) {
                     deviceId = DeviceInfo.getSimpleDeviceId(context);
-                    sp.edit().putString("device_id", deviceId).commit();
+                    sp.edit().putString(TelephonyConstants.EXTRA_DEVICE_ID, deviceId).commit();
                 }
                 if (!(TextUtils.isEmpty(uuid) || TextUtils.isEmpty(token) || TextUtils.isEmpty(security))) {
                     String currentDeviceId = DeviceInfo.getSimpleDeviceId(context);
-                    if ("com.xiaomi.xmsf".equals(context.getPackageName()) || TextUtils.isEmpty(currentDeviceId) || TextUtils.isEmpty(deviceId) || deviceId.equals(currentDeviceId)) {
+                    if (SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(context.getPackageName()) || TextUtils.isEmpty(currentDeviceId) || TextUtils.isEmpty(deviceId) || deviceId.equals(currentDeviceId)) {
                         sAccount = new MIPushAccount(uuid, token, security, appId, appToken, packageName, envType);
                         mIPushAccount = sAccount;
                     } else {
@@ -101,7 +106,7 @@ public class MIPushAccountUtils {
                 finalAppToken = appToken;
             }
             if (isMIUIPush(context)) {
-                finalPackageName = "com.xiaomi.xmsf";
+                finalPackageName = SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE;
             } else {
                 finalPackageName = packageName;
             }
@@ -150,10 +155,10 @@ public class MIPushAccountUtils {
             }
             if (!TextUtils.isEmpty(result)) {
                 JSONObject jSONObject = new JSONObject(result);
-                if (jSONObject.getInt("code") == 0) {
+                if (jSONObject.getInt(CommonResult.RESULT_CODE) == 0) {
                     JSONObject data = jSONObject.getJSONObject("data");
                     String ssecurity = data.getString("ssecurity");
-                    String token = data.getString("token");
+                    String token = data.getString(ExtraIntent.XIAOMI_KEY_AUTHTOKEN);
                     String userId = data.getString("userId");
                     if (TextUtils.isEmpty(res)) {
                         res = "an" + XMStringUtils.generateRandomString(6);
@@ -163,7 +168,7 @@ public class MIPushAccountUtils {
                     DeviceInfo.updateVirtDevId(context, data.optString("vdevid"));
                     sAccount = account;
                 } else {
-                    MIPushClientManager.notifyRegisterError(context, jSONObject.getInt("code"), jSONObject.optString("description"));
+                    MIPushClientManager.notifyRegisterError(context, jSONObject.getInt(CommonResult.RESULT_CODE), jSONObject.optString("description"));
                     MyLog.w(result);
                 }
             }
@@ -194,18 +199,18 @@ public class MIPushAccountUtils {
     }
 
     private static boolean isMIUIPush(Context context) {
-        return context.getPackageName().equals("com.xiaomi.xmsf");
+        return context.getPackageName().equals(SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE);
     }
 
     public static void persist(Context context, MIPushAccount pushAccount) {
         Editor edit = context.getSharedPreferences("mipush_account", 0).edit();
         edit.putString(nexExportFormat.TAG_FORMAT_UUID, pushAccount.account);
         edit.putString("security", pushAccount.security);
-        edit.putString("token", pushAccount.token);
+        edit.putString(ExtraIntent.XIAOMI_KEY_AUTHTOKEN, pushAccount.token);
         edit.putString("app_id", pushAccount.appId);
-        edit.putString("package_name", pushAccount.packageName);
+        edit.putString(ExtraNetwork.FIREWALL_PACKAGE_NAME, pushAccount.packageName);
         edit.putString("app_token", pushAccount.appToken);
-        edit.putString("device_id", DeviceInfo.getSimpleDeviceId(context));
+        edit.putString(TelephonyConstants.EXTRA_DEVICE_ID, DeviceInfo.getSimpleDeviceId(context));
         edit.putInt("env_type", pushAccount.envType);
         edit.commit();
         notifyAccountChange();

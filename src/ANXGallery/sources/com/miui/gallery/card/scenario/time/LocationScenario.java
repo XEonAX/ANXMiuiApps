@@ -10,6 +10,7 @@ import com.miui.gallery.dao.GalleryEntityManager;
 import com.miui.gallery.data.LocationManager;
 import java.util.ArrayList;
 import java.util.List;
+import miui.hybrid.Response;
 
 public abstract class LocationScenario extends TimeScenario {
     protected static final String ALL_IMAGE_SELECTION = (ScenarioConstants.CAMERA_BASE_SELECTION + " AND " + "location" + " is not null");
@@ -29,7 +30,7 @@ public abstract class LocationScenario extends TimeScenario {
 
     public List<Record> findRecords() {
         this.mTargetCity = null;
-        Integer[] ids = new Integer[]{Integer.valueOf(BaiduSceneResult.BRIDGE), Integer.valueOf(201)};
+        Integer[] ids = new Integer[]{Integer.valueOf(BaiduSceneResult.BRIDGE), Integer.valueOf(Response.CODE_CONFIG_ERROR)};
         return GalleryEntityManager.getInstance().query(Record.class, String.format("%s IN (%s) AND %s > %s", new Object[]{"scenarioId", TextUtils.join(",", ids), "time", String.valueOf(DateUtils.getCurrentTimeMillis() - 15552000000L)}), null, "time ASC", null);
     }
 

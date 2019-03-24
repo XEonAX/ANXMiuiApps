@@ -20,6 +20,8 @@ import com.miui.gallery.util.deleterecorder.DeleteRecorder;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+import miui.provider.ExtraTelephony.DeletableSyncColumns;
+import miui.yellowpage.YellowPageContract.Search;
 
 class MediaFileHandleJob {
     private String mAlbumDir;
@@ -274,7 +276,7 @@ class MediaFileHandleJob {
             long interval = (System.currentTimeMillis() - lastModify) / 1000;
             if (lastModify > 0 && interval < 60) {
                 Map<String, String> params = new HashMap();
-                params.put("local", String.valueOf(local));
+                params.put(Search.LOCAL_SEARCH, String.valueOf(local));
                 BaseSamplingStatHelper.recordCountEvent("Sync", "sync_photo_delete_in_one_minute", params);
                 BaseSamplingStatHelper.recordNumericPropertyEvent("Sync", "sync_photo_delete_interval", interval);
             }
@@ -289,7 +291,7 @@ class MediaFileHandleJob {
             return false;
         } else if (fileParent.equalsIgnoreCase(this.mAlbumDir)) {
             MediaFileUtils.deleteFileType(FileType.NORMAL, path);
-            Log.d("CloudManager.MediaFileHandleJob", "deleted");
+            Log.d("CloudManager.MediaFileHandleJob", DeletableSyncColumns.DELETED);
             return true;
         } else {
             Log.w("CloudManager.MediaFileHandleJob", "file not exist, skip.");

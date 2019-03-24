@@ -11,6 +11,7 @@ import android.util.Log;
 import com.xiaomi.micloudsdk.sync.utils.SyncContentUtils;
 import java.util.ArrayList;
 import java.util.List;
+import miui.app.constants.ThemeManagerConstants;
 
 public class MiCloudResolver {
     public static void requestSync(Context context, Account account, String authority) {
@@ -118,7 +119,7 @@ public class MiCloudResolver {
     private static void tryToStartResumeService(Context context) {
         Intent intent = new Intent("com.xiaomi.action.SYNC_RESUME");
         intent.setPackage("com.miui.cloudservice");
-        intent.putExtra("extra_operation", "alarm");
+        intent.putExtra("extra_operation", ThemeManagerConstants.COMPONENT_CODE_ALARM);
         if (context.getPackageManager().resolveService(intent, 32) != null) {
             context.startService(intent);
         }

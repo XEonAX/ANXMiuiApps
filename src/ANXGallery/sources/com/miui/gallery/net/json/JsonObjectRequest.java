@@ -11,6 +11,7 @@ import com.android.volley.toolbox.HttpHeaderParser;
 import com.miui.gallery.net.base.Cacheable;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
+import miui.provider.ExtraContacts.ConferenceCalls;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -66,7 +67,7 @@ public class JsonObjectRequest extends Request<JSONObject> implements Cacheable 
         if (contentType == null) {
             return defaultCharset;
         }
-        String[] params = contentType.split(";");
+        String[] params = contentType.split(ConferenceCalls.SPLIT_EXPRESSION);
         for (int i = 1; i < params.length; i++) {
             String[] pair = params[i].trim().split("=");
             if (pair.length == 2 && pair[0].equals("charset")) {

@@ -1,6 +1,7 @@
 package com.miui.gallery.movie.entity;
 
 import com.miui.gallery.movie.ui.factory.AudioFactory;
+import miui.yellowpage.YellowPageContract.Search;
 
 public class AudioResource extends MovieResource {
     private int resType;
@@ -14,7 +15,7 @@ public class AudioResource extends MovieResource {
 
     public AudioResource(String path) {
         this.srcPath = path;
-        this.nameKey = "local";
+        this.nameKey = Search.LOCAL_SEARCH;
         this.resType = 2;
         this.isPackageAssets = true;
     }

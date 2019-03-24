@@ -32,7 +32,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.ref.WeakReference;
-import miui.os.FileUtils;
+import miui.os.C0002FileUtils;
 
 public class CropperActivity extends BaseActivity {
     private LoaderCallbacks<DecodeResult> mCallbacks = new LoaderCallbacks<DecodeResult>() {
@@ -156,7 +156,7 @@ public class CropperActivity extends BaseActivity {
             }
             CompressFormat format;
             if ("file".equals(this.mOut.getScheme())) {
-                format = GalleryUtils.convertExtensionToCompressFormat(FileUtils.getExtension(this.mOut.getPath()));
+                format = GalleryUtils.convertExtensionToCompressFormat(C0002FileUtils.getExtension(this.mOut.getPath()));
             } else {
                 String type = getContext().getContentResolver().getType(this.mOut);
                 format = "image/png".equals(type) ? CompressFormat.PNG : "image/webp".equals(type) ? CompressFormat.WEBP : CompressFormat.JPEG;

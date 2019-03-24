@@ -1,14 +1,14 @@
 package com.nexstreaming.app.common.localprotocol;
 
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
+import com.miui.internal.widget.ActionBarMovableLayout;
 
 public enum nexProtoErrorCode {
     OK(0),
-    InvalidHDR(BaiduSceneResult.SHOOTING),
-    InvalidRQ(BaiduSceneResult.TAEKWONDO),
-    InvalidRS(BaiduSceneResult.MOUNTAINEERING),
-    InvalidSSID(BaiduSceneResult.SPORTS_OTHER),
-    Unrecognized(800);
+    InvalidHDR(101),
+    InvalidRQ(102),
+    InvalidRS(103),
+    InvalidSSID(104),
+    Unrecognized(ActionBarMovableLayout.DEFAULT_SPRING_BACK_DURATION);
     
     private final int mValue;
 

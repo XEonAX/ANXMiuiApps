@@ -16,6 +16,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Random;
 import java.util.TreeMap;
+import miui.util.HashUtils;
 import org.keyczar.Keyczar;
 
 public class Coder {
@@ -28,7 +29,7 @@ public class Coder {
             return null;
         }
         try {
-            return Base64.encodeToString(MessageDigest.getInstance("SHA1").digest(plain.getBytes(Keyczar.DEFAULT_ENCODING)), base64Flags);
+            return Base64.encodeToString(MessageDigest.getInstance(HashUtils.SHA1).digest(plain.getBytes(Keyczar.DEFAULT_ENCODING)), base64Flags);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e2) {

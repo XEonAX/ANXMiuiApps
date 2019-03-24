@@ -3,7 +3,6 @@ package com.miui.gallery.model;
 import android.graphics.BitmapFactory.Options;
 import android.support.media.ExifInterface;
 import android.text.TextUtils;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import com.miui.gallery.util.ExifUtil;
 import com.miui.gallery.util.Log;
 import com.miui.gallery.util.VideoAttrsReader;
@@ -56,13 +55,13 @@ public class PhotoDetailInfo implements Iterable<Entry<Integer, Object>> {
                         details.addDetail(6, latlong);
                     }
                 }
-                details.addDetail(BaiduSceneResult.SHOOTING, exif.getAttribute("Model"));
+                details.addDetail(101, exif.getAttribute("Model"));
                 details.addDetail(100, exif.getAttribute("Make"));
-                details.addDetail(BaiduSceneResult.TEMPLE, exif.getAttribute("FNumber"));
-                details.addDetail(BaiduSceneResult.MOUNTAINEERING, wrapFocalLength(exif.getAttribute("FocalLength")));
-                details.addDetail(BaiduSceneResult.GARDEN, exif.getAttribute("ExposureTime"));
-                details.addDetail(BaiduSceneResult.ANCIENT_CHINESE_ARCHITECTURE, exif.getAttribute("ISOSpeedRatings"));
-                details.addDetail(BaiduSceneResult.TAEKWONDO, exif.getAttribute("Flash"));
+                details.addDetail(105, exif.getAttribute("FNumber"));
+                details.addDetail(103, wrapFocalLength(exif.getAttribute("FocalLength")));
+                details.addDetail(107, exif.getAttribute("ExposureTime"));
+                details.addDetail(108, exif.getAttribute("ISOSpeedRatings"));
+                details.addDetail(102, exif.getAttribute("Flash"));
             } catch (Throwable ex) {
                 Log.w("PhotoDetailInfo", ex);
             }

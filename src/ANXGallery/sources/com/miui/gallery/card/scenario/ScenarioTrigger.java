@@ -14,6 +14,7 @@ import com.miui.gallery.stat.BaseSamplingStatHelper;
 import com.miui.gallery.util.BaseMiscUtil;
 import com.miui.gallery.util.Log;
 import com.miui.gallery.util.assistant.FlagUtil;
+import com.miui.internal.vip.VipConstants;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -24,6 +25,7 @@ import java.util.ListIterator;
 import java.util.Locale;
 import java.util.Random;
 import java.util.TreeSet;
+import miui.provider.ExtraTelephony.FirewallLog;
 
 public class ScenarioTrigger {
     private int mFreeScenarioTriggerInterval = 6;
@@ -69,7 +71,7 @@ public class ScenarioTrigger {
 
     public synchronized void trigger() {
         int flagDisableMask = triggerInternal(this.mNormalScenarios, 0);
-        if (flagDisableMask == 0 && BaseMiscUtil.isValid(this.mFreeScenarios) && !isCardGeneratedRecently(86400000 * ((long) this.mFreeScenarioTriggerInterval))) {
+        if (flagDisableMask == 0 && BaseMiscUtil.isValid(this.mFreeScenarios) && !isCardGeneratedRecently(VipConstants.DAY * ((long) this.mFreeScenarioTriggerInterval))) {
             List<Scenario> freeScenario = new ArrayList(this.mFreeScenarios);
             randomSort(freeScenario);
             flagDisableMask = triggerInternal(freeScenario, flagDisableMask);
@@ -119,7 +121,7 @@ public class ScenarioTrigger {
     private void statScenarioTriggerFailed() {
         Log.d("ScenarioTrigger", "Scenario Trigger Failed.");
         HashMap<String, String> params = new HashMap();
-        params.put("reason", "No triggered scenario");
+        params.put(FirewallLog.REASON, "No triggered scenario");
         BaseSamplingStatHelper.recordCountEvent("assistant", "assistant_card_create_failed", params);
     }
 

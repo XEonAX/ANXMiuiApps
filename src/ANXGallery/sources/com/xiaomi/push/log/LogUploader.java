@@ -2,6 +2,7 @@ package com.xiaomi.push.log;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import com.miui.internal.vip.VipConstants;
 import com.xiaomi.channel.commonutils.file.SDCardUtils;
 import com.xiaomi.channel.commonutils.logger.MyLog;
 import com.xiaomi.channel.commonutils.misc.SerializedAsyncTaskProcessor.SerializedAsyncTask;
@@ -13,6 +14,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import miui.content.ExtraIntent;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -81,7 +83,7 @@ public class LogUploader {
                 times = obj.getInt("times");
             } catch (JSONException e) {
             }
-            if (System.currentTimeMillis() - time >= 86400000) {
+            if (System.currentTimeMillis() - time >= VipConstants.DAY) {
                 time = System.currentTimeMillis();
                 times = 0;
             } else if (times > 10) {
@@ -103,7 +105,7 @@ public class LogUploader {
                 if (checkLimit()) {
                     HashMap<String, String> headers = new HashMap();
                     headers.put("uid", ServiceConfig.getDeviceUUID());
-                    headers.put("token", this.token);
+                    headers.put(ExtraIntent.XIAOMI_KEY_AUTHTOKEN, this.token);
                     headers.put("net", Network.getActiveConnPoint(LogUploader.this.mContext));
                     Network.uploadFile(this.url, headers, this.file, "file");
                 }

@@ -557,7 +557,7 @@ public class NexEditorDeviceProfile implements Serializable {
         for (NexExportProfile nexExportProfile2 : getSupportedExportProfiles(z)) {
             if (nexExportProfile2.width() * (nexExportProfile2.height() - 31) <= maxImportSize) {
                 int width = nexExportProfile2.width() * nexExportProfile2.height();
-                if (width <= (i3 * BaiduSceneResult.TEMPLE) / 100 && width <= i4) {
+                if (width <= (i3 * 105) / 100 && width <= i4) {
                     nexExportProfile = nexExportProfile2;
                     break;
                 }

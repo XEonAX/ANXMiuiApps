@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.util.Log;
 import com.miui.gallery.stat.BaseSamplingStatHelper;
 import java.util.HashMap;
+import miui.yellowpage.Tag.TagWebService.CommonResult;
+import miui.yellowpage.YellowPageStatistic.Display;
 
 public class StatReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
@@ -24,9 +26,9 @@ public class StatReceiver extends BroadcastReceiver {
                     params.put(paramKeys[i], paramValues[i]);
                 }
             }
-            BaseSamplingStatHelper.recordCountEvent(intent.getStringExtra("category"), intent.getStringExtra("event"), params);
+            BaseSamplingStatHelper.recordCountEvent(intent.getStringExtra(Display.CATEGORY), intent.getStringExtra(CommonResult.RESULT_TYPE_EVENT), params);
         } else if ("numeric_event".equals(statType)) {
-            BaseSamplingStatHelper.recordNumericPropertyEvent(intent.getStringExtra("category"), intent.getStringExtra("event"), intent.getLongExtra("value", 0));
+            BaseSamplingStatHelper.recordNumericPropertyEvent(intent.getStringExtra(Display.CATEGORY), intent.getStringExtra(CommonResult.RESULT_TYPE_EVENT), intent.getLongExtra("value", 0));
         } else {
             Log.w("StatReceiver", "Unsupported stat broadcast: " + intent.toUri(0));
         }

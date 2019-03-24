@@ -22,6 +22,7 @@ import java.util.Iterator;
 import java.util.Map;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
+import miui.provider.ExtraContacts.ConferenceCalls;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.message.BasicNameValuePair;
@@ -268,7 +269,7 @@ public abstract class SyncFromServer {
         }
         appendParams(params, syncTagList);
         if (limit > 0) {
-            params.add(new BasicNameValuePair("limit", Long.toString((long) limit)));
+            params.add(new BasicNameValuePair(ConferenceCalls.LIMIT_PARAM_KEY, Long.toString((long) limit)));
         }
         return CloudUtils.getFromXiaomi(getSyncUrl(), params, this.mAccount, this.mExtendedAuthToken, 0, false);
     }

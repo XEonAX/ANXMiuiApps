@@ -7,6 +7,7 @@ import com.miui.gallery.cloudcontrol.strategies.AssistantScenarioStrategy.Scenar
 import com.miui.gallery.dao.GalleryEntityManager;
 import com.miui.gallery.dao.base.EntityManager;
 import com.miui.gallery.util.BaseMiscUtil;
+import com.miui.internal.vip.VipConstants;
 import com.nexstreaming.nexeditorsdk.nexClip;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -95,7 +96,7 @@ public abstract class Scenario implements Comparable<Scenario> {
     }
 
     public boolean prepare(List<Record> records, List<Card> cards) {
-        if (getTriggerInterval() <= 0 || (!isRecentlyTriggerd(records, ((long) getTriggerInterval()) * 86400000) && !isCardRecentlyCreated(cards, ((long) getTriggerInterval()) * 86400000))) {
+        if (getTriggerInterval() <= 0 || (!isRecentlyTriggerd(records, ((long) getTriggerInterval()) * VipConstants.DAY) && !isCardRecentlyCreated(cards, ((long) getTriggerInterval()) * VipConstants.DAY))) {
             return onPrepare(records, cards);
         }
         return false;

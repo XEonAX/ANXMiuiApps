@@ -12,6 +12,7 @@ import com.miui.gallery.threadpool.ThreadManager;
 import com.miui.gallery.util.Log;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
+import miui.hybrid.Response;
 
 public class NvStateController implements PlaybackCallback, PlaybackCallback2, StreamingEngineCallback, IMovieController {
     private NvsRational mNvsRational = new NvsRational(3, 4);
@@ -129,7 +130,7 @@ public class NvStateController implements PlaybackCallback, PlaybackCallback2, S
             case 4:
                 return 3;
             case 5:
-                return 200;
+                return Response.CODE_GENERIC_ERROR;
             default:
                 return -500;
         }

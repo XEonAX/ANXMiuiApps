@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.SystemIntent;
 import android.os.IBinder;
 import com.xiaomi.mistatistic.sdk.BuildSetting;
 import com.xiaomi.mistatistic.sdk.CustomSettings;
@@ -15,6 +16,7 @@ import com.xiaomi.xmsf.push.service.b;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import miui.provider.MiCloudSmsCmd;
 import org.json.JSONException;
 
 public class LocalEventRecorder {
@@ -34,7 +36,7 @@ public class LocalEventRecorder {
             LocalEventRecorder.a = com.xiaomi.xmsf.push.service.b.a.a(iBinder);
             if (LocalEventRecorder.a != null) {
                 r.b.execute(new Runnable() {
-                    /* JADX WARNING: Removed duplicated region for block: B:27:0x00c7 A:{ExcHandler: android.os.RemoteException (r0_17 'e' java.lang.Throwable), Splitter: B:3:0x0006} */
+                    /* JADX WARNING: Removed duplicated region for block: B:27:0x00c7 A:{Splitter: B:3:0x0006, ExcHandler: android.os.RemoteException (r0_17 'e' java.lang.Throwable)} */
                     /* JADX WARNING: Failed to process nested try/catch */
                     /* JADX WARNING: Missing block: B:27:0x00c7, code:
             r0 = move-exception;
@@ -107,14 +109,14 @@ public class LocalEventRecorder {
                 StatEventPojo a = hVar.a(str2, str);
                 if (a == null || !toPojo.mType.equals(a.mType)) {
                     hVar.a(toPojo);
-                    n.a("w", toPojo);
+                    n.a(MiCloudSmsCmd.TYPE_WIPE, toPojo);
                     return;
                 }
                 hVar.a(str, str2, toPojo.mValue);
                 return;
             }
             hVar.a(toPojo);
-            n.a("w", toPojo);
+            n.a(MiCloudSmsCmd.TYPE_WIPE, toPojo);
         }
     }
 
@@ -176,7 +178,7 @@ public class LocalEventRecorder {
     private static void b(Context context) throws InterruptedException {
         if (!b) {
             Intent intent = new Intent();
-            intent.setClassName("com.xiaomi.xmsf", "com.xiaomi.xmsf.push.service.StatService");
+            intent.setClassName(SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE, "com.xiaomi.xmsf.push.service.StatService");
             b = context.bindService(intent, e, 1);
             j.a("LER", "bind StatSystemService: " + b);
         }

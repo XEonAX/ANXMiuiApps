@@ -25,10 +25,10 @@ import com.miui.gallery.util.deleterecorder.DeleteRecord;
 import com.miui.gallery.util.deleterecorder.DeleteRecorder;
 import com.miui.gallery.util.deprecated.Preference;
 import com.miui.gallery.util.deprecated.Storage;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
+import miui.provider.ExtraTelephony.DeletableSyncColumns;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
@@ -77,7 +77,7 @@ public class DeleteCloudItem extends RequestOperationBase {
             deleteUrl = OwnerAlbum.getDeleteAlbumUrl(requestId);
             String serverTag = String.valueOf(requestCloudItem.dbCloud.getServerTag());
             ArrayList<NameValuePair> parameters = new ArrayList();
-            parameters.add(new BasicNameValuePair(nexExportFormat.TAG_FORMAT_TAG, serverTag));
+            parameters.add(new BasicNameValuePair("tag", serverTag));
             builder.setUrl(deleteUrl).setMethod(2).setParams(parameters).setRetryTimes(requestItem.otherRetryTimes).setNeedReRequest(false);
         }
         return builder.build();
@@ -177,7 +177,7 @@ public class DeleteCloudItem extends RequestOperationBase {
     public static void updateForDeleteOrPurgedGroupOnLocal(Context context, DBImage cloud, JSONObject schemaJson) throws JSONException {
         ContentValues values = CloudUtils.getContentValuesForUploadDeletePurged(schemaJson);
         if (!values.containsKey("serverStatus")) {
-            values.put("serverStatus", "deleted");
+            values.put("serverStatus", DeletableSyncColumns.DELETED);
         }
         GalleryUtils.safeUpdate(GalleryCloudUtils.CLOUD_URI, values, "_id = '" + cloud.getId() + "'", null);
     }

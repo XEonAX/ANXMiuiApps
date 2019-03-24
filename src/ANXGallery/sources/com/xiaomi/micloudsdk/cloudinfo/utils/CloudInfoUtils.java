@@ -8,6 +8,8 @@ import java.util.Locale;
 import miui.cloud.sync.MiCloudStatusInfo;
 import miui.cloud.sync.MiCloudStatusInfo.ItemInfo;
 import miui.cloud.sync.MiCloudStatusInfo.QuotaInfo;
+import miui.os.C0015Build;
+import miui.reflect.Field;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -29,12 +31,12 @@ public class CloudInfoUtils {
             sb.append(" E/");
             sb.append(SystemPropertiesCompat.get("ro.miui.ui.version.name", ""));
             sb.append(" B/");
-            if (miui.os.Build.IS_ALPHA_BUILD) {
+            if (C0015Build.IS_ALPHA_BUILD) {
                 sb.append("A");
-            } else if (miui.os.Build.IS_DEVELOPMENT_VERSION) {
-                sb.append("D");
-            } else if (miui.os.Build.IS_STABLE_VERSION) {
-                sb.append("S");
+            } else if (C0015Build.IS_DEVELOPMENT_VERSION) {
+                sb.append(Field.DOUBLE_SIGNATURE_PRIMITIVE);
+            } else if (C0015Build.IS_STABLE_VERSION) {
+                sb.append(Field.SHORT_SIGNATURE_PRIMITIVE);
             } else {
                 sb.append("null");
             }
@@ -52,7 +54,7 @@ public class CloudInfoUtils {
                 sb.append("EN");
             }
             sb.append(" LO/");
-            String region = miui.os.Build.getRegion();
+            String region = C0015Build.getRegion();
             if (TextUtils.isEmpty(region)) {
                 sb.append("null");
             } else {

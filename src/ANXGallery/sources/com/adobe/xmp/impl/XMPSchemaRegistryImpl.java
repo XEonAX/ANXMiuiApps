@@ -4,10 +4,12 @@ import com.adobe.xmp.XMPException;
 import com.adobe.xmp.XMPSchemaRegistry;
 import com.adobe.xmp.options.AliasOptions;
 import com.adobe.xmp.properties.XMPAliasInfo;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
+import miui.hybrid.Response;
+import miui.provider.Notes.Note;
+import miui.util.PlayerActions.Out;
 
 public final class XMPSchemaRegistryImpl implements XMPSchemaRegistry {
     private Map aliasMap = new HashMap();
@@ -49,7 +51,7 @@ public final class XMPSchemaRegistryImpl implements XMPSchemaRegistry {
                 registeredPrefix = suggestedPrefix;
             }
         } else {
-            throw new XMPException("The prefix is a bad XML name", 201);
+            throw new XMPException("The prefix is a bad XML name", Response.CODE_CONFIG_ERROR);
         }
         return registeredPrefix;
     }
@@ -90,7 +92,7 @@ public final class XMPSchemaRegistryImpl implements XMPSchemaRegistry {
         registerNamespace("http://www.aiim.org/pdfa/ns/id/", "pdfaid");
         registerNamespace("http://www.aiim.org/pdfa/ns/extension/", "pdfaExtension");
         registerNamespace("http://ns.adobe.com/photoshop/1.0/", "photoshop");
-        registerNamespace("http://ns.adobe.com/album/1.0/", "album");
+        registerNamespace("http://ns.adobe.com/album/1.0/", Out.KEY_ALBUM);
         registerNamespace("http://ns.adobe.com/exif/1.0/", "exif");
         registerNamespace("http://ns.adobe.com/exif/1.0/aux/", "aux");
         registerNamespace("http://ns.adobe.com/tiff/1.0/", "tiff");
@@ -129,14 +131,14 @@ public final class XMPSchemaRegistryImpl implements XMPSchemaRegistry {
         ParameterAsserts.assertPropName(actualProp);
         final AliasOptions aliasOpts = aliasForm != null ? new AliasOptions(XMPNodeUtils.verifySetOptions(aliasForm.toPropertyOptions(), null).getOptions()) : new AliasOptions();
         if (this.p.matcher(aliasProp).find() || this.p.matcher(actualProp).find()) {
-            throw new XMPException("Alias and actual property names must be simple", BaiduSceneResult.TAEKWONDO);
+            throw new XMPException("Alias and actual property names must be simple", 102);
         }
         String aliasPrefix = getNamespacePrefix(aliasNS);
         final String actualPrefix = getNamespacePrefix(actualNS);
         if (aliasPrefix == null) {
-            throw new XMPException("Alias namespace is not registered", BaiduSceneResult.SHOOTING);
+            throw new XMPException("Alias namespace is not registered", 101);
         } else if (actualPrefix == null) {
-            throw new XMPException("Actual namespace is not registered", BaiduSceneResult.SHOOTING);
+            throw new XMPException("Actual namespace is not registered", 101);
         } else {
             String key = aliasPrefix + aliasProp;
             if (this.aliasMap.containsKey(key)) {
@@ -178,7 +180,7 @@ public final class XMPSchemaRegistryImpl implements XMPSchemaRegistry {
         registerAlias("http://ns.adobe.com/xap/1.0/", "Authors", "http://purl.org/dc/elements/1.1/", "creator", null);
         registerAlias("http://ns.adobe.com/xap/1.0/", "Description", "http://purl.org/dc/elements/1.1/", "description", null);
         registerAlias("http://ns.adobe.com/xap/1.0/", "Format", "http://purl.org/dc/elements/1.1/", "format", null);
-        registerAlias("http://ns.adobe.com/xap/1.0/", "Keywords", "http://purl.org/dc/elements/1.1/", "subject", null);
+        registerAlias("http://ns.adobe.com/xap/1.0/", "Keywords", "http://purl.org/dc/elements/1.1/", Note.SUBJECT, null);
         registerAlias("http://ns.adobe.com/xap/1.0/", "Locale", "http://purl.org/dc/elements/1.1/", "language", null);
         registerAlias("http://ns.adobe.com/xap/1.0/", "Title", "http://purl.org/dc/elements/1.1/", "title", null);
         registerAlias("http://ns.adobe.com/xap/1.0/rights/", "Copyright", "http://purl.org/dc/elements/1.1/", "rights", null);
@@ -192,7 +194,7 @@ public final class XMPSchemaRegistryImpl implements XMPSchemaRegistry {
         registerAlias("http://ns.adobe.com/photoshop/1.0/", "Author", "http://purl.org/dc/elements/1.1/", "creator", aliasToArrayOrdered);
         registerAlias("http://ns.adobe.com/photoshop/1.0/", "Caption", "http://purl.org/dc/elements/1.1/", "description", aliasToArrayAltText);
         registerAlias("http://ns.adobe.com/photoshop/1.0/", "Copyright", "http://purl.org/dc/elements/1.1/", "rights", aliasToArrayAltText);
-        registerAlias("http://ns.adobe.com/photoshop/1.0/", "Keywords", "http://purl.org/dc/elements/1.1/", "subject", null);
+        registerAlias("http://ns.adobe.com/photoshop/1.0/", "Keywords", "http://purl.org/dc/elements/1.1/", Note.SUBJECT, null);
         registerAlias("http://ns.adobe.com/photoshop/1.0/", "Marked", "http://ns.adobe.com/xap/1.0/rights/", "Marked", null);
         registerAlias("http://ns.adobe.com/photoshop/1.0/", "Title", "http://purl.org/dc/elements/1.1/", "title", aliasToArrayAltText);
         registerAlias("http://ns.adobe.com/photoshop/1.0/", "WebStatement", "http://ns.adobe.com/xap/1.0/rights/", "WebStatement", null);

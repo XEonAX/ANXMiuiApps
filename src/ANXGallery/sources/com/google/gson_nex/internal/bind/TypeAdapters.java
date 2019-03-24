@@ -34,6 +34,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.StringTokenizer;
 import java.util.UUID;
+import miui.telephony.phonenumber.CountryCode;
 
 public final class TypeAdapters {
     public static final TypeAdapter<BigDecimal> BIG_DECIMAL = new TypeAdapter<BigDecimal>() {
@@ -755,7 +756,7 @@ public final class TypeAdapters {
             }
 
             public String toString() {
-                return "Factory[type=" + cls2.getName() + "+" + cls.getName() + ",adapter=" + typeAdapter + "]";
+                return "Factory[type=" + cls2.getName() + CountryCode.GSM_GENERAL_IDD_CODE + cls.getName() + ",adapter=" + typeAdapter + "]";
             }
         };
     }
@@ -768,7 +769,7 @@ public final class TypeAdapters {
             }
 
             public String toString() {
-                return "Factory[type=" + cls.getName() + "+" + cls2.getName() + ",adapter=" + typeAdapter + "]";
+                return "Factory[type=" + cls.getName() + CountryCode.GSM_GENERAL_IDD_CODE + cls2.getName() + ",adapter=" + typeAdapter + "]";
             }
         };
     }

@@ -23,6 +23,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import miui.content.ExtraIntent;
 
 public class SyncInfoHelper {
     public static void tryToSyncInfo(Context context) {
@@ -52,7 +53,7 @@ public class SyncInfoHelper {
                 PreferenceUtils.putNotNullExtra(syncMessage.extra, "app_version_code", Integer.toString(AppInfoUtils.getVersionCode(context, context.getPackageName())));
                 PreferenceUtils.putNotNullExtra(syncMessage.extra, "push_sdk_vn", "3_6_11");
                 PreferenceUtils.putNotNullExtra(syncMessage.extra, "push_sdk_vc", Integer.toString(30611));
-                PreferenceUtils.putNotNullExtra(syncMessage.extra, "token", appInfoHolder.getAppToken());
+                PreferenceUtils.putNotNullExtra(syncMessage.extra, ExtraIntent.XIAOMI_KEY_AUTHTOKEN, appInfoHolder.getAppToken());
                 if (!MIUIUtils.isGDPREnable()) {
                     String imeiMd5 = XMStringUtils.getMd5Digest(DeviceInfo.blockingGetIMEI(context));
                     String subImeisMd5 = DeviceInfo.blockingGetSubIMEISMd5(context);

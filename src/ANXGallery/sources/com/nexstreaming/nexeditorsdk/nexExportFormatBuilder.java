@@ -8,7 +8,7 @@ public final class nexExportFormatBuilder {
     Map<String, String> formats = new HashMap();
 
     public nexExportFormatBuilder setType(String str) {
-        this.formats.put(nexExportFormat.TAG_FORMAT_TYPE, str);
+        this.formats.put("type", str);
         return this;
     }
 
@@ -18,7 +18,7 @@ public final class nexExportFormatBuilder {
     }
 
     public nexExportFormatBuilder setWidth(int i) {
-        this.formats.put(nexExportFormat.TAG_FORMAT_WIDTH, "" + i);
+        this.formats.put("width", "" + i);
         return this;
     }
 
@@ -83,7 +83,7 @@ public final class nexExportFormatBuilder {
     }
 
     public nexExportFormatBuilder setTagID(int i) {
-        this.formats.put(nexExportFormat.TAG_FORMAT_TAG, "" + i);
+        this.formats.put("tag", "" + i);
         return this;
     }
 

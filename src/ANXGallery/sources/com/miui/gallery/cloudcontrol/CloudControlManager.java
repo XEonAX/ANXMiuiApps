@@ -28,6 +28,7 @@ import com.miui.gallery.util.Log;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
+import miui.yellowpage.YellowPageContract.Search;
 
 public class CloudControlManager {
     private ProfileCache mCache;
@@ -80,7 +81,7 @@ public class CloudControlManager {
         this.mStrategyClassMap.put("components-list", ComponentsStrategy.class);
         this.mStrategyClassMap.put("hidden-albums", HiddenAlbumsStrategy.class);
         this.mStrategyClassMap.put("location", LocationStrategy.class);
-        this.mStrategyClassMap.put("search", SearchStrategy.class);
+        this.mStrategyClassMap.put(Search.DIRECTORY, SearchStrategy.class);
         this.mStrategyClassMap.put("album-sort-date", AlbumSortDateStrategy.class);
         this.mStrategyClassMap.put("backup-policies", BackupPolicisStrategy.class);
         this.mStrategyClassMap.put("server-reserved-album-names", ServerReservedAlbumNamesStrategy.class);

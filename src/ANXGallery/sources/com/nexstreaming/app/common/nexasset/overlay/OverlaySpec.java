@@ -1,12 +1,15 @@
 package com.nexstreaming.app.common.nexasset.overlay;
 
 import android.util.Xml;
+import com.miui.internal.analytics.NormalPolicy;
 import com.nexstreaming.app.common.util.b;
 import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import miui.provider.Weather.AQIInfo;
+import miui.yellowpage.YellowPageContract.MipubPhoneEvent;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -54,7 +57,7 @@ public class OverlaySpec {
     private static OverlaySpec parseSpec(XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
         xmlPullParser.require(2, null, "overlay");
         OverlaySpec overlaySpec = new OverlaySpec();
-        overlaySpec.width = parseInt(xmlPullParser.getAttributeValue(null, nexExportFormat.TAG_FORMAT_WIDTH), -1);
+        overlaySpec.width = parseInt(xmlPullParser.getAttributeValue(null, "width"), -1);
         overlaySpec.height = parseInt(xmlPullParser.getAttributeValue(null, nexExportFormat.TAG_FORMAT_HEIGHT), -1);
         overlaySpec.fps = parseInt(xmlPullParser.getAttributeValue(null, "fps"), 15);
         overlaySpec.minFps = parseInt(xmlPullParser.getAttributeValue(null, "min-fps"), overlaySpec.fps);
@@ -79,9 +82,9 @@ public class OverlaySpec {
         xmlPullParser.require(2, null, "layer");
         Layer layer = new Layer();
         layer.iterationCount = parseInt(xmlPullParser.getAttributeValue(null, "iteration-count"), -1);
-        String attributeValue = xmlPullParser.getAttributeValue(null, "direction");
+        String attributeValue = xmlPullParser.getAttributeValue(null, MipubPhoneEvent.EXTRA_DATA_DIRECTION);
         if (attributeValue != null) {
-            if ("normal".equalsIgnoreCase(attributeValue)) {
+            if (NormalPolicy.TAG.equalsIgnoreCase(attributeValue)) {
                 layer.direction = AnimDirection.NORMAL;
             } else if ("reverse".equalsIgnoreCase(attributeValue)) {
                 layer.direction = AnimDirection.REVERSE;
@@ -113,7 +116,7 @@ public class OverlaySpec {
     private static Frame parseFrame(XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
         xmlPullParser.require(2, null, "frame");
         Frame frame = new Frame();
-        frame.src = xmlPullParser.getAttributeValue(null, "src");
+        frame.src = xmlPullParser.getAttributeValue(null, AQIInfo.SRC);
         frame.blank = parseBoolean(xmlPullParser.getAttributeValue(null, "blank"), false);
         frame.hold = Math.max(1, parseInt(xmlPullParser.getAttributeValue(null, "hold"), 1));
         skip(xmlPullParser);

@@ -61,6 +61,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import miui.app.ActionBar.FragmentViewPagerChangeListener;
+import miui.util.PlayerActions.Out;
+import miui.yellowpage.YellowPageStatistic.Display;
 
 public class PickGalleryActivity extends PickerActivity {
     private OnCancelListener mCancelConfirmListener = new OnCancelListener() {
@@ -389,10 +391,10 @@ public class PickGalleryActivity extends PickerActivity {
 
     private String getPageName(int position) {
         if (position == 0) {
-            return "home";
+            return Display.HOME;
         }
         if (position == 1) {
-            return "album";
+            return Out.KEY_ALBUM;
         }
         return null;
     }

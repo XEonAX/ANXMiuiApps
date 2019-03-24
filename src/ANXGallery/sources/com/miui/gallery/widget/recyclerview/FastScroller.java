@@ -18,6 +18,7 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import com.miui.gallery.R;
 import com.miui.gallery.util.Log;
+import com.miui.internal.widget.ActionModeView;
 
 class FastScroller extends ItemDecoration implements OnItemTouchListener {
     private static final int[] EMPTY_STATE_SET = new int[0];
@@ -30,7 +31,7 @@ class FastScroller extends ItemDecoration implements OnItemTouchListener {
     private int mDragState = 0;
     private final Runnable mHideRunnable = new Runnable() {
         public void run() {
-            FastScroller.this.hide(300);
+            FastScroller.this.hide(ActionModeView.ANIMATION_DURATION);
         }
     };
     private int mHorizontalDragInitX;

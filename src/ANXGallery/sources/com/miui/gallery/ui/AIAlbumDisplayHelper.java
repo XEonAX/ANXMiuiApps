@@ -13,6 +13,7 @@ import com.miui.gallery.cloudcontrol.FeatureStatusObserver;
 import java.lang.ref.WeakReference;
 import java.util.Observable;
 import java.util.Observer;
+import miui.yellowpage.YellowPageContract.Search;
 
 public class AIAlbumDisplayHelper {
     private static AIAlbumDisplayHelper sInstance;
@@ -26,7 +27,7 @@ public class AIAlbumDisplayHelper {
     private AIAlbumDisplayStatusObservable mObservable;
     private FeatureStatusObserver mSearchCloudControlStatusObserver = new FeatureStatusObserver() {
         public void onStatusChange(String featureName, Status oldStatus, Status newStatus) {
-            if ("search".equals(featureName)) {
+            if (Search.DIRECTORY.equals(featureName)) {
                 AIAlbumDisplayHelper.this.requeryStatusAndNotifyStatusChange();
             }
         }
@@ -85,7 +86,7 @@ public class AIAlbumDisplayHelper {
         int oldObserverCount = this.mObservable.countObservers();
         this.mObservable.addObserver(observer);
         if (oldObserverCount <= 0 && this.mObservable.countObservers() > 0) {
-            CloudControlManager.getInstance().registerStatusObserver("search", this.mSearchCloudControlStatusObserver);
+            CloudControlManager.getInstance().registerStatusObserver(Search.DIRECTORY, this.mSearchCloudControlStatusObserver);
             LocalBroadcastManager.getInstance(GalleryApp.sGetAndroidContext()).registerReceiver(this.mAIAlbumSwitchObserver, new IntentFilter("com.miui.gallery.action.AI_ALBUM_SWITCH_CHANGE"));
         }
         return this.mStatusValueCache.clone();
@@ -95,7 +96,7 @@ public class AIAlbumDisplayHelper {
         if (this.mObservable != null) {
             this.mObservable.deleteObserver(observer);
             if (this.mObservable.countObservers() <= 0) {
-                CloudControlManager.getInstance().unregisterStatusObserver("search", this.mSearchCloudControlStatusObserver);
+                CloudControlManager.getInstance().unregisterStatusObserver(Search.DIRECTORY, this.mSearchCloudControlStatusObserver);
                 LocalBroadcastManager.getInstance(GalleryApp.sGetAndroidContext()).unregisterReceiver(this.mAIAlbumSwitchObserver);
             }
         }

@@ -10,6 +10,7 @@ import com.miui.gallery.card.scenario.DateUtils;
 import com.miui.gallery.card.scenario.Record;
 import com.miui.gallery.card.scenario.ScenarioConstants;
 import com.miui.gallery.card.scenario.time.TimeScenario;
+import com.miui.internal.vip.VipConstants;
 import java.util.List;
 
 public class LastMonthScenario extends TimeScenario {
@@ -24,8 +25,8 @@ public class LastMonthScenario extends TimeScenario {
         if (currentTime <= firstDayofMonth || currentTime - firstDayofMonth >= 172800000) {
             return false;
         }
-        long lastMonthStart = DateUtils.getLastNYearMonthTime(0, firstDayofMonth - 86400000, true);
-        long lastMonthEnd = DateUtils.getLastNYearMonthTime(0, firstDayofMonth - 86400000, false);
+        long lastMonthStart = DateUtils.getLastNYearMonthTime(0, firstDayofMonth - VipConstants.DAY, true);
+        long lastMonthEnd = DateUtils.getLastNYearMonthTime(0, firstDayofMonth - VipConstants.DAY, false);
         if (lastMonthStart < 0 || lastMonthEnd < 0 || recordStarts.contains(Long.valueOf(lastMonthStart))) {
             return false;
         }

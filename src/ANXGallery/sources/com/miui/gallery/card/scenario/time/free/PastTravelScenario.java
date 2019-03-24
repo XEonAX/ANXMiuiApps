@@ -15,10 +15,11 @@ import com.miui.gallery.util.BaseMiscUtil;
 import com.miui.gallery.util.SafeDBUtil;
 import com.miui.gallery.util.SafeDBUtil.QueryHandler;
 import java.util.List;
+import miui.hybrid.Response;
 
 public class PastTravelScenario extends LocationScenario {
     public PastTravelScenario() {
-        super(201, 4, 4);
+        super(Response.CODE_CONFIG_ERROR, 4, 4);
     }
 
     public boolean onPrepare(List<Record> records, List<Card> cards) {

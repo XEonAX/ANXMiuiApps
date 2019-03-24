@@ -40,6 +40,7 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
+import miui.telephony.phonenumber.CountryCode;
 
 public final class TypeAdapters {
     public static final TypeAdapter<AtomicBoolean> ATOMIC_BOOLEAN = new TypeAdapter<AtomicBoolean>() {
@@ -794,7 +795,7 @@ public final class TypeAdapters {
             }
 
             public String toString() {
-                return "Factory[type=" + boxed.getName() + "+" + unboxed.getName() + ",adapter=" + typeAdapter + "]";
+                return "Factory[type=" + boxed.getName() + CountryCode.GSM_GENERAL_IDD_CODE + unboxed.getName() + ",adapter=" + typeAdapter + "]";
             }
         };
     }
@@ -807,7 +808,7 @@ public final class TypeAdapters {
             }
 
             public String toString() {
-                return "Factory[type=" + base.getName() + "+" + sub.getName() + ",adapter=" + typeAdapter + "]";
+                return "Factory[type=" + base.getName() + CountryCode.GSM_GENERAL_IDD_CODE + sub.getName() + ",adapter=" + typeAdapter + "]";
             }
         };
     }

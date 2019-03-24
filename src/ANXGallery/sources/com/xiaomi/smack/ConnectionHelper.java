@@ -16,20 +16,20 @@ public class ConnectionHelper {
             cause = throwable.getCause().getMessage();
         }
         if (throwable instanceof SocketTimeoutException) {
-            return BaiduSceneResult.TEMPLE;
+            return 105;
         }
         if (throwable instanceof SocketException) {
             if (cause.indexOf("Network is unreachable") != -1) {
-                return BaiduSceneResult.TAEKWONDO;
+                return 102;
             }
             if (cause.indexOf("Connection refused") != -1) {
-                return BaiduSceneResult.MOUNTAINEERING;
+                return 103;
             }
             if (cause.indexOf("Connection timed out") != -1) {
-                return BaiduSceneResult.TEMPLE;
+                return 105;
             }
             if (cause.endsWith("EACCES (Permission denied)")) {
-                return BaiduSceneResult.SHOOTING;
+                return 101;
             }
             if (cause.indexOf("Connection reset by peer") != -1) {
                 return BaiduSceneResult.CHURCH;
@@ -38,14 +38,14 @@ public class ConnectionHelper {
                 return BaiduSceneResult.CASTLE;
             }
             if (cause.indexOf("No route to host") != -1) {
-                return BaiduSceneResult.SPORTS_OTHER;
+                return 104;
             }
             if (cause.endsWith("EINVAL (Invalid argument)")) {
-                return BaiduSceneResult.PALACE;
+                return 106;
             }
             return 199;
         } else if (throwable instanceof UnknownHostException) {
-            return BaiduSceneResult.GARDEN;
+            return 107;
         } else {
             if (e instanceof XMPPException) {
                 return 399;

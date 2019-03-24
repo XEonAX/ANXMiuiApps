@@ -2,6 +2,7 @@ package com.xiaomi.metoknlp.a;
 
 import android.os.Build;
 import android.util.Log;
+import com.miui.internal.analytics.XiaomiDispatcher;
 import java.lang.reflect.Field;
 
 /* compiled from: NLPBuild */
@@ -44,7 +45,7 @@ public class a {
         if (DEBUG) {
             Log.d(TAG, "brand=" + k);
         }
-        if (k == null || !k.equalsIgnoreCase("xiaomi")) {
+        if (k == null || !k.equalsIgnoreCase(XiaomiDispatcher.TAG)) {
             return false;
         }
         return true;

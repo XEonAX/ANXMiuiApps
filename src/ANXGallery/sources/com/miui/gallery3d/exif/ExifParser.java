@@ -1,6 +1,7 @@
 package com.miui.gallery3d.exif;
 
 import android.util.Log;
+import com.miui.internal.view.menu.MenuBuilder;
 import com.nexstreaming.nexeditorsdk.nexCrop;
 import java.io.IOException;
 import java.io.InputStream;
@@ -537,7 +538,7 @@ class ExifParser {
     }
 
     protected int readUnsignedShort() throws IOException {
-        return this.mTiffStream.readShort() & 65535;
+        return this.mTiffStream.readShort() & MenuBuilder.USER_MASK;
     }
 
     protected long readUnsignedLong() throws IOException {

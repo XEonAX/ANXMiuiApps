@@ -4,11 +4,12 @@ import android.app.IntentService;
 import android.content.Intent;
 import com.miui.gallery.util.Log;
 import com.miui.gallery.util.NotificationHelper;
+import miui.yellowpage.YellowPageContract.HttpRequest;
 
 public class MediaOperationService extends IntentService {
     public static String EXTRA_ARGUMENT = "argument";
     public static String EXTRA_BUNDLE = "bundle";
-    public static String EXTRA_METHOD = "method";
+    public static String EXTRA_METHOD = HttpRequest.PARAM_METHOD;
 
     public MediaOperationService() {
         super("MediaOperationService");

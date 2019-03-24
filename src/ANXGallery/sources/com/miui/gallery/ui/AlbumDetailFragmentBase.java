@@ -1,6 +1,7 @@
 package com.miui.gallery.ui;
 
 import android.accounts.Account;
+import android.app.Activity;
 import android.app.AlertDialog.Builder;
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
@@ -145,7 +146,7 @@ public abstract class AlbumDetailFragmentBase extends PhotoListFragmentBase impl
                     break;
                 case R.id.add_to_album /*2131886852*/:
                     boolean z;
-                    Object obj = AlbumDetailFragmentBase.this.mActivity;
+                    Activity activity = AlbumDetailFragmentBase.this.mActivity;
                     OnAddAlbumListener anonymousClass1 = new OnAddAlbumListener() {
                         public void onComplete(long[] result, boolean deleteOrigin) {
                             AnonymousClass8.this.mMode.finish();
@@ -157,7 +158,7 @@ public abstract class AlbumDetailFragmentBase extends PhotoListFragmentBase impl
                     } else {
                         z = true;
                     }
-                    MediaAndAlbumOperations.addToAlbum(obj, anonymousClass1, 0, z, AlbumDetailFragmentBase.this.canAddSecret(), AlbumDetailFragmentBase.this.mAlbumDetailGridViewWrapper.getCheckedItemIds());
+                    MediaAndAlbumOperations.addToAlbum(activity, anonymousClass1, 0, z, AlbumDetailFragmentBase.this.canAddSecret(), AlbumDetailFragmentBase.this.mAlbumDetailGridViewWrapper.getCheckedItemIds());
                     break;
                 case R.id.remove_secret /*2131886869*/:
                     MediaAndAlbumOperations.removeFromSecretAlbum(AlbumDetailFragmentBase.this.mActivity, new OnCompleteListener() {
@@ -549,7 +550,7 @@ public abstract class AlbumDetailFragmentBase extends PhotoListFragmentBase impl
     }
 
     protected void removeFromOtherAlbums() {
-        new AlertDialog.Builder(getActivity()).setTitle(R.string.operation_remove_from_other_albums).setMessage(R.string.remove_from_other_albums_tip).setPositiveButton(17039370, new OnClickListener() {
+        new AlertDialog.Builder(getActivity()).setTitle((int) R.string.operation_remove_from_other_albums).setMessage((int) R.string.remove_from_other_albums_tip).setPositiveButton(17039370, new OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 AlbumDetailFragmentBase.this.doChangeShowInOtherAlbums(false);
             }
@@ -591,7 +592,7 @@ public abstract class AlbumDetailFragmentBase extends PhotoListFragmentBase impl
     }
 
     protected void moveToOtherAlbums() {
-        new AlertDialog.Builder(getActivity()).setTitle(R.string.operation_move_to_other_albums).setMessage(R.string.move_to_other_albums_tip).setPositiveButton(17039370, new OnClickListener() {
+        new AlertDialog.Builder(getActivity()).setTitle((int) R.string.operation_move_to_other_albums).setMessage((int) R.string.move_to_other_albums_tip).setPositiveButton(17039370, new OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 AlbumDetailFragmentBase.this.doChangeShowInOtherAlbums(true);
             }

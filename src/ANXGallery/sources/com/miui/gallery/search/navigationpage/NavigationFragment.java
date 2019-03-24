@@ -34,6 +34,7 @@ import com.miui.gallery.search.core.suggestion.SuggestionSection;
 import com.miui.gallery.search.utils.SearchLog;
 import com.miui.gallery.search.utils.SearchUtils;
 import java.util.HashSet;
+import miui.yellowpage.YellowPageStatistic.Display;
 
 public class NavigationFragment extends SearchFragmentBase {
     private NavigationAdapter mAdapter;
@@ -229,6 +230,6 @@ public class NavigationFragment extends SearchFragmentBase {
     }
 
     public String getPageName() {
-        return "search_navigation";
+        return Display.SEARCH_NAVIGATION;
     }
 }

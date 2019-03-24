@@ -22,6 +22,7 @@ import com.miui.os.Rom;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import miui.provider.ExtraContacts.ConferenceCalls;
 
 public class FaceManager {
     private static final String[] BASIC_PEOPLE_INFO_PROJECTION = new String[]{"_id", "serverId", "peopleName", "relationType"};
@@ -88,7 +89,7 @@ public class FaceManager {
             sb.append(" ");
             sb.append(orderBy);
         }
-        sb.append(";");
+        sb.append(ConferenceCalls.SPLIT_EXPRESSION);
         return sb.toString();
     }
 

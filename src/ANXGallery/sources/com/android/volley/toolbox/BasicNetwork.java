@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import miui.hybrid.Response;
 
 public class BasicNetwork implements Network {
     protected static final boolean DEBUG = VolleyLog.DEBUG;
@@ -79,7 +80,7 @@ public class BasicNetwork implements Network {
                 }
                 try {
                     logSlowRequests(SystemClock.elapsedRealtime() - requestStart, request, responseContents, statusCode);
-                    if (statusCode >= 200 && statusCode <= 299) {
+                    if (statusCode >= Response.CODE_GENERIC_ERROR && statusCode <= 299) {
                         return new NetworkResponse(statusCode, responseContents, false, SystemClock.elapsedRealtime() - requestStart, responseHeaders);
                     }
                 } catch (SocketTimeoutException e2) {

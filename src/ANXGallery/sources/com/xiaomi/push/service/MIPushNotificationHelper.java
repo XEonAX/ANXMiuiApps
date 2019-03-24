@@ -12,6 +12,7 @@ import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SystemIntent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
@@ -53,7 +54,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-import org.jcodec.containers.mp4.boxes.Box;
+import miui.app.constants.ThemeManagerConstants;
+import miui.util.PlayerActions.Out;
+import miui.yellowpage.YellowPageContract.ImageLookup;
 import org.json.JSONObject;
 
 public class MIPushNotificationHelper {
@@ -133,7 +136,7 @@ public class MIPushNotificationHelper {
             }
             MyLog.w("Do not notify because user block " + shieldTypeName + "‘s notification");
         } else {
-            NotificationManager nm = (NotificationManager) context.getSystemService("notification");
+            NotificationManager nm = (NotificationManager) context.getSystemService(ThemeManagerConstants.COMPONENT_CODE_NOTIFICATION);
             metaInfo = container.getMetaInfo();
             RemoteViews rv = getNotificationForCustomLayout(context, container, decryptedContent);
             PendingIntent intent = getClickedPendingIntent(context, container, metaInfo, decryptedContent);
@@ -236,10 +239,10 @@ public class MIPushNotificationHelper {
                         MyLog.e(e2222);
                     }
                 }
-                if (!MIUIUtils.isXMS() && "com.xiaomi.xmsf".equals(context.getPackageName())) {
+                if (!MIUIUtils.isXMS() && SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(context.getPackageName())) {
                     setTargetPackage(notification, getTargetPackage(container));
                 }
-                if ("com.xiaomi.xmsf".equals(getTargetPackage(container))) {
+                if (SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(getTargetPackage(container))) {
                     TypedShieldHelper.processTypedShieldExtra(context, container, notification);
                 }
                 int realID = ((getTargetPackage(container).hashCode() / 10) * 10) + metaInfo.getNotifyId();
@@ -306,7 +309,7 @@ public class MIPushNotificationHelper {
             intent.addFlags(268435456);
         } else if (isBusinessMessage(container)) {
             intent = new Intent();
-            intent.setComponent(new ComponentName("com.xiaomi.xmsf", "com.xiaomi.mipush.sdk.PushMessageHandler"));
+            intent.setComponent(new ComponentName(SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE, "com.xiaomi.mipush.sdk.PushMessageHandler"));
             intent.putExtra("mipush_payload", decryptedContent);
             intent.putExtra("mipush_notified", true);
             intent.addCategory(String.valueOf(metaInfo.getNotifyId()));
@@ -319,7 +322,7 @@ public class MIPushNotificationHelper {
         }
         intent.putExtra("messageId", msgId);
         intent.putExtra("eventMessageType", eventMessageType);
-        return PendingIntent.getService(context, 0, intent, Box.MAX_BOX_SIZE);
+        return PendingIntent.getService(context, 0, intent, 134217728);
     }
 
     private static String[] determineTitleAndDespByDIP(Context context, PushMetaInfo metaInfo) {
@@ -484,7 +487,7 @@ public class MIPushNotificationHelper {
                 }
                 JavaCalls.callMethod(builder, "setChannelId", channelId);
                 CharSequence name = getChannelName(context, targetPackage, metaExtra);
-                NotificationManager nm = (NotificationManager) context.getSystemService("notification");
+                NotificationManager nm = (NotificationManager) context.getSystemService(ThemeManagerConstants.COMPONENT_CODE_NOTIFICATION);
                 try {
                     if (JavaCalls.callMethod(nm, "getNotificationChannel", channelId) == null) {
                         Object channel = Class.forName("android.app.NotificationChannel").getConstructor(new Class[]{String.class, CharSequence.class, Integer.TYPE}).newInstance(new Object[]{channelId, name, Integer.valueOf(3)});
@@ -527,7 +530,7 @@ public class MIPushNotificationHelper {
                 }
             }
         }
-        if (MIUIUtils.isXMS() && "com.xiaomi.xmsf".equals(context.getPackageName())) {
+        if (MIUIUtils.isXMS() && SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(context.getPackageName())) {
             JavaCalls.callStaticMethod("miui.util.NotificationHelper", "setTargetPkg", context, builder, getTargetPackage(container));
         }
         Notification notification = builder.getNotification();
@@ -731,8 +734,8 @@ public class MIPushNotificationHelper {
                         }
                     }
                 }
-                if (json.has("image")) {
-                    JSONObject jsonImage = json.getJSONObject("image");
+                if (json.has(ImageLookup.DIRECTORY_IMAGE)) {
+                    JSONObject jsonImage = json.getJSONObject(ImageLookup.DIRECTORY_IMAGE);
                     Iterator iterImage = jsonImage.keys();
                     while (iterImage.hasNext()) {
                         str = (String) iterImage.next();
@@ -841,7 +844,7 @@ public class MIPushNotificationHelper {
     }
 
     static String getTargetPackage(XmPushActionContainer container) {
-        if ("com.xiaomi.xmsf".equals(container.packageName)) {
+        if (SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(container.packageName)) {
             PushMetaInfo metaInfo = container.getMetaInfo();
             if (!(metaInfo == null || metaInfo.getExtra() == null)) {
                 String packageName = (String) metaInfo.getExtra().get("miui_package_name");
@@ -858,7 +861,7 @@ public class MIPushNotificationHelper {
     }
 
     public static void clearNotification(Context context, String packageName, int notifyId) {
-        NotificationManager nm = (NotificationManager) context.getSystemService("notification");
+        NotificationManager nm = (NotificationManager) context.getSystemService(ThemeManagerConstants.COMPONENT_CODE_NOTIFICATION);
         int notificationId = ((packageName.hashCode() / 10) * 10) + notifyId;
         LinkedList<Pair<Integer, XmPushActionContainer>> removeCache = new LinkedList();
         if (notifyId >= 0) {
@@ -892,7 +895,7 @@ public class MIPushNotificationHelper {
 
     public static void clearNotification(Context context, String packageName, String title, String description) {
         if (!TextUtils.isEmpty(title) || !TextUtils.isEmpty(description)) {
-            NotificationManager nm = (NotificationManager) context.getSystemService("notification");
+            NotificationManager nm = (NotificationManager) context.getSystemService(ThemeManagerConstants.COMPONENT_CODE_NOTIFICATION);
             LinkedList<Pair<Integer, XmPushActionContainer>> removeCache = new LinkedList();
             synchronized (notifyContainerCache) {
                 Iterator it = notifyContainerCache.iterator();
@@ -1037,10 +1040,10 @@ public class MIPushNotificationHelper {
     }
 
     private static String getChannelName(Context context, String targetPackage, Map<String, String> extras) {
-        if (extras == null || TextUtils.isEmpty((CharSequence) extras.get("channel_name"))) {
+        if (extras == null || TextUtils.isEmpty((CharSequence) extras.get(Out.KEY_CHANNEL_NAME))) {
             return AppInfoUtils.getAppLabel(context, targetPackage);
         }
-        return (String) extras.get("channel_name");
+        return (String) extras.get(Out.KEY_CHANNEL_NAME);
     }
 
     private static void setChannelDescription(Object channel, Map<String, String> extras) {

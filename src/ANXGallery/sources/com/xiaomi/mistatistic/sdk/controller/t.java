@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningAppProcessInfo;
 import android.content.Context;
+import android.content.SystemIntent;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.wifi.WifiManager;
 import android.os.Build;
@@ -12,6 +13,8 @@ import android.provider.Settings.Secure;
 import android.text.TextUtils;
 import android.util.Log;
 import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
+import com.miui.internal.analytics.XiaomiDispatcher;
+import com.miui.internal.vip.VipConstants;
 import com.xiaomi.mistatistic.sdk.BuildSetting;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
@@ -26,6 +29,7 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
+import miui.util.HashUtils;
 import org.keyczar.Keyczar;
 
 /* compiled from: Utils */
@@ -69,7 +73,7 @@ public class t {
             return null;
         }
         try {
-            MessageDigest instance = MessageDigest.getInstance("SHA1");
+            MessageDigest instance = MessageDigest.getInstance(HashUtils.SHA1);
             instance.update(a(str));
             BigInteger bigInteger = new BigInteger(1, instance.digest());
             return String.format("%1$032X", new Object[]{bigInteger});
@@ -134,7 +138,7 @@ public class t {
         instance.set(13, 0);
         instance.set(14, 0);
         long timeInMillis = instance.getTimeInMillis();
-        long j2 = 86400000 + timeInMillis;
+        long j2 = VipConstants.DAY + timeInMillis;
         if (timeInMillis > j || j >= j2) {
             return false;
         }
@@ -220,7 +224,7 @@ public class t {
             return false;
         }
         try {
-            context.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 0);
+            context.getPackageManager().getPackageInfo(SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE, 0);
             z = true;
         } catch (Throwable e) {
             j.a("U", "cannot get pkginfo of com.xiaomi.xmsf, not miui.", e);
@@ -237,7 +241,7 @@ public class t {
             Log.w(j.d("U"), "!! context is null !!");
         }
         String packageName = context.getPackageName();
-        if (packageName.contains("miui") || packageName.contains("xiaomi")) {
+        if (packageName.contains("miui") || packageName.contains(XiaomiDispatcher.TAG)) {
             m.b(context, "is_xiaomi", true);
             return true;
         } else if (d(context)) {

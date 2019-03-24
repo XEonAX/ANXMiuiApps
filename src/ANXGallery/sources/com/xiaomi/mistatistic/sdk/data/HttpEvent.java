@@ -1,11 +1,13 @@
 package com.xiaomi.mistatistic.sdk.data;
 
 import android.content.Context;
+import android.content.MiuiIntent;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.xiaomi.mistatistic.sdk.controller.d;
 import com.xiaomi.mistatistic.sdk.controller.j;
 import com.xiaomi.mistatistic.sdk.controller.l;
+import miui.yellowpage.Tag.TagWebService.CommonResult;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -71,7 +73,7 @@ public class HttpEvent {
             return;
         }
         this.net = c;
-        if (!"WIFI".equalsIgnoreCase(c)) {
+        if (!MiuiIntent.WIFI_NAME.equalsIgnoreCase(c)) {
             try {
                 this.operator = ((TelephonyManager) a.getSystemService("phone")).getSimOperator();
             } catch (Throwable e) {
@@ -90,7 +92,7 @@ public class HttpEvent {
             jSONObject.put("first_byte_t", this.firstPacketCost);
         }
         if (this.responseCode != -1) {
-            jSONObject.put("code", this.responseCode);
+            jSONObject.put(CommonResult.RESULT_CODE, this.responseCode);
         }
         if (!TextUtils.isEmpty(this.exceptionName)) {
             jSONObject.put("exception", this.exceptionName);

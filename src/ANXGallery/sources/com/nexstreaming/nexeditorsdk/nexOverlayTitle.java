@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import miui.yellowpage.YellowPageContract.ImageLookup;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -72,7 +73,7 @@ final class nexOverlayTitle {
             HashMap hashMap = new HashMap();
             Log.d(a, "pasrse Overlay : " + jSONObject.toString());
             hashMap.put("id", "" + this.h);
-            hashMap.put(nexExportFormat.TAG_FORMAT_TYPE, jSONObject.getString(nexExportFormat.TAG_FORMAT_TYPE));
+            hashMap.put("type", jSONObject.getString("type"));
             if (jSONObject.has("text")) {
                 hashMap.put("text", jSONObject.getString("text"));
             }
@@ -259,7 +260,7 @@ final class nexOverlayTitle {
             Object obj;
             nexOverlayItem nexoverlayitem;
             HashMap hashMap = (HashMap) it.next();
-            String str3 = (String) hashMap.get(nexExportFormat.TAG_FORMAT_TYPE);
+            String str3 = (String) hashMap.get("type");
             if (str3.equals("title") && hashMap.containsKey("group") && ((String) hashMap.get("group")).endsWith("_1")) {
                 String str4;
                 String[] split;
@@ -286,7 +287,7 @@ final class nexOverlayTitle {
                             obj = -1;
                             switch (str3.hashCode()) {
                                 case 100313435:
-                                    if (str3.equals("image")) {
+                                    if (str3.equals(ImageLookup.DIRECTORY_IMAGE)) {
                                         obj = 1;
                                         break;
                                     }
@@ -488,7 +489,7 @@ final class nexOverlayTitle {
                                         i4 = parseInt4;
                                         if (i4 < jSONArray.length()) {
                                             JSONObject jSONObject = jSONArray.getJSONObject(i4);
-                                            str3 = jSONObject.getString(nexExportFormat.TAG_FORMAT_TYPE);
+                                            str3 = jSONObject.getString("type");
                                             JSONArray jSONArray2 = jSONObject.getJSONArray("values");
                                             obj = -1;
                                             switch (str3.hashCode()) {

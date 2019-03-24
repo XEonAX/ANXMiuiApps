@@ -7,7 +7,6 @@ import com.miui.gallery.R;
 import com.miui.gallery.activity.BaseActivity;
 import com.miui.gallery.search.statistics.SearchStatUtils;
 import com.miui.gallery.search.utils.SearchLog;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.util.HashMap;
 import java.util.Map;
 import miui.app.Fragment;
@@ -28,7 +27,7 @@ public class SearchResultActivity extends BaseActivity {
         String resultType = null;
         String actionType = null;
         if (uri.getLastPathSegment().equals("result")) {
-            resultType = uri.getQueryParameter(nexExportFormat.TAG_FORMAT_TYPE);
+            resultType = uri.getQueryParameter("type");
             actionType = "client_enter_image_result_page";
         }
         if (uri.getLastPathSegment().equals("tags") || "tagList".equals(resultType)) {
@@ -56,7 +55,7 @@ public class SearchResultActivity extends BaseActivity {
         SearchStatUtils.cacheEvent(intent.getStringExtra("from"), actionType, params);
         this.mFragment = (Fragment) getFragmentManager().findFragmentByTag("RootFragment");
         if (this.mFragment == null) {
-            getIntent().setData(uri.buildUpon().appendQueryParameter(nexExportFormat.TAG_FORMAT_TYPE, resultType).build());
+            getIntent().setData(uri.buildUpon().appendQueryParameter("type", resultType).build());
             if (resultType.equals("imageList")) {
                 this.mFragment = new SearchImageResultFragment();
             } else if (resultType.equals("locationList")) {

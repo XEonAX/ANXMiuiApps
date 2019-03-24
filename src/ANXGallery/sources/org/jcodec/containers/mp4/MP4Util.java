@@ -1,5 +1,6 @@
 package org.jcodec.containers.mp4;
 
+import android.content.res.MiuiConfiguration;
 import com.miui.gallery.util.Log;
 import java.io.File;
 import java.io.IOException;
@@ -53,14 +54,14 @@ public class MP4Util {
             long size;
             if ("ftyp".equals(atom.getHeader().getFourcc())) {
                 size = atom.getHeader().getBodySize();
-                if (size >= 1024) {
+                if (size >= MiuiConfiguration.THEME_FLAG_ALARM) {
                     Log.w("jcodec", "Ftyp body size %d is too large.", Long.valueOf(size));
                     return null;
                 }
                 ftyp = (FileTypeBox) atom.parseBox(input);
             } else if ("moov".equals(atom.getHeader().getFourcc())) {
                 size = atom.getHeader().getBodySize();
-                if (size < 131072) {
+                if (size < MiuiConfiguration.THEME_FLAG_PHOTO_FRAME) {
                     return new Movie(ftyp, (MovieBox) atom.parseBox(input));
                 }
                 Log.w("jcodec", "Moov body size %d is too large.", Long.valueOf(size));

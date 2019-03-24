@@ -5,6 +5,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.text.TextUtils;
 import android.util.Log;
+import com.miui.internal.component.module.ModuleUtils;
+import com.miui.internal.util.PackageConstants;
 import java.io.File;
 
 public class SdkHelper {
@@ -36,7 +38,7 @@ public class SdkHelper {
     }
 
     private static String guessSystemApkPath(String systemApkName) {
-        return searchApkPath(new String[]{"/system/app/" + systemApkName + ".apk", "/system/priv-app/" + systemApkName + ".apk", "/system/app/" + systemApkName + "/" + systemApkName + ".apk", "/system/priv-app/" + systemApkName + "/" + systemApkName + ".apk"});
+        return searchApkPath(new String[]{"/system/app/" + systemApkName + ModuleUtils.MODULE_FILE_EXTENSION, "/system/priv-app/" + systemApkName + ModuleUtils.MODULE_FILE_EXTENSION, "/system/app/" + systemApkName + "/" + systemApkName + ModuleUtils.MODULE_FILE_EXTENSION, "/system/priv-app/" + systemApkName + "/" + systemApkName + ModuleUtils.MODULE_FILE_EXTENSION});
     }
 
     private static String searchApkPath(String[] paths) {
@@ -81,7 +83,7 @@ public class SdkHelper {
             Class activityThreadCls = Class.forName("android.app.ActivityThread");
             return (Context) activityThreadCls.getDeclaredMethod("getSystemContext", new Class[0]).invoke(activityThreadCls.getDeclaredMethod("currentActivityThread", new Class[0]).invoke(null, new Object[0]), new Object[0]);
         } catch (Exception e) {
-            Log.e("miuisdk", "getSystemContext error", e);
+            Log.e(PackageConstants.LOG_TAG, "getSystemContext error", e);
             return null;
         }
     }
@@ -90,7 +92,7 @@ public class SdkHelper {
         try {
             return (String) Class.forName("android.os.SystemProperties").getDeclaredMethod("get", new Class[]{String.class, String.class}).invoke(null, new Object[]{key, defValue});
         } catch (Exception e) {
-            Log.e("miuisdk", "getSystemProperty error", e);
+            Log.e(PackageConstants.LOG_TAG, "getSystemProperty error", e);
             return defValue;
         }
     }

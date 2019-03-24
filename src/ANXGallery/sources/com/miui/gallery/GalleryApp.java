@@ -45,6 +45,7 @@ import com.miui.gallery.util.uil.CloudImageLoader;
 import com.miui.gallery.util.uil.CloudUriAdapter;
 import com.miui.gallery.util.uil.PhotoReusedBitCache;
 import com.miui.gallery.video.editor.manager.SmartVideoGuideHelper;
+import com.miui.internal.vip.VipConstants;
 import com.miui.os.Rom;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoader.Initializer;
@@ -52,7 +53,7 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.xiaomi.micloudsdk.request.utils.Request;
 import miui.external.Application;
 import miui.net.ConnectivityHelper;
-import miui.os.ProcessUtils;
+import miui.os.C0003ProcessUtils;
 
 public class GalleryApp extends Application {
     private static final boolean BLOCK_MONITOR;
@@ -162,9 +163,9 @@ public class GalleryApp extends Application {
         if (CTA.canConnectNetwork()) {
             long current = System.currentTimeMillis();
             long lastRequestSucceedTime = CloudControl.getLastRequestSucceedTime();
-            if (current - lastRequestSucceedTime >= 3 * 86400000 && ConnectivityHelper.getInstance().isUnmeteredNetworkConnected()) {
+            if (current - lastRequestSucceedTime >= 3 * VipConstants.DAY && ConnectivityHelper.getInstance().isUnmeteredNetworkConnected()) {
                 new CloudControlRequestHelper(this).execRequestSync();
-            } else if (current - lastRequestSucceedTime >= 7 * 86400000 && ConnectivityHelper.getInstance().isNetworkConnected()) {
+            } else if (current - lastRequestSucceedTime >= 7 * VipConstants.DAY && ConnectivityHelper.getInstance().isNetworkConnected()) {
                 new CloudControlRequestHelper(this).execRequestSync();
             }
         }
@@ -182,6 +183,6 @@ public class GalleryApp extends Application {
     }
 
     public static boolean isEditorProcess() {
-        return "com.miui.gallery:photo_editor".equals(ProcessUtils.getProcessNameByPid(Process.myPid()));
+        return "com.miui.gallery:photo_editor".equals(C0003ProcessUtils.getProcessNameByPid(Process.myPid()));
     }
 }

@@ -8,6 +8,7 @@ import android.support.v4.content.ContextCompat;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
 import com.miui.gallery.R;
+import miui.telephony.phonenumber.CountryCode;
 
 public class ScanResult {
     private int mAction;
@@ -144,7 +145,7 @@ public class ScanResult {
         Drawable drawable = ContextCompat.getDrawable(context, R.drawable.info_divider);
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         CenteredImageSpan centeredImageSpan = new CenteredImageSpan(drawable);
-        SpannableString spannableTitle = new SpannableString(title + "+" + count);
+        SpannableString spannableTitle = new SpannableString(title + CountryCode.GSM_GENERAL_IDD_CODE + count);
         spannableTitle.setSpan(centeredImageSpan, title.length(), title.length() + 1, 33);
         return spannableTitle;
     }

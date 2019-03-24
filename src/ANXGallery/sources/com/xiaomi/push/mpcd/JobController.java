@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build.VERSION;
+import com.miui.internal.widget.ActionModeView;
 import com.xiaomi.channel.commonutils.logger.MyLog;
 import com.xiaomi.channel.commonutils.misc.ScheduledJobManager;
 import com.xiaomi.push.mpcd.job.AccountCollectionJob;
@@ -104,7 +105,7 @@ public class JobController {
                 jobManager.addRepeatJob(new WifiCollectionJob(this.context, period), period, 30);
             }
             if (onlineConfig.getBooleanValue(ConfigKey.TopAppCollectionSwitch.getValue(), true)) {
-                period = makeSurePeriodNotTooSmall(onlineConfig.getIntValue(ConfigKey.TopAppCollectionFrequency.getValue(), 300));
+                period = makeSurePeriodNotTooSmall(onlineConfig.getIntValue(ConfigKey.TopAppCollectionFrequency.getValue(), ActionModeView.ANIMATION_DURATION));
                 jobManager.addRepeatJob(new TopAppCollectionJob(this.context, period), period, 30);
             }
             if (onlineConfig.getBooleanValue(ConfigKey.BroadcastActionCollectionSwitch.getValue(), true)) {

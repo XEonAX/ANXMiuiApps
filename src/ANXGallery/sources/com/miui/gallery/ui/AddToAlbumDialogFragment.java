@@ -342,7 +342,7 @@ public class AddToAlbumDialogFragment extends GalleryDialogFragment {
 
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Builder builder = new Builder(getActivity());
-        builder.setAdapter(this.mListAdapter, null).setTitle(R.string.add_to_album).setNegativeButton(17039360, null);
+        builder.setAdapter(this.mListAdapter, null).setTitle((int) R.string.add_to_album).setNegativeButton(17039360, null);
         this.mDialog = builder.create();
         return this.mDialog;
     }

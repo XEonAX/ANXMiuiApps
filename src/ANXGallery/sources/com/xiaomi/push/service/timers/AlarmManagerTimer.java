@@ -10,6 +10,7 @@ import com.xiaomi.channel.commonutils.logger.MyLog;
 import com.xiaomi.channel.commonutils.reflect.JavaCalls;
 import com.xiaomi.push.service.PushConstants;
 import com.xiaomi.smack.SmackConfiguration;
+import miui.app.constants.ThemeManagerConstants;
 
 class AlarmManagerTimer implements IAlarm {
     protected Context mContext = null;
@@ -21,7 +22,7 @@ class AlarmManagerTimer implements IAlarm {
     }
 
     public void register(Intent intent, long triggerTime) {
-        AlarmManager mgr = (AlarmManager) this.mContext.getSystemService("alarm");
+        AlarmManager mgr = (AlarmManager) this.mContext.getSystemService(ThemeManagerConstants.COMPONENT_CODE_ALARM);
         this.mPi = PendingIntent.getBroadcast(this.mContext, 0, intent, 0);
         if (VERSION.SDK_INT >= 23) {
             JavaCalls.callMethod(mgr, "setExactAndAllowWhileIdle", Integer.valueOf(0), Long.valueOf(triggerTime), this.mPi);
@@ -68,7 +69,7 @@ class AlarmManagerTimer implements IAlarm {
     public void stop() {
         if (this.mPi != null) {
             try {
-                ((AlarmManager) this.mContext.getSystemService("alarm")).cancel(this.mPi);
+                ((AlarmManager) this.mContext.getSystemService(ThemeManagerConstants.COMPONENT_CODE_ALARM)).cancel(this.mPi);
                 this.mPi = null;
                 MyLog.v("unregister timer");
             } catch (Exception e) {

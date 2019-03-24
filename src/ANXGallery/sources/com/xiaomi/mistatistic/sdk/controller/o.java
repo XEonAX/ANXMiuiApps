@@ -6,6 +6,7 @@ import com.xiaomi.mistatistic.sdk.controller.asyncjobs.b;
 import com.xiaomi.mistatistic.sdk.controller.asyncjobs.c;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
+import miui.provider.MiCloudSmsCmd;
 
 /* compiled from: RemoteDataUploadManager */
 public class o {
@@ -116,7 +117,7 @@ public class o {
                     h hVar = new h();
                     hVar.a(Boolean.valueOf(z2));
                     hVar.a(j3, j4, o.b);
-                    n.a("d", str2);
+                    n.a(MiCloudSmsCmd.TYPE_DISCARD_TOKEN, str2);
                     n.a();
                 } catch (Throwable th) {
                     j.a("RDUM", "doDeleting exception: ", th);

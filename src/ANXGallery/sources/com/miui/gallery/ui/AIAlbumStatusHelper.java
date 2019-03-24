@@ -22,6 +22,7 @@ import com.miui.gallery.threadpool.ThreadPool.Job;
 import com.miui.gallery.threadpool.ThreadPool.JobContext;
 import com.miui.gallery.util.Log;
 import com.miui.os.Rom;
+import miui.yellowpage.Tag.TagPhone;
 
 public class AIAlbumStatusHelper {
     public static boolean useNewAIAlbumSwitch() {
@@ -130,7 +131,7 @@ public class AIAlbumStatusHelper {
 
     public static void doPostCloudControlJob() {
         if (!CloudControlStrategyHelper.getSearchStrategy().isAIAlbumEnabled() && CloudControlManager.getInstance().queryFeatureStatus("search-auto-open-search") == Status.ENABLE) {
-            SearchStatUtils.reportEvent("from_cloud_control", "auto_request_open_search", "result", SearchConstants.isErrorStatus(OpenSearchRequest.request()) ? "failed" : "succeeded", "device", Build.DEVICE);
+            SearchStatUtils.reportEvent("from_cloud_control", "auto_request_open_search", "result", SearchConstants.isErrorStatus(OpenSearchRequest.request()) ? "failed" : "succeeded", TagPhone.IMEI, Build.DEVICE);
         }
     }
 

@@ -6,6 +6,7 @@ import com.miui.gallery.card.scenario.Record;
 import com.miui.gallery.util.BaseMiscUtil;
 import com.miui.gallery.util.Log;
 import com.miui.gallery.util.assistant.HolidaysUtil;
+import com.miui.internal.vip.VipConstants;
 import java.util.List;
 import miui.date.Calendar;
 
@@ -17,7 +18,7 @@ public abstract class HolidayScenario extends TimeScenario {
     }
 
     protected long[] getStartEndTime(long pastYearTime, List<HolidayConfig> holidayConfigs, boolean isChineseHoliday) {
-        long[] result = new long[]{DateUtils.getDateTime(pastYearTime), result[0] + 86400000};
+        long[] result = new long[]{DateUtils.getDateTime(pastYearTime), result[0] + VipConstants.DAY};
         int holiday = isChineseHoliday ? HolidaysUtil.getChineseHoliday(pastYearTime) : HolidaysUtil.getHoliday(pastYearTime);
         int maxContinuousDay = 1;
         int previousMaxDay = Integer.MAX_VALUE;
@@ -42,14 +43,14 @@ public abstract class HolidayScenario extends TimeScenario {
                         break;
                     }
                     rightOffSet++;
-                    list = getMediaIdsByStartEndTime(result[0] + (86400000 * ((long) rightOffSet)), result[1] + (86400000 * ((long) rightOffSet)));
+                    list = getMediaIdsByStartEndTime(result[0] + (VipConstants.DAY * ((long) rightOffSet)), result[1] + (VipConstants.DAY * ((long) rightOffSet)));
                     if (list == null || list.size() < getMinImageCount()) {
                         rightOffSet--;
                         rightCanMove = false;
                     }
                 } else {
                     leftOffSet++;
-                    list = getMediaIdsByStartEndTime(result[0] - (86400000 * ((long) leftOffSet)), result[1] - (86400000 * ((long) leftOffSet)));
+                    list = getMediaIdsByStartEndTime(result[0] - (VipConstants.DAY * ((long) leftOffSet)), result[1] - (VipConstants.DAY * ((long) leftOffSet)));
                     if (list == null || list.size() < getMinImageCount()) {
                         leftOffSet--;
                         leftCanMove = false;
@@ -60,8 +61,8 @@ public abstract class HolidayScenario extends TimeScenario {
                     }
                 }
             }
-            result[0] = result[0] - (((long) leftOffSet) * 86400000);
-            result[1] = result[1] + (((long) rightOffSet) * 86400000);
+            result[0] = result[0] - (((long) leftOffSet) * VipConstants.DAY);
+            result[1] = result[1] + (((long) rightOffSet) * VipConstants.DAY);
         }
         return result;
     }

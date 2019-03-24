@@ -6,7 +6,6 @@ import android.opengl.GLSurfaceView.Renderer;
 import android.os.Build;
 import com.miui.gallery.stat.BaseSamplingStatHelper;
 import com.miui.gallery.util.Log;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import javax.microedition.khronos.egl.EGL10;
@@ -66,7 +65,7 @@ public class PixelBuffer {
             } catch (OutOfMemoryError e) {
                 Log.e("PixelBuffer", "convertToBitmap error:" + e.toString());
                 HashMap<String, String> params = new HashMap();
-                params.put(nexExportFormat.TAG_FORMAT_TYPE, "pixelBuffer");
+                params.put("type", "pixelBuffer");
                 params.put("model", Build.MODEL);
                 BaseSamplingStatHelper.recordCountEvent("photo_editor", "memory_error", params);
                 return null;

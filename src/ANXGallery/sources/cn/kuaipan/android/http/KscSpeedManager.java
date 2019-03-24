@@ -2,10 +2,13 @@ package cn.kuaipan.android.http;
 
 import android.os.SystemClock;
 import android.util.SparseArray;
+import com.miui.internal.vip.VipConstants;
+import com.miui.internal.widget.ActionModeView;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map.Entry;
+import miui.date.Calendar;
 
 public class KscSpeedManager {
     private long mLatestEraseTime = 0;
@@ -16,7 +19,7 @@ public class KscSpeedManager {
         if (recodeDuration < 0) {
             recodeDuration = 600;
         }
-        this.mRecodeDuration = Math.min(3600, Math.max(300, recodeDuration));
+        this.mRecodeDuration = Math.min(3600, Math.max(ActionModeView.ANIMATION_DURATION, recodeDuration));
     }
 
     public KscSpeedMonitor getMoniter(String host) {
@@ -105,7 +108,7 @@ public class KscSpeedManager {
     }
 
     private static int computeKey(long start) {
-        return (int) ((start / 1000) % 3600000);
+        return (int) ((start / 1000) % VipConstants.HOUR);
     }
 
     private void appendRecoders(String host, int startKey, int endKey, float size) {
@@ -116,7 +119,7 @@ public class KscSpeedManager {
             }
             return;
         }
-        for (key = startKey; key < 3600000; key++) {
+        for (key = startKey; key < Calendar.MILLISECOND_OF_HOUR; key++) {
             appendRecoder(host, key, size);
         }
         for (key = 0; key <= endKey; key++) {

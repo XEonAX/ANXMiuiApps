@@ -1,6 +1,7 @@
 package com.miui.gallery.ui;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.database.DataSetObserver;
 import android.net.Uri;
@@ -32,9 +33,10 @@ import com.miui.gallery.widget.editwrapper.EditableListViewWrapperDeprecated;
 import com.miui.gallery.widget.editwrapper.SimpleMultiChoiceModeListener;
 import java.util.HashMap;
 import miui.gallery.support.MiuiSdkCompat;
+import miui.hybrid.Response;
 
 public class SlimPhotoPickFragment extends PhotoListFragmentBase {
-    public static final int[] SLIM_COUNT_STAGE = new int[]{20, 50, 100, 200, 500, 1000};
+    public static final int[] SLIM_COUNT_STAGE = new int[]{20, 50, 100, Response.CODE_GENERIC_ERROR, 500, 1000};
     private AlbumDetailTimeLineAdapter mAdapter;
     private DataSetObserver mDataSetObserver = new DataSetObserver() {
         public void onChanged() {
@@ -130,12 +132,12 @@ public class SlimPhotoPickFragment extends PhotoListFragmentBase {
         if (this.mAdapter.getCount() > 0) {
             this.mStartSlimButton.setEnabled(this.mGridViewWrapper.getCheckedItemCount() > 0);
             this.mSelectButton.setVisibility(0);
-            Object obj = this.mActivity;
+            Context context = this.mActivity;
             Button button = this.mSelectButton;
             if (!this.mGridViewWrapper.isAllItemsChecked()) {
                 i = 0;
             }
-            MiuiSdkCompat.setEditActionModeButton(obj, button, i);
+            MiuiSdkCompat.setEditActionModeButton(context, button, i);
             return;
         }
         this.mStartSlimButton.setEnabled(false);

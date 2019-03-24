@@ -5,7 +5,7 @@ import com.adobe.xmp.XMPMetaFactory;
 import com.adobe.xmp.impl.xpath.XMPPath;
 import com.adobe.xmp.impl.xpath.XMPPathSegment;
 import com.adobe.xmp.options.PropertyOptions;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
+import com.miui.internal.vip.utils.JsonParser;
 import java.util.Iterator;
 
 public class XMPNodeUtils {
@@ -27,7 +27,7 @@ public class XMPNodeUtils {
                 String prefix = XMPMetaFactory.getSchemaRegistry().getNamespacePrefix(namespaceURI);
                 if (prefix == null) {
                     if (suggestedPrefix == null || suggestedPrefix.length() == 0) {
-                        throw new XMPException("Unregistered schema namespace URI", BaiduSceneResult.SHOOTING);
+                        throw new XMPException("Unregistered schema namespace URI", 101);
                     }
                     prefix = XMPMetaFactory.getSchemaRegistry().registerNamespace(namespaceURI, suggestedPrefix);
                 }
@@ -42,9 +42,9 @@ public class XMPNodeUtils {
     static XMPNode findChildNode(XMPNode parent, String childName, boolean createNodes) throws XMPException {
         if (!(parent.getOptions().isSchemaNode() || parent.getOptions().isStruct())) {
             if (!parent.isImplicit()) {
-                throw new XMPException("Named children only allowed for schemas and structs", BaiduSceneResult.TAEKWONDO);
+                throw new XMPException("Named children only allowed for schemas and structs", 102);
             } else if (parent.getOptions().isArray()) {
-                throw new XMPException("Named children not allowed for arrays", BaiduSceneResult.TAEKWONDO);
+                throw new XMPException("Named children not allowed for arrays", 102);
             } else if (createNodes) {
                 parent.getOptions().setStruct(true);
             }
@@ -63,7 +63,7 @@ public class XMPNodeUtils {
 
     static XMPNode findNode(XMPNode xmpTree, XMPPath xpath, boolean createNodes, PropertyOptions leafOptions) throws XMPException {
         if (xpath == null || xpath.size() == 0) {
-            throw new XMPException("Empty XMPPath", BaiduSceneResult.TAEKWONDO);
+            throw new XMPException("Empty XMPPath", 102);
         }
         XMPNode rootImplicitNode = null;
         XMPNode currNode = findSchemaNode(xmpTree, xpath.getSegment(0).getName(), createNodes);
@@ -140,7 +140,7 @@ public class XMPNodeUtils {
             options.assertConsistency(options.getOptions());
             return options;
         }
-        throw new XMPException("Structs and arrays can't have values", BaiduSceneResult.MOUNTAINEERING);
+        throw new XMPException("Structs and arrays can't have values", 103);
     }
 
     private static XMPNode followXPathStep(XMPNode parentNode, XMPPathSegment nextStep, boolean createNodes) throws XMPException {
@@ -172,7 +172,7 @@ public class XMPNodeUtils {
             }
             return parentNode.getChild(index);
         }
-        throw new XMPException("Indexing applied to non-array", BaiduSceneResult.TAEKWONDO);
+        throw new XMPException("Indexing applied to non-array", 102);
     }
 
     private static XMPNode findQualifierNode(XMPNode parent, String qualName, boolean createNodes) throws XMPException {
@@ -193,16 +193,16 @@ public class XMPNodeUtils {
         try {
             int index = Integer.parseInt(segment.substring(1, segment.length() - 1));
             if (index < 1) {
-                throw new XMPException("Array index must be larger than zero", BaiduSceneResult.TAEKWONDO);
+                throw new XMPException("Array index must be larger than zero", 102);
             }
             if (createNodes && index == arrayNode.getChildrenLength() + 1) {
-                XMPNode newItem = new XMPNode("[]", null);
+                XMPNode newItem = new XMPNode(JsonParser.EMPTY_ARRAY, null);
                 newItem.setImplicit(true);
                 arrayNode.addChild(newItem);
             }
             return index;
         } catch (NumberFormatException e) {
-            throw new XMPException("Array index not digits.", BaiduSceneResult.TAEKWONDO);
+            throw new XMPException("Array index not digits.", 102);
         }
     }
 
@@ -221,7 +221,7 @@ public class XMPNodeUtils {
                 }
                 index++;
             } else {
-                throw new XMPException("Field selector must be used on array of struct", BaiduSceneResult.TAEKWONDO);
+                throw new XMPException("Field selector must be used on array of struct", 102);
             }
         }
         return result;
@@ -234,7 +234,7 @@ public class XMPNodeUtils {
             if (index >= 0 || (aliasForm & 4096) <= 0) {
                 return index;
             }
-            XMPNode langNode = new XMPNode("[]", null);
+            XMPNode langNode = new XMPNode(JsonParser.EMPTY_ARRAY, null);
             langNode.addQualifier(new XMPNode("xml:lang", "x-default", null));
             arrayNode.addChild(1, langNode);
             return 1;
@@ -292,7 +292,7 @@ public class XMPNodeUtils {
     }
 
     static void appendLangItem(XMPNode arrayNode, String itemLang, String itemValue) throws XMPException {
-        XMPNode newItem = new XMPNode("[]", itemValue, null);
+        XMPNode newItem = new XMPNode(JsonParser.EMPTY_ARRAY, itemValue, null);
         XMPNode langQual = new XMPNode("xml:lang", itemLang, null);
         newItem.addQualifier(langQual);
         if ("x-default".equals(langQual.getValue())) {
@@ -304,7 +304,7 @@ public class XMPNodeUtils {
 
     static Object[] chooseLocalizedText(XMPNode arrayNode, String genericLang, String specificLang) throws XMPException {
         if (!arrayNode.getOptions().isArrayAltText()) {
-            throw new XMPException("Localized text array is not alt-text", BaiduSceneResult.TAEKWONDO);
+            throw new XMPException("Localized text array is not alt-text", 102);
         } else if (arrayNode.hasChildren()) {
             int foundGenericMatches = 0;
             XMPNode resultNode = null;
@@ -313,7 +313,7 @@ public class XMPNodeUtils {
             while (it.hasNext()) {
                 XMPNode currItem = (XMPNode) it.next();
                 if (currItem.getOptions().isCompositeProperty()) {
-                    throw new XMPException("Alt-text array item is not simple", BaiduSceneResult.TAEKWONDO);
+                    throw new XMPException("Alt-text array item is not simple", 102);
                 } else if (currItem.hasQualifier() && "xml:lang".equals(currItem.getQualifier(1).getName())) {
                     String currLang = currItem.getQualifier(1).getValue();
                     if (specificLang.equals(currLang)) {
@@ -327,7 +327,7 @@ public class XMPNodeUtils {
                         xDefault = currItem;
                     }
                 } else {
-                    throw new XMPException("Alt-text array item has no language qualifier", BaiduSceneResult.TAEKWONDO);
+                    throw new XMPException("Alt-text array item has no language qualifier", 102);
                 }
             }
             if (foundGenericMatches == 1) {
@@ -354,6 +354,6 @@ public class XMPNodeUtils {
             }
             return -1;
         }
-        throw new XMPException("Language item must be used on array", BaiduSceneResult.TAEKWONDO);
+        throw new XMPException("Language item must be used on array", 102);
     }
 }

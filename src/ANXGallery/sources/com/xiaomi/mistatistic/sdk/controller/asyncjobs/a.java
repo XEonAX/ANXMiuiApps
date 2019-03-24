@@ -21,6 +21,9 @@ import com.xiaomi.mistatistic.sdk.controller.t;
 import com.xiaomi.mistatistic.sdk.data.AbstractEvent;
 import java.util.GregorianCalendar;
 import java.util.Locale;
+import miui.content.res.ThemeResources;
+import miui.reflect.Field;
+import miui.telephony.TelephonyConstants;
 
 /* compiled from: BasicInfoRecordJob */
 public class a implements com.xiaomi.mistatistic.sdk.controller.e.a {
@@ -93,13 +96,13 @@ public class a implements com.xiaomi.mistatistic.sdk.controller.e.a {
         String str;
         LocalEventRecorder.insertEvent(new com.xiaomi.mistatistic.sdk.data.d("mistat_basic", "new"));
         LocalEventRecorder.insertEvent(new com.xiaomi.mistatistic.sdk.data.g("mistat_basic", "model", Build.MODEL));
-        LocalEventRecorder.insertEvent(new com.xiaomi.mistatistic.sdk.data.g("mistat_basic", "OS", "android" + VERSION.SDK_INT));
+        LocalEventRecorder.insertEvent(new com.xiaomi.mistatistic.sdk.data.g("mistat_basic", "OS", ThemeResources.FRAMEWORK_PACKAGE + VERSION.SDK_INT));
         TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
         if (!TextUtils.isEmpty(telephonyManager.getNetworkOperatorName())) {
             LocalEventRecorder.insertEvent(new com.xiaomi.mistatistic.sdk.data.g("mistat_basic", "operator", telephonyManager.getSimOperator()));
         }
         if (!(BuildSetting.isInternationalBuild() || t.c())) {
-            a("device_id", g.a(context));
+            a(TelephonyConstants.EXTRA_DEVICE_ID, g.a(context));
             a("imei_md5", g.b(context));
             a("android_id_md5", t.b(t.c(context)));
             a("serial_num_md5", t.b(t.a()));
@@ -128,7 +131,7 @@ public class a implements com.xiaomi.mistatistic.sdk.controller.e.a {
             }
             try {
                 Class cls = Class.forName("miui.os.Build");
-                str = cls.getField("IS_ALPHA_BUILD").getBoolean(null) ? "A" : cls.getField("IS_DEVELOPMENT_VERSION").getBoolean(null) ? "D" : "S";
+                str = cls.getField("IS_ALPHA_BUILD").getBoolean(null) ? "A" : cls.getField("IS_DEVELOPMENT_VERSION").getBoolean(null) ? Field.DOUBLE_SIGNATURE_PRIMITIVE : Field.SHORT_SIGNATURE_PRIMITIVE;
                 a("bc", str);
             } catch (Throwable e2) {
                 j.a("get build version exception", e2);

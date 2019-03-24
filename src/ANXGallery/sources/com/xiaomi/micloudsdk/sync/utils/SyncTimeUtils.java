@@ -2,6 +2,7 @@ package com.xiaomi.micloudsdk.sync.utils;
 
 import android.content.Context;
 import android.util.Log;
+import com.miui.internal.vip.VipConstants;
 import com.xiaomi.micloudsdk.utils.PrefUtils;
 import java.util.Random;
 
@@ -9,7 +10,7 @@ public class SyncTimeUtils {
     public static boolean isSyncTimeAvailable(Context context, String authority) {
         long resumeTime = PrefUtils.getLong(context, getResumeSyncTimeKey(authority), Long.valueOf(0)).longValue();
         long remaining = resumeTime - System.currentTimeMillis();
-        if (remaining > 86400000) {
+        if (remaining > VipConstants.DAY) {
             Log.d("SyncTimeUtils", "isSyncTimeAvailable: Remaining time of " + authority + "is not right and reset.");
             PrefUtils.putLong(context, getResumeSyncTimeKey(authority), Long.valueOf(0));
             return true;

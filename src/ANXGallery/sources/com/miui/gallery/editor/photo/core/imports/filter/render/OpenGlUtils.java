@@ -6,7 +6,6 @@ import android.opengl.GLUtils;
 import android.os.Build;
 import com.miui.gallery.stat.BaseSamplingStatHelper;
 import com.miui.gallery.util.Log;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.util.HashMap;
 
 public class OpenGlUtils {
@@ -52,7 +51,7 @@ public class OpenGlUtils {
             } catch (OutOfMemoryError error) {
                 Log.e("OpenGlUtils", "ensureBitmapSize error:" + error.toString());
                 HashMap<String, String> params = new HashMap();
-                params.put(nexExportFormat.TAG_FORMAT_TYPE, "filter");
+                params.put("type", "filter");
                 params.put("model", Build.MODEL);
                 BaseSamplingStatHelper.recordCountEvent("photo_editor", "memory_error", params);
                 origin = null;

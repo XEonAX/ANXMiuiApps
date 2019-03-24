@@ -35,6 +35,8 @@ import com.miui.gallery.util.Log;
 import com.miui.gallery.util.SafeDBUtil;
 import com.miui.gallery.util.SafeDBUtil.QueryHandler;
 import com.miui.gallery.util.SyncUtil;
+import com.miui.internal.analytics.NormalPolicy;
+import com.miui.internal.vip.VipConstants;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -45,6 +47,8 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CopyOnWriteArraySet;
+import miui.provider.ExtraTelephony.FirewallLog;
+import miui.util.PlayerActions.Out;
 
 public class CardManager {
     public static final String[] CONVERT_PROJECTION = new String[]{"serverId", "sha1"};
@@ -634,7 +638,7 @@ public class CardManager {
 
     private Card getDuplicatedCard(CardInfo cardInfo) {
         if (cardInfo.isAppCreate()) {
-            List<Card> list = GalleryEntityManager.getInstance().query(Card.class, "ignored = 0 AND scenarioId = " + cardInfo.getScenarioId() + " AND " + "createTime" + " > " + (System.currentTimeMillis() - 86400000) + " AND " + "localFlag" + " = " + 0, null, "createTime desc", String.format(Locale.US, "%s,%s", new Object[]{Integer.valueOf(0), Integer.valueOf(1)}));
+            List<Card> list = GalleryEntityManager.getInstance().query(Card.class, "ignored = 0 AND scenarioId = " + cardInfo.getScenarioId() + " AND " + "createTime" + " > " + (System.currentTimeMillis() - VipConstants.DAY) + " AND " + "localFlag" + " = " + 0, null, "createTime desc", String.format(Locale.US, "%s,%s", new Object[]{Integer.valueOf(0), Integer.valueOf(1)}));
             if (BaseMiscUtil.isValid(list)) {
                 Card card = (Card) list.get(0);
                 if (CardUtil.isDuplicated(card, cardInfo)) {
@@ -686,7 +690,7 @@ public class CardManager {
             if (!BaseMiscUtil.isValid(selectedSha1s)) {
                 return null;
             }
-            cardBuilder.setType(0).setImageUri(null).setDetailUrl(CardUtil.getAlbumUri("album").toString()).setUniqueKey(uniqueKey).setAllMediaSha1s(CardUtil.getSha1sByServerIds(allMediaServerIds)).setSelectedMediaSha1s(selectedSha1s).setCoverMediaFeatureItems(CardUtil.getCoverMediaItemsByServerIds(cardInfo.getMediaInfo().getCoverMediaList())).setSyncable(true).setIsIgnored(isIgnored);
+            cardBuilder.setType(0).setImageUri(null).setDetailUrl(CardUtil.getAlbumUri(Out.KEY_ALBUM).toString()).setUniqueKey(uniqueKey).setAllMediaSha1s(CardUtil.getSha1sByServerIds(allMediaServerIds)).setSelectedMediaSha1s(selectedSha1s).setCoverMediaFeatureItems(CardUtil.getCoverMediaItemsByServerIds(cardInfo.getMediaInfo().getCoverMediaList())).setSyncable(true).setIsIgnored(isIgnored);
         }
         Card card = cardBuilder.build();
         updateCardCoversIfNecessary(card);
@@ -749,7 +753,7 @@ public class CardManager {
 
     public CardSyncInfo getCardInfoFromCard(Card card) {
         List<ServerIdSha1Pair> selectedServerIdSha1Pairs = getServerIdSha1PairBySha1s(card.getSelectedMediaSha1s());
-        return CardSyncInfo.newBuilder().setName(card.getTitle()).setScenarioId(card.getScenarioId()).setStatus("normal").setDuplicateKey(card.generateDuplicateKey()).setDescription(card.getDescription()).setMediaList(ServerIdSha1Pair.getServerIds(selectedServerIdSha1Pairs)).setAllMediaList(ServerIdSha1Pair.getServerIds(getServerIdSha1PairBySha1s(card.getAllMediaSha1s()))).setCoverMediaList(ServerIdSha1Pair.getServerIdsOfCover(selectedServerIdSha1Pairs, card.getCoverMediaFeatureItems())).setExtraInfo(GsonUtils.toString(card.getCardExtraInfo())).setSortTime(card.getCreateTime()).build();
+        return CardSyncInfo.newBuilder().setName(card.getTitle()).setScenarioId(card.getScenarioId()).setStatus(NormalPolicy.TAG).setDuplicateKey(card.generateDuplicateKey()).setDescription(card.getDescription()).setMediaList(ServerIdSha1Pair.getServerIds(selectedServerIdSha1Pairs)).setAllMediaList(ServerIdSha1Pair.getServerIds(getServerIdSha1PairBySha1s(card.getAllMediaSha1s()))).setCoverMediaList(ServerIdSha1Pair.getServerIdsOfCover(selectedServerIdSha1Pairs, card.getCoverMediaFeatureItems())).setExtraInfo(GsonUtils.toString(card.getCardExtraInfo())).setSortTime(card.getCreateTime()).build();
     }
 
     public List<ServerIdSha1Pair> getServerIdSha1PairBySha1s(List<String> cardSha1s) {
@@ -814,7 +818,7 @@ public class CardManager {
 
     public void recordCardDeleteReason(String reason) {
         Map<String, String> params = new HashMap(1);
-        params.put("reason", reason);
+        params.put(FirewallLog.REASON, reason);
         GalleryStatHelper.recordCountEvent("assistant", "assistant_card_delete_card_reason", params);
         Log.d("CardManager", new Throwable());
     }

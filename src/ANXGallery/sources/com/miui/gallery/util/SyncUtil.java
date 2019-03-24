@@ -28,6 +28,7 @@ import com.miui.gallery.util.deprecated.Preference;
 import com.xiaomi.micloudsdk.sync.MiCloudResolver;
 import java.util.HashMap;
 import miui.gallery.support.SyncCompat;
+import miui.provider.ExtraTelephony.SimCards;
 
 public class SyncUtil {
 
@@ -395,6 +396,6 @@ public class SyncUtil {
     public static void statSyncEnabledEvent(boolean enabled) {
         HashMap<String, String> values = new HashMap();
         values.put("state", Boolean.toString(enabled));
-        BaseSamplingStatHelper.recordCountEvent("micloud_sync", "sync_enabled", values);
+        BaseSamplingStatHelper.recordCountEvent("micloud_sync", SimCards.SYNC_ENABLED, values);
     }
 }

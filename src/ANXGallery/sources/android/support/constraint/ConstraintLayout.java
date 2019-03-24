@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.View.MeasureSpec;
 import android.view.ViewGroup;
 import android.view.ViewGroup.MarginLayoutParams;
+import com.miui.internal.view.menu.MenuBuilder;
 import com.nexstreaming.nexeditorsdk.nexEngine;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -1669,7 +1670,7 @@ public class ConstraintLayout extends ViewGroup {
                             w = (int) ((((float) w) / 1080.0f) * cw);
                             int h = (int) ((((float) Integer.parseInt(split[3])) / 1920.0f) * ch);
                             Paint paint = new Paint();
-                            paint.setColor(-65536);
+                            paint.setColor(MenuBuilder.CATEGORY_MASK);
                             canvas.drawLine((float) x, (float) y, (float) (x + w), (float) y, paint);
                             Canvas canvas2 = canvas;
                             canvas2.drawLine((float) (x + w), (float) y, (float) (x + w), (float) (y + h), paint);

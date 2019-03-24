@@ -5,6 +5,7 @@ import android.app.job.JobInfo.Builder;
 import android.content.ComponentName;
 import android.content.Context;
 import com.miui.gallery.data.LocationManager;
+import com.miui.internal.vip.VipConstants;
 
 public class CollectLocationJob extends AbstractJob {
     public Object execJob() {
@@ -13,6 +14,6 @@ public class CollectLocationJob extends AbstractJob {
     }
 
     public JobInfo getJobInfo(Context context, ComponentName cn) {
-        return new Builder(this.mJobId, cn).setPeriodic(86400000).setRequiresCharging(true).setRequiresDeviceIdle(true).setRequiredNetworkType(2).build();
+        return new Builder(this.mJobId, cn).setPeriodic(VipConstants.DAY).setRequiresCharging(true).setRequiresDeviceIdle(true).setRequiredNetworkType(2).build();
     }
 }

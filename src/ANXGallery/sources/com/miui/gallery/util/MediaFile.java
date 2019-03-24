@@ -1,9 +1,9 @@
 package com.miui.gallery.util;
 
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import com.nexstreaming.nexeditorsdk.nexProject;
 import java.util.HashMap;
 import java.util.Locale;
+import miui.hybrid.Response;
 
 public class MediaFile {
     private static final HashMap<String, MediaFileType> sFileTypeMap = new HashMap();
@@ -76,18 +76,18 @@ public class MediaFile {
         addFileType("FL", 51, "application/x-android-drm-fl");
         addFileType("DCF", 52, "application/vnd.oma.drm.content");
         addFileType("TXT", 100, "text/plain", 12292);
-        addFileType("HTM", BaiduSceneResult.SHOOTING, "text/html", 12293);
-        addFileType("HTML", BaiduSceneResult.SHOOTING, "text/html", 12293);
-        addFileType("PDF", BaiduSceneResult.TAEKWONDO, "application/pdf");
-        addFileType("DOC", BaiduSceneResult.SPORTS_OTHER, "application/msword", 47747);
-        addFileType("XLS", BaiduSceneResult.TEMPLE, "application/vnd.ms-excel", 47749);
-        addFileType("PPT", BaiduSceneResult.PALACE, "application/mspowerpoint", 47750);
+        addFileType("HTM", 101, "text/html", 12293);
+        addFileType("HTML", 101, "text/html", 12293);
+        addFileType("PDF", 102, "application/pdf");
+        addFileType("DOC", 104, "application/msword", 47747);
+        addFileType("XLS", 105, "application/vnd.ms-excel", 47749);
+        addFileType("PPT", 106, "application/mspowerpoint", 47750);
         addFileType("FLAC", 10, "audio/flac", 47366);
-        addFileType("ZIP", BaiduSceneResult.GARDEN, "application/zip");
-        addFileType("MPG", 200, "video/mp2p");
-        addFileType("MPEG", 200, "video/mp2p");
-        addFileType("DIVX", 201, "video/divx");
-        addFileType("FLV", 202, "video/flv");
+        addFileType("ZIP", 107, "application/zip");
+        addFileType("MPG", Response.CODE_GENERIC_ERROR, "video/mp2p");
+        addFileType("MPEG", Response.CODE_GENERIC_ERROR, "video/mp2p");
+        addFileType("DIVX", Response.CODE_CONFIG_ERROR, "video/divx");
+        addFileType("FLV", Response.CODE_SIGNATURE_ERROR, "video/flv");
         addFileType("MPD", 45, "application/dash+xml");
         addFileType("QCP", 303, "audio/qcelp");
         addFileType("AC3", 302, "audio/ac3");

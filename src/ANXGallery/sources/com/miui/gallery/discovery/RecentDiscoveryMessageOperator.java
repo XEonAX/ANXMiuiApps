@@ -12,7 +12,6 @@ import com.miui.gallery.model.DiscoveryMessage.BaseMessageDetail;
 import com.miui.gallery.provider.GalleryContract.RecentAlbum;
 import com.miui.gallery.util.BaseMiscUtil;
 import com.miui.gallery.util.Log;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -168,7 +167,7 @@ public class RecentDiscoveryMessageOperator extends BaseMessageOperator<RecentSa
         }
         recentMessageDetail.setThumbUrls(thumbUrlArray);
         values.put("extraData", recentMessageDetail.toJson());
-        values.put(nexExportFormat.TAG_FORMAT_TYPE, Integer.valueOf(getMessageType()));
+        values.put("type", Integer.valueOf(getMessageType()));
         values.put("receiveTime", Long.valueOf(current));
         values.put("updateTime", Long.valueOf(current));
         values.put("isConsumed", Integer.valueOf(0));

@@ -1,6 +1,7 @@
 package com.miui.gallery.util;
 
 import android.annotation.TargetApi;
+import android.content.res.MiuiConfiguration;
 import android.graphics.RectF;
 import android.os.Build;
 import android.os.Build.VERSION;
@@ -210,7 +211,7 @@ public class ExifUtil {
                 Log.d("ExifUtil", "Failed to read user comment using support exif interface, %s", e);
             }
             File file = new File(path);
-            if (file.exists() && file.isFile() && file.length() <= 1048576) {
+            if (file.exists() && file.isFile() && file.length() <= MiuiConfiguration.THEME_FLAG_ALARMSTYLE) {
                 try {
                     ExifInterface exif = (ExifInterface) sGallery3DExifCreator.create(path);
                     if (exif != null) {

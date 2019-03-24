@@ -3,6 +3,7 @@ package com.xiaomi.network;
 import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
+import miui.yellowpage.YellowPageContract.Permission;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -80,7 +81,7 @@ class Fallbacks {
     public synchronized JSONObject toJSON() throws JSONException {
         JSONObject json;
         json = new JSONObject();
-        json.put("host", this.host);
+        json.put(Permission.HOST, this.host);
         JSONArray jsonArray = new JSONArray();
         Iterator it = this.mFallbacks.iterator();
         while (it.hasNext()) {
@@ -91,7 +92,7 @@ class Fallbacks {
     }
 
     public synchronized Fallbacks fromJSON(JSONObject jsonObject) throws JSONException {
-        this.host = jsonObject.getString("host");
+        this.host = jsonObject.getString(Permission.HOST);
         JSONArray ja = jsonObject.getJSONArray("fbs");
         for (int i = 0; i < ja.length(); i++) {
             this.mFallbacks.add(new Fallback(this.host).fromJSON(ja.getJSONObject(i)));

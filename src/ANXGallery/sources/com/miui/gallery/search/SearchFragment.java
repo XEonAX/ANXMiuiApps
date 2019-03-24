@@ -31,6 +31,7 @@ import com.miui.gallery.util.StringUtils;
 import com.miui.gallery.util.ToastUtils;
 import java.util.HashMap;
 import java.util.Map;
+import miui.yellowpage.YellowPageContract.Search;
 
 public class SearchFragment extends BaseFragment implements SearchFragmentCallback, SearchTransitionListener {
     private SearchFragmentBase[] mFragments = new SearchFragmentBase[2];
@@ -299,7 +300,7 @@ public class SearchFragment extends BaseFragment implements SearchFragmentCallba
     }
 
     public String getPageName() {
-        return "search";
+        return Search.DIRECTORY;
     }
 
     private boolean isTopFragment(int fragmentId) {

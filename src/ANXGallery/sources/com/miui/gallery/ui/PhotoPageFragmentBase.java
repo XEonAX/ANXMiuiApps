@@ -56,6 +56,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import miui.cloud.backup.data.KeyStringSettingItem;
 
 public abstract class PhotoPageFragmentBase extends BaseBottomMenuFragment implements OnPreviewedListener, OnImageLoadFinishListener, OnPageChangedListener, OnPageSettledListener {
     private boolean isEntering = true;
@@ -419,7 +420,7 @@ public abstract class PhotoPageFragmentBase extends BaseBottomMenuFragment imple
         private String getShareDisplayLabel(String packageName, String className) {
             try {
                 Resources res = PhotoPageFragmentBase.this.mActivity.getResources();
-                int id = res.getIdentifier(String.format(Locale.US, "%s_%s", new Object[]{packageName, className}), "string", PhotoPageFragmentBase.this.mActivity.getPackageName());
+                int id = res.getIdentifier(String.format(Locale.US, "%s_%s", new Object[]{packageName, className}), KeyStringSettingItem.TYPE, PhotoPageFragmentBase.this.mActivity.getPackageName());
                 if (id != 0) {
                     return res.getString(id);
                 }

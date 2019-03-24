@@ -6,6 +6,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.assist.ImageSize;
 import java.io.File;
 import java.util.Comparator;
+import miui.reflect.Field;
 
 public final class MemoryCacheUtils {
     public static String generateKey(String imageUri, ImageSize targetSize, RectF regionRect, DisplayImageOptions options) {
@@ -19,10 +20,10 @@ public final class MemoryCacheUtils {
                 result.append("L").append(options.getFileLength());
             }
             if (options.getBlurRadius() > 0) {
-                result.append("B").append(options.getBlurRadius());
+                result.append(Field.BYTE_SIGNATURE_PRIMITIVE).append(options.getBlurRadius());
             }
             if (options.usingRegionDecoderFace()) {
-                result.append("F");
+                result.append(Field.FLOAT_SIGNATURE_PRIMITIVE);
             }
             if (options.isLoadOriginScaleThumbnail()) {
                 result.append("_thumbnail");

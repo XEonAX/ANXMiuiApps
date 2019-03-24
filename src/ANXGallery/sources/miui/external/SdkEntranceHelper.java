@@ -1,6 +1,7 @@
 package miui.external;
 
 import android.util.Log;
+import com.miui.internal.util.PackageConstants;
 
 /* compiled from: SdkConstants */
 class SdkEntranceHelper implements SdkConstants {
@@ -10,10 +11,10 @@ class SdkEntranceHelper implements SdkConstants {
         } catch (ClassNotFoundException e) {
             try {
                 Class<?> clazz = Class.forName("com.miui.internal.core.SdkManager");
-                Log.w("miuisdk", "using legacy sdk");
+                Log.w(PackageConstants.LOG_TAG, "using legacy sdk");
                 return clazz;
             } catch (ClassNotFoundException e1) {
-                Log.e("miuisdk", "no sdk found");
+                Log.e(PackageConstants.LOG_TAG, "no sdk found");
                 throw e1;
             }
         }

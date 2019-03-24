@@ -7,6 +7,8 @@ import com.miui.gallery.search.SearchConstants.SearchType;
 import com.miui.gallery.search.core.QueryInfo;
 import com.miui.gallery.util.Log;
 import java.util.Map;
+import miui.yellowpage.Tag.TagYellowPage;
+import miui.yellowpage.YellowPageContract.Search;
 
 public class SearchSource extends SectionedServerSource {
     private static final SearchType[] SUPPORT_SEARCH_TYPE = new SearchType[]{SearchType.SEARCH_TYPE_SEARCH, SearchType.SEARCH_TYPE_SUGGESTION};
@@ -24,7 +26,7 @@ public class SearchSource extends SectionedServerSource {
     }
 
     protected boolean useCache(QueryInfo queryInfo) {
-        return TextUtils.isEmpty(queryInfo.getParam("extraInfo"));
+        return TextUtils.isEmpty(queryInfo.getParam(TagYellowPage.EXTRA_INFO));
     }
 
     protected Map<String, String> getQueryParams(QueryInfo queryInfo) {
@@ -33,7 +35,7 @@ public class SearchSource extends SectionedServerSource {
         if (!TextUtils.isEmpty(query)) {
             String extraInfo = SearchConfig.get().getSuggestionConfig().getQueryExtras(query);
             if (!TextUtils.isEmpty(extraInfo)) {
-                params.put("extraInfo", extraInfo);
+                params.put(TagYellowPage.EXTRA_INFO, extraInfo);
                 Log.d("SearchSource", "On append extra [%s] to query [%s]", extraInfo, query);
             }
         }
@@ -44,9 +46,9 @@ public class SearchSource extends SectionedServerSource {
     protected String getQueryAppendPath(QueryInfo queryInfo) {
         switch (queryInfo.getSearchType()) {
             case SEARCH_TYPE_SUGGESTION:
-                return "suggestion";
+                return Search.SUGGESTION;
             case SEARCH_TYPE_SEARCH:
-                return "search";
+                return Search.DIRECTORY;
             default:
                 return null;
         }

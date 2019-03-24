@@ -1,5 +1,7 @@
 package android.support.v4.util;
 
+import com.miui.internal.vip.utils.JsonParser;
+
 public class SparseArrayCompat<E> implements Cloneable {
     private static final Object DELETED = new Object();
     private boolean mGarbage;
@@ -79,7 +81,7 @@ public class SparseArrayCompat<E> implements Cloneable {
 
     public String toString() {
         if (size() <= 0) {
-            return "{}";
+            return JsonParser.EMPTY_OBJECT;
         }
         StringBuilder buffer = new StringBuilder(this.mSize * 28);
         buffer.append('{');

@@ -18,13 +18,16 @@ import com.miui.gallery.provider.GalleryDBHelper;
 import com.miui.gallery.util.GalleryUtils;
 import com.miui.gallery.util.Log2File;
 import com.miui.gallery.util.SyncLog;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
+import com.miui.internal.analytics.NormalPolicy;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Locale;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
+import miui.provider.ExtraContacts.ConferenceCalls;
+import miui.provider.ExtraTelephony.DeletableSyncColumns;
+import miui.yellowpage.Tag.TagWebService.CommonResult;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.message.BasicNameValuePair;
@@ -58,8 +61,8 @@ public class SyncPeopleFaceFromServer {
             if (json == null) {
                 return false;
             }
-            if (json.has("code")) {
-                int code = json.getInt("code");
+            if (json.has(CommonResult.RESULT_CODE)) {
+                int code = json.getInt(CommonResult.RESULT_CODE);
                 Log2File.getInstance().flushLog("syncface", "JSON_TAG_CODE is:" + code, null);
                 if (code != 52000) {
                     return false;
@@ -163,7 +166,7 @@ public class SyncPeopleFaceFromServer {
         ArrayList<NameValuePair> params = new ArrayList();
         params.add(new BasicNameValuePair("syncToken", GalleryCloudSyncTagUtils.getFaceSyncToken(this.mAccount)));
         if (limit > 0) {
-            params.add(new BasicNameValuePair("limit", Long.toString((long) limit)));
+            params.add(new BasicNameValuePair(ConferenceCalls.LIMIT_PARAM_KEY, Long.toString((long) limit)));
         }
         JSONObject allJson = CloudUtils.getFromXiaomi(getPeopleFaceSyncUrl(), params, this.mAccount, this.mExtendedAuthToken, 0, false);
         if (Log2File.getInstance().canLog()) {
@@ -312,7 +315,7 @@ public class SyncPeopleFaceFromServer {
         if (schemaJson == null) {
             return false;
         }
-        String type = schemaJson.getString(nexExportFormat.TAG_FORMAT_TYPE);
+        String type = schemaJson.getString("type");
         String serverId = schemaJson.getString("id");
         String status = schemaJson.getString("status");
         PeopleFace cloud = FaceDataManager.getItem(serverId);
@@ -334,11 +337,11 @@ public class SyncPeopleFaceFromServer {
         } else if (cloud.serverTag >= CloudUtils.getLongAttributeFromJson(schemaJson, "eTag")) {
             return false;
         } else {
-            if (status.equals("normal")) {
+            if (status.equals(NormalPolicy.TAG)) {
                 setShouldFlatPeopleRelationshipInDB(values, cloud);
                 handleCustom(values);
                 return false;
-            } else if (!status.equals("deleted")) {
+            } else if (!status.equals(DeletableSyncColumns.DELETED)) {
                 return false;
             } else {
                 handleDelete(values);

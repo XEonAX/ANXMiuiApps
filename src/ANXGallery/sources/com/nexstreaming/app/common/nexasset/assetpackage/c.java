@@ -5,6 +5,7 @@ import android.content.res.AssetManager;
 import android.database.sqlite.SQLiteFullException;
 import android.graphics.Typeface;
 import android.util.Log;
+import com.miui.internal.vip.VipConstants;
 import com.nexstreaming.app.common.nexasset.assetpackage.db.AssetPackageDb;
 import com.nexstreaming.app.common.nexasset.assetpackage.db.AssetPackageRecord;
 import com.nexstreaming.app.common.nexasset.assetpackage.db.CategoryRecord;
@@ -31,6 +32,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import miui.yellowpage.YellowPageContract.Search;
 
 /* compiled from: AssetPackageManager */
 public class c {
@@ -187,7 +189,7 @@ public class c {
                     hashMap.put("en", "Local");
                     categoryRecord = new SubCategoryRecord();
                     categoryRecord.subCategoryId = -1;
-                    categoryRecord.subCategoryAlias = "local";
+                    categoryRecord.subCategoryAlias = Search.LOCAL_SEARCH;
                     categoryRecord.subCategoryName = hashMap;
                     this.b.add(categoryRecord);
                     subCategoryRecord2 = categoryRecord;
@@ -284,7 +286,7 @@ public class c {
                         }
 
                         public String getSubCategoryAliasName() {
-                            return "local";
+                            return Search.LOCAL_SEARCH;
                         }
                     }, a);
                 }
@@ -344,7 +346,7 @@ public class c {
                     }
 
                     public String getSubCategoryAliasName() {
-                        return "local";
+                        return Search.LOCAL_SEARCH;
                     }
                 }, a);
             }
@@ -632,7 +634,7 @@ public class c {
         }
         if (bVar.getExpireTime() > 0) {
             long installedTime = bVar.getInstalledTime() + bVar.getExpireTime();
-            long installedTime2 = bVar.getInstalledTime() - 86400000;
+            long installedTime2 = bVar.getInstalledTime() - VipConstants.DAY;
             long currentTimeMillis = System.currentTimeMillis();
             if (installedTime < currentTimeMillis || installedTime2 > currentTimeMillis) {
                 return true;

@@ -9,13 +9,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import miui.app.constants.ThemeManagerConstants;
 
 public class MessageHandlerFactory {
     private static Map<String, Class<? extends MessageHandler>> sModuleHandlerMap = new HashMap();
 
     static {
         sModuleHandlerMap.put("cloud_control", CloudControlMessageHandler.class);
-        sModuleHandlerMap.put("notification", NotificationMessageHandler.class);
+        sModuleHandlerMap.put(ThemeManagerConstants.COMPONENT_CODE_NOTIFICATION, NotificationMessageHandler.class);
         sModuleHandlerMap.put("feature_red_dot", FeatureRedDotMessageHandler.class);
         sModuleHandlerMap.put("story_notification", StoryNotificationMessageHandler.class);
     }

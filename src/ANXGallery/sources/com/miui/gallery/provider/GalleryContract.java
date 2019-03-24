@@ -1,6 +1,8 @@
 package com.miui.gallery.provider;
 
 import android.net.Uri;
+import com.miui.internal.hybrid.HybridManager;
+import miui.util.PlayerActions.Out;
 
 public class GalleryContract {
     public static final Uri AUTHORITY_URI = Uri.parse("content://com.miui.gallery.cloud.provider");
@@ -9,7 +11,7 @@ public class GalleryContract {
     public interface Album {
         public static final Long[] ALL_SYSTEM_ALBUM_SERVER_IDS = new Long[]{Long.valueOf(-2147483647L), Long.valueOf(-2147483645), Long.valueOf(-2147483644), Long.valueOf(-2147483646), Long.valueOf(1), Long.valueOf(2), Long.valueOf(-2147483642), Long.valueOf(-2147483643), Long.valueOf(1000), Long.valueOf(4)};
         public static final int[] ALL_VIRTUAL_ALBUM_IDS = new int[]{Integer.MAX_VALUE, 2147483646, 2147483645, 2147483644, 2147483643, 2147483642};
-        public static final Uri URI = GalleryContract.AUTHORITY_URI.buildUpon().appendPath("album").build();
+        public static final Uri URI = GalleryContract.AUTHORITY_URI.buildUpon().appendPath(Out.KEY_ALBUM).build();
         public static final Uri URI_ALL = URI.buildUpon().appendQueryParameter("join_face", "true").appendQueryParameter("join_video", "true").appendQueryParameter("join_share", "true").appendQueryParameter("join_recent", "true").appendQueryParameter("join_favorites", "true").build();
         public static final Uri URI_ALL_EXCEPT_DELETED = URI_ALL.buildUpon().appendQueryParameter("all_except_deleted", "true").appendQueryParameter("join_pano", "true").build();
         public static final Uri URI_NO_COVERS = URI.buildUpon().appendQueryParameter("fill_covers", "false").build();
@@ -34,12 +36,12 @@ public class GalleryContract {
     }
 
     public interface Common {
-        public static final Uri URI_ALBUM_PAGE = GalleryContract.HTTPS_AUTHORITY_URI.buildUpon().appendPath("album").build();
+        public static final Uri URI_ALBUM_PAGE = GalleryContract.HTTPS_AUTHORITY_URI.buildUpon().appendPath(Out.KEY_ALBUM).build();
         public static final Uri URI_CARD_ACTION = GalleryContract.HTTPS_AUTHORITY_URI.buildUpon().appendPath("card_action").build();
         public static final Uri URI_CLEANER_PAGE = GalleryContract.HTTPS_AUTHORITY_URI.buildUpon().appendPath("cleaner").build();
         public static final Uri URI_CLOUD_GUIDE = GalleryContract.HTTPS_AUTHORITY_URI.buildUpon().appendPath("cloud_guide").build();
         public static final Uri URI_COLLAGE_PAGE = GalleryContract.HTTPS_AUTHORITY_URI.buildUpon().appendPath("collage").build();
-        public static final Uri URI_HYBRID_PAGE = GalleryContract.HTTPS_AUTHORITY_URI.buildUpon().appendPath("hybrid").build();
+        public static final Uri URI_HYBRID_PAGE = GalleryContract.HTTPS_AUTHORITY_URI.buildUpon().appendPath(HybridManager.TAG).build();
         public static final Uri URI_PEOPLE_LIST_PAGE = GalleryContract.HTTPS_AUTHORITY_URI.buildUpon().appendPath("peoples").build();
         public static final Uri URI_PEOPLE_PAGE = GalleryContract.HTTPS_AUTHORITY_URI.buildUpon().appendPath("people").build();
         public static final Uri URI_PHOTO_MOVIE = GalleryContract.HTTPS_AUTHORITY_URI.buildUpon().appendPath("photo_movie").build();
@@ -98,7 +100,7 @@ public class GalleryContract {
         public static final Uri URI_LIKELY_RESULT_PAGE = GalleryContract.HTTPS_AUTHORITY_URI.buildUpon().appendPath("likelyResults").appendQueryParameter("inFeedbackTaskMode", String.valueOf(true)).build();
         public static final Uri URI_LOCATION_LIST_PAGE = GalleryContract.HTTPS_AUTHORITY_URI.buildUpon().appendPath("locations").build();
         public static final Uri URI_RESULT_PAGE = GalleryContract.HTTPS_AUTHORITY_URI.buildUpon().appendPath("result").build();
-        public static final Uri URI_SEARCH_PAGE = GalleryContract.HTTPS_AUTHORITY_URI.buildUpon().appendPath("search").build();
+        public static final Uri URI_SEARCH_PAGE = GalleryContract.HTTPS_AUTHORITY_URI.buildUpon().appendPath(miui.yellowpage.YellowPageContract.Search.DIRECTORY).build();
         public static final Uri URI_TAG_LIST_PAGE = GalleryContract.HTTPS_AUTHORITY_URI.buildUpon().appendPath("tags").build();
     }
 

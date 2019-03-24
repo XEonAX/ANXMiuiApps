@@ -33,10 +33,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import miui.provider.Notes.Data;
 
 public class MediaSetLoader extends CursorSetLoader {
     private static final String[] BUCKET_PROJECTION = new String[]{"_data", "bucket_id"};
-    private static final String[] PROJECTION = new String[]{"_id", "_data", "_size", "mime_type", "latitude", "longitude", "datetaken", "duration", nexExportFormat.TAG_FORMAT_WIDTH, nexExportFormat.TAG_FORMAT_HEIGHT};
+    private static final String[] PROJECTION = new String[]{"_id", "_data", "_size", Data.MIME_TYPE, "latitude", "longitude", "datetaken", "duration", "width", nexExportFormat.TAG_FORMAT_HEIGHT};
     private String[] mBucketIds;
     private boolean mFromCamera;
     private long mInitId;

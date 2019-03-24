@@ -4,7 +4,6 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import com.nexstreaming.nexeditorsdk.nexClip;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -53,7 +52,7 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
             if (newCodeSet == codeSet) {
                 switch (contents.charAt(position)) {
                     case 241:
-                        patternIndex = BaiduSceneResult.TAEKWONDO;
+                        patternIndex = 102;
                         break;
                     case 242:
                         patternIndex = 97;
@@ -78,9 +77,9 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
                 if (codeSet != 0) {
                     patternIndex = newCodeSet;
                 } else if (newCodeSet == 100) {
-                    patternIndex = BaiduSceneResult.SPORTS_OTHER;
+                    patternIndex = 104;
                 } else {
-                    patternIndex = BaiduSceneResult.TEMPLE;
+                    patternIndex = 105;
                 }
                 codeSet = newCodeSet;
             }
@@ -90,8 +89,8 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
                 checkWeight++;
             }
         }
-        patterns.add(Code128Reader.CODE_PATTERNS[checkSum % BaiduSceneResult.MOUNTAINEERING]);
-        patterns.add(Code128Reader.CODE_PATTERNS[BaiduSceneResult.PALACE]);
+        patterns.add(Code128Reader.CODE_PATTERNS[checkSum % 103]);
+        patterns.add(Code128Reader.CODE_PATTERNS[106]);
         int codeWidth = 0;
         for (int[] pattern : patterns) {
             for (int width : (int[]) r19.next()) {

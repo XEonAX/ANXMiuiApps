@@ -5,6 +5,7 @@ import com.google.gson.reflect.TypeToken;
 import com.miui.gallery.editor.photo.core.imports.text.typeface.TextStyle;
 import com.miui.gallery.net.BaseGalleryRequest;
 import com.miui.gallery.util.GsonUtils;
+import com.miui.internal.vip.VipConstants;
 import java.util.List;
 import org.json.JSONObject;
 
@@ -16,7 +17,7 @@ public abstract class BaseResourceRequest extends BaseGalleryRequest {
         addParam("id", Long.toString(getParentId()));
         setUseCache(true);
         setCacheExpires(2592000000L);
-        setCacheSoftTtl(System.currentTimeMillis() + 86400000);
+        setCacheSoftTtl(System.currentTimeMillis() + VipConstants.DAY);
     }
 
     protected void onRequestSuccess(JSONObject data) throws Exception {

@@ -3,6 +3,7 @@ package com.miui.gallery.collage.core.poster;
 import android.content.Context;
 import android.content.res.Resources;
 import android.text.TextUtils;
+import miui.cloud.backup.data.KeyStringSettingItem;
 
 public class TextElementModel extends ElementPositionModel {
     public String currentText;
@@ -20,7 +21,7 @@ public class TextElementModel extends ElementPositionModel {
         if (!this.text.startsWith("@string/")) {
             return this.text;
         }
-        int resId = resources.getIdentifier(this.text.substring("@string/".length()), "string", context.getPackageName());
+        int resId = resources.getIdentifier(this.text.substring("@string/".length()), KeyStringSettingItem.TYPE, context.getPackageName());
         if (resId != 0) {
             return resources.getString(resId);
         }

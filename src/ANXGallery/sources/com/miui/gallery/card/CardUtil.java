@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+import miui.hybrid.Response;
 
 public class CardUtil {
     public static List<MediaFeatureItem> getCoverMediaItemsByServerIds(final List<Long> mediaCoverServerIds) {
@@ -262,16 +263,16 @@ public class CardUtil {
             scenarioId = card.getUniqueKey().getScenarioId();
         }
         switch (scenarioId) {
-            case BaiduSceneResult.TAEKWONDO /*102*/:
+            case 102:
                 if (card.getUniqueKey() == null) {
                     return 0;
                 }
                 try {
                     int holidayId = Integer.parseInt(card.getUniqueKey().getPrimaryKey());
-                    if (holidayId == 200) {
+                    if (holidayId == Response.CODE_GENERIC_ERROR) {
                         return 6;
                     }
-                    if (holidayId == 205) {
+                    if (holidayId == Response.CODE_ACTION_ERROR) {
                         return 5;
                     }
                     return 0;
@@ -284,7 +285,7 @@ public class CardUtil {
                 return 3;
             case BaiduSceneResult.BRIDGE /*114*/:
             case BaiduSceneResult.SUBWAY /*118*/:
-            case 201:
+            case Response.CODE_CONFIG_ERROR /*201*/:
                 return 1;
             case BaiduSceneResult.MOTORCYCLE /*120*/:
             case 10001:

@@ -12,6 +12,7 @@ import com.nexstreaming.kminternal.kinemaster.config.a;
 import com.nexstreaming.kminternal.nexvideoeditor.LayerRenderer;
 import com.nexstreaming.kminternal.nexvideoeditor.NexEditor;
 import java.util.Map;
+import miui.provider.ExtraCalendarContracts;
 
 public class RenderItemOverlayAsset extends AbstractOverlayAsset {
     private static final String LOG_TAG = "RenderItemOverlayAsset";
@@ -35,14 +36,14 @@ public class RenderItemOverlayAsset extends AbstractOverlayAsset {
 
     public int getIntrinsicWidth() {
         if (this.width <= 0 || this.height <= 0) {
-            return 700;
+            return ExtraCalendarContracts.CALENDAR_ACCESS_LEVEL_LOCAL;
         }
         return this.width;
     }
 
     public int getIntrinsicHeight() {
         if (this.width <= 0 || this.height <= 0) {
-            return 700;
+            return ExtraCalendarContracts.CALENDAR_ACCESS_LEVEL_LOCAL;
         }
         return this.height;
     }

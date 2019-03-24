@@ -14,6 +14,7 @@ import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import miui.security.DigestUtils;
 import org.keyczar.exceptions.Base64DecodingException;
 import org.keyczar.exceptions.KeyczarException;
 import org.keyczar.interfaces.KeyType;
@@ -66,7 +67,7 @@ public class Util {
         MessageDigest messageDigest = (MessageDigest) DIGEST_QUEUE.poll();
         if (messageDigest == null) {
             try {
-                messageDigest = MessageDigest.getInstance("SHA-1");
+                messageDigest = MessageDigest.getInstance(DigestUtils.ALGORITHM_SHA_1);
             } catch (Throwable e) {
                 throw new KeyczarException(e);
             }
@@ -123,7 +124,7 @@ public class Util {
         MessageDigest messageDigest = (MessageDigest) DIGEST_QUEUE.poll();
         if (messageDigest == null) {
             try {
-                messageDigest = MessageDigest.getInstance("SHA-1");
+                messageDigest = MessageDigest.getInstance(DigestUtils.ALGORITHM_SHA_1);
             } catch (Throwable e) {
                 throw new KeyczarException(e);
             }

@@ -9,6 +9,7 @@ import com.xiaomi.smack.Connection;
 import com.xiaomi.smack.XMPPException;
 import java.util.HashMap;
 import java.util.Map;
+import miui.content.ExtraIntent;
 
 class Binder {
     public static void bind(ClientLoginInfo info, String challenge, Connection connection) throws XMPPException {
@@ -37,7 +38,7 @@ class Binder {
         MyLog.w("[Slim]: bind id=" + blob.getPacketID());
         Map<String, String> params = new HashMap();
         params.put("challenge", challenge);
-        params.put("token", info.token);
+        params.put(ExtraIntent.XIAOMI_KEY_AUTHTOKEN, info.token);
         params.put("chid", info.chid);
         params.put("from", info.userId);
         params.put("id", blob.getPacketID());

@@ -12,6 +12,7 @@ import com.xiaomi.push.service.clientReport.PushClientReportHelper;
 import com.xiaomi.push.service.clientReport.PushClientReportManager;
 import java.util.HashSet;
 import java.util.Set;
+import miui.media.Recorder.ErrorCode;
 
 @TargetApi(14)
 public class ActivityLifecycleCallbacksForCR implements ActivityLifecycleCallbacks {
@@ -43,7 +44,7 @@ public class ActivityLifecycleCallbacksForCR implements ActivityLifecycleCallbac
                 if (eventType == 3000) {
                     PushClientReportManager.getInstance(activity.getApplicationContext()).reportEvent(activity.getPackageName(), PushClientReportHelper.getInterfaceIdByType(eventType), msgId, 3008, "App calls by business message is visiable");
                 } else if (eventType == 1000) {
-                    PushClientReportManager.getInstance(activity.getApplicationContext()).reportEvent(activity.getPackageName(), PushClientReportHelper.getInterfaceIdByType(eventType), msgId, 1008, "app calls by notification message is visiable");
+                    PushClientReportManager.getInstance(activity.getApplicationContext()).reportEvent(activity.getPackageName(), PushClientReportHelper.getInterfaceIdByType(eventType), msgId, ErrorCode.MAX_DURATION_REACHED, "app calls by notification message is visiable");
                 }
             }
         }

@@ -25,6 +25,7 @@ import com.miui.gallery.provider.InternalContract.Cloud;
 import com.miui.gallery.widget.SortByHeader;
 import com.miui.gallery.widget.SortByHeader.SortBy;
 import com.tonicartos.widget.stickygridheaders.StickyGridHeadersGridView;
+import miui.util.PlayerActions.Out;
 
 public class PickAlbumDetailFragment extends PickAlbumDetailFragmentBase {
     private static final String SELECTION_ONLY_LOCAL = (" AND " + Cloud.ALIAS_LOCAL_MEDIA);
@@ -112,7 +113,7 @@ public class PickAlbumDetailFragment extends PickAlbumDetailFragmentBase {
     }
 
     public PickAlbumDetailFragment() {
-        super("album");
+        super(Out.KEY_ALBUM);
     }
 
     public void onCreate(Bundle savedInstanceState) {

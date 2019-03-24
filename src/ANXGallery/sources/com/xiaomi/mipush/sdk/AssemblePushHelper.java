@@ -9,6 +9,8 @@ import com.xiaomi.channel.commonutils.logger.MyLog;
 import com.xiaomi.channel.commonutils.misc.ScheduledJobManager;
 import com.xiaomi.push.service.OnlineConfig;
 import java.util.HashMap;
+import miui.content.ExtraIntent;
+import miui.provider.ExtraNetwork;
 
 public class AssemblePushHelper {
     private static HashMap<String, String> mTokens = new HashMap();
@@ -104,13 +106,13 @@ public class AssemblePushHelper {
                     if (appInfo != null) {
                         appId = appInfo.metaData.getInt("com.huawei.hms.client.appid");
                     }
-                    regInfo = "brand:" + AssemblePushUtils.getPhoneBrand(context).name() + "~" + "token" + ":" + getAssemblePushToken(context, spKey) + "~" + "package_name" + ":" + context.getPackageName() + "~" + "app_id" + ":" + appId;
+                    regInfo = "brand:" + AssemblePushUtils.getPhoneBrand(context).name() + "~" + ExtraIntent.XIAOMI_KEY_AUTHTOKEN + ":" + getAssemblePushToken(context, spKey) + "~" + ExtraNetwork.FIREWALL_PACKAGE_NAME + ":" + context.getPackageName() + "~" + "app_id" + ":" + appId;
                     break;
                 case ASSEMBLE_PUSH_FCM:
-                    regInfo = "brand:" + PhoneBrand.FCM.name() + "~" + "token" + ":" + getAssemblePushToken(context, spKey) + "~" + "package_name" + ":" + context.getPackageName();
+                    regInfo = "brand:" + PhoneBrand.FCM.name() + "~" + ExtraIntent.XIAOMI_KEY_AUTHTOKEN + ":" + getAssemblePushToken(context, spKey) + "~" + ExtraNetwork.FIREWALL_PACKAGE_NAME + ":" + context.getPackageName();
                     break;
                 case ASSEMBLE_PUSH_COS:
-                    regInfo = "brand:" + PhoneBrand.OPPO.name() + "~" + "token" + ":" + getAssemblePushToken(context, spKey) + "~" + "package_name" + ":" + context.getPackageName();
+                    regInfo = "brand:" + PhoneBrand.OPPO.name() + "~" + ExtraIntent.XIAOMI_KEY_AUTHTOKEN + ":" + getAssemblePushToken(context, spKey) + "~" + ExtraNetwork.FIREWALL_PACKAGE_NAME + ":" + context.getPackageName();
                     break;
             }
             extra.put("RegInfo", regInfo);

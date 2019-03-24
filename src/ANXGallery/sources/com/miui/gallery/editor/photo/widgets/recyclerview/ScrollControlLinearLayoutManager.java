@@ -13,6 +13,7 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.View;
 import com.miui.gallery.R;
+import com.miui.internal.widget.ActionModeView;
 import miui.view.animation.CubicEaseOutInterpolator;
 
 public class ScrollControlLinearLayoutManager extends LinearLayoutManager {
@@ -63,7 +64,7 @@ public class ScrollControlLinearLayoutManager extends LinearLayoutManager {
                         dy += getLayoutManager().getBottomDecorationHeight(targetView);
                     }
                     if (((float) ((int) Math.sqrt((double) ((dx * dx) + (dy * dy))))) > ScrollControlLinearLayoutManager.this.mMinDistance) {
-                        action.update(-dx, -dy, 300, new CubicEaseOutInterpolator());
+                        action.update(-dx, -dy, ActionModeView.ANIMATION_DURATION, new CubicEaseOutInterpolator());
                     }
                 }
             }

@@ -12,7 +12,6 @@ import com.milink.api.v1.type.MediaType;
 import com.milink.api.v1.type.ReturnCode;
 import com.milink.api.v1.type.SlideMode;
 import com.miui.gallery.GalleryApp;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import com.miui.gallery.model.BaseDataSet;
 import com.miui.gallery.preference.GalleryPreferences.SlideShow;
 import com.miui.gallery.util.BuildUtil;
@@ -76,7 +75,7 @@ public class ConnectController {
             }
             if (name != null) {
                 ConnectController.this.mDevices.remove(name);
-                Message.obtain(ConnectController.this.mHandler, BaiduSceneResult.SHOOTING, name).sendToTarget();
+                Message.obtain(ConnectController.this.mHandler, 101, name).sendToTarget();
             }
         }
 
@@ -160,7 +159,7 @@ public class ConnectController {
                 case 100:
                     ConnectController.this.doDeviceAdded((String) msg.obj);
                     break;
-                case BaiduSceneResult.SHOOTING /*101*/:
+                case 101:
                     ConnectController.this.doDeviceRemoved((String) msg.obj);
                     break;
             }

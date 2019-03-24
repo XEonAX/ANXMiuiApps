@@ -1,5 +1,6 @@
 package com.google.gson_nex.internal;
 
+import com.miui.internal.vip.utils.JsonParser;
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.lang.reflect.GenericArrayType;
@@ -40,7 +41,7 @@ public final class C$Gson$Types {
         }
 
         public String toString() {
-            return C$Gson$Types.typeToString(this.componentType) + "[]";
+            return C$Gson$Types.typeToString(this.componentType) + JsonParser.EMPTY_ARRAY;
         }
     }
 

@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import com.miui.gallery.util.SyncLog;
+import miui.extension.target.ActivityTarget;
 
 public class GallerySyncService extends Service {
     private static GallerySyncAdapter sSyncAdapter = null;
@@ -15,7 +16,7 @@ public class GallerySyncService extends Service {
             if (sSyncAdapter == null) {
                 sSyncAdapter = new GallerySyncAdapter(getApplicationContext(), true);
             }
-            SyncLog.d("GallerySyncService", "onCreate");
+            SyncLog.d("GallerySyncService", ActivityTarget.ACTION_ON_CREATE);
         }
     }
 

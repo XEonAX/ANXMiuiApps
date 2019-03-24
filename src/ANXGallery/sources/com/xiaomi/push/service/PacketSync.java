@@ -1,8 +1,8 @@
 package com.xiaomi.push.service;
 
+import android.content.SystemIntent;
 import android.text.TextUtils;
 import com.google.protobuf.micro.InvalidProtocolBufferMicroException;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import com.xiaomi.channel.commonutils.logger.MyLog;
 import com.xiaomi.network.Fallback;
 import com.xiaomi.network.HostManager;
@@ -26,6 +26,9 @@ import com.xiaomi.smack.packet.Packet;
 import com.xiaomi.smack.util.TrafficUtils;
 import com.xiaomi.stats.StatsHelper;
 import java.util.Date;
+import miui.provider.ExtraContacts.ConferenceCalls;
+import miui.provider.ExtraTelephony.FirewallLog;
+import miui.provider.ExtraTelephony.Phonelist;
 
 public class PacketSync {
     private XMPushService mService;
@@ -35,7 +38,7 @@ public class PacketSync {
     }
 
     public void onPacketReceive(Packet packet) {
-        if (!"5".equals(packet.getChannelId())) {
+        if (!Phonelist.TYPE_CLOUDS_WHITE.equals(packet.getChannelId())) {
             dispatchNetFlow(packet);
         }
         String chid = packet.getChannelId();
@@ -50,8 +53,8 @@ public class PacketSync {
             CommonPacketExtension ext = packet.getExtension("kick");
             if (ext != null) {
                 String userId = packet.getTo();
-                String type = ext.getAttributeValue(nexExportFormat.TAG_FORMAT_TYPE);
-                String reason = ext.getAttributeValue("reason");
+                String type = ext.getAttributeValue("type");
+                String reason = ext.getAttributeValue(FirewallLog.REASON);
                 MyLog.w("kicked by server, chid=" + chid + " res=" + ClientLoginInfo.getResource(userId) + " type=" + type + " reason=" + reason);
                 if ("wait".equals(type)) {
                     ClientLoginInfo info = PushClientsManager.getInstance().getClientLoginInfoByChidAndUserId(chid, userId);
@@ -103,7 +106,7 @@ public class PacketSync {
                             ServiceConfig.getInstance().handle(ping.getPsc());
                         }
                     }
-                    if (!"com.xiaomi.xmsf".equals(this.mService.getPackageName())) {
+                    if (!SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(this.mService.getPackageName())) {
                         this.mService.sendPongIfNeed();
                     }
                     if ("1".equals(blob.getPacketID())) {
@@ -240,7 +243,7 @@ public class PacketSync {
     private void processRedirectMessage(CommonPacketExtension exten) {
         String hosts = exten.getText();
         if (!TextUtils.isEmpty(hosts)) {
-            String[] splitedHosts = hosts.split(";");
+            String[] splitedHosts = hosts.split(ConferenceCalls.SPLIT_EXPRESSION);
             Fallback fb = HostManager.getInstance().getFallbacksByHost(ConnectionConfiguration.getXmppServerHost(), false);
             if (fb != null && splitedHosts.length > 0) {
                 fb.addPreferredHost(splitedHosts);

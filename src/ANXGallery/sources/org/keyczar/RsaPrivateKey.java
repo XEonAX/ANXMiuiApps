@@ -44,7 +44,7 @@ public class RsaPrivateKey extends KeyczarKey implements KeyczarPrivateKey {
 
         public RsaPrivateStream() throws KeyczarException {
             try {
-                this.signature = Signature.getInstance(RsaPrivateKey.SIG_ALGORITHM);
+                this.signature = Signature.getInstance("SHA1withRSA");
                 this.verifyingStream = (VerifyingStream) RsaPrivateKey.this.publicKey.getStream();
                 this.cipher = Cipher.getInstance(RsaPrivateKey.this.publicKey.getPadding().getCryptAlgorithm());
                 this.encryptingStream = (EncryptingStream) RsaPrivateKey.this.publicKey.getStream();
@@ -161,7 +161,7 @@ public class RsaPrivateKey extends KeyczarKey implements KeyczarPrivateKey {
     }
 
     static RsaPrivateKey generate(int i, RsaPadding rsaPadding) throws KeyczarException {
-        return new RsaPrivateKey((RSAPrivateCrtKey) Util.generateKeyPair(KEY_GEN_ALGORITHM, i).getPrivate(), rsaPadding);
+        return new RsaPrivateKey((RSAPrivateCrtKey) Util.generateKeyPair("RSA", i).getPrivate(), rsaPadding);
     }
 
     static RsaPrivateKey read(String str) throws KeyczarException {
@@ -211,7 +211,7 @@ public class RsaPrivateKey extends KeyczarKey implements KeyczarPrivateKey {
     private RsaPrivateKey initFromJson() throws KeyczarException {
         this.publicKey.initFromJson();
         try {
-            this.jcePrivateKey = (RSAPrivateCrtKey) KeyFactory.getInstance(KEY_GEN_ALGORITHM).generatePrivate(new RSAPrivateCrtKeySpec(Util.decodeBigInteger(this.publicKey.modulus), Util.decodeBigInteger(this.publicKey.publicExponent), Util.decodeBigInteger(this.privateExponent), Util.decodeBigInteger(this.primeP), Util.decodeBigInteger(this.primeQ), Util.decodeBigInteger(this.primeExponentP), Util.decodeBigInteger(this.primeExponentQ), Util.decodeBigInteger(this.crtCoefficient)));
+            this.jcePrivateKey = (RSAPrivateCrtKey) KeyFactory.getInstance("RSA").generatePrivate(new RSAPrivateCrtKeySpec(Util.decodeBigInteger(this.publicKey.modulus), Util.decodeBigInteger(this.publicKey.publicExponent), Util.decodeBigInteger(this.privateExponent), Util.decodeBigInteger(this.primeP), Util.decodeBigInteger(this.primeQ), Util.decodeBigInteger(this.primeExponentP), Util.decodeBigInteger(this.primeExponentQ), Util.decodeBigInteger(this.crtCoefficient)));
             return this;
         } catch (Throwable e) {
             throw new KeyczarException(e);

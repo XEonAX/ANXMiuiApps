@@ -11,6 +11,7 @@ import android.util.Log;
 import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.nio.ByteBuffer;
+import miui.text.ExtraTextUtils;
 
 public class NvAndroidVideoFileReaderSW {
     private static final int ERROR_EOF = 1;
@@ -229,7 +230,7 @@ public class NvAndroidVideoFileReaderSW {
 
     private int SeekInternal(long j, long j2) {
         Object obj = 1;
-        if ((this.m_timestampOfLastDecodedFrame == Long.MIN_VALUE || j <= this.m_timestampOfLastDecodedFrame || j >= this.m_timestampOfLastDecodedFrame + 1000000) && (!this.m_extractorInOriginalState || j >= 1000000)) {
+        if ((this.m_timestampOfLastDecodedFrame == Long.MIN_VALUE || j <= this.m_timestampOfLastDecodedFrame || j >= this.m_timestampOfLastDecodedFrame + ExtraTextUtils.MB) && (!this.m_extractorInOriginalState || j >= ExtraTextUtils.MB)) {
             obj = null;
         }
         if (obj == null) {
@@ -400,7 +401,7 @@ public class NvAndroidVideoFileReaderSW {
     /* JADX WARNING: Removed duplicated region for block: B:37:0x00bc  */
     /* Code decompiled incorrectly, please refer to instructions dump. */
     private void ParseMediaFormat(MediaFormat mediaFormat) {
-        if (mediaFormat.containsKey(nexExportFormat.TAG_FORMAT_WIDTH) && mediaFormat.containsKey(nexExportFormat.TAG_FORMAT_HEIGHT) && mediaFormat.containsKey("color-format")) {
+        if (mediaFormat.containsKey("width") && mediaFormat.containsKey(nexExportFormat.TAG_FORMAT_HEIGHT) && mediaFormat.containsKey("color-format")) {
             int integer;
             int i;
             int i2;
@@ -409,7 +410,7 @@ public class NvAndroidVideoFileReaderSW {
             int i5;
             int i6;
             int i7;
-            int integer2 = mediaFormat.getInteger(nexExportFormat.TAG_FORMAT_WIDTH);
+            int integer2 = mediaFormat.getInteger("width");
             int integer3 = mediaFormat.getInteger(nexExportFormat.TAG_FORMAT_HEIGHT);
             int integer4 = mediaFormat.getInteger("color-format");
             if (VERSION.SDK_INT >= 18) {

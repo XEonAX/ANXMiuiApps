@@ -1,11 +1,12 @@
 package com.miui.gallery.share;
 
 import android.text.TextUtils;
+import com.miui.internal.analytics.NormalPolicy;
 
 public class AlbumShareState {
     private static final int[] NEGATIVE_NEXT = new int[]{-1, 0, 4, 2, 2, 6, 5};
     private static final int[] POSITIVE_NEXT = new int[]{1, 2, 3, 5, -1, -1, -1};
-    private static final StateValue[] STATE_VALUE_ARR = new StateValue[]{new StateValue("invited", null, 0), new StateValue("invited", "requesting", 0), new StateValue("invited", null, 1), new StateValue("invited", "accepting", 1), new StateValue("invited", "denying", 1), new StateValue("normal", null, 2), new StateValue("normal", "exiting", 2)};
+    private static final StateValue[] STATE_VALUE_ARR = new StateValue[]{new StateValue("invited", null, 0), new StateValue("invited", "requesting", 0), new StateValue("invited", null, 1), new StateValue("invited", "accepting", 1), new StateValue("invited", "denying", 1), new StateValue(NormalPolicy.TAG, null, 2), new StateValue(NormalPolicy.TAG, "exiting", 2)};
 
     private static final class StateValue {
         public final String mDBState;

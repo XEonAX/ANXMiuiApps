@@ -1,6 +1,5 @@
 package com.miui.gallery.card.scenario.time.pastyear;
 
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import com.miui.gallery.assistant.model.MediaFeatureItem;
 import com.miui.gallery.card.Card;
 import com.miui.gallery.card.scenario.DateUtils;
@@ -11,18 +10,19 @@ import com.miui.gallery.util.assistant.HolidaysUtil;
 import java.util.LinkedList;
 import java.util.List;
 import miui.date.Calendar;
+import miui.hybrid.Response;
 
 public class SolarHolidayScenario extends HolidayScenario {
     private final List<HolidayConfig> mHolidayConfig = new LinkedList();
 
     public SolarHolidayScenario() {
-        super(BaiduSceneResult.TAEKWONDO, 1, 7);
-        this.mHolidayConfig.add(new HolidayConfig(200, Integer.MAX_VALUE, 1));
-        this.mHolidayConfig.add(new HolidayConfig(201, Integer.MAX_VALUE, 1));
-        this.mHolidayConfig.add(new HolidayConfig(202, Integer.MAX_VALUE, 3));
-        this.mHolidayConfig.add(new HolidayConfig(203, Integer.MAX_VALUE, 1));
-        this.mHolidayConfig.add(new HolidayConfig(204, 2, 7));
-        this.mHolidayConfig.add(new HolidayConfig(205, Integer.MAX_VALUE, 1));
+        super(102, 1, 7);
+        this.mHolidayConfig.add(new HolidayConfig(Response.CODE_GENERIC_ERROR, Integer.MAX_VALUE, 1));
+        this.mHolidayConfig.add(new HolidayConfig(Response.CODE_CONFIG_ERROR, Integer.MAX_VALUE, 1));
+        this.mHolidayConfig.add(new HolidayConfig(Response.CODE_SIGNATURE_ERROR, Integer.MAX_VALUE, 3));
+        this.mHolidayConfig.add(new HolidayConfig(Response.CODE_PERMISSION_ERROR, Integer.MAX_VALUE, 1));
+        this.mHolidayConfig.add(new HolidayConfig(Response.CODE_FEATURE_ERROR, 2, 7));
+        this.mHolidayConfig.add(new HolidayConfig(Response.CODE_ACTION_ERROR, Integer.MAX_VALUE, 1));
     }
 
     public boolean onPrepare(List<Record> records, List<Card> cards) {

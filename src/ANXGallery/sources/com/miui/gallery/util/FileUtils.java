@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.channels.FileChannel;
 import java.util.Locale;
+import miui.os.C0002FileUtils;
 import miui.security.DigestUtils;
 import miui.text.ExtraTextUtils;
 
@@ -86,7 +87,7 @@ public class FileUtils extends BaseFileUtils {
         try {
             InputStream in2 = new FileInputStream(file);
             try {
-                sha1String = ExtraTextUtils.toHexReadable(DigestUtils.get(in2, "SHA-1"));
+                sha1String = ExtraTextUtils.toHexReadable(DigestUtils.get(in2, DigestUtils.ALGORITHM_SHA_1));
                 BaseMiscUtil.closeSilently(in2);
                 in = in2;
             } catch (Exception e2) {
@@ -129,7 +130,7 @@ public class FileUtils extends BaseFileUtils {
             try {
                 InputStream in2 = new FileInputStream(file);
                 try {
-                    bArr = DigestUtils.get(in2, "SHA-1");
+                    bArr = DigestUtils.get(in2, DigestUtils.ALGORITHM_SHA_1);
                     BaseMiscUtil.closeSilently(in2);
                 } catch (Exception e2) {
                     e = e2;
@@ -213,7 +214,7 @@ public class FileUtils extends BaseFileUtils {
         String path;
         if (file.mkdir()) {
             path = file.getPath();
-            Log.i("FileUtils", "path %s, chmod %s, chown %s", path, Boolean.valueOf(miui.os.FileUtils.chmod(path, mode)), Boolean.valueOf(miui.os.FileUtils.chown(path, uid, gid)));
+            Log.i("FileUtils", "path %s, chmod %s, chown %s", path, Boolean.valueOf(C0002FileUtils.chmod(path, mode)), Boolean.valueOf(C0002FileUtils.chown(path, uid, gid)));
             return true;
         } else if (!BaseDocumentProviderUtils.needUseDocumentProvider(file.getAbsolutePath())) {
             return false;
@@ -223,7 +224,7 @@ public class FileUtils extends BaseFileUtils {
                 return false;
             }
             path = file.getPath();
-            Log.i("FileUtils", "path %s, chmod %s, chown %s", path, Boolean.valueOf(miui.os.FileUtils.chmod(path, mode)), Boolean.valueOf(miui.os.FileUtils.chown(path, uid, gid)));
+            Log.i("FileUtils", "path %s, chmod %s, chown %s", path, Boolean.valueOf(C0002FileUtils.chmod(path, mode)), Boolean.valueOf(C0002FileUtils.chown(path, uid, gid)));
             return true;
         }
     }
@@ -329,7 +330,7 @@ public class FileUtils extends BaseFileUtils {
         if (BaseDocumentProviderUtils.needUseDocumentProvider(destFile.getAbsolutePath())) {
             return copyFileByDocumentProvider(srcFile, destFile);
         }
-        return miui.os.FileUtils.copyFile(srcFile, destFile);
+        return C0002FileUtils.copyFile(srcFile, destFile);
     }
 
     public static boolean copyFileByDocumentProvider(File srcFile, File destFile) {
@@ -501,7 +502,7 @@ public class FileUtils extends BaseFileUtils {
             Log.i("FileUtils", "delete [%s]'s file, result %s", file.getAbsolutePath(), Boolean.valueOf(result));
             return result;
         } else if (file.isDirectory()) {
-            result = miui.os.FileUtils.rm(file.getAbsolutePath());
+            result = C0002FileUtils.rm(file.getAbsolutePath());
             Log.i("FileUtils", "delete folder [%s]'s files, result %s", file.getAbsolutePath(), Boolean.valueOf(result));
             return result;
         } else {

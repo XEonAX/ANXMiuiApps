@@ -31,6 +31,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import miui.app.ProgressDialog;
 import miui.net.MimeUtils;
+import miui.os.C0002FileUtils;
 
 public class SaveUriDialogFragment extends GalleryDialogFragment {
     private OnCompleteListener mListener;
@@ -129,7 +130,7 @@ public class SaveUriDialogFragment extends GalleryDialogFragment {
                 }
                 FileInputStream inputStream2 = new FileInputStream(fd);
                 try {
-                    if (miui.os.FileUtils.copyToFile(inputStream2, saveFile)) {
+                    if (C0002FileUtils.copyToFile(inputStream2, saveFile)) {
                         String savePath = saveFile.getAbsolutePath();
                         MediaScannerUtil.scanSingleFile(getActivity().getApplicationContext(), savePath, 0);
                         MediaFileUtils.triggerMediaScan(true, saveFile);

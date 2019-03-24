@@ -7,6 +7,7 @@ import android.content.Context;
 import com.miui.gallery.GalleryApp;
 import com.miui.gallery.scanner.MediaScannerUtil;
 import com.miui.gallery.util.Log;
+import com.miui.internal.vip.VipConstants;
 
 public class ScanMediaJob extends AbstractJob {
     public Object execJob() {
@@ -16,6 +17,6 @@ public class ScanMediaJob extends AbstractJob {
     }
 
     public JobInfo getJobInfo(Context context, ComponentName cn) {
-        return new Builder(this.mJobId, cn).setRequiredNetworkType(0).setRequiresCharging(true).setRequiresDeviceIdle(true).setPeriodic(86400000).build();
+        return new Builder(this.mJobId, cn).setRequiredNetworkType(0).setRequiresCharging(true).setRequiresDeviceIdle(true).setPeriodic(VipConstants.DAY).build();
     }
 }

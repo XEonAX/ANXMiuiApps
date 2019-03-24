@@ -17,7 +17,6 @@ import com.miui.gallery.util.BaseMiscUtil;
 import com.miui.gallery.util.GalleryStatHelper;
 import com.miui.gallery.util.GsonUtils;
 import com.miui.gallery.util.Log;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,10 +24,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import miui.provider.ExtraTelephony.MmsSms;
 import org.json.JSONException;
 
 public class Card extends Entity implements Comparable<Card> {
-    public static final String BASE_UI_CARD_SELECTION = ("ignored = 0 AND localFlag NOT IN (1,-2,-1,4) AND (" + String.format("%s > %s AND %s < %s", new Object[]{Long.valueOf(System.currentTimeMillis()), "validStart", Long.valueOf(System.currentTimeMillis()), "validEnd"}) + " OR " + nexExportFormat.TAG_FORMAT_TYPE + "<>" + 2 + ")");
+    public static final String BASE_UI_CARD_SELECTION = ("ignored = 0 AND localFlag NOT IN (1,-2,-1,4) AND (" + String.format("%s > %s AND %s < %s", new Object[]{Long.valueOf(System.currentTimeMillis()), "validStart", Long.valueOf(System.currentTimeMillis()), "validEnd"}) + " OR " + "type" + "<>" + 2 + ")");
     public static final String BASE_UNSYNC_CARD_SELECTION = ("ignored = 0 AND syncable = 1 AND " + String.format("%s = %s OR %s = %s OR %s = %s", new Object[]{"localFlag", Integer.valueOf(1), "localFlag", Integer.valueOf(0), "localFlag", Integer.valueOf(2)}));
     private String mActionUrl;
     private List<String> mAllMediaSha1s;
@@ -479,7 +479,7 @@ public class Card extends Entity implements Comparable<Card> {
         Entity.addColumn(columns, "imageUri", "TEXT");
         Entity.addColumn(columns, "createTime", "INTEGER");
         Entity.addColumn(columns, "deletable", "INTEGER");
-        Entity.addColumn(columns, nexExportFormat.TAG_FORMAT_TYPE, "INTEGER");
+        Entity.addColumn(columns, "type", "INTEGER");
         Entity.addColumn(columns, "styles", "TEXT");
         Entity.addColumn(columns, "extras", "TEXT");
         Entity.addColumn(columns, "scenarioId", "INTEGER");
@@ -488,7 +488,7 @@ public class Card extends Entity implements Comparable<Card> {
         Entity.addColumn(columns, "localFlag", "INTEGER");
         Entity.addColumn(columns, "updateTime", "INTEGER");
         Entity.addColumn(columns, "createdBy", "INTEGER");
-        Entity.addColumn(columns, "ignored", "INTEGER");
+        Entity.addColumn(columns, MmsSms.INSERT_PATH_IGNORED, "INTEGER");
         Entity.addColumn((List) columns, "syncable", "INTEGER", String.valueOf(1));
         Entity.addColumn((List) columns, "validStart", "INTEGER", String.valueOf(0));
         Entity.addColumn((List) columns, "validEnd", "INTEGER", String.valueOf(Long.MAX_VALUE));
@@ -509,7 +509,7 @@ public class Card extends Entity implements Comparable<Card> {
         }
         this.mCreateTime = Entity.getLong(cursor, "createTime");
         this.mIsDeletable = Entity.getInt(cursor, "deletable") == 1;
-        setType(Entity.getInt(cursor, nexExportFormat.TAG_FORMAT_TYPE));
+        setType(Entity.getInt(cursor, "type"));
         parseStyles(Entity.getString(cursor, "styles"));
         this.mExtras = stringToMap(Entity.getString(cursor, "extras"));
         this.mUniqueKey = (UniqueKey) GsonUtils.fromJson(getExtra("unique_key"), UniqueKey.class);
@@ -536,7 +536,7 @@ public class Card extends Entity implements Comparable<Card> {
         this.mLocalFlag = Entity.getInt(cursor, "localFlag");
         this.mUpdateTime = Entity.getLong(cursor, "updateTime");
         this.mCreateBy = Entity.getInt(cursor, "createdBy");
-        if (Entity.getInt(cursor, "ignored") == 1) {
+        if (Entity.getInt(cursor, MmsSms.INSERT_PATH_IGNORED) == 1) {
             z = true;
         } else {
             z = false;
@@ -572,7 +572,7 @@ public class Card extends Entity implements Comparable<Card> {
             }
             values.put("createTime", Long.valueOf(this.mCreateTime));
             values.put("deletable", Integer.valueOf(this.mIsDeletable ? 1 : 0));
-            values.put(nexExportFormat.TAG_FORMAT_TYPE, Integer.valueOf(getType()));
+            values.put("type", Integer.valueOf(getType()));
             values.put("styles", wrapStyles());
             putExtra("unique_key", GsonUtils.toString(this.mUniqueKey));
             putExtra("operation_info", GsonUtils.toString(this.mOperationInfo));
@@ -586,7 +586,7 @@ public class Card extends Entity implements Comparable<Card> {
             values.put("localFlag", Integer.valueOf(this.mLocalFlag));
             values.put("updateTime", Long.valueOf(this.mUpdateTime));
             values.put("createdBy", Integer.valueOf(this.mCreateBy));
-            values.put("ignored", Integer.valueOf(this.mIsIgnored ? 1 : 0));
+            values.put(MmsSms.INSERT_PATH_IGNORED, Integer.valueOf(this.mIsIgnored ? 1 : 0));
             String str = "syncable";
             if (this.mIsSyncable) {
                 i2 = 1;

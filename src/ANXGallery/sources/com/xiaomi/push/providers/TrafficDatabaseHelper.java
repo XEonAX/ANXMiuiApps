@@ -4,11 +4,12 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.xiaomi.channel.commonutils.logger.MyLog;
+import miui.provider.ExtraNetwork;
 
 public class TrafficDatabaseHelper extends SQLiteOpenHelper {
     private static int DATABASE_VERSION = 1;
     public static final Object DataBaseLock = new Object();
-    private static final String[] TRAFFIC_Columns = new String[]{"package_name", "TEXT", "message_ts", " LONG DEFAULT 0 ", "bytes", " LONG DEFAULT 0 ", "network_type", " INT DEFAULT -1 ", "rcv", " INT DEFAULT -1 ", "imsi", "TEXT"};
+    private static final String[] TRAFFIC_Columns = new String[]{ExtraNetwork.FIREWALL_PACKAGE_NAME, "TEXT", "message_ts", " LONG DEFAULT 0 ", "bytes", " LONG DEFAULT 0 ", "network_type", " INT DEFAULT -1 ", "rcv", " INT DEFAULT -1 ", "imsi", "TEXT"};
 
     public TrafficDatabaseHelper(Context context) {
         super(context, "traffic.db", null, DATABASE_VERSION);

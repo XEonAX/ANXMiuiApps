@@ -73,6 +73,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import miui.provider.ExtraTelephony.FirewallLog;
 
 public class PeoplePageFragment extends BaseFragment {
     private MultiChoiceModeListener mChoiceModeListener = new MultiChoiceModeListener() {
@@ -544,7 +545,7 @@ public class PeoplePageFragment extends BaseFragment {
                 }
                 PeoplePageFragment.this.getLoaderManager().getLoader(1).forceLoad();
                 Map<String, String> params = new HashMap();
-                params.put("mode", PeoplePageFragment.this.mDisplayPeopleMode == DisplayPeopleMode.DISPLAY_ALL_PEOPLE ? "all" : "part");
+                params.put(FirewallLog.MODE, PeoplePageFragment.this.mDisplayPeopleMode == DisplayPeopleMode.DISPLAY_ALL_PEOPLE ? "all" : "part");
                 BaseSamplingStatHelper.recordCountEvent("people", "people_list_display_mode", params);
             }
         });

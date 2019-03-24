@@ -5,6 +5,7 @@ import com.miui.gallery.cloud.SpaceFullHandler.SpaceFullListener;
 import com.miui.gallery.stat.BaseSamplingStatHelper;
 import java.util.HashMap;
 import java.util.Map;
+import miui.yellowpage.Tag.TagWebService.CommonResult;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -30,12 +31,12 @@ public class CheckResult {
         if (json == null) {
             err = -6;
         } else {
-            err = json.getInt("code");
+            err = json.getInt(CommonResult.RESULT_CODE);
         }
         if (err != 0) {
             Map<String, String> params = new HashMap();
             params.put("function", "parseErrorCode");
-            params.put("code", String.valueOf(err));
+            params.put(CommonResult.RESULT_CODE, String.valueOf(err));
             params.put("message", json == null ? "null" : json.toString());
             BaseSamplingStatHelper.recordErrorEvent("Sync", "check_result", params);
         }
@@ -50,8 +51,8 @@ public class CheckResult {
             params.put("message", "result is null");
             BaseSamplingStatHelper.recordErrorEvent("Sync", "check_result", params);
             return GallerySyncResult.NotRetryError;
-        } else if (json.has("code")) {
-            return checkErrorCode(json.getInt("code"), json, requestItem, spaceFullListener);
+        } else if (json.has(CommonResult.RESULT_CODE)) {
+            return checkErrorCode(json.getInt(CommonResult.RESULT_CODE), json, requestItem, spaceFullListener);
         } else {
             params = new HashMap();
             params.put("function", "checkXMResultCode");
@@ -80,10 +81,10 @@ public class CheckResult {
         if (json == null) {
             return GallerySyncResult.NotRetryError;
         }
-        if (!json.has("code")) {
+        if (!json.has(CommonResult.RESULT_CODE)) {
             return GallerySyncResult.RetryError;
         }
-        int code = json.getInt("code");
+        int code = json.getInt(CommonResult.RESULT_CODE);
         if (code == 52000) {
             return GallerySyncResult.ResetFaceSyncTag;
         }

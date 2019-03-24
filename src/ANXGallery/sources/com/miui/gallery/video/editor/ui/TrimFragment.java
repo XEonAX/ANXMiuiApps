@@ -21,6 +21,7 @@ import com.miui.gallery.video.editor.widget.rangeseekbar.VideoEditorRangeSeekBar
 import com.miui.gallery.video.editor.widget.rangeseekbar.drawable.VideoThumbnailBackgroundDrawable.BitmapProvider;
 import java.util.ArrayList;
 import java.util.List;
+import miui.date.Calendar;
 
 public class TrimFragment extends MenuFragment implements OnSeekBarChangeListener {
     private EffectActionBar mBottomBar;
@@ -270,7 +271,7 @@ public class TrimFragment extends MenuFragment implements OnSeekBarChangeListene
 
     private String getCurrentVideoTime(int millisecond) {
         String timeAll = "";
-        int minutes = millisecond / 60000;
+        int minutes = millisecond / Calendar.MILLISECOND_OF_MINUTE;
         int seconds = (millisecond - ((minutes * 60) * 1000)) / 1000;
         if (minutes >= 10) {
             timeAll = minutes + "";

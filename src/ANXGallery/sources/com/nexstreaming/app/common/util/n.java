@@ -3,6 +3,7 @@ package com.nexstreaming.app.common.util;
 import android.content.Context;
 import java.util.Locale;
 import java.util.Map;
+import miui.cloud.backup.data.KeyStringSettingItem;
 
 /* compiled from: StringUtil */
 public class n {
@@ -82,7 +83,7 @@ public class n {
         }
         int identifier;
         if (str.startsWith("@string/")) {
-            identifier = context.getResources().getIdentifier("string/kedl_" + str.substring(8), "string", context.getPackageName());
+            identifier = context.getResources().getIdentifier("string/kedl_" + str.substring(8), KeyStringSettingItem.TYPE, context.getPackageName());
             if (identifier != 0) {
                 return context.getResources().getString(identifier);
             }
@@ -90,7 +91,7 @@ public class n {
         } else if (!str.startsWith("@")) {
             return str;
         } else {
-            identifier = context.getResources().getIdentifier(str.substring(1), "string", context.getPackageName());
+            identifier = context.getResources().getIdentifier(str.substring(1), KeyStringSettingItem.TYPE, context.getPackageName());
             if (identifier != 0) {
                 return context.getResources().getString(identifier);
             }

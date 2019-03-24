@@ -23,6 +23,7 @@ import com.miui.gallery.util.GalleryUtils.ConcatConverter;
 import com.miui.gallery.util.SyncLog;
 import com.miui.gallery.util.SyncUtil;
 import com.miui.gallery.util.deviceprovider.ApplicationHelper;
+import com.miui.internal.vip.VipConstants;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -34,6 +35,7 @@ import java.util.Set;
 import java.util.concurrent.Callable;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
+import miui.content.ExtraIntent;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
@@ -73,7 +75,7 @@ public class AlbumShareOperations {
                             sSelf = self;
                             if (self != null) {
                                 ContentValues values = new ContentValues();
-                                values.put("user_id", self.getUserId());
+                                values.put(ExtraIntent.EXTRA_XIAOMI_ACCOUNT_USER_ID, self.getUserId());
                                 values.put("alias_nick", self.getAliasNick());
                                 values.put("miliao_nick", self.getMiliaoNick());
                                 values.put("miliao_icon_url", self.getMiliaoIconUrl());
@@ -181,10 +183,10 @@ public class AlbumShareOperations {
                     userIdSet.add(selfId);
                 }
                 synchronized (GalleryCloudUtils.USER_INFO_URI) {
-                    GalleryUtils.safeDelete(GalleryCloudUtils.USER_INFO_URI, String.format("%s NOT IN (%s)", new Object[]{"user_id", GalleryUtils.concatAll(userIdSet, ",")}), null);
+                    GalleryUtils.safeDelete(GalleryCloudUtils.USER_INFO_URI, String.format("%s NOT IN (%s)", new Object[]{ExtraIntent.EXTRA_XIAOMI_ACCOUNT_USER_ID, GalleryUtils.concatAll(userIdSet, ",")}), null);
                 }
                 long current = System.currentTimeMillis();
-                Cursor userCursor = resolver.query(GalleryCloudUtils.USER_INFO_URI, new String[]{"user_id"}, String.format("(%s<?)AND(%s>?)", new Object[]{"date_modified", "date_modified"}), new String[]{String.valueOf(current), String.valueOf(current - 86400000)}, null);
+                Cursor userCursor = resolver.query(GalleryCloudUtils.USER_INFO_URI, new String[]{ExtraIntent.EXTRA_XIAOMI_ACCOUNT_USER_ID}, String.format("(%s<?)AND(%s>?)", new Object[]{"date_modified", "date_modified"}), new String[]{String.valueOf(current), String.valueOf(current - VipConstants.DAY)}, null);
                 if (userCursor != null) {
                     while (userCursor.moveToNext()) {
                         try {
@@ -208,7 +210,7 @@ public class AlbumShareOperations {
                                 }
                             });
                             synchronized (GalleryCloudUtils.USER_INFO_URI) {
-                                int deleteCount = GalleryUtils.safeDelete(GalleryCloudUtils.USER_INFO_URI, String.format("%s IN (%s)", new Object[]{"user_id", successIds}), null);
+                                int deleteCount = GalleryUtils.safeDelete(GalleryCloudUtils.USER_INFO_URI, String.format("%s IN (%s)", new Object[]{ExtraIntent.EXTRA_XIAOMI_ACCOUNT_USER_ID, successIds}), null);
                                 AlbumShareOperations.insertUserInfoToDB(resolver, GalleryCloudUtils.USER_INFO_URI, userInfoList);
                                 SyncLog.d("AlbumShareOperations", String.format("syncAllUserNameFromNetwork: delete=%d, insert=%d", new Object[]{Integer.valueOf(deleteCount), Integer.valueOf(userInfoList.size())}));
                             }
@@ -225,7 +227,7 @@ public class AlbumShareOperations {
         Iterator it = userInfoList.iterator();
         while (it.hasNext()) {
             UserInfo info = (UserInfo) it.next();
-            operations.add(ContentProviderOperation.newInsert(GalleryCloudUtils.USER_INFO_URI).withValue("user_id", info.getUserId()).withValue("alias_nick", info.getAliasNick()).withValue("miliao_nick", info.getMiliaoNick()).withValue("miliao_icon_url", info.getMiliaoIconUrl()).build());
+            operations.add(ContentProviderOperation.newInsert(GalleryCloudUtils.USER_INFO_URI).withValue(ExtraIntent.EXTRA_XIAOMI_ACCOUNT_USER_ID, info.getUserId()).withValue("alias_nick", info.getAliasNick()).withValue("miliao_nick", info.getMiliaoNick()).withValue("miliao_icon_url", info.getMiliaoIconUrl()).build());
             if (operations.size() > 100) {
                 try {
                     resolver.applyBatch("com.miui.gallery.cloud.provider", operations);

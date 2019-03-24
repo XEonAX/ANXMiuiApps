@@ -34,7 +34,6 @@ import com.miui.gallery.util.BaseMiscUtil;
 import com.miui.gallery.util.Log;
 import com.miui.gallery.util.SafeDBUtil;
 import com.miui.gallery.util.SafeDBUtil.QueryHandler;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -72,7 +71,7 @@ public class AlbumPageHeaderController implements LoaderCallbacks {
 
     private QueryLoader buildQueryLoaderByType(SectionType type) {
         Builder builder = new Builder(SearchType.SEARCH_TYPE_RESULT_LIST);
-        builder.addParam(nexExportFormat.TAG_FORMAT_TYPE, type.getName());
+        builder.addParam("type", type.getName());
         builder.addParam("pos", "0");
         builder.addParam("num", String.valueOf(this.mAlbumCoverNum));
         builder.addParam("secureMode", String.valueOf(true));

@@ -5,6 +5,7 @@ import android.app.FragmentTransaction;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.MiuiIntent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -174,7 +175,7 @@ public class BaseActivity extends Activity implements PermissionCheckCallback {
     }
 
     protected boolean isShowWhenLocked() {
-        return getIntent().getBooleanExtra("StartActivityWhenLocked", false);
+        return getIntent().getBooleanExtra(MiuiIntent.EXTRA_START_ACTIVITY_WHEN_LOCKED, false);
     }
 
     protected boolean supportEnterSetting() {

@@ -1,5 +1,6 @@
 package com.miui.gallery.cloudcontrol.strategies;
 
+import android.content.res.MiuiConfiguration;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.gson.annotations.SerializedName;
@@ -39,7 +40,7 @@ public class ScannerStrategy extends BaseStrategy {
         public static FileSizeLimitStrategy createDefault() {
             FileSizeLimitStrategy strategy = new FileSizeLimitStrategy();
             strategy.mImageMaxSize = 40;
-            strategy.mVideoMaxSize = 4096;
+            strategy.mVideoMaxSize = MiuiConfiguration.THEME_FLAG_LOCKSTYLE;
             strategy.doAdditionalProcessing();
             return strategy;
         }
@@ -60,8 +61,8 @@ public class ScannerStrategy extends BaseStrategy {
         }
 
         public void doAdditionalProcessing() {
-            this.mImageMaxSize *= 1048576;
-            this.mVideoMaxSize *= 1048576;
+            this.mImageMaxSize *= MiuiConfiguration.THEME_FLAG_ALARMSTYLE;
+            this.mVideoMaxSize *= MiuiConfiguration.THEME_FLAG_ALARMSTYLE;
         }
 
         public String toString() {

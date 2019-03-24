@@ -4,6 +4,7 @@ import com.xiaomi.metoknlp.a.e;
 import com.xiaomi.metoknlp.a.f;
 import java.util.HashMap;
 import java.util.Map;
+import miui.media.Recorder.ErrorCode;
 
 /* compiled from: CloudClient */
 public final class b {
@@ -35,7 +36,7 @@ public final class b {
             return null;
         }
         if (mcc < 0 || mnc < 0) {
-            mcc = 999;
+            mcc = ErrorCode.UNKNOWN;
             mnc = 99;
         }
         return String.format("%s__%s__%d__%d__%s", new Object[]{deviceModel, V, Integer.valueOf(mcc), Integer.valueOf(mnc), X});

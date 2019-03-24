@@ -18,6 +18,7 @@ import com.miui.gallery.sdk.download.DownloadType;
 import com.miui.gallery.stat.BaseSamplingStatHelper;
 import com.miui.gallery.util.BaseMiscUtil;
 import com.miui.gallery.util.Log;
+import com.miui.internal.vip.VipConstants;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -125,9 +126,9 @@ public class ExistImageFeatureTask extends BaseImageTask {
         long now = System.currentTimeMillis();
         if (lastImageFeatureTaskTime > 0) {
             Map<String, String> params = BaseSamplingStatHelper.generatorCommonParams();
-            long days = Math.abs(now - lastImageFeatureTaskTime) / 86400000;
+            long days = Math.abs(now - lastImageFeatureTaskTime) / VipConstants.DAY;
             if (days == 0) {
-                BaseSamplingStatHelper.recordNumericPropertyEvent("assistant", "assistant_imagefeature_task_hours_interval", Math.abs(now - lastImageFeatureTaskTime) / 3600000);
+                BaseSamplingStatHelper.recordNumericPropertyEvent("assistant", "assistant_imagefeature_task_hours_interval", Math.abs(now - lastImageFeatureTaskTime) / VipConstants.HOUR);
             }
             BaseSamplingStatHelper.recordNumericPropertyEvent("assistant", "assistant_imagefeature_task_days_interval", days);
         }

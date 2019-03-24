@@ -2,7 +2,6 @@ package com.miui.gallery.editor.photo.core;
 
 import android.util.ArrayMap;
 import android.util.Property;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -30,16 +29,16 @@ public class RenderScript {
             for (JsonProperty<T, ?> property : propertyList) {
                 this.mProperties.put(property.getName(), property);
             }
-            if (this.mProperties.get(nexExportFormat.TAG_FORMAT_TYPE) != null) {
+            if (this.mProperties.get("type") != null) {
                 throw new IllegalArgumentException("can't use 'type' for property.");
             }
-            this.mProperties.put(nexExportFormat.TAG_FORMAT_TYPE, new Type());
+            this.mProperties.put("type", new Type());
         }
     }
 
     private static final class Type<T extends RenderData> extends JsonProperty<T, Effect> {
         public Type() {
-            super(Effect.class, nexExportFormat.TAG_FORMAT_TYPE);
+            super(Effect.class, "type");
         }
 
         public Effect get(RenderData obj) {

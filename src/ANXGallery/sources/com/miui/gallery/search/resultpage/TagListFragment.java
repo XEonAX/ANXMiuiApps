@@ -14,6 +14,7 @@ import com.miui.gallery.search.StatusHandleHelper.InfoViewPosition;
 import com.miui.gallery.search.core.QueryInfo.Builder;
 import com.miui.gallery.search.feedback.FeedbackPolicyNoticeFragment;
 import com.miui.gallery.ui.SearchFeedbackTaskController;
+import miui.yellowpage.Tag.TagPhone;
 
 public class TagListFragment extends SearchResultFragment {
     private FeedbackPolicyNoticeFragment mPolicyNoticeFragment = null;
@@ -126,7 +127,7 @@ public class TagListFragment extends SearchResultFragment {
     protected Builder getSectionDataQueryInfoBuilder() {
         Builder queryInfoBuilder = super.getSectionDataQueryInfoBuilder();
         if (this.mInFeedbackTaskMode) {
-            queryInfoBuilder.addParam("filterMode", "feedback");
+            queryInfoBuilder.addParam("filterMode", TagPhone.MARKED_NUMBER_FEEDBACK);
         }
         return queryInfoBuilder;
     }

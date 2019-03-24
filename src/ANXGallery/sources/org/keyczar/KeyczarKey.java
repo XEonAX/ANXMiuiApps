@@ -116,7 +116,7 @@ public abstract class KeyczarKey {
             Util.rand(bArr);
             Util.rand(new byte[16]);
             Cipher instance = Cipher.getInstance(PBE_CIPHER);
-            instance.init(1, generateSecret, new PBEParameterSpec(bArr, PBE_ITERATION_COUNT));
+            instance.init(1, generateSecret, new PBEParameterSpec(bArr, 1000));
             return new EncryptedPrivateKeyInfo(instance.getParameters(), instance.doFinal(key.getEncoded())).getEncoded();
         } catch (Throwable e) {
             throw new KeyczarException(Messages.getString("KeyczarTool.FailedToEncryptPrivateKey", new Object[0]), e);

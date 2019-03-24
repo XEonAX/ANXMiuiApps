@@ -11,6 +11,7 @@ import java.io.UnsupportedEncodingException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import miui.hybrid.Response;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -56,7 +57,7 @@ public class XMPMetaParser {
         try {
             return parseXmlFromBytebuffer(new ByteBuffer(stream), options);
         } catch (IOException e) {
-            throw new XMPException("Error reading the XML-file", 204, e);
+            throw new XMPException("Error reading the XML-file", Response.CODE_FEATURE_ERROR, e);
         }
     }
 
@@ -64,7 +65,7 @@ public class XMPMetaParser {
         try {
             return parseInputSource(new InputSource(buffer.getByteStream()));
         } catch (XMPException e) {
-            if (e.getErrorCode() == 201 || e.getErrorCode() == 204) {
+            if (e.getErrorCode() == Response.CODE_CONFIG_ERROR || e.getErrorCode() == Response.CODE_FEATURE_ERROR) {
                 if (options.getAcceptLatin1()) {
                     buffer = Latin1Converter.convert(buffer);
                 }
@@ -85,7 +86,7 @@ public class XMPMetaParser {
         try {
             return parseInputSource(new InputSource(new StringReader(input)));
         } catch (XMPException e) {
-            if (e.getErrorCode() == 201 && options.getFixControlChars()) {
+            if (e.getErrorCode() == Response.CODE_CONFIG_ERROR && options.getFixControlChars()) {
                 return parseInputSource(new InputSource(new FixASCIIControlsReader(new StringReader(input))));
             }
             throw e;
@@ -98,11 +99,11 @@ public class XMPMetaParser {
             builder.setErrorHandler(null);
             return builder.parse(source);
         } catch (SAXException e) {
-            throw new XMPException("XML parsing failure", 201, e);
+            throw new XMPException("XML parsing failure", Response.CODE_CONFIG_ERROR, e);
         } catch (ParserConfigurationException e2) {
             throw new XMPException("XML Parser not correctly configured", 0, e2);
         } catch (IOException e3) {
-            throw new XMPException("Error reading the XML-file", 204, e3);
+            throw new XMPException("Error reading the XML-file", Response.CODE_FEATURE_ERROR, e3);
         }
     }
 

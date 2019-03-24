@@ -82,7 +82,7 @@ public class NvAndroidMediaFileInfo {
             if (i2 >= 0) {
                 MediaFormat trackFormat = mediaExtractor3.getTrackFormat(i2);
                 mediaInfo.videoStreamDurationUs = trackFormat.getLong("durationUs");
-                mediaInfo.width = trackFormat.getInteger(nexExportFormat.TAG_FORMAT_WIDTH);
+                mediaInfo.width = trackFormat.getInteger("width");
                 mediaInfo.height = trackFormat.getInteger(nexExportFormat.TAG_FORMAT_HEIGHT);
                 if (trackFormat.containsKey("rotation-degrees")) {
                     mediaInfo.rotation = trackFormat.getInteger("rotation-degrees");

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.SystemIntent;
 import android.content.pm.PackageInfo;
 import android.content.pm.ServiceInfo;
 import android.net.Uri;
@@ -447,7 +448,7 @@ public class PushMessageProcessor {
                                                                             if (!NotificationType.HybridUnregisterResult.value.equals(notification.type)) {
                                                                                 if (NotificationType.PushLogUpload.value.equals(notification.type) && notification.getExtra() != null && notification.getExtra().containsKey("packages")) {
                                                                                     String[] packageNames = ((String) notification.getExtra().get("packages")).split(",");
-                                                                                    if (!TextUtils.equals(this.sAppContext.getPackageName(), "com.xiaomi.xmsf")) {
+                                                                                    if (!TextUtils.equals(this.sAppContext.getPackageName(), SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE)) {
                                                                                         Logger.uploadLogFile(this.sAppContext, false);
                                                                                         break;
                                                                                     }

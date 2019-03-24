@@ -149,7 +149,7 @@ public class PhotoSlimFragment extends BaseFragment implements SpaceSlimObserver
             SlimController slimController = this.mSlimController;
             int remainCount = SlimController.getInstance().getRemainCount();
             if (this.mExitConfirmDialog == null) {
-                this.mExitConfirmDialog = new Builder(this.mActivity).setPositiveButton(R.string.slim_exit_dialog_positive, new DialogInterface.OnClickListener() {
+                this.mExitConfirmDialog = new Builder(this.mActivity).setPositiveButton((int) R.string.slim_exit_dialog_positive, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         PhotoSlimFragment.this.onExit();
                         BaseSamplingStatHelper.recordCountEvent("cleaner", "slim_exit_confirm");
@@ -158,7 +158,7 @@ public class PhotoSlimFragment extends BaseFragment implements SpaceSlimObserver
                     public void onClick(DialogInterface dialog, int which) {
                         PhotoSlimFragment.this.onExitCancel();
                     }
-                }).setTitle(R.string.slim_exit_dialog_title).setOnCancelListener(new OnCancelListener() {
+                }).setTitle((int) R.string.slim_exit_dialog_title).setOnCancelListener(new OnCancelListener() {
                     public void onCancel(DialogInterface dialog) {
                         PhotoSlimFragment.this.onExitCancel();
                     }

@@ -19,9 +19,10 @@ import com.miui.gallery.util.ToastUtils;
 import com.miui.gallery.widget.GalleryDialogFragment;
 import java.util.ArrayList;
 import java.util.Iterator;
+import miui.provider.ExtraContacts.Groups;
 
 public class PeopleRelationCreatorDialogFragment extends GalleryDialogFragment {
-    private static final String[] INVALID_NAMES = new String[]{"自己", "孩子", "家人", "同事", "同学", "家人", "朋友", "未分组", "自定义", "Me", "Child", "Family", "Collegues", "Classmates", "Friends", "Ungrouped", "Custom"};
+    private static final String[] INVALID_NAMES = new String[]{"自己", "孩子", "家人", "同事", "同学", "家人", "朋友", "未分组", "自定义", "Me", "Child", Groups.SYSTEM_ID_FAMILY, "Collegues", "Classmates", Groups.SYSTEM_ID_FRIENDS, "Ungrouped", "Custom"};
     private Button mConfirmButton;
     private OnClickListener mConfirmListener = new OnClickListener() {
         public void onClick(View v) {

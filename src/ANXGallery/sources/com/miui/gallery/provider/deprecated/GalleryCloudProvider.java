@@ -37,6 +37,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import miui.yellowpage.Tag.TagWebService.CommonResult;
 
 public class GalleryCloudProvider extends ContentProvider {
     private static final String[] SAFE_INSERT_PROJECTION = new String[]{"_id", "fileName"};
@@ -161,7 +162,7 @@ public class GalleryCloudProvider extends ContentProvider {
         sUriMatcher.addURI("com.miui.gallery.cloud.provider", "uploadState", 23);
         sUriMatcher.addURI("com.miui.gallery.cloud.provider", "peopleRecommend", 30);
         sUriMatcher.addURI("com.miui.gallery.cloud.provider", "peopleRecommend/#", 31);
-        sUriMatcher.addURI("com.miui.gallery.cloud.provider", "event", 32);
+        sUriMatcher.addURI("com.miui.gallery.cloud.provider", CommonResult.RESULT_TYPE_EVENT, 32);
         sUriMatcher.addURI("com.miui.gallery.cloud.provider", "event/#", 33);
         sUriMatcher.addURI("com.miui.gallery.cloud.provider", "eventPhoto", 34);
         sUriMatcher.addURI("com.miui.gallery.cloud.provider", "eventPhoto/#", 35);
@@ -485,7 +486,7 @@ public class GalleryCloudProvider extends ContentProvider {
                 return "peopleRecommend";
             case 32:
             case 33:
-                return "event";
+                return CommonResult.RESULT_TYPE_EVENT;
             case 34:
             case 35:
                 return "eventPhoto";

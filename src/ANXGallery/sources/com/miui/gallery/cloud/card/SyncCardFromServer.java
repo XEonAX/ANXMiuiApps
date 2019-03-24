@@ -18,6 +18,7 @@ import com.miui.gallery.util.Log;
 import com.miui.gallery.util.SyncLog;
 import java.util.List;
 import java.util.Locale;
+import miui.provider.ExtraContacts.ConferenceCalls;
 
 public class SyncCardFromServer {
     protected Account mAccount;
@@ -62,7 +63,7 @@ public class SyncCardFromServer {
                 public String getUrl() {
                     return Story.getCardInfosUrl();
                 }
-            }).addParam("syncTag", Long.toString(syncTag)).addParam("limit", Long.toString(limit)).addParam("syncExtraInfo", syncExtraInfo).addParam("language", Locale.getDefault().toString()).setUseCache(false).executeSync();
+            }).addParam("syncTag", Long.toString(syncTag)).addParam(ConferenceCalls.LIMIT_PARAM_KEY, Long.toString(limit)).addParam("syncExtraInfo", syncExtraInfo).addParam("language", Locale.getDefault().toString()).setUseCache(false).executeSync();
         } catch (Object requestError) {
             Log.e("SyncCardFromServer", "Get getCardInfoList failed, %s", requestError);
         } catch (Object e) {
@@ -86,7 +87,7 @@ public class SyncCardFromServer {
             public String getUrl() {
                 return isLoggedIn ? Story.getOperationCardUrl() : Story.getOperationCardAnonymousUrl();
             }
-        }).addParam("limit", Long.toString(10)).addParam("cardId", serverId).setUseCache(false).execute(new ResponseCallback<CardInfoList>() {
+        }).addParam(ConferenceCalls.LIMIT_PARAM_KEY, Long.toString(10)).addParam("cardId", serverId).setUseCache(false).execute(new ResponseCallback<CardInfoList>() {
             public void onResponse(CardInfoList cardInfoList) {
                 if (cardInfoList != null) {
                     List<CardInfo> cardInfos = cardInfoList.getGalleryCards();

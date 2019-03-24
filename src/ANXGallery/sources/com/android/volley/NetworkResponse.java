@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
+import miui.hybrid.Response;
 
 public class NetworkResponse {
     public final List<Header> allHeaders;
@@ -25,12 +26,12 @@ public class NetworkResponse {
     }
 
     public NetworkResponse(byte[] data) {
-        this(200, data, false, 0, Collections.emptyList());
+        this((int) Response.CODE_GENERIC_ERROR, data, false, 0, Collections.emptyList());
     }
 
     @Deprecated
     public NetworkResponse(byte[] data, Map<String, String> headers) {
-        this(200, data, (Map) headers, false, 0);
+        this((int) Response.CODE_GENERIC_ERROR, data, (Map) headers, false, 0);
     }
 
     private NetworkResponse(int statusCode, byte[] data, Map<String, String> headers, List<Header> allHeaders, boolean notModified, long networkTimeMs) {

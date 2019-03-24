@@ -19,10 +19,13 @@ import com.miui.gallery.util.SafeDBUtil.QueryHandler;
 import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.io.File;
 import java.util.Locale;
+import miui.provider.ExtraContacts.ConferenceCalls;
+import miui.provider.Notes.Data;
+import miui.yellowpage.YellowPageContract.ImageLookup;
 
 public class MediaStoreUtils {
     private static final Uri BASE_URI = Files.getContentUri("external");
-    private static final String[] PROJECTION = new String[]{"_id", "_data", "mime_type"};
+    private static final String[] PROJECTION = new String[]{"_id", "_data", Data.MIME_TYPE};
 
     public static Uri insert(Context context, String filePath, int type) {
         if (!TextUtils.isEmpty(filePath)) {
@@ -74,13 +77,13 @@ public class MediaStoreUtils {
             Log.w("MediaStoreUtils", "decode image bounds failed");
             return false;
         }
-        values.put(nexExportFormat.TAG_FORMAT_WIDTH, Integer.valueOf(opt.outWidth));
+        values.put("width", Integer.valueOf(opt.outWidth));
         values.put(nexExportFormat.TAG_FORMAT_HEIGHT, Integer.valueOf(opt.outHeight));
         return true;
     }
 
     private static void fillByJpeg(ContentValues values, File file) {
-        values.put("mime_type", "image/jpeg");
+        values.put(Data.MIME_TYPE, "image/jpeg");
         try {
             ExifInterface exif = new ExifInterface(file.getAbsolutePath());
             double[] latLong = exif.getLatLong();
@@ -109,7 +112,7 @@ public class MediaStoreUtils {
     }
 
     public static void fillByMp4(ContentValues values, File file) {
-        values.put("mime_type", "video/mp4");
+        values.put(Data.MIME_TYPE, "video/mp4");
         values.put("duration", Long.valueOf(getVideoDuration(file.getAbsolutePath())));
     }
 
@@ -139,7 +142,7 @@ public class MediaStoreUtils {
         }
         String path = uri.getPath();
         if (path.contains(Media.EXTERNAL_CONTENT_URI.getPath()) || path.contains(Media.INTERNAL_CONTENT_URI.getPath())) {
-            return "image";
+            return ImageLookup.DIRECTORY_IMAGE;
         }
         if (path.contains(Video.Media.EXTERNAL_CONTENT_URI.getPath()) || path.contains(Video.Media.INTERNAL_CONTENT_URI.getPath())) {
             return "video";
@@ -184,7 +187,7 @@ public class MediaStoreUtils {
         if (getBucketIds() == null) {
             return null;
         }
-        return (Uri) SafeDBUtil.safeQuery(GalleryApp.sGetAndroidContext(), BASE_URI.buildUpon().appendQueryParameter("limit", "1").build(), PROJECTION, String.format("bucket_id in (%s) AND media_type in (1,3) AND _size > 0", new Object[]{TextUtils.join(",", bucketIds)}), null, "datetaken DESC, _id DESC", new QueryHandler<Uri>() {
+        return (Uri) SafeDBUtil.safeQuery(GalleryApp.sGetAndroidContext(), BASE_URI.buildUpon().appendQueryParameter(ConferenceCalls.LIMIT_PARAM_KEY, "1").build(), PROJECTION, String.format("bucket_id in (%s) AND media_type in (1,3) AND _size > 0", new Object[]{TextUtils.join(",", bucketIds)}), null, "datetaken DESC, _id DESC", new QueryHandler<Uri>() {
             public Uri handle(Cursor cursor) {
                 if (cursor != null && cursor.moveToFirst() && FileUtils.isFileExist(cursor.getString(1))) {
                     long id = cursor.getLong(0);

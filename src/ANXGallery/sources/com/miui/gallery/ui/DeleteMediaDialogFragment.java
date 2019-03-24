@@ -33,6 +33,7 @@ import com.miui.gallery.widget.GalleryDialogFragment;
 import java.util.ArrayList;
 import miui.app.AlertDialog;
 import miui.app.AlertDialog.Builder;
+import miui.hybrid.Response;
 
 public class DeleteMediaDialogFragment extends GalleryDialogFragment {
     private static final int[][] TYPE_RESOURCE_MATRIX = new int[][]{new int[]{R.plurals.delete_photo_from_local, R.plurals.delete_video_from_local, R.plurals.delete_media_from_local}, new int[]{R.plurals.delete_photo_from_this_album_and_cloud_msg, R.plurals.delete_video_from_this_album_and_cloud_msg, R.plurals.delete_media_from_this_album_and_cloud_msg}, new int[]{R.plurals.delete_photo_from_all_devices_and_cloud_msg, R.plurals.delete_video_from_all_devices_and_cloud_msg, R.plurals.delete_media_from_all_devices_and_cloud_msg}};
@@ -310,7 +311,7 @@ public class DeleteMediaDialogFragment extends GalleryDialogFragment {
         if (info.checkBoxInfo != null) {
             builder.setCheckBox(info.checkBoxInfo.defaultValue, info.checkBoxInfo.message);
         }
-        return builder.setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
+        return builder.setPositiveButton((int) R.string.delete, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 DeleteMediaDialogFragment.this.mParam.mDeleteOptions = 0;
                 if (info.checkBoxInfo != null) {
@@ -383,7 +384,7 @@ public class DeleteMediaDialogFragment extends GalleryDialogFragment {
 
     private int queryType(Param param) {
         int count = param.getItemsCount();
-        if (count > 200) {
+        if (count > Response.CODE_GENERIC_ERROR) {
             return 2;
         }
         int videoCount = 0;

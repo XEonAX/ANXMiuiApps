@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
+import miui.provider.Notes.Data;
 
 class DocumentsContractApi19 {
     public static String getName(Context context, Uri self) {
@@ -11,7 +12,7 @@ class DocumentsContractApi19 {
     }
 
     private static String getRawType(Context context, Uri self) {
-        return queryForString(context, self, "mime_type", null);
+        return queryForString(context, self, Data.MIME_TYPE, null);
     }
 
     public static boolean isDirectory(Context context, Uri self) {

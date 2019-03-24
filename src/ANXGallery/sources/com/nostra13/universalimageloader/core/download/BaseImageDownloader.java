@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import miui.hybrid.Response;
 
 public class BaseImageDownloader implements ImageDownloader {
     protected final int connectTimeout;
@@ -83,7 +84,7 @@ public class BaseImageDownloader implements ImageDownloader {
     }
 
     protected boolean shouldBeProcessed(HttpURLConnection conn) throws IOException {
-        return conn.getResponseCode() == 200;
+        return conn.getResponseCode() == Response.CODE_GENERIC_ERROR;
     }
 
     protected HttpURLConnection createConnection(String url, Object extra) throws IOException {

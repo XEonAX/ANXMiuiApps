@@ -3,12 +3,14 @@ package com.miui.gallery.util;
 import android.content.Context;
 import android.os.Build.VERSION;
 import com.android.internal.SystemPropertiesCompat;
+import com.miui.internal.util.PackageConstants;
 import com.miui.os.FeatureHelper;
 import com.miui.settings.Settings;
+import miui.provider.ExtraContacts.DefaultAccount;
 
 public class BuildUtil extends BaseBuildUtil {
     public static final boolean IS_M_OR_LATER = (VERSION.SDK_INT >= 23);
-    private static final ModuleLevel MIUI_SDK_LEVEL = new ModuleLevel("com.miui.core");
+    private static final ModuleLevel MIUI_SDK_LEVEL = new ModuleLevel(PackageConstants.PACKAGE_NAME);
     private static Boolean sIsOLED;
     private static Boolean sIsTablet;
     private static Integer sMiuiVersionCode;
@@ -31,14 +33,14 @@ public class BuildUtil extends BaseBuildUtil {
 
     public static boolean isTablet() {
         if (sIsTablet == null) {
-            sIsTablet = Boolean.valueOf(SystemPropertiesCompat.get("ro.build.characteristics", "default").contains("tablet"));
+            sIsTablet = Boolean.valueOf(SystemPropertiesCompat.get("ro.build.characteristics", DefaultAccount.NAME).contains("tablet"));
         }
         return sIsTablet.booleanValue();
     }
 
     public static boolean isOledDisplay() {
         if (sIsOLED == null) {
-            sIsOLED = Boolean.valueOf("oled".equals(SystemPropertiesCompat.get("ro.display.type", "default")));
+            sIsOLED = Boolean.valueOf("oled".equals(SystemPropertiesCompat.get("ro.display.type", DefaultAccount.NAME)));
         }
         return sIsOLED.booleanValue();
     }

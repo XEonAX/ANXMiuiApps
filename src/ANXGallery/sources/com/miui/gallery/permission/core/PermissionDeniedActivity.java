@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.MiuiIntent;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
@@ -17,6 +18,7 @@ import android.text.TextUtils;
 import com.miui.gallery.R;
 import com.miui.gallery.stat.BaseSamplingStatHelper;
 import com.miui.gallery.util.Log;
+import com.miui.internal.analytics.EventUtils;
 import com.nexstreaming.nexeditorsdk.nexEngine;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +47,7 @@ public class PermissionDeniedActivity extends Activity {
         if (activity != null && unGrantedPermissions != null && unGrantedPermissions.size() > 0) {
             Intent intent = new Intent(activity, PermissionDeniedActivity.class);
             intent.putStringArrayListExtra("permissions", new ArrayList(unGrantedPermissions));
-            intent.putExtra("StartActivityWhenLocked", startFromLock);
+            intent.putExtra(MiuiIntent.EXTRA_START_ACTIVITY_WHEN_LOCKED, startFromLock);
             activity.startActivity(intent);
             activity.overridePendingTransition(0, 0);
         }
@@ -104,7 +106,7 @@ public class PermissionDeniedActivity extends Activity {
     }
 
     private boolean isShowWhenLocked() {
-        return getIntent().getBooleanExtra("StartActivityWhenLocked", false);
+        return getIntent().getBooleanExtra(MiuiIntent.EXTRA_START_ACTIVITY_WHEN_LOCKED, false);
     }
 
     private AlertDialog showDialog() {
@@ -151,7 +153,7 @@ public class PermissionDeniedActivity extends Activity {
         Intent intent = new Intent();
         intent.addFlags(268435456);
         intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-        intent.setData(Uri.fromParts("package", context.getPackageName(), null));
+        intent.setData(Uri.fromParts(EventUtils.COLUMN_PACKAGE_NAME, context.getPackageName(), null));
         context.startActivity(intent);
     }
 }

@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import miui.provider.ExtraContacts.ConferenceCalls.MembersColumns;
 import org.xmlpull.v1.XmlPullParserException;
 
 public final class nexEffectLibrary {
@@ -198,7 +199,7 @@ public final class nexEffectLibrary {
             String str2;
             Map i2 = gVar.i();
             if (i2 != null) {
-                i2 = (Map) i2.get("label");
+                i2 = (Map) i2.get(MembersColumns.LABEL);
                 if (i2 != null) {
                     str2 = (String) i2.get("en");
                     String str3;
@@ -231,7 +232,7 @@ public final class nexEffectLibrary {
                             i2 = ((g.a) j.get(i4)).a();
                             String str4 = null;
                             if (i2 != null) {
-                                i2 = (Map) i2.get("label");
+                                i2 = (Map) i2.get(MembersColumns.LABEL);
                                 if (i2 != null) {
                                     str4 = (String) i2.get("en");
                                 }

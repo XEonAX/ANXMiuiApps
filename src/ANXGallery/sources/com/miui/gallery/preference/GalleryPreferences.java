@@ -17,6 +17,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
+import miui.yellowpage.Tag.TagYellowPage;
 
 public class GalleryPreferences {
 
@@ -755,7 +756,7 @@ public class GalleryPreferences {
 
     public static class Sync {
         private static final boolean DEFAULT_AUTO_BATCH_DOWNLOAD = CloudControlStrategyHelper.getSyncStrategy().isAutoDownload();
-        private static final String DEFAULT_DOWNLOAD_TYPE = (CloudControlStrategyHelper.getSyncStrategy().getAutoDownloadType() == 0 ? "thumbnail" : "origin");
+        private static final String DEFAULT_DOWNLOAD_TYPE = (CloudControlStrategyHelper.getSyncStrategy().getAutoDownloadType() == 0 ? TagYellowPage.THUMBNAIL : "origin");
 
         public static void setPowerCanSync(boolean powerCanSync) {
             MemoryPreferenceHelper.putBoolean(PrefKeys.SYNC_POWER_CAN_SYNC, powerCanSync);
@@ -836,7 +837,7 @@ public class GalleryPreferences {
 
         public static DownloadType getDownloadType() {
             String type = PreferenceHelper.getString(PrefKeys.SYNC_DOWNLOAD_TYPE, DEFAULT_DOWNLOAD_TYPE);
-            if ("thumbnail".equals(type)) {
+            if (TagYellowPage.THUMBNAIL.equals(type)) {
                 return DownloadType.THUMBNAIL;
             }
             if ("origin".equals(type)) {
@@ -848,7 +849,7 @@ public class GalleryPreferences {
         public static void setDownloadType(DownloadType type) {
             DownloadType old = getDownloadType();
             if (type == DownloadType.THUMBNAIL) {
-                PreferenceHelper.putString(PrefKeys.SYNC_DOWNLOAD_TYPE, "thumbnail");
+                PreferenceHelper.putString(PrefKeys.SYNC_DOWNLOAD_TYPE, TagYellowPage.THUMBNAIL);
             } else if (type == DownloadType.ORIGIN) {
                 PreferenceHelper.putString(PrefKeys.SYNC_DOWNLOAD_TYPE, "origin");
             }

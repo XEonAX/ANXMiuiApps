@@ -15,7 +15,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.view.View;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import com.miui.gallery.stat.BaseSamplingStatHelper;
 import com.miui.gallery.util.Log;
 import com.miui.gallery.util.UriUtils;
@@ -27,6 +26,7 @@ import com.miui.gallery.video.editor.VideoEditor.TrimStateInterface;
 import com.miui.gallery.video.editor.manager.NexAssetTemplateManager;
 import com.miui.gallery.video.editor.util.FileHelper;
 import com.miui.gallery.video.editor.util.IntentUtil;
+import com.miui.internal.widget.ActionBarMovableLayout;
 import com.nexstreaming.nexeditorsdk.exception.ExpiredTimeException;
 import com.nexstreaming.nexeditorsdk.nexAnimate;
 import com.nexstreaming.nexeditorsdk.nexApplicationConfig;
@@ -55,6 +55,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
+import miui.hybrid.Response;
 
 public class NexVideoEditor extends VideoEditor implements nexEngineListener {
     private HashMap<String, Change> mApplyedEditValue = new HashMap();
@@ -471,9 +472,9 @@ public class NexVideoEditor extends VideoEditor implements nexEngineListener {
                     this.mWaterMarkOverlayItem = new nexOverlayItem(this.mWaterMarkOverlay, this.anchorPoint, false, (float) this.x, (float) this.y, this.mStartTime, this.mEndTime);
                 } else if (this.timeType == 1) {
                     this.mWaterMarkOverlay = nexOverlayPreset.getOverlayPreset(NexVideoEditor.this.mContext.getApplicationContext()).getOverlayImage(this.mTemplateId);
-                    this.mStartTime = ((this.mEndTime - 800) - this.mWaterMarkOverlay.getDefaultDuration()) - 1000;
+                    this.mStartTime = ((this.mEndTime - ActionBarMovableLayout.DEFAULT_SPRING_BACK_DURATION) - this.mWaterMarkOverlay.getDefaultDuration()) - 1000;
                     this.mWaterMarkOverlayItem = new nexOverlayItem(this.mWaterMarkOverlay, this.anchorPoint, false, (float) this.x, (float) this.y, this.mStartTime, this.mEndTime);
-                    this.mWaterMarkOverlayItem.addAnimate(nexAnimate.getAlpha(this.mWaterMarkOverlay.getDefaultDuration() + 500, 800, 1.0f, 0.0f));
+                    this.mWaterMarkOverlayItem.addAnimate(nexAnimate.getAlpha(this.mWaterMarkOverlay.getDefaultDuration() + 500, ActionBarMovableLayout.DEFAULT_SPRING_BACK_DURATION, 1.0f, 0.0f));
                 }
                 this.mWaterMarkOverlayItem.setScale(this.scale, this.scale);
             }
@@ -805,7 +806,7 @@ public class NexVideoEditor extends VideoEditor implements nexEngineListener {
     }
 
     public void cancelExport(final OnCompletedListener listener) {
-        if (this.mEngineState == BaiduSceneResult.TEMPLE) {
+        if (this.mEngineState == 105) {
             this.mEngin.stop(new OnCompletionListener() {
                 public void onComplete(int i) {
                     NexVideoEditor.this.setEngineState(0);
@@ -845,7 +846,7 @@ public class NexVideoEditor extends VideoEditor implements nexEngineListener {
         switch (this.mEngineState) {
             case 2:
                 if (this.mEngin != null) {
-                    setEngineState(BaiduSceneResult.GARDEN);
+                    setEngineState(107);
                     this.mEngin.resume();
                     return;
                 }
@@ -860,7 +861,7 @@ public class NexVideoEditor extends VideoEditor implements nexEngineListener {
         switch (this.mEngineState) {
             case 0:
                 if (this.mEngin != null) {
-                    setEngineState(BaiduSceneResult.MOUNTAINEERING);
+                    setEngineState(103);
                     this.mEngin.play();
                     return;
                 }
@@ -881,7 +882,7 @@ public class NexVideoEditor extends VideoEditor implements nexEngineListener {
             return;
         }
         this.mPauseOnCompletedListener = onCompletedListener;
-        setEngineState(BaiduSceneResult.TAEKWONDO);
+        setEngineState(102);
         this.mEngin.pause();
     }
 
@@ -890,7 +891,7 @@ public class NexVideoEditor extends VideoEditor implements nexEngineListener {
         switch (this.mEngineState) {
             case 0:
             case 2:
-            case BaiduSceneResult.SPORTS_OTHER /*104*/:
+            case 104:
                 doSeek(time);
                 return;
             case 1:
@@ -938,10 +939,10 @@ public class NexVideoEditor extends VideoEditor implements nexEngineListener {
             case 0:
             case 2:
                 this.setTimeSuccess = false;
-                setEngineState(BaiduSceneResult.SPORTS_OTHER);
+                setEngineState(104);
                 this.mEngin.seek(time);
                 return;
-            case BaiduSceneResult.SPORTS_OTHER /*104*/:
+            case 104:
                 this.mSeekTarget = time;
                 updataSeek();
                 return;
@@ -952,7 +953,7 @@ public class NexVideoEditor extends VideoEditor implements nexEngineListener {
     }
 
     private void updataSeek() {
-        if (this.mEngineState != BaiduSceneResult.SPORTS_OTHER) {
+        if (this.mEngineState != 104) {
             return;
         }
         if (this.mSeekTarget != -1) {
@@ -995,20 +996,20 @@ public class NexVideoEditor extends VideoEditor implements nexEngineListener {
                 keepScreenOn(false);
                 break;
             case 100:
-            case BaiduSceneResult.SHOOTING /*101*/:
-            case BaiduSceneResult.TAEKWONDO /*102*/:
-            case BaiduSceneResult.MOUNTAINEERING /*103*/:
-            case BaiduSceneResult.GARDEN /*107*/:
-                setState(200);
+            case 101:
+            case 102:
+            case 103:
+            case 107:
+                setState(Response.CODE_GENERIC_ERROR);
                 break;
-            case BaiduSceneResult.SPORTS_OTHER /*104*/:
+            case 104:
                 setState(3);
                 this.mDisplayWrapper.hideThumbnail();
                 break;
-            case BaiduSceneResult.TEMPLE /*105*/:
-            case BaiduSceneResult.PALACE /*106*/:
+            case 105:
+            case 106:
                 keepScreenOn(true);
-                setState(200);
+                setState(Response.CODE_GENERIC_ERROR);
                 break;
             case 500:
                 setState(500);
@@ -1052,7 +1053,7 @@ public class NexVideoEditor extends VideoEditor implements nexEngineListener {
                 new ApplyTask(listener).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, changes);
                 return true;
             case 1:
-                setEngineState(BaiduSceneResult.SHOOTING);
+                setEngineState(101);
                 this.mEngin.stop(new OnCompletionListener() {
                     public void onComplete(int i) {
                         NexVideoEditor.this.setEngineState(100);
@@ -1117,7 +1118,7 @@ public class NexVideoEditor extends VideoEditor implements nexEngineListener {
     public void autoTrim(final int time, TrimStateInterface tsi) {
         if (this.mEngineState == 0 && isSupportAutoTrim() && time < this.mMainVideoClip.getTotalTime()) {
             this.mTrimStateInterface = tsi;
-            setEngineState(BaiduSceneResult.PALACE);
+            setEngineState(106);
             this.mEngin.autoTrim(this.mMainVideoClip.getPath(), true, time / 5, 5, 0, new OnAutoTrimResultListener() {
                 public void onAutoTrimResult(int k, int[] arrayData) {
                     if (arrayData != null && arrayData.length != 0) {
@@ -1183,7 +1184,7 @@ public class NexVideoEditor extends VideoEditor implements nexEngineListener {
             case 0:
             case 2:
                 int i;
-                setEngineState(BaiduSceneResult.TEMPLE);
+                setEngineState(105);
                 this.mCurrentEnocdeStateInterface = esi;
                 nexEngine nexengine = this.mEngin;
                 int i2 = this.mVideoRotation % nexClip.kClip_Rotate_180 == 0 ? this.mVideoWidth : this.mVideoHeight;
@@ -1196,7 +1197,7 @@ public class NexVideoEditor extends VideoEditor implements nexEngineListener {
                 esi.onEncodeStart();
                 return;
             case 1:
-                setEngineState(BaiduSceneResult.SHOOTING);
+                setEngineState(101);
                 this.mEngin.stop(new OnCompletionListener() {
                     public void onComplete(int i) {
                         NexVideoEditor.this.setEngineState(0);
@@ -1291,7 +1292,7 @@ public class NexVideoEditor extends VideoEditor implements nexEngineListener {
     }
 
     public void onStateChange(int i, int i1) {
-        if (i == 2 && i1 == 1 && this.mEngineState == BaiduSceneResult.TAEKWONDO) {
+        if (i == 2 && i1 == 1 && this.mEngineState == 102) {
             setEngineState(2);
             if (this.mPauseOnCompletedListener != null) {
                 this.mPauseOnCompletedListener.onCompleted();
@@ -1314,7 +1315,7 @@ public class NexVideoEditor extends VideoEditor implements nexEngineListener {
                 listener.onCompleted();
                 return true;
             case 1:
-                setEngineState(BaiduSceneResult.SHOOTING);
+                setEngineState(101);
                 if (this.mEngin == null) {
                     return true;
                 }
@@ -1393,7 +1394,7 @@ public class NexVideoEditor extends VideoEditor implements nexEngineListener {
     }
 
     public void onPlayEnd() {
-        if (this.mEngineState != BaiduSceneResult.TEMPLE) {
+        if (this.mEngineState != 105) {
             setEngineState(0);
             seek(0, null);
             Log.i("NexVideoEditor", "onPlayEnd");
@@ -1407,7 +1408,7 @@ public class NexVideoEditor extends VideoEditor implements nexEngineListener {
         params.put("state", String.valueOf(this.mEngineState));
         BaseSamplingStatHelper.recordCountEvent("video_editor", "video_editor_play_failed", params);
         switch (this.mEngineState) {
-            case BaiduSceneResult.TEMPLE /*105*/:
+            case 105:
                 if (this.mCurrentEnocdeStateInterface != null) {
                     this.mCurrentEnocdeStateInterface.onEncodeEnd(false, -1, 0);
                     break;
@@ -1418,7 +1419,7 @@ public class NexVideoEditor extends VideoEditor implements nexEngineListener {
     }
 
     public void onPlayStart() {
-        if (this.mEngineState != BaiduSceneResult.TEMPLE) {
+        if (this.mEngineState != 105) {
             setEngineState(1);
             Log.i("NexVideoEditor", "onPlayStart");
         }

@@ -47,6 +47,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.WeakHashMap;
+import miui.provider.ExtraContacts.ConferenceCalls;
 
 public final class NexImageLoader {
     private static final String LOG_TAG = "NexImageLoader";
@@ -360,7 +361,7 @@ public final class NexImageLoader {
                     }
                     String[] strArr = new String[]{substring2};
                     Log.d(LOG_TAG, "==== User Text: " + substring2);
-                    String[] split = substring3.substring(0, indexOf).split(";");
+                    String[] split = substring3.substring(0, indexOf).split(ConferenceCalls.SPLIT_EXPRESSION);
                     HashMap hashMap = new HashMap();
                     for (String split2 : split) {
                         String[] split3 = split2.split("=");
@@ -373,7 +374,7 @@ public final class NexImageLoader {
                     int parseLong = (int) Long.parseLong((String) hashMap.get("flags"), 16);
                     int parseInt = Integer.parseInt((String) hashMap.get("align"));
                     int parseInt2 = Integer.parseInt((String) hashMap.get("longtext"));
-                    int parseInt3 = Integer.parseInt((String) hashMap.get(nexExportFormat.TAG_FORMAT_WIDTH));
+                    int parseInt3 = Integer.parseInt((String) hashMap.get("width"));
                     int parseInt4 = Integer.parseInt((String) hashMap.get(nexExportFormat.TAG_FORMAT_HEIGHT));
                     int parseLong2 = (int) Long.parseLong((String) hashMap.get("bgcolor"), 16);
                     int parseLong3 = (int) Long.parseLong((String) hashMap.get("fillcolor"), 16);

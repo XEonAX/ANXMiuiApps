@@ -1,5 +1,6 @@
 package cn.kuaipan.android.http.client;
 
+import android.content.res.MiuiConfiguration;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
@@ -247,7 +248,7 @@ public class KscHttpClient extends DefaultHttpClient {
         if (request instanceof HttpEntityEnclosingRequest) {
             HttpEntity entity = ((HttpEntityEnclosingRequest) request).getEntity();
             if (entity != null && entity.isRepeatable()) {
-                if (entity.getContentLength() < 1024) {
+                if (entity.getContentLength() < MiuiConfiguration.THEME_FLAG_ALARM) {
                     ByteArrayOutputStream stream = new ByteArrayOutputStream();
                     entity.writeTo(stream);
                     builder.append(" --data-ascii \"").append(stream.toString()).append("\"");

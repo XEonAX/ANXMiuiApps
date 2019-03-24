@@ -5,6 +5,7 @@ import android.app.job.JobInfo.Builder;
 import android.content.ComponentName;
 import android.content.Context;
 import com.miui.gallery.util.deleterecorder.DeleteRecorder;
+import miui.mipub.MipubStat;
 
 public class DeleteRecordCleanJob extends AbstractJob {
     public Object execJob() {
@@ -12,6 +13,6 @@ public class DeleteRecordCleanJob extends AbstractJob {
     }
 
     public JobInfo getJobInfo(Context context, ComponentName cn) {
-        return new Builder(this.mJobId, cn).setPeriodic(604800000).setRequiresDeviceIdle(true).build();
+        return new Builder(this.mJobId, cn).setPeriodic(MipubStat.STAT_EXPIRY_DATA).setRequiresDeviceIdle(true).build();
     }
 }

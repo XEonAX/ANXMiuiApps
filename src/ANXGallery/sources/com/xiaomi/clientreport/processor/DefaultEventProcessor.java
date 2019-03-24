@@ -21,6 +21,7 @@ import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import miui.yellowpage.Tag.TagWebService.CommonResult;
 
 public class DefaultEventProcessor implements IEventProcessor {
     protected Context mContext;
@@ -54,7 +55,7 @@ public class DefaultEventProcessor implements IEventProcessor {
         File lockFile;
         RandomAccessFile lockRandomFile;
         Throwable th;
-        ClientReportUtil.moveFiles(this.mContext, "event", "eventUploading");
+        ClientReportUtil.moveFiles(this.mContext, CommonResult.RESULT_TYPE_EVENT, "eventUploading");
         File[] files = ClientReportUtil.getReadFileName(this.mContext, "eventUploading");
         if (files != null && files.length > 0) {
             lock = null;
@@ -472,7 +473,7 @@ public class DefaultEventProcessor implements IEventProcessor {
     }
 
     private String getWriteFileName(BaseClientReport clientReport) {
-        File folder = this.mContext.getExternalFilesDir("event");
+        File folder = this.mContext.getExternalFilesDir(CommonResult.RESULT_TYPE_EVENT);
         String production = getFirstEventFileName(clientReport);
         if (folder == null) {
             return null;

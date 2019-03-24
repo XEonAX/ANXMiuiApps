@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import com.miui.gallery.stat.BaseSamplingStatHelper;
 import com.miui.gallery.util.BaseBuildUtil;
 import com.miui.gallery.util.LazyValue;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -84,7 +83,7 @@ public class ExtraPhotoSDK {
             String type = getType(flag);
             if (type != null) {
                 HashMap<String, String> params = new HashMap();
-                params.put(nexExportFormat.TAG_FORMAT_TYPE, type);
+                params.put("type", type);
                 BaseSamplingStatHelper.recordCountEvent("photo_extra", event, params);
             }
         }

@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import miui.mipub.MipubStat;
 
 public class DateUtils {
     public static long getCurrentTimeMillis() {
@@ -15,7 +16,7 @@ public class DateUtils {
 
     public static long getLastWeekDayTime(int weekDay, long time) {
         Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(time - 604800000);
+        calendar.setTimeInMillis(time - MipubStat.STAT_EXPIRY_DATA);
         if (weekDay < 1 || weekDay > 7) {
             weekDay = 7;
         }
@@ -171,7 +172,7 @@ public class DateUtils {
     }
 
     public static String getYearMonthDayLocale(long time) {
-        return miui.date.DateUtils.formatDateTime(time, 896);
+        return miui.date.DateUtils.formatDateTime(time, miui.date.DateUtils.FORMAT_SHOW_DATE);
     }
 
     public static String getYearMonthLocale(long time) {

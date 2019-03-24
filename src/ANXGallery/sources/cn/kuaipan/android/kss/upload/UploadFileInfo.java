@@ -1,5 +1,6 @@
 package cn.kuaipan.android.kss.upload;
 
+import android.content.res.MiuiConfiguration;
 import android.text.TextUtils;
 import android.util.Log;
 import cn.kuaipan.android.exception.KscException;
@@ -14,6 +15,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import miui.util.HashUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -43,8 +45,8 @@ public class UploadFileInfo implements KssDef {
             InputStream in2 = new FileInputStream(file);
             try {
                 UploadFileInfo info = new UploadFileInfo();
-                MessageDigest fileSha1 = MessageDigest.getInstance("SHA1");
-                MessageDigest blockSha1 = MessageDigest.getInstance("SHA1");
+                MessageDigest fileSha1 = MessageDigest.getInstance(HashUtils.SHA1);
+                MessageDigest blockSha1 = MessageDigest.getInstance(HashUtils.SHA1);
                 MessageDigest blockMd5 = MessageDigest.getInstance("MD5");
                 byte[] buf = new byte[8192];
                 long pos = 0;
@@ -56,24 +58,24 @@ public class UploadFileInfo implements KssDef {
                     }
                     pos += (long) len;
                     fileSha1.update(buf, 0, len);
-                    if (pos < ((long) blockIndex) * 4194304) {
+                    if (pos < ((long) blockIndex) * MiuiConfiguration.THEME_FLAG_FREE_HOME) {
                         blockSha1.update(buf, 0, len);
                         blockMd5.update(buf, 0, len);
                     } else {
-                        int blockOffset = len - ((int) (pos - (((long) blockIndex) * 4194304)));
+                        int blockOffset = len - ((int) (pos - (((long) blockIndex) * MiuiConfiguration.THEME_FLAG_FREE_HOME)));
                         blockIndex++;
                         Log.d("UploadFileInfo", "blockoffset: " + blockOffset + " len: " + len + " pos: " + pos + " blockIndex" + blockIndex + buf + " blockOffset > input.length: " + (((long) blockOffset) > ((long) buf.length)));
                         blockSha1.update(buf, 0, blockOffset);
                         blockMd5.update(buf, 0, blockOffset);
-                        info.appendBlock(Encode.byteArrayToHexString(blockSha1.digest()), Encode.byteArrayToHexString(blockMd5.digest()), 4194304);
+                        info.appendBlock(Encode.byteArrayToHexString(blockSha1.digest()), Encode.byteArrayToHexString(blockMd5.digest()), MiuiConfiguration.THEME_FLAG_FREE_HOME);
                         if (len > blockOffset) {
                             blockSha1.update(buf, blockOffset, len - blockOffset);
                             blockMd5.update(buf, blockOffset, len - blockOffset);
                         }
                     }
                 }
-                if (((long) blockIndex) * 4194304 > pos && ((long) blockIndex) * 4194304 < 4194304 + pos) {
-                    info.appendBlock(Encode.byteArrayToHexString(blockSha1.digest()), Encode.byteArrayToHexString(blockMd5.digest()), pos - (4194304 * ((long) (blockIndex - 1))));
+                if (((long) blockIndex) * MiuiConfiguration.THEME_FLAG_FREE_HOME > pos && ((long) blockIndex) * MiuiConfiguration.THEME_FLAG_FREE_HOME < MiuiConfiguration.THEME_FLAG_FREE_HOME + pos) {
+                    info.appendBlock(Encode.byteArrayToHexString(blockSha1.digest()), Encode.byteArrayToHexString(blockMd5.digest()), pos - (MiuiConfiguration.THEME_FLAG_FREE_HOME * ((long) (blockIndex - 1))));
                 } else if (pos == 0) {
                     throw new KscRuntimeException(500003, file + " read error.");
                 }

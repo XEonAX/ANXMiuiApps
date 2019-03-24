@@ -2,6 +2,7 @@ package com.xiaomi.push.service;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SystemIntent;
 import android.os.Message;
 import android.os.RemoteException;
 import android.text.TextUtils;
@@ -13,6 +14,7 @@ import com.xiaomi.smack.packet.Packet;
 import com.xiaomi.smack.packet.Presence;
 import java.util.Collection;
 import java.util.Iterator;
+import miui.provider.ExtraTelephony.Phonelist;
 
 public class ClientEventDispatcher {
     private MIPushEventProcessor mPushEventProcessor = new MIPushEventProcessor();
@@ -24,7 +26,7 @@ public class ClientEventDispatcher {
     }
 
     public void notifyChannelOpenResult(Context context, ClientLoginInfo loginInfo, boolean succeeded, int reason, String msg) {
-        if ("5".equalsIgnoreCase(loginInfo.chid)) {
+        if (Phonelist.TYPE_CLOUDS_WHITE.equalsIgnoreCase(loginInfo.chid)) {
             this.mPushEventProcessor.processChannelOpenResult(context, loginInfo, succeeded, reason, msg);
             return;
         }
@@ -45,7 +47,7 @@ public class ClientEventDispatcher {
     }
 
     public void notifyChannelClosed(Context context, ClientLoginInfo info, int reason) {
-        if (!"5".equalsIgnoreCase(info.chid)) {
+        if (!Phonelist.TYPE_CLOUDS_WHITE.equalsIgnoreCase(info.chid)) {
             Intent intent = new Intent();
             intent.setAction("com.xiaomi.push.channel_closed");
             intent.setPackage(info.pkgName);
@@ -70,7 +72,7 @@ public class ClientEventDispatcher {
         ClientLoginInfo info = getClientLoginInfo(packet);
         if (info == null) {
             MyLog.e("error while notify channel closed! channel " + chid + " not registered");
-        } else if ("5".equalsIgnoreCase(chid)) {
+        } else if (Phonelist.TYPE_CLOUDS_WHITE.equalsIgnoreCase(chid)) {
             this.mPushEventProcessor.processNewPacket(pushService, packet, info);
         } else {
             String action;
@@ -100,7 +102,7 @@ public class ClientEventDispatcher {
         ClientLoginInfo info = getClientLoginInfo(blob);
         if (info == null) {
             MyLog.e("error while notify channel closed! channel " + chid + " not registered");
-        } else if ("5".equalsIgnoreCase(chid)) {
+        } else if (Phonelist.TYPE_CLOUDS_WHITE.equalsIgnoreCase(chid)) {
             this.mPushEventProcessor.processNewPacket(pushService, blob, info);
         } else {
             String pkgName = info.pkgName;
@@ -120,7 +122,7 @@ public class ClientEventDispatcher {
                     MyLog.w("peer may died: " + info.userId.substring(info.userId.lastIndexOf(64)));
                 }
             }
-            if (!"com.xiaomi.xmsf".equals(pkgName)) {
+            if (!SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(pkgName)) {
                 sendBroadcast(pushService, intent, info);
             }
         }
@@ -168,7 +170,7 @@ public class ClientEventDispatcher {
     }
 
     public void notifyKickedByServer(Context context, ClientLoginInfo info, String type, String reason) {
-        if ("5".equalsIgnoreCase(info.chid)) {
+        if (Phonelist.TYPE_CLOUDS_WHITE.equalsIgnoreCase(info.chid)) {
             MyLog.e("mipush kicked by server");
             return;
         }
@@ -184,7 +186,7 @@ public class ClientEventDispatcher {
     }
 
     private static void sendBroadcast(Context context, Intent intent, ClientLoginInfo info) {
-        if ("com.xiaomi.xmsf".equals(context.getPackageName())) {
+        if (SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(context.getPackageName())) {
             context.sendBroadcast(intent);
         } else {
             context.sendBroadcast(intent, getReceiverPermission(info));

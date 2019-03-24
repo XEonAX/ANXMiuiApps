@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.app.Notification;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.SystemIntent;
 import android.os.Build.VERSION;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,7 +15,7 @@ public class TypedShieldHelper {
     public static Runnable shieldInfoSyncTask;
 
     public static boolean isShield(Context context, XmPushActionContainer container) {
-        if (!"com.xiaomi.xmsf".equals(MIPushNotificationHelper.getTargetPackage(container))) {
+        if (!SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(MIPushNotificationHelper.getTargetPackage(container))) {
             return false;
         }
         String typeName = getShieldType(container);
@@ -41,7 +42,7 @@ public class TypedShieldHelper {
     static void processTypedShieldExtra(Context context, XmPushActionContainer container, Notification notification) {
         if (VERSION.SDK_INT >= 19) {
             String typeName = getShieldType(container);
-            if (!TextUtils.isEmpty(typeName) && "com.xiaomi.xmsf".equals(MIPushNotificationHelper.getTargetPackage(container))) {
+            if (!TextUtils.isEmpty(typeName) && SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(MIPushNotificationHelper.getTargetPackage(container))) {
                 Bundle notificationBundle = notification.extras;
                 if (notificationBundle == null) {
                     notificationBundle = new Bundle();

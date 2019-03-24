@@ -28,6 +28,8 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
+import miui.yellowpage.YellowPageContract.Settings;
+import miui.yellowpage.YellowPageStatistic.Display;
 
 public class HomePageImmersionMenuHelper implements ImmersionMenuListener {
     private Context mContext;
@@ -151,7 +153,7 @@ public class HomePageImmersionMenuHelper implements ImmersionMenuListener {
             };
             PrintInstallHelper.getInstance().addInstallStateListener(this.mInstallStateListener);
             menu.add(R.id.menu_settings, this.mContext.getString(R.string.gallery_setting)).setIconResource(R.drawable.home_menu_settings);
-            registerFeature(R.id.menu_settings, "settings", false, false);
+            registerFeature(R.id.menu_settings, Settings.DIRECTORY, false, false);
         }
     }
 
@@ -183,21 +185,21 @@ public class HomePageImmersionMenuHelper implements ImmersionMenuListener {
             switch (itemId) {
                 case R.id.menu_cleaner /*2131886095*/:
                     ActionURIHandler.handleUri((Activity) this.mContext, Common.URI_CLEANER_PAGE);
-                    BaseSamplingStatHelper.recordCountEvent("home", "home_page_menu_cleaner");
+                    BaseSamplingStatHelper.recordCountEvent(Display.HOME, "home_page_menu_cleaner");
                     return;
                 case R.id.menu_collage /*2131886096*/:
                     ActionURIHandler.handleUri((Activity) this.mContext, Common.URI_COLLAGE_PAGE);
-                    BaseSamplingStatHelper.recordCountEvent("home", "home_page_menu_collage");
+                    BaseSamplingStatHelper.recordCountEvent(Display.HOME, "home_page_menu_collage");
                     return;
                 case R.id.menu_photo_movie /*2131886097*/:
                     if (MovieLibraryLoaderHelper.getInstance().checkAbleOrDownload((Activity) this.mContext)) {
                         ActionURIHandler.handleUri((Activity) this.mContext, Common.URI_PHOTO_MOVIE);
                     }
-                    BaseSamplingStatHelper.recordCountEvent("home", "home_page_menu_photo_movie");
+                    BaseSamplingStatHelper.recordCountEvent(Display.HOME, "home_page_menu_photo_movie");
                     return;
                 case R.id.menu_photo_print /*2131886098*/:
                     PrintInstallHelper.getInstance().start(this.mContext);
-                    BaseSamplingStatHelper.recordCountEvent("home", "home_page_menu_photo_print");
+                    BaseSamplingStatHelper.recordCountEvent(Display.HOME, "home_page_menu_photo_print");
                     return;
                 case R.id.menu_settings /*2131886099*/:
                     IntentUtil.enterGallerySetting(this.mContext);

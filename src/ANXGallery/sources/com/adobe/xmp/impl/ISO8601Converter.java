@@ -6,6 +6,7 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 import java.util.SimpleTimeZone;
+import miui.date.Calendar;
 
 public final class ISO8601Converter {
     public static XMPDateTime parse(String iso8601String) throws XMPException {
@@ -153,8 +154,8 @@ public final class ISO8601Converter {
                 if (offset == 0) {
                     buffer.append('Z');
                 } else {
-                    int thours = offset / 3600000;
-                    int tminutes = Math.abs((offset % 3600000) / 60000);
+                    int thours = offset / Calendar.MILLISECOND_OF_HOUR;
+                    int tminutes = Math.abs((offset % Calendar.MILLISECOND_OF_HOUR) / Calendar.MILLISECOND_OF_MINUTE);
                     df.applyPattern("+00;-00");
                     buffer.append(df.format((long) thours));
                     df.applyPattern(":00");

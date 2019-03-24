@@ -4,7 +4,9 @@ import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.MiuiIntent;
 import android.content.ServiceConnection;
+import android.content.SystemIntent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.ScanResult;
@@ -14,6 +16,7 @@ import android.os.IBinder;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
+import com.miui.internal.vip.utils.AuthHttpRequest;
 import com.xiaomi.mistatistic.sdk.BuildSetting;
 import com.xiaomi.mistatistic.sdk.CustomSettings;
 import java.io.BufferedReader;
@@ -111,7 +114,7 @@ public abstract class l {
 
     public static String c(Context context) {
         if (b(context)) {
-            return "WIFI";
+            return MiuiIntent.WIFI_NAME;
         }
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
@@ -151,7 +154,7 @@ public abstract class l {
                 HttpURLConnection a = a(context, new URL(t.a(context, str)));
                 a.setConnectTimeout(10000);
                 a.setReadTimeout(15000);
-                a.setRequestMethod("POST");
+                a.setRequestMethod(AuthHttpRequest.METHOD_POST);
                 a.setRequestProperty("Connection", "close");
                 j.b("NET", String.format("paramsMap:%s", new Object[]{map}));
                 a((Map) map);
@@ -426,7 +429,7 @@ public abstract class l {
     public static void b(final Context context, final String str, final Map<String, String> map, final b bVar) {
         try {
             Intent intent = new Intent();
-            intent.setClassName("com.xiaomi.xmsf", "com.xiaomi.xmsf.push.service.HttpService");
+            intent.setClassName(SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE, "com.xiaomi.xmsf.push.service.HttpService");
             if (!context.bindService(intent, new ServiceConnection() {
                 private boolean e = false;
 
@@ -474,7 +477,7 @@ public abstract class l {
                 return "unknown";
             }
             if (activeNetworkInfo.getType() == 1) {
-                return "WIFI";
+                return MiuiIntent.WIFI_NAME;
             }
             if (activeNetworkInfo.getType() == 0) {
                 switch (activeNetworkInfo.getSubtype()) {
@@ -518,7 +521,7 @@ public abstract class l {
                 NetworkInfo networkInfo = connectivityManager.getNetworkInfo(1);
                 NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(9);
                 if (networkInfo != null && networkInfo.isConnected()) {
-                    return "WIFI" + h(context);
+                    return MiuiIntent.WIFI_NAME + h(context);
                 }
                 if (networkInfo2 != null && networkInfo2.isConnected()) {
                     return "ETHERNET";
@@ -610,7 +613,7 @@ public abstract class l {
         if (f.equals("4G")) {
             return 4;
         }
-        if (f.startsWith("WIFI")) {
+        if (f.startsWith(MiuiIntent.WIFI_NAME)) {
             return 8;
         }
         if (f.equals("ETHERNET")) {

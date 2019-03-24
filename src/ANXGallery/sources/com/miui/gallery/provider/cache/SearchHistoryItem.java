@@ -11,6 +11,7 @@ import com.miui.gallery.provider.cache.CacheItem.Merger;
 import com.miui.gallery.provider.cache.Filter.Comparator;
 import com.miui.gallery.provider.cache.Filter.CompareFilter;
 import java.util.Map;
+import miui.provider.Weather.WeatherBaseColumns;
 
 class SearchHistoryItem implements CacheItem {
     private static final Map<String, Integer> COLUMN_MAP = new ArrayMap(PROJECTION.length);
@@ -23,7 +24,7 @@ class SearchHistoryItem implements CacheItem {
             return index.intValue();
         }
     };
-    protected static final String[] PROJECTION = new String[]{"title", "subTitle", "actionUri", "icon", "timestamp"};
+    protected static final String[] PROJECTION = new String[]{"title", "subTitle", "actionUri", "icon", WeatherBaseColumns.TIMESTAMP};
     @SerializedName("icon")
     public String icon;
     @SerializedName("url")
@@ -209,6 +210,6 @@ class SearchHistoryItem implements CacheItem {
         COLUMN_MAP.put("subTitle", Integer.valueOf(1));
         COLUMN_MAP.put("actionUri", Integer.valueOf(2));
         COLUMN_MAP.put("icon", Integer.valueOf(3));
-        COLUMN_MAP.put("timestamp", Integer.valueOf(4));
+        COLUMN_MAP.put(WeatherBaseColumns.TIMESTAMP, Integer.valueOf(4));
     }
 }

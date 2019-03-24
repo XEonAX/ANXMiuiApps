@@ -33,6 +33,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import miui.provider.ExtraContacts.DefaultAccount;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -314,7 +315,7 @@ public final class nexTemplateComposer {
             if (str.equals(TAG_CROP_SPEED)) {
                 return "0";
             }
-            return "default";
+            return DefaultAccount.NAME;
         }
     }
 
@@ -326,7 +327,7 @@ public final class nexTemplateComposer {
         if (value.equals("scene")) {
             value2 = getValue(jSONObject, TAG_ID);
             value3 = getValue(jSONObject, TAG_SOURCE_TYPE);
-            String value4 = getValue(jSONObject, TAG_DURATION);
+            String value4 = getValue(jSONObject, "duration");
             String value5 = getValue(jSONObject, TAG_VOLUME);
             String value6 = getValue(jSONObject, TAG_EFFECTS);
             String value7 = getValue(jSONObject, TAG_BRIGHTNESS);
@@ -346,7 +347,7 @@ public final class nexTemplateComposer {
             hashMap.put("type", value);
             hashMap.put(TAG_ID, value2);
             hashMap.put(TAG_SOURCE_TYPE, value3);
-            hashMap.put(TAG_DURATION, value4);
+            hashMap.put("duration", value4);
             hashMap.put(TAG_VOLUME, value5);
             hashMap.put(TAG_EFFECTS, value6);
             hashMap.put(TAG_BRIGHTNESS, value7);
@@ -365,10 +366,10 @@ public final class nexTemplateComposer {
             hashMap.put(TAG_VIGNETTE, value12);
         } else if (value.equals("transition")) {
             value2 = getValue(jSONObject, TAG_EFFECTS);
-            value3 = getValue(jSONObject, TAG_DURATION);
+            value3 = getValue(jSONObject, "duration");
             hashMap.put("type", value);
             hashMap.put(TAG_EFFECTS, value2);
-            hashMap.put(TAG_DURATION, value3);
+            hashMap.put("duration", value3);
         }
         return hashMap;
     }
@@ -381,7 +382,7 @@ public final class nexTemplateComposer {
         return false;
     }
 
-    /* JADX WARNING: Removed duplicated region for block: B:50:0x014a A:{ExcHandler: java.lang.Exception (e java.lang.Exception), Splitter: B:2:0x000c} */
+    /* JADX WARNING: Removed duplicated region for block: B:50:0x014a A:{Splitter: B:2:0x000c, ExcHandler: java.lang.Exception (e java.lang.Exception)} */
     /* JADX WARNING: Failed to process nested try/catch */
     /* JADX WARNING: Missing block: B:40:?, code:
             android.util.Log.d(TAG, "Info(name: (" + r5 + "))");
@@ -462,7 +463,7 @@ public final class nexTemplateComposer {
     }
 
     /* JADX WARNING: Removed duplicated region for block: B:41:0x017b A:{Catch:{ JSONException -> 0x01ab, Exception -> 0x01b1 }} */
-    /* JADX WARNING: Removed duplicated region for block: B:49:0x01b1 A:{ExcHandler: java.lang.Exception (r0_57 'e' java.lang.Exception), Splitter: B:4:0x000e} */
+    /* JADX WARNING: Removed duplicated region for block: B:49:0x01b1 A:{Splitter: B:4:0x000e, ExcHandler: java.lang.Exception (r0_57 'e' java.lang.Exception)} */
     /* JADX WARNING: Failed to process nested try/catch */
     /* JADX WARNING: Missing block: B:38:?, code:
             android.util.Log.d(TAG, "Info(name: (" + r4 + "))");
@@ -615,7 +616,7 @@ public final class nexTemplateComposer {
                 boolean z = true;
                 while (!this.mCancel) {
                     int i5;
-                    totalTime = Integer.parseInt((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_DURATION));
+                    totalTime = Integer.parseInt((String) ((HashMap) this.templateList.get(this.templateListID)).get("duration"));
                     if (totalTime < 0) {
                         totalTime = 0;
                     }
@@ -656,7 +657,7 @@ public final class nexTemplateComposer {
                 }
                 return;
             } else if (clone.getClip(i, true).getClipType() == 1) {
-                totalTime = Integer.parseInt((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_DURATION));
+                totalTime = Integer.parseInt((String) ((HashMap) this.templateList.get(this.templateListID)).get("duration"));
                 startTrimTime = clone.getClip(i, true).getRotateDegree();
                 nexClip dup2 = nexClip.dup(clone.getClip(i, true));
                 nexproject.add(dup2);
@@ -700,7 +701,7 @@ public final class nexTemplateComposer {
                 this.tempClipID++;
             }
         } else {
-            int parseInt = Integer.parseInt((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_DURATION));
+            int parseInt = Integer.parseInt((String) ((HashMap) this.templateList.get(this.templateListID)).get("duration"));
             if (((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_SOURCE_TYPE)).equals("EXTERNAL_IMAGE")) {
                 supportedClip = nexClip.getSupportedClip((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_EXTERNAL_IMAGE_PATH));
                 if (supportedClip != null) {
@@ -776,7 +777,7 @@ public final class nexTemplateComposer {
             if (i >= this.mIntroTemplateList.size()) {
                 break;
             }
-            i4 += Integer.parseInt((String) ((HashMap) this.mIntroTemplateList.get(i)).get(TAG_DURATION));
+            i4 += Integer.parseInt((String) ((HashMap) this.mIntroTemplateList.get(i)).get("duration"));
             i3 = i + 2;
         }
         i3 = 0;
@@ -785,7 +786,7 @@ public final class nexTemplateComposer {
             if (i >= this.mOutroTemplateList.size()) {
                 break;
             }
-            i2 += Integer.parseInt((String) ((HashMap) this.mOutroTemplateList.get(i)).get(TAG_DURATION));
+            i2 += Integer.parseInt((String) ((HashMap) this.mOutroTemplateList.get(i)).get("duration"));
             i3 = i + 2;
         }
         this.templateList = this.mIntroTemplateList;
@@ -827,10 +828,10 @@ public final class nexTemplateComposer {
                     int i8;
                     int i9;
                     addSpecialClip2Project(nexproject);
-                    if (Integer.parseInt((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_DURATION)) < 0) {
+                    if (Integer.parseInt((String) ((HashMap) this.templateList.get(this.templateListID)).get("duration")) < 0) {
                         i8 = 0;
                     } else {
-                        i8 = Integer.parseInt((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_DURATION));
+                        i8 = Integer.parseInt((String) ((HashMap) this.templateList.get(this.templateListID)).get("duration"));
                     }
                     int i10 = startTrimTime - i8;
                     i3 = this.templateListID;
@@ -849,7 +850,7 @@ public final class nexTemplateComposer {
                             i3 = i9;
                         }
                     }
-                    i9 = Integer.parseInt((String) ((HashMap) this.templateList.get(i9)).get(TAG_DURATION));
+                    i9 = Integer.parseInt((String) ((HashMap) this.templateList.get(i9)).get("duration"));
                     nexClip clip;
                     if (this.templateList == this.mOutroTemplateList || obj != null) {
                         nexproject.add(nexClip.dup(dup));
@@ -968,7 +969,7 @@ public final class nexTemplateComposer {
                 return;
             } else if (clone.getClip(i5, true).getClipType() == 1) {
                 addSpecialClip2Project(nexproject);
-                i3 = Integer.parseInt((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_DURATION));
+                i3 = Integer.parseInt((String) ((HashMap) this.templateList.get(this.templateListID)).get("duration"));
                 totalTime = clone.getClip(i5, true).getRotateDegree();
                 nexClip dup2 = nexClip.dup(clone.getClip(i5, true));
                 dup2.setRotateDegree(totalTime);
@@ -1017,12 +1018,12 @@ public final class nexTemplateComposer {
     String setProperty2VideoClip(nexProject nexproject, nexClip nexclip, int i) {
         String str;
         String str2;
-        int parseInt = Integer.parseInt(((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_VOLUME)).equals("default") ? "-1" : (String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_VOLUME));
-        int parseInt2 = Integer.parseInt(((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_CONTRAST)).equals("default") ? "-1" : (String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_CONTRAST));
-        int parseInt3 = Integer.parseInt(((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_BRIGHTNESS)).equals("default") ? "-1" : (String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_BRIGHTNESS));
-        int parseInt4 = Integer.parseInt(((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_SATURATION)).equals("default") ? "-1" : (String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_SATURATION));
-        int parseInt5 = Integer.parseInt(((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_COLOR_FILTER)).equals("default") ? "-1" : (String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_COLOR_FILTER));
-        if (((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_SPEED_CONTROL)).equals("default")) {
+        int parseInt = Integer.parseInt(((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_VOLUME)).equals(DefaultAccount.NAME) ? "-1" : (String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_VOLUME));
+        int parseInt2 = Integer.parseInt(((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_CONTRAST)).equals(DefaultAccount.NAME) ? "-1" : (String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_CONTRAST));
+        int parseInt3 = Integer.parseInt(((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_BRIGHTNESS)).equals(DefaultAccount.NAME) ? "-1" : (String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_BRIGHTNESS));
+        int parseInt4 = Integer.parseInt(((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_SATURATION)).equals(DefaultAccount.NAME) ? "-1" : (String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_SATURATION));
+        int parseInt5 = Integer.parseInt(((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_COLOR_FILTER)).equals(DefaultAccount.NAME) ? "-1" : (String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_COLOR_FILTER));
+        if (((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_SPEED_CONTROL)).equals(DefaultAccount.NAME)) {
             str = "-1";
         } else {
             str = (String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_SPEED_CONTROL);
@@ -1146,7 +1147,7 @@ public final class nexTemplateComposer {
             this.templateListID++;
             if (((String) ((HashMap) this.templateList.get(this.templateListID)).get("type")).equals("transition")) {
                 str = (String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_EFFECTS);
-                int parseInt7 = Integer.parseInt(((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_DURATION)).equals("default") ? "-1" : (String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_DURATION));
+                int parseInt7 = Integer.parseInt(((String) ((HashMap) this.templateList.get(this.templateListID)).get("duration")).equals(DefaultAccount.NAME) ? "-1" : (String) ((HashMap) this.templateList.get(this.templateListID)).get("duration"));
                 if (this.mOverlappedTransition) {
                     int[] transitionDurationTimeGuideLine = nexproject.getTransitionDurationTimeGuideLine(i, parseInt7);
                     if (transitionDurationTimeGuideLine[0] == 0 && transitionDurationTimeGuideLine[1] == 0) {
@@ -1175,10 +1176,10 @@ public final class nexTemplateComposer {
     String setProperty2ImageClip(nexClip nexclip, int i) {
         if (((String) ((HashMap) this.templateList.get(this.templateListID)).get("type")).equals("scene")) {
             String str;
-            int parseInt = Integer.parseInt(((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_CONTRAST)).equals("default") ? "-1" : (String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_CONTRAST));
-            int parseInt2 = Integer.parseInt(((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_BRIGHTNESS)).equals("default") ? "-1" : (String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_BRIGHTNESS));
-            int parseInt3 = Integer.parseInt(((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_SATURATION)).equals("default") ? "-1" : (String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_SATURATION));
-            if (((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_COLOR_FILTER)).equals("default")) {
+            int parseInt = Integer.parseInt(((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_CONTRAST)).equals(DefaultAccount.NAME) ? "-1" : (String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_CONTRAST));
+            int parseInt2 = Integer.parseInt(((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_BRIGHTNESS)).equals(DefaultAccount.NAME) ? "-1" : (String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_BRIGHTNESS));
+            int parseInt3 = Integer.parseInt(((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_SATURATION)).equals(DefaultAccount.NAME) ? "-1" : (String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_SATURATION));
+            if (((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_COLOR_FILTER)).equals(DefaultAccount.NAME)) {
                 str = "-1";
             } else {
                 str = (String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_COLOR_FILTER);
@@ -1272,7 +1273,7 @@ public final class nexTemplateComposer {
                 this.templateListID++;
                 if (((String) ((HashMap) this.templateList.get(this.templateListID)).get("type")).equals("transition")) {
                     str = (String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_EFFECTS);
-                    int parseInt5 = Integer.parseInt(((String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_DURATION)).equals("default") ? "-1" : (String) ((HashMap) this.templateList.get(this.templateListID)).get(TAG_DURATION));
+                    int parseInt5 = Integer.parseInt(((String) ((HashMap) this.templateList.get(this.templateListID)).get("duration")).equals(DefaultAccount.NAME) ? "-1" : (String) ((HashMap) this.templateList.get(this.templateListID)).get("duration"));
                     if (!this.mOverlappedTransition) {
                         nexclip.getTransitionEffect(true).setEffectNone();
                         nexclip.getTransitionEffect(true).setDuration(0);

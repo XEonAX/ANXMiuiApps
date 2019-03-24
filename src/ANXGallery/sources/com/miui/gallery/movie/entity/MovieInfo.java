@@ -5,6 +5,7 @@ import android.os.Parcelable;
 import android.os.Parcelable.Creator;
 import java.util.ArrayList;
 import java.util.List;
+import miui.provider.ExtraContacts.DefaultAccount;
 
 public class MovieInfo implements Parcelable {
     public static final Creator<MovieInfo> CREATOR = new Creator<MovieInfo>() {
@@ -26,7 +27,7 @@ public class MovieInfo implements Parcelable {
     public String title;
 
     public MovieInfo(List<ImageEntity> imageList) {
-        this.audio = "default";
+        this.audio = DefaultAccount.NAME;
         this.imageList = imageList;
         this.isShortVideo = imageList.size() <= 5;
     }
@@ -94,7 +95,7 @@ public class MovieInfo implements Parcelable {
 
     protected MovieInfo(Parcel in) {
         boolean z = true;
-        this.audio = "default";
+        this.audio = DefaultAccount.NAME;
         this.imageList = new ArrayList();
         in.readList(this.imageList, ImageEntity.class.getClassLoader());
         this.template = in.readString();

@@ -2,8 +2,10 @@ package com.nexstreaming.nexeditorsdk;
 
 import android.util.Log;
 import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
+import com.miui.internal.widget.ActionBarMovableLayout;
 import com.nexstreaming.nexeditorsdk.exception.InvalidRangeException;
 import com.nexstreaming.nexeditorsdk.nexSaveDataFormat.nexVideoClipEditOf;
+import miui.hybrid.Response;
 
 public final class nexVideoClipEdit implements Cloneable {
     @Deprecated
@@ -137,7 +139,7 @@ public final class nexVideoClipEdit implements Cloneable {
     private int speedControlTab(int i) {
         int i2 = kSpeedControl_MaxValue;
         if (!BuildConfig.KM_PROJECT.equals("Gionee")) {
-            int[] iArr = new int[]{3, 6, 13, 25, 50, 75, 100, BaiduSceneResult.TRAVEL_OTHER, 150, 175, 200, 400, 800, kSpeedControl_MaxValue};
+            int[] iArr = new int[]{3, 6, 13, 25, 50, 75, 100, BaiduSceneResult.TRAVEL_OTHER, 150, 175, Response.CODE_GENERIC_ERROR, 400, ActionBarMovableLayout.DEFAULT_SPRING_BACK_DURATION, kSpeedControl_MaxValue};
             for (int i3 = 0; i3 < iArr.length; i3++) {
                 if (iArr[i3] >= i) {
                     i2 = iArr[i3];

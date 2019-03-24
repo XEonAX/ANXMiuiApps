@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.text.TextUtils;
 import com.miui.gallery.GalleryApp;
 import com.miui.gallery.R;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import com.miui.gallery.cloud.GalleryCloudUtils;
 import com.miui.gallery.provider.GalleryContract.Cloud;
 import com.miui.gallery.provider.GalleryContract.ShareImage;
@@ -25,6 +24,7 @@ import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.Objects;
 import miui.graphics.BitmapFactory;
+import miui.hybrid.Response;
 
 public class CloudItem extends BaseDataItem {
     private static final String[] DETAIL_INFO_PROJECTION = new String[]{"fileName", "exifModel", "exifMake", "exifFNumber", "exifFocalLength", "exifISOSpeedRatings", "exifExposureTime", "exifFlash"};
@@ -161,10 +161,10 @@ public class CloudItem extends BaseDataItem {
         }
         if (!hasOrigin) {
             if (isVideo() || isGif()) {
-                info.removeDetail(200);
+                info.removeDetail(Response.CODE_GENERIC_ERROR);
                 info.addDetail(8, context.getString(R.string.tip_not_download));
             } else if (!TextUtils.isEmpty(path)) {
-                info.addDetail(200, path);
+                info.addDetail(Response.CODE_GENERIC_ERROR, path);
                 info.addDetail(2, FileUtils.getFileName(path));
                 info.addDetail(3, Long.valueOf(new File(path).length()));
                 try {
@@ -177,7 +177,7 @@ public class CloudItem extends BaseDataItem {
             }
         }
         if (isSecret()) {
-            info.removeDetail(200);
+            info.removeDetail(Response.CODE_GENERIC_ERROR);
         }
         QueryHandler handler = new QueryHandler() {
             public Object handle(Cursor cursor) {
@@ -187,16 +187,16 @@ public class CloudItem extends BaseDataItem {
                 if (TextUtils.isEmpty((String) info.getDetail(2)) || CloudItem.this.isSecret()) {
                     info.addDetail(2, cursor.getString(0));
                 }
-                info.addDetail(BaiduSceneResult.SHOOTING, cursor.getString(1));
+                info.addDetail(101, cursor.getString(1));
                 info.addDetail(100, cursor.getString(2));
-                info.addDetail(BaiduSceneResult.TEMPLE, cursor.getString(3));
+                info.addDetail(105, cursor.getString(3));
                 String focalLenght = cursor.getString(4);
                 if (!TextUtils.isEmpty(focalLenght)) {
-                    info.addDetail(BaiduSceneResult.MOUNTAINEERING, PhotoDetailInfo.wrapFocalLength(focalLenght));
+                    info.addDetail(103, PhotoDetailInfo.wrapFocalLength(focalLenght));
                 }
-                info.addDetail(BaiduSceneResult.ANCIENT_CHINESE_ARCHITECTURE, cursor.getString(5));
-                info.addDetail(BaiduSceneResult.GARDEN, cursor.getString(6));
-                info.addDetail(BaiduSceneResult.TAEKWONDO, cursor.getString(7));
+                info.addDetail(108, cursor.getString(5));
+                info.addDetail(107, cursor.getString(6));
+                info.addDetail(102, cursor.getString(7));
                 return info;
             }
         };
@@ -209,9 +209,9 @@ public class CloudItem extends BaseDataItem {
         int result;
         String path = getPathDisplayBetter();
         if (isVideo()) {
-            result = nexEngine.ExportHEVCMainTierLevel6 | PhotoOperationsUtil.getVideoSupportedOperations(path);
+            result = 1048576 | PhotoOperationsUtil.getVideoSupportedOperations(path);
         } else {
-            result = nexEngine.ExportHEVCMainTierLevel6 | PhotoOperationsUtil.getImageSupportedOperations(path, this.mMimeType, this.mLatitude, this.mLongitude);
+            result = 1048576 | PhotoOperationsUtil.getImageSupportedOperations(path, this.mMimeType, this.mLatitude, this.mLongitude);
         }
         result |= 1;
         if (!isGif()) {

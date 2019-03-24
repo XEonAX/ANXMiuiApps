@@ -13,7 +13,9 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.SystemIntent;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.MiuiConfiguration;
 import android.database.ContentObserver;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -31,6 +33,7 @@ import android.os.Process;
 import android.os.SystemClock;
 import android.provider.Settings.Secure;
 import android.text.TextUtils;
+import com.miui.internal.view.menu.MenuBuilder;
 import com.xiaomi.channel.commonutils.android.MIUIUtils;
 import com.xiaomi.channel.commonutils.android.Region;
 import com.xiaomi.channel.commonutils.android.SystemUtils;
@@ -85,6 +88,8 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import miui.provider.ExtraNetwork;
+import miui.provider.ExtraTelephony.Phonelist;
 import org.apache.thrift.TException;
 
 public class XMPushService extends Service implements ConnectionListener {
@@ -306,7 +311,7 @@ public class XMPushService extends Service implements ConnectionListener {
 
     class InitJob extends Job {
         InitJob() {
-            super(65535);
+            super(MenuBuilder.USER_MASK);
         }
 
         public void process() {
@@ -556,7 +561,7 @@ public class XMPushService extends Service implements ConnectionListener {
             this.mConnectionChangeReceiver = new ConnectionChangeReceiver();
             registerReceiver(this.mConnectionChangeReceiver, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
         }
-        if ("com.xiaomi.xmsf".equals(getPackageName())) {
+        if (SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(getPackageName())) {
             Uri uri = Secure.getUriFor("EXTREME_POWER_MODE_ENABLE");
             if (uri != null) {
                 this.mExtremePowerModeObserver = new ContentObserver(new Handler(Looper.getMainLooper())) {
@@ -586,7 +591,7 @@ public class XMPushService extends Service implements ConnectionListener {
         String region = null;
         long start = SystemClock.elapsedRealtime();
         Object wait = new Object();
-        if ("com.xiaomi.xmsf".equals(getPackageName())) {
+        if (SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(getPackageName())) {
             PushProvision provision = PushProvision.getInstance(this);
             while (true) {
                 if (!TextUtils.isEmpty(region) && provision.getProvisioned() != 0) {
@@ -956,14 +961,14 @@ public class XMPushService extends Service implements ConnectionListener {
             boolean isEnvChanage = intent.getBooleanExtra("mipush_env_chanage", false);
             final int envType = intent.getIntExtra("mipush_env_type", 1);
             MIPushAppInfo.getInstance(this).removeUnRegisteredPkg(packageName);
-            if (!isEnvChanage || "com.xiaomi.xmsf".equals(getPackageName())) {
+            if (!isEnvChanage || SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(getPackageName())) {
                 registerForMiPushApp(payload, packageName);
                 return;
             }
             executeJobNow(new Job(14) {
                 public void process() {
                     MIPushAccountUtils.clearAccount(XMPushService.this);
-                    PushClientsManager.getInstance().deactivateAllClientByChid("5");
+                    PushClientsManager.getInstance().deactivateAllClientByChid(Phonelist.TYPE_CLOUDS_WHITE);
                     BuildSettings.setEnvType(envType);
                     XMPushService.this.connConfig.setHost(ConnectionConfiguration.getXmppServerHost());
                     XMPushService.this.registerForMiPushApp(payload, packageName);
@@ -1051,7 +1056,7 @@ public class XMPushService extends Service implements ConnectionListener {
             if (!TextUtils.isEmpty(packageName)) {
                 MIPushAppInfo.getInstance(this).addDisablePushPkg(packageName);
             }
-            if (!"com.xiaomi.xmsf".equals(getPackageName())) {
+            if (!SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(getPackageName())) {
                 if (this.mConnectionChangeReceiver != null) {
                     unregisterReceiver(this.mConnectionChangeReceiver);
                     this.mConnectionChangeReceiver = null;
@@ -1130,9 +1135,9 @@ public class XMPushService extends Service implements ConnectionListener {
             boolean perfSwitch = intent.getBooleanExtra("action_cr_perf_switch", false);
             long perfFrequency = intent.getLongExtra("action_cr_perf_frequency", 86400);
             boolean eventEncrypted = intent.getBooleanExtra("action_cr_event_en", true);
-            long fileLength = intent.getLongExtra("action_cr_max_file_size", 1048576);
+            long fileLength = intent.getLongExtra("action_cr_max_file_size", MiuiConfiguration.THEME_FLAG_ALARMSTYLE);
             Config config = Config.getBuilder().setEventUploadSwitchOpen(eventSwitch).setEventUploadFrequency(eventFrequency).setPerfUploadSwitchOpen(perfSwitch).setPerfUploadFrequency(perfFrequency).setAESKey(ClientReportUtil.getEventKeyWithDefault(getApplicationContext())).setEventEncrypted(eventEncrypted).setMaxFileLength(fileLength).build(getApplicationContext());
-            if (!"com.xiaomi.xmsf".equals(getPackageName()) && eventFrequency > 0 && perfFrequency > 0 && fileLength > 0) {
+            if (!SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(getPackageName()) && eventFrequency > 0 && perfFrequency > 0 && fileLength > 0) {
                 PushClientReportHelper.initEventPerfLogic(getApplicationContext(), config);
             }
         } else if ("action_help_ping".equals(intent.getAction())) {
@@ -1146,7 +1151,7 @@ public class XMPushService extends Service implements ConnectionListener {
                 pingSwitch = false;
             }
             MyLog.w("aw_ping: receive a aw_ping message. switch: " + pingSwitch + " frequency: " + frequency);
-            if (pingSwitch && frequency > 0 && !"com.xiaomi.xmsf".equals(getPackageName())) {
+            if (pingSwitch && frequency > 0 && !SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(getPackageName())) {
                 doAWPingCMD(intent, frequency);
             }
         } else if ("action_aw_app_logic".equals(intent.getAction())) {
@@ -1198,7 +1203,7 @@ public class XMPushService extends Service implements ConnectionListener {
     }
 
     void sendMessage(final String packageName, final byte[] payload, boolean isCache) {
-        Collection<ClientLoginInfo> loginInfos = PushClientsManager.getInstance().getAllClientLoginInfoByChid("5");
+        Collection<ClientLoginInfo> loginInfos = PushClientsManager.getInstance().getAllClientLoginInfoByChid(Phonelist.TYPE_CLOUDS_WHITE);
         if (loginInfos.isEmpty()) {
             if (isCache) {
                 MIPushClientManager.addPendingMessages(packageName, payload);
@@ -1368,7 +1373,7 @@ public class XMPushService extends Service implements ConnectionListener {
         if (this.mConnectionChangeReceiver != null) {
             unregisterReceiver(this.mConnectionChangeReceiver);
         }
-        if ("com.xiaomi.xmsf".equals(getPackageName()) && this.mExtremePowerModeObserver != null) {
+        if (SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(getPackageName()) && this.mExtremePowerModeObserver != null) {
             try {
                 getContentResolver().unregisterContentObserver(this.mExtremePowerModeObserver);
             } catch (Throwable e) {
@@ -1440,7 +1445,7 @@ public class XMPushService extends Service implements ConnectionListener {
     }
 
     private boolean isExtremePowerSaveMode() {
-        if (!"com.xiaomi.xmsf".equals(getPackageName())) {
+        if (!SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(getPackageName())) {
             return false;
         }
         if (Secure.getInt(getContentResolver(), "EXTREME_POWER_MODE_ENABLE", 0) == 1) {
@@ -1454,7 +1459,7 @@ public class XMPushService extends Service implements ConnectionListener {
     }
 
     private boolean isPushEnabled() {
-        return "com.xiaomi.xmsf".equals(getPackageName()) || !MIPushAppInfo.getInstance(this).isPushDisabled(getPackageName());
+        return SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(getPackageName()) || !MIPushAppInfo.getInstance(this).isPushDisabled(getPackageName());
     }
 
     public boolean isPushDisabled() {
@@ -1501,9 +1506,9 @@ public class XMPushService extends Service implements ConnectionListener {
                 return;
             }
             if (available) {
-                sendBroadcast(new Intent("miui.intent.action.NETWORK_CONNECTED"));
+                sendBroadcast(new Intent(ExtraNetwork.ACTION_NETWORK_CONNECTED));
             } else {
-                sendBroadcast(new Intent("miui.intent.action.NETWORK_BLOCKED"));
+                sendBroadcast(new Intent(ExtraNetwork.ACTION_NETWORK_BLOCKED));
             }
         } catch (Throwable e) {
             MyLog.e(e);
@@ -1584,7 +1589,7 @@ public class XMPushService extends Service implements ConnectionListener {
     }
 
     private boolean canOpenForegroundService() {
-        if (TextUtils.equals(getPackageName(), "com.xiaomi.xmsf")) {
+        if (TextUtils.equals(getPackageName(), SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE)) {
             return false;
         }
         return OnlineConfig.getInstance(this).getBooleanValue(ConfigKey.ForegroundServiceSwitch.getValue(), false);

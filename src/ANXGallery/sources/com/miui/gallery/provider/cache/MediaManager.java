@@ -33,6 +33,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
+import miui.provider.ExtraTelephony.DeletableSyncColumns;
 
 public class MediaManager extends CacheManager<MediaItem> {
     private static Comparator<MediaItem> sFeatureComparator;
@@ -303,7 +304,7 @@ public class MediaManager extends CacheManager<MediaItem> {
         if (localFlag == null || !(localFlag.intValue() == 11 || localFlag.intValue() == 2)) {
             if (values.containsKey("serverStatus")) {
                 String status = values.getAsString("serverStatus");
-                if ("deleted".equals(status) || "purged".equals(status)) {
+                if (DeletableSyncColumns.DELETED.equals(status) || "purged".equals(status)) {
                     Log.d(".provider.cache.MediaManager", "find a deleted server type");
                     return true;
                 }

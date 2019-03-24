@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Build.VERSION;
 import android.provider.Settings.Global;
 import android.provider.Settings.Secure;
+import com.miui.internal.analytics.XiaomiDispatcher;
 import com.xiaomi.channel.commonutils.misc.BuildSettings;
 
 public class PushProvision {
@@ -25,7 +26,7 @@ public class PushProvision {
     }
 
     public boolean checkProvisioned() {
-        return BuildSettings.ReleaseChannel.contains("xmsf") || BuildSettings.ReleaseChannel.contains("xiaomi") || BuildSettings.ReleaseChannel.contains("miui");
+        return BuildSettings.ReleaseChannel.contains("xmsf") || BuildSettings.ReleaseChannel.contains(XiaomiDispatcher.TAG) || BuildSettings.ReleaseChannel.contains("miui");
     }
 
     @SuppressLint({"NewApi"})

@@ -8,6 +8,7 @@ import com.miui.gallery.GalleryApp;
 import com.miui.gallery.preference.GalleryPreferences.Sync;
 import com.miui.gallery.util.Log;
 import com.miui.gallery.util.ReceiverUtils;
+import miui.provider.Weather.AlertInfo;
 
 public class BatteryMonitor {
     private int mCount;
@@ -48,7 +49,7 @@ public class BatteryMonitor {
         if (isCharging) {
             return true;
         }
-        int level = intent.getIntExtra("level", 0);
+        int level = intent.getIntExtra(AlertInfo.LEVEL, 0);
         int powerRemaining = (level * 100) / intent.getIntExtra("scale", 100);
         Log.d("BatteryMonitor", "ACTION_BATTERY_CHANGED, power remaining:" + powerRemaining);
         if (powerRemaining > 20) {

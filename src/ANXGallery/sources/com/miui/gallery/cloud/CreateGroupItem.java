@@ -15,7 +15,6 @@ import com.miui.gallery.data.DBCloud;
 import com.miui.gallery.data.DBImage;
 import com.miui.gallery.util.GalleryUtils;
 import com.miui.gallery.util.SyncLog;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import org.json.JSONObject;
 
 public class CreateGroupItem extends RequestOperationBase {
@@ -69,7 +68,7 @@ public class CreateGroupItem extends RequestOperationBase {
         }
         RequestCloudItem requestCloudItem = (RequestCloudItem) requestItem;
         String serverId = contentCreateJson.getString("id");
-        long serverTag = CloudUtils.getLongAttributeFromJson(contentCreateJson, nexExportFormat.TAG_FORMAT_TAG);
+        long serverTag = CloudUtils.getLongAttributeFromJson(contentCreateJson, "tag");
         ContentValues values = CloudUtils.getContentValuesForAllAndThumbNull(contentCreateJson);
         synchronized (GalleryCloudUtils.CLOUD_URI) {
             DBImage oldCloud = CloudUtils.getItemByServerID(this.mContext, serverId);

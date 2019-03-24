@@ -32,6 +32,7 @@ import com.miui.gallery.widget.ScrollableViewDrawer;
 import com.miui.gallery.widget.SortByHeader;
 import com.miui.gallery.widget.SortByHeader.SortBy;
 import com.miui.privacy.LockSettingsHelper;
+import miui.util.PlayerActions.Out;
 
 public class AlbumDetailFragment extends AlbumDetailFragmentBase {
     private AlbumDetailSimpleAdapter mAlbumDetailSimpleAdapter;
@@ -336,7 +337,7 @@ public class AlbumDetailFragment extends AlbumDetailFragmentBase {
                 return true;
             case R.id.menu_rename /*2131886829*/:
                 doRename();
-                BaseSamplingStatHelper.recordCountEvent("album", "rename_album");
+                BaseSamplingStatHelper.recordCountEvent(Out.KEY_ALBUM, "rename_album");
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

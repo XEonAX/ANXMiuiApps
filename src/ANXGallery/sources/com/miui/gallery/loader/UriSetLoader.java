@@ -12,6 +12,7 @@ import com.miui.gallery.model.BaseDataSet;
 import com.miui.gallery.model.UriItem;
 import com.miui.gallery.util.MediaAndAlbumOperations.OnAddAlbumListener;
 import java.io.File;
+import miui.provider.Notes.Data;
 
 public class UriSetLoader extends BaseLoader {
     private String mMimeType;
@@ -58,7 +59,7 @@ public class UriSetLoader extends BaseLoader {
     public UriSetLoader(Context context, Uri uri, Bundle data) {
         super(context);
         this.mUri = uri;
-        this.mMimeType = data.getString("mime_type");
+        this.mMimeType = data.getString(Data.MIME_TYPE);
     }
 
     public BaseDataSet loadInBackground() {

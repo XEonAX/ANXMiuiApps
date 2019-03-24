@@ -3,6 +3,7 @@ package com.miui.gallery.assistant.algorithm;
 import com.miui.gallery.assistant.jni.cluster.Cluster;
 import com.miui.gallery.assistant.jni.cluster.ImageClusterJNI;
 import com.miui.gallery.util.Log;
+import com.miui.internal.vip.VipConstants;
 import java.util.ArrayList;
 
 public class ClusterAlgorithm extends Algorithm {
@@ -16,7 +17,7 @@ public class ClusterAlgorithm extends Algorithm {
     protected boolean onInitAlgorithm() {
         this.mImageClusterJNI = new ImageClusterJNI();
         try {
-            this.mNativePtr = this.mImageClusterJNI.nativeCreate(0.741f, 3600000);
+            this.mNativePtr = this.mImageClusterJNI.nativeCreate(0.741f, VipConstants.HOUR);
             return true;
         } catch (Throwable e) {
             Log.e(this.TAG, e);

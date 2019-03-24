@@ -1,13 +1,13 @@
 package com.miui.os;
 
-import miui.util.FeatureParser;
+import miui.util.C0016FeatureParser;
 
 public class FeatureHelper {
     public static boolean isPad() {
-        return FeatureParser.getBoolean("is_pad", false);
+        return C0016FeatureParser.getBoolean("is_pad", false);
     }
 
     public static boolean isXiaoMi() {
-        return FeatureParser.getBoolean("is_xiaomi", false);
+        return C0016FeatureParser.getBoolean("is_xiaomi", false);
     }
 }

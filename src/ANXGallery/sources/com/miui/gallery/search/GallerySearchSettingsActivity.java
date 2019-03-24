@@ -12,6 +12,7 @@ import com.miui.gallery.ui.AIAlbumStatusHelper;
 import com.miui.gallery.util.GalleryIntent.CloudGuideSource;
 import com.miui.gallery.util.IntentUtil;
 import com.miui.gallery.util.SyncUtil;
+import miui.yellowpage.YellowPageContract.Search;
 
 public class GallerySearchSettingsActivity extends BaseActivity implements OnClickListener {
     private TextView mRequestView;
@@ -54,7 +55,7 @@ public class GallerySearchSettingsActivity extends BaseActivity implements OnCli
             if (SyncUtil.existXiaomiAccount(this)) {
                 AIAlbumStatusHelper.setLocalSearchStatus(this, true);
                 configByStatus(2);
-                BaseSamplingStatHelper.recordCountEvent("search", "search_open_switch");
+                BaseSamplingStatHelper.recordCountEvent(Search.DIRECTORY, "search_open_switch");
                 return;
             }
             Bundle bundle = new Bundle();

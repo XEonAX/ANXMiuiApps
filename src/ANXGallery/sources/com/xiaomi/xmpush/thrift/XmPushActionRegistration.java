@@ -1,6 +1,5 @@
 package com.xiaomi.xmpush.thrift;
 
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import java.io.Serializable;
 import java.util.BitSet;
 import java.util.HashMap;
@@ -1114,7 +1113,7 @@ public class XmPushActionRegistration implements Serializable, Cloneable, TBase<
                     }
                     iprot.readMapEnd();
                     break;
-                case BaiduSceneResult.SHOOTING /*101*/:
+                case (short) 101:
                     if (field.type != (byte) 2) {
                         TProtocolUtil.skip(iprot, field.type);
                         break;
@@ -1122,7 +1121,7 @@ public class XmPushActionRegistration implements Serializable, Cloneable, TBase<
                     this.cleanOldRegInfo = iprot.readBool();
                     setCleanOldRegInfoIsSet(true);
                     break;
-                case BaiduSceneResult.TAEKWONDO /*102*/:
+                case (short) 102:
                     if (field.type != (byte) 11) {
                         TProtocolUtil.skip(iprot, field.type);
                         break;

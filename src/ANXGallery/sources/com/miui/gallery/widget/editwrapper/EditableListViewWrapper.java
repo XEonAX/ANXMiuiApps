@@ -40,9 +40,11 @@ import com.miui.gallery.widget.recyclerview.GalleryRecyclerView;
 import com.miui.gallery.widget.recyclerview.ItemClickSupport.OnItemClickListener;
 import com.miui.gallery.widget.recyclerview.ItemClickSupport.OnItemLongClickListener;
 import com.miui.gallery.widget.stickyheader.core.StickyHeaderAdapter;
+import com.miui.internal.widget.ActionModeView;
 import java.util.List;
 import java.util.Stack;
 import miui.gallery.support.MiuiSdkCompat;
+import miui.hybrid.Response;
 import miui.view.EditActionMode;
 import miui.view.animation.CubicEaseOutInterpolator;
 
@@ -206,7 +208,7 @@ public class EditableListViewWrapper {
                             if (holder != null) {
                                 View view = holder.itemView;
                                 if (view instanceof BackgroundImageViewable) {
-                                    AnimationManager.this.startScaleItemImageViewAnimation(((BackgroundImageViewable) view).getBackgroundImageView(), this.mLongTouchPosition, true, 0, 200);
+                                    AnimationManager.this.startScaleItemImageViewAnimation(((BackgroundImageViewable) view).getBackgroundImageView(), this.mLongTouchPosition, true, 0, Response.CODE_GENERIC_ERROR);
                                     EditableListViewWrapper.this.mCheckState.setCheckState(this.mLongTouchPosition, true);
                                     ((Checkable) view).setChecked(true);
                                     EditableListViewWrapper.this.updateActionMode();
@@ -413,9 +415,9 @@ public class EditableListViewWrapper {
 
         public void startScaleItemImageViewAnimation(ImageView imageView, int position) {
             if (imageView.getTag(R.id.tag_matrix) == null) {
-                startScaleItemImageViewAnimationInternal(imageView, true, position, 100, 300);
+                startScaleItemImageViewAnimationInternal(imageView, true, position, 100, ActionModeView.ANIMATION_DURATION);
             } else {
-                startScaleItemImageViewAnimationInternal(imageView, false, position, 100, 300);
+                startScaleItemImageViewAnimationInternal(imageView, false, position, 100, ActionModeView.ANIMATION_DURATION);
             }
         }
 
@@ -424,7 +426,7 @@ public class EditableListViewWrapper {
         }
 
         public void startScaleItemImageViewAnimation(ImageView imageView, int position, boolean checked, int delay) {
-            startScaleItemImageViewAnimation(imageView, position, checked, delay, 300);
+            startScaleItemImageViewAnimation(imageView, position, checked, delay, ActionModeView.ANIMATION_DURATION);
         }
 
         public void startScaleItemImageViewAnimation(ImageView imageView, int position, boolean checked, int delay, int duration) {
@@ -486,7 +488,7 @@ public class EditableListViewWrapper {
                     if (enlarge && (view instanceof BackgroundImageViewable)) {
                         ImageView imageView = ((BackgroundImageViewable) view).getBackgroundImageView();
                         if (imageView.getTag(R.id.tag_matrix) != null) {
-                            startScaleItemImageViewAnimationInternal(imageView, false, listView.getChildAdapterPositionForExternal(view), 0, 300);
+                            startScaleItemImageViewAnimationInternal(imageView, false, listView.getChildAdapterPositionForExternal(view), 0, ActionModeView.ANIMATION_DURATION);
                         }
                     }
                 }
@@ -794,8 +796,8 @@ public class EditableListViewWrapper {
             }
             mode.setTitle(miui.R.string.select_item);
             if (mode instanceof EditActionMode) {
-                MiuiSdkCompat.setEditActionModeButton(EditableListViewWrapper.this.mRecyclerView.getContext(), (EditActionMode) mode, 16908313, 3);
-                MiuiSdkCompat.setEditActionModeButton(EditableListViewWrapper.this.mRecyclerView.getContext(), (EditActionMode) mode, 16908314, 0);
+                MiuiSdkCompat.setEditActionModeButton(EditableListViewWrapper.this.mRecyclerView.getContext(), (EditActionMode) mode, EditActionMode.BUTTON1, 3);
+                MiuiSdkCompat.setEditActionModeButton(EditableListViewWrapper.this.mRecyclerView.getContext(), (EditActionMode) mode, EditActionMode.BUTTON2, 0);
             }
             EditableListViewWrapper.this.enterChoiceMode();
             EditableListViewWrapper.this.mIsInActionMode = true;
@@ -812,10 +814,10 @@ public class EditableListViewWrapper {
                 return true;
             }
             switch (item.getItemId()) {
-                case 16908313:
+                case EditActionMode.BUTTON1 /*16908313*/:
                     mode.finish();
                     return true;
-                case 16908314:
+                case EditActionMode.BUTTON2 /*16908314*/:
                     EditableListViewWrapper editableListViewWrapper = EditableListViewWrapper.this;
                     if (!EditableListViewWrapper.this.isAllItemsChecked()) {
                         z = true;
@@ -1082,7 +1084,7 @@ public class EditableListViewWrapper {
                 if (!isAllItemsChecked()) {
                     i = 0;
                 }
-                MiuiSdkCompat.setEditActionModeButton(context, editActionMode, 16908314, i);
+                MiuiSdkCompat.setEditActionModeButton(context, editActionMode, EditActionMode.BUTTON2, i);
             }
         }
     }

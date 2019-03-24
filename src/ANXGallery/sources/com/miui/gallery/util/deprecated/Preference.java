@@ -6,6 +6,7 @@ import android.content.SharedPreferences.Editor;
 import com.miui.gallery.preference.BaseGalleryPreferences;
 import com.miui.gallery.preference.GalleryPreferences.PrefKeys;
 import com.miui.gallery.util.Log;
+import com.miui.internal.vip.VipConstants;
 
 public class Preference extends BaseDeprecatedPreference {
     public static void setDBUpgradeTo42() {
@@ -70,7 +71,7 @@ public class Preference extends BaseDeprecatedPreference {
     public static boolean sGetCloudGallerySpaceFull() {
         long spaceFullTime = BaseDeprecatedPreference.sGetDefaultPreferences().getLong("cloud_gallery_space_full_time", 0);
         long now = System.currentTimeMillis();
-        if (now - spaceFullTime >= 3600000 || now < spaceFullTime) {
+        if (now - spaceFullTime >= VipConstants.HOUR || now < spaceFullTime) {
             return false;
         }
         return BaseDeprecatedPreference.sGetDefaultPreferences().getBoolean("cloud_gallery_space_full", false);

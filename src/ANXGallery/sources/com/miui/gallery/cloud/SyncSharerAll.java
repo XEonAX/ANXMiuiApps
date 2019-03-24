@@ -13,7 +13,7 @@ import com.miui.gallery.data.DBShareAlbum;
 import com.miui.gallery.util.GalleryUtils;
 import com.miui.gallery.util.SyncLog;
 import com.miui.gallery.util.deprecated.Preference;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
+import com.miui.internal.analytics.NormalPolicy;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -128,9 +128,9 @@ public final class SyncSharerAll extends SyncFromServer {
             String sharedId = entryJson.getString("sharedId");
             String albumStatus = entryJson.optString("status");
             if (TextUtils.isEmpty(albumStatus)) {
-                albumStatus = "normal";
+                albumStatus = NormalPolicy.TAG;
             }
-            long serverTag = CloudUtils.getLongAttributeFromJson(entryJson, nexExportFormat.TAG_FORMAT_TAG);
+            long serverTag = CloudUtils.getLongAttributeFromJson(entryJson, "tag");
             JSONObject contentJson = entryJson.getJSONObject("content");
             String serverStatus = contentJson.getString("status");
             String albumName = contentJson.getString("fileName");

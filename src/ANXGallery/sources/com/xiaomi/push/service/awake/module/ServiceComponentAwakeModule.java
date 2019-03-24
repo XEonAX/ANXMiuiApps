@@ -8,6 +8,7 @@ import com.xiaomi.channel.commonutils.logger.MyLog;
 import com.xiaomi.push.service.awake.AwakeDataHelper;
 import com.xiaomi.push.service.awake.AwakeUploadHelper;
 import com.xiaomi.push.service.awake.ComponentHelper;
+import miui.media.Recorder.ErrorCode;
 
 class ServiceComponentAwakeModule implements IAwakeModule {
     ServiceComponentAwakeModule() {
@@ -28,9 +29,9 @@ class ServiceComponentAwakeModule implements IAwakeModule {
     private void awakeByServiceName(Context context, String targetPackage, String className, String awakeInfo) {
         if (context == null || TextUtils.isEmpty(targetPackage) || TextUtils.isEmpty(className)) {
             if (TextUtils.isEmpty(awakeInfo)) {
-                AwakeUploadHelper.uploadData(context, "service", 1008, "argument error");
+                AwakeUploadHelper.uploadData(context, "service", ErrorCode.MAX_DURATION_REACHED, "argument error");
             } else {
-                AwakeUploadHelper.uploadData(context, awakeInfo, 1008, "argument error");
+                AwakeUploadHelper.uploadData(context, awakeInfo, ErrorCode.MAX_DURATION_REACHED, "argument error");
             }
         } else if (ComponentHelper.checkService(context, targetPackage)) {
             AwakeUploadHelper.uploadData(context, awakeInfo, 1002, "B is ready");
@@ -46,10 +47,10 @@ class ServiceComponentAwakeModule implements IAwakeModule {
                     AwakeUploadHelper.uploadData(context, awakeInfo, 1006, "The job is finished");
                     return;
                 }
-                AwakeUploadHelper.uploadData(context, awakeInfo, 1008, "A is fail to help B's service");
+                AwakeUploadHelper.uploadData(context, awakeInfo, ErrorCode.MAX_DURATION_REACHED, "A is fail to help B's service");
             } catch (Throwable e) {
                 MyLog.e(e);
-                AwakeUploadHelper.uploadData(context, awakeInfo, 1008, "A meet a exception when help B's service");
+                AwakeUploadHelper.uploadData(context, awakeInfo, ErrorCode.MAX_DURATION_REACHED, "A meet a exception when help B's service");
             }
         } else {
             AwakeUploadHelper.uploadData(context, awakeInfo, 1003, "B is not ready");
@@ -61,15 +62,15 @@ class ServiceComponentAwakeModule implements IAwakeModule {
             String packageName = intent.getStringExtra("waker_pkgname");
             String awakeInfo = intent.getStringExtra("awake_info");
             if (TextUtils.isEmpty(packageName)) {
-                AwakeUploadHelper.uploadData(service.getApplicationContext(), "service", 1007, "old version message");
+                AwakeUploadHelper.uploadData(service.getApplicationContext(), "service", ErrorCode.MAX_SIZE_REACHED, "old version message");
             } else if (TextUtils.isEmpty(awakeInfo)) {
-                AwakeUploadHelper.uploadData(service.getApplicationContext(), packageName, 1007, "play with service ");
+                AwakeUploadHelper.uploadData(service.getApplicationContext(), packageName, ErrorCode.MAX_SIZE_REACHED, "play with service ");
             } else {
                 awakeInfo = AwakeDataHelper.decode(awakeInfo);
                 if (TextUtils.isEmpty(awakeInfo)) {
-                    AwakeUploadHelper.uploadData(service.getApplicationContext(), "service", 1008, "B get a incorrect message");
+                    AwakeUploadHelper.uploadData(service.getApplicationContext(), "service", ErrorCode.MAX_DURATION_REACHED, "B get a incorrect message");
                 } else {
-                    AwakeUploadHelper.uploadData(service.getApplicationContext(), awakeInfo, 1007, "old version message ");
+                    AwakeUploadHelper.uploadData(service.getApplicationContext(), awakeInfo, ErrorCode.MAX_SIZE_REACHED, "old version message ");
                 }
             }
         }

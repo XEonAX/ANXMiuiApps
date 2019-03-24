@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.miui.gallery.util.FileUtils;
 import com.miui.gallery.util.Log;
+import com.miui.internal.component.module.ModuleUtils;
 import com.miui.os.Rom;
 import java.io.File;
 import miui.module.Repository;
@@ -74,10 +75,10 @@ public class CacheRepository extends Repository {
             FileUtils.deleteFile(cacheFile);
             Log.d("CacheRepository", "delete %s", cacheFile.getAbsolutePath());
             File sdkDir = new File(context.getFilesDir(), "miuisdk/modules/");
-            File apkFile = new File(sdkDir, name + ".apk");
+            File apkFile = new File(sdkDir, name + ModuleUtils.MODULE_FILE_EXTENSION);
             FileUtils.deleteFile(apkFile);
             Log.d("CacheRepository", "delete %s", apkFile.getAbsolutePath());
-            File libFile = new File(sdkDir, name + ".lib");
+            File libFile = new File(sdkDir, name + ModuleUtils.MODULE_LIB_EXTENSION);
             FileUtils.deleteFile(libFile);
             Log.d("CacheRepository", "delete %s", libFile.getAbsolutePath());
         }

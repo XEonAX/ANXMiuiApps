@@ -91,7 +91,7 @@ final class StatsAnalyser {
         int err = ConnectionHelper.asErrorCode(throwable);
         String annotation = throwable.getClass().getSimpleName() + ":" + cause;
         switch (err) {
-            case BaiduSceneResult.TEMPLE /*105*/:
+            case 105:
                 ret.type = ChannelStatsType.BIND_TCP_READ_TIMEOUT;
                 break;
             case BaiduSceneResult.CHURCH /*109*/:
@@ -131,7 +131,7 @@ final class StatsAnalyser {
         int err = ConnectionHelper.asErrorCode(throwable);
         String annotation = throwable.getClass().getSimpleName() + ":" + cause;
         switch (err) {
-            case BaiduSceneResult.TEMPLE /*105*/:
+            case 105:
                 ret.type = ChannelStatsType.CHANNEL_TCP_READTIMEOUT;
                 break;
             case BaiduSceneResult.CHURCH /*109*/:

@@ -1,5 +1,6 @@
 package com.miui.gallery.search.statistics;
 
+import android.content.res.MiuiConfiguration;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.miui.gallery.search.utils.SearchLog;
@@ -19,7 +20,7 @@ public class SearchStatStorageHelper {
         int i = 0;
         File file = new File(getLogFilePath());
         try {
-            if (file.exists() && file.length() > 1048576) {
+            if (file.exists() && file.length() > MiuiConfiguration.THEME_FLAG_ALARMSTYLE) {
                 MediaFileUtils.deleteFile(file);
                 SearchLog.i("SearchStatStorageHelper", "Clear former log file due to too many logs");
             }

@@ -38,6 +38,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
+import miui.mipub.MipubStat;
+import miui.reflect.Field;
+import miui.yellowpage.Tag.TagSearch.GeoInfo;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -291,16 +294,16 @@ public class HostManager {
             if (!TextUtils.isEmpty(result)) {
                 JSONObject jSONObject = new JSONObject(result);
                 MyLog.i(result);
-                if ("OK".equalsIgnoreCase(jSONObject.getString("S"))) {
+                if ("OK".equalsIgnoreCase(jSONObject.getString(Field.SHORT_SIGNATURE_PRIMITIVE))) {
                     String host;
                     int j;
                     String fallbackHost;
                     JSONObject response = jSONObject.getJSONObject("R");
-                    String province = response.getString("province");
+                    String province = response.getString(GeoInfo.PROVINCE);
                     String city = response.getString("city");
                     String isp = response.getString("isp");
                     String ip = response.getString("ip");
-                    String country = response.getString("country");
+                    String country = response.getString(GeoInfo.COUNTRY);
                     JSONObject wifiHosts = response.getJSONObject(networkType);
                     MyLog.v("get bucket: ip = " + ip + " net = " + isp + " hosts = " + wifiHosts.toString());
                     for (i = 0; i < hosts.size(); i++) {
@@ -336,7 +339,7 @@ public class HostManager {
                     }
                     JSONObject reservedObjs = response.optJSONObject("reserved");
                     if (reservedObjs != null) {
-                        long reserved_ttl = 604800000;
+                        long reserved_ttl = MipubStat.STAT_EXPIRY_DATA;
                         if (response.has("reserved-ttl")) {
                             reserved_ttl = ((long) response.getInt("reserved-ttl")) * 1000;
                         }
@@ -390,7 +393,7 @@ public class HostManager {
         Iterator it;
         ArrayList<String> urls = new ArrayList();
         List<NameValuePair> params = new ArrayList();
-        params.add(new BasicNameValuePair(nexExportFormat.TAG_FORMAT_TYPE, networkType));
+        params.add(new BasicNameValuePair("type", networkType));
         if (networkType.equals("wap")) {
             params.add(new BasicNameValuePair("conpt", obfuscate(Network.getActiveConnPoint(sAppContext))));
         }
@@ -587,7 +590,7 @@ public class HostManager {
                 try {
                     Fallback reserved2 = new Fallback(host);
                     try {
-                        reserved2.setEffectiveDuration(604800000);
+                        reserved2.setEffectiveDuration(MipubStat.STAT_EXPIRY_DATA);
                         reserved2.addHost(fallback);
                         sReservedHosts.put(host, reserved2);
                         reserved = reserved2;

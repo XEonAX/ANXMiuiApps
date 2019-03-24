@@ -26,13 +26,13 @@ public class NvAndroidAudioRecorder {
     }
 
     public NvAndroidAudioRecorder() {
-        int minBufferSize = AudioRecord.getMinBufferSize(m_sampleRateInHz, 16, 2);
+        int minBufferSize = AudioRecord.getMinBufferSize(44100, 16, 2);
         if (32768 >= minBufferSize) {
             minBufferSize = 32768;
         }
         try {
             this.m_chunkBuffer = ByteBuffer.allocateDirect(2048);
-            this.m_recorder = new AudioRecord(1, m_sampleRateInHz, 16, 2, minBufferSize);
+            this.m_recorder = new AudioRecord(1, 44100, 16, 2, minBufferSize);
             if (this.m_recorder.getState() == 0) {
                 Log.e(TAG, "Failed to initialize AudioRecord object!");
                 this.m_recorder.release();

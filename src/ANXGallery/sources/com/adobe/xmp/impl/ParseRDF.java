@@ -4,9 +4,11 @@ import com.adobe.xmp.XMPException;
 import com.adobe.xmp.XMPMetaFactory;
 import com.adobe.xmp.XMPSchemaRegistry;
 import com.adobe.xmp.options.PropertyOptions;
+import com.miui.internal.vip.utils.JsonParser;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import miui.hybrid.Response;
 import org.w3c.dom.Attr;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
@@ -25,7 +27,7 @@ public class ParseRDF {
             rdf_NodeElementList(xmp, xmp.getRoot(), rdfRdfNode);
             return;
         }
-        throw new XMPException("Invalid attributes of rdf:RDF element", 202);
+        throw new XMPException("Invalid attributes of rdf:RDF element", Response.CODE_SIGNATURE_ERROR);
     }
 
     private static void rdf_NodeElementList(XMPMetaImpl xmp, XMPNode xmpParent, Node rdfRdfNode) throws XMPException {
@@ -40,9 +42,9 @@ public class ParseRDF {
     private static void rdf_NodeElement(XMPMetaImpl xmp, XMPNode xmpParent, Node xmlNode, boolean isTopLevel) throws XMPException {
         int nodeTerm = getRDFTermKind(xmlNode);
         if (nodeTerm != 8 && nodeTerm != 0) {
-            throw new XMPException("Node element must be rdf:Description or typed node", 202);
+            throw new XMPException("Node element must be rdf:Description or typed node", Response.CODE_SIGNATURE_ERROR);
         } else if (isTopLevel && nodeTerm == 0) {
-            throw new XMPException("Top level typed node not allowed", 203);
+            throw new XMPException("Top level typed node not allowed", Response.CODE_PERMISSION_ERROR);
         } else {
             rdf_NodeElementAttrs(xmp, xmpParent, xmlNode, isTopLevel);
             rdf_PropertyElementList(xmp, xmpParent, xmlNode, isTopLevel);
@@ -69,16 +71,16 @@ public class ParseRDF {
                                     if (xmpParent.getName().equals(attribute.getNodeValue())) {
                                         break;
                                     }
-                                    throw new XMPException("Mismatched top level rdf:about values", 203);
+                                    throw new XMPException("Mismatched top level rdf:about values", Response.CODE_PERMISSION_ERROR);
                                 }
                                 xmpParent.setName(attribute.getNodeValue());
                                 break;
                             }
                         }
-                        throw new XMPException("Mutally exclusive about, ID, nodeID attributes", 202);
+                        throw new XMPException("Mutally exclusive about, ID, nodeID attributes", Response.CODE_SIGNATURE_ERROR);
                         break;
                     default:
-                        throw new XMPException("Invalid nodeElement attribute", 202);
+                        throw new XMPException("Invalid nodeElement attribute", Response.CODE_SIGNATURE_ERROR);
                 }
             }
         }
@@ -89,7 +91,7 @@ public class ParseRDF {
             Node currChild = xmlParent.getChildNodes().item(i);
             if (!isWhitespaceNode(currChild)) {
                 if (currChild.getNodeType() != (short) 1) {
-                    throw new XMPException("Expected property element node not found", 202);
+                    throw new XMPException("Expected property element node not found", Response.CODE_SIGNATURE_ERROR);
                 }
                 rdf_PropertyElement(xmp, xmpParent, currChild, isTopLevel);
             }
@@ -161,7 +163,7 @@ public class ParseRDF {
             rdf_EmptyPropertyElement(xmp, xmpParent, xmlNode, isTopLevel);
             return;
         }
-        throw new XMPException("Invalid property element name", 202);
+        throw new XMPException("Invalid property element name", Response.CODE_SIGNATURE_ERROR);
     }
 
     private static void rdf_ResourcePropertyElement(XMPMetaImpl xmp, XMPNode xmpParent, Node xmlNode, boolean isTopLevel) throws XMPException {
@@ -176,7 +178,7 @@ public class ParseRDF {
                     if ("xml:lang".equals(attribute.getNodeName())) {
                         addQualifierNode(newCompound, "xml:lang", attribute.getNodeValue());
                     } else if (!"ID".equals(attrLocal) || !"http://www.w3.org/1999/02/22-rdf-syntax-ns#".equals(attrNS)) {
-                        throw new XMPException("Invalid attribute for resource property element", 202);
+                        throw new XMPException("Invalid attribute for resource property element", Response.CODE_SIGNATURE_ERROR);
                     }
                 }
             }
@@ -198,7 +200,7 @@ public class ParseRDF {
                             if (!(isRDF || "Description".equals(childLocal))) {
                                 String typeName = currChild.getNamespaceURI();
                                 if (typeName == null) {
-                                    throw new XMPException("All XML elements must be in a namespace", 203);
+                                    throw new XMPException("All XML elements must be in a namespace", Response.CODE_PERMISSION_ERROR);
                                 }
                                 addQualifierNode(newCompound, "rdf:type", typeName + ':' + childLocal);
                             }
@@ -211,14 +213,14 @@ public class ParseRDF {
                         }
                         found = true;
                     } else if (found) {
-                        throw new XMPException("Invalid child of resource property element", 202);
+                        throw new XMPException("Invalid child of resource property element", Response.CODE_SIGNATURE_ERROR);
                     } else {
-                        throw new XMPException("Children of resource property element must be XML elements", 202);
+                        throw new XMPException("Children of resource property element must be XML elements", Response.CODE_SIGNATURE_ERROR);
                     }
                 }
             }
             if (!found) {
-                throw new XMPException("Missing child of resource property element", 202);
+                throw new XMPException("Missing child of resource property element", Response.CODE_SIGNATURE_ERROR);
             }
         }
     }
@@ -234,7 +236,7 @@ public class ParseRDF {
                 if ("xml:lang".equals(attribute.getNodeName())) {
                     addQualifierNode(newChild, "xml:lang", attribute.getNodeValue());
                 } else if (!("http://www.w3.org/1999/02/22-rdf-syntax-ns#".equals(attrNS) && ("ID".equals(attrLocal) || "datatype".equals(attrLocal)))) {
-                    throw new XMPException("Invalid attribute for literal property element", 202);
+                    throw new XMPException("Invalid attribute for literal property element", Response.CODE_SIGNATURE_ERROR);
                 }
             }
         }
@@ -246,14 +248,14 @@ public class ParseRDF {
                 textValue = textValue + child.getNodeValue();
                 i++;
             } else {
-                throw new XMPException("Invalid child of literal property element", 202);
+                throw new XMPException("Invalid child of literal property element", Response.CODE_SIGNATURE_ERROR);
             }
         }
         newChild.setValue(textValue);
     }
 
     private static void rdf_ParseTypeLiteralPropertyElement() throws XMPException {
-        throw new XMPException("ParseTypeLiteral property element not allowed", 203);
+        throw new XMPException("ParseTypeLiteral property element not allowed", Response.CODE_PERMISSION_ERROR);
     }
 
     private static void rdf_ParseTypeResourcePropertyElement(XMPMetaImpl xmp, XMPNode xmpParent, Node xmlNode, boolean isTopLevel) throws XMPException {
@@ -267,7 +269,7 @@ public class ParseRDF {
                 if ("xml:lang".equals(attribute.getNodeName())) {
                     addQualifierNode(newStruct, "xml:lang", attribute.getNodeValue());
                 } else if (!("http://www.w3.org/1999/02/22-rdf-syntax-ns#".equals(attrNS) && ("ID".equals(attrLocal) || "parseType".equals(attrLocal)))) {
-                    throw new XMPException("Invalid attribute for ParseTypeResource property element", 202);
+                    throw new XMPException("Invalid attribute for ParseTypeResource property element", Response.CODE_SIGNATURE_ERROR);
                 }
             }
         }
@@ -278,11 +280,11 @@ public class ParseRDF {
     }
 
     private static void rdf_ParseTypeCollectionPropertyElement() throws XMPException {
-        throw new XMPException("ParseTypeCollection property element not allowed", 203);
+        throw new XMPException("ParseTypeCollection property element not allowed", Response.CODE_PERMISSION_ERROR);
     }
 
     private static void rdf_ParseTypeOtherPropertyElement() throws XMPException {
-        throw new XMPException("ParseTypeOther property element not allowed", 203);
+        throw new XMPException("ParseTypeOther property element not allowed", Response.CODE_PERMISSION_ERROR);
     }
 
     private static void rdf_EmptyPropertyElement(XMPMetaImpl xmp, XMPNode xmpParent, Node xmlNode, boolean isTopLevel) throws XMPException {
@@ -292,7 +294,7 @@ public class ParseRDF {
         boolean hasValueAttr = false;
         Node valueNode = null;
         if (xmlNode.hasChildNodes()) {
-            throw new XMPException("Nested content not allowed with rdf:resource or property attributes", 202);
+            throw new XMPException("Nested content not allowed with rdf:resource or property attributes", Response.CODE_SIGNATURE_ERROR);
         }
         int i;
         Node attribute;
@@ -312,7 +314,7 @@ public class ParseRDF {
                             valueNode = attribute;
                             break;
                         } else {
-                            throw new XMPException("Empty property element can't have both rdf:value and rdf:resource", 203);
+                            throw new XMPException("Empty property element can't have both rdf:value and rdf:resource", Response.CODE_PERMISSION_ERROR);
                         }
                     case 2:
                         break;
@@ -326,17 +328,17 @@ public class ParseRDF {
                                 }
                                 break;
                             }
-                            throw new XMPException("Empty property element can't have both rdf:value and rdf:resource", 203);
+                            throw new XMPException("Empty property element can't have both rdf:value and rdf:resource", Response.CODE_PERMISSION_ERROR);
                         }
-                        throw new XMPException("Empty property element can't have both rdf:resource and rdf:nodeID", 202);
+                        throw new XMPException("Empty property element can't have both rdf:resource and rdf:nodeID", Response.CODE_SIGNATURE_ERROR);
                     case 6:
                         if (!hasResourceAttr) {
                             hasNodeIDAttr = true;
                             break;
                         }
-                        throw new XMPException("Empty property element can't have both rdf:resource and rdf:nodeID", 202);
+                        throw new XMPException("Empty property element can't have both rdf:resource and rdf:nodeID", Response.CODE_SIGNATURE_ERROR);
                     default:
-                        throw new XMPException("Unrecognized attribute of empty property element", 202);
+                        throw new XMPException("Unrecognized attribute of empty property element", Response.CODE_SIGNATURE_ERROR);
                 }
             }
         }
@@ -374,7 +376,7 @@ public class ParseRDF {
                         addQualifierNode(childNode, "rdf:resource", attribute.getNodeValue());
                         break;
                     default:
-                        throw new XMPException("Unrecognized attribute of empty property element", 202);
+                        throw new XMPException("Unrecognized attribute of empty property element", Response.CODE_SIGNATURE_ERROR);
                 }
             }
         }
@@ -415,20 +417,20 @@ public class ParseRDF {
             }
             if (isValueNode) {
                 if (isTopLevel || !xmpParent.getOptions().isStruct()) {
-                    throw new XMPException("Misplaced rdf:value element", 202);
+                    throw new XMPException("Misplaced rdf:value element", Response.CODE_SIGNATURE_ERROR);
                 }
                 xmpParent.setHasValueChild(true);
             }
             if (isArrayItem) {
                 if (xmpParent.getOptions().isArray()) {
-                    newChild.setName("[]");
+                    newChild.setName(JsonParser.EMPTY_ARRAY);
                 } else {
-                    throw new XMPException("Misplaced rdf:li element", 202);
+                    throw new XMPException("Misplaced rdf:li element", Response.CODE_SIGNATURE_ERROR);
                 }
             }
             return newChild;
         }
-        throw new XMPException("XML namespace required for all elements and attributes", 202);
+        throw new XMPException("XML namespace required for all elements and attributes", Response.CODE_SIGNATURE_ERROR);
     }
 
     private static XMPNode addQualifierNode(XMPNode xmpParent, String name, String value) throws XMPException {
@@ -447,7 +449,7 @@ public class ParseRDF {
                 int i;
                 if (valueNode.getOptions().getHasLanguage()) {
                     if (xmpParent.getOptions().getHasLanguage()) {
-                        throw new XMPException("Redundant xml:lang for rdf:value element", 203);
+                        throw new XMPException("Redundant xml:lang for rdf:value element", Response.CODE_PERMISSION_ERROR);
                     }
                     XMPNode langQual = valueNode.getQualifier(1);
                     valueNode.removeQualifier(langQual);

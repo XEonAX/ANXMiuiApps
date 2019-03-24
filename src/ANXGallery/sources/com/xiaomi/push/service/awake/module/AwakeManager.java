@@ -7,6 +7,7 @@ import com.xiaomi.channel.commonutils.logger.MyLog;
 import com.xiaomi.channel.commonutils.misc.ScheduledJobManager;
 import com.xiaomi.push.service.awake.AwakeUploadHelper;
 import java.util.HashMap;
+import miui.media.Recorder.ErrorCode;
 import org.json.JSONObject;
 
 public final class AwakeManager {
@@ -78,7 +79,7 @@ public final class AwakeManager {
 
     public void wakeup(Context context, String awakeInfo, int cmd, String spackageName, String appId) {
         if (context == null || TextUtils.isEmpty(awakeInfo) || TextUtils.isEmpty(spackageName) || TextUtils.isEmpty(appId)) {
-            AwakeUploadHelper.uploadData(context, "" + awakeInfo, 1008, "A receive a incorrect message");
+            AwakeUploadHelper.uploadData(context, "" + awakeInfo, ErrorCode.MAX_DURATION_REACHED, "A receive a incorrect message");
             return;
         }
         setOnLineCmd(cmd);
@@ -89,7 +90,7 @@ public final class AwakeManager {
         ScheduledJobManager.getInstance(this.mContext).addOneShootJob(new Runnable() {
             public void run() {
                 if (TextUtils.isEmpty(str)) {
-                    AwakeUploadHelper.uploadData(context2, "null", 1008, "A receive a incorrect message with empty info");
+                    AwakeUploadHelper.uploadData(context2, "null", ErrorCode.MAX_DURATION_REACHED, "A receive a incorrect message with empty info");
                     return;
                 }
                 try {
@@ -101,9 +102,9 @@ public final class AwakeManager {
                     String srcAppId = jsonObject.optString("awake_app");
                     String helpType = jsonObject.optString("awake_type");
                     if (!str2.equals(srcPackageName) || !str3.equals(srcAppId)) {
-                        AwakeUploadHelper.uploadData(context2, str, 1008, "A receive a incorrect message with incorrect package info" + srcPackageName);
+                        AwakeUploadHelper.uploadData(context2, str, ErrorCode.MAX_DURATION_REACHED, "A receive a incorrect message with incorrect package info" + srcPackageName);
                     } else if (TextUtils.isEmpty(helpType) || TextUtils.isEmpty(srcPackageName) || TextUtils.isEmpty(srcAppId) || TextUtils.isEmpty(targetPackageName)) {
-                        AwakeUploadHelper.uploadData(context2, str, 1008, "A receive a incorrect message with empty type");
+                        AwakeUploadHelper.uploadData(context2, str, ErrorCode.MAX_DURATION_REACHED, "A receive a incorrect message with empty type");
                     } else {
                         AwakeManager.this.setPackageName(srcPackageName);
                         AwakeManager.this.setAppId(srcAppId);
@@ -123,12 +124,12 @@ public final class AwakeManager {
                         } else if (HelpType.PROVIDER.typeValue.equals(helpType)) {
                             AwakeManager.this.doAwake(HelpType.PROVIDER, context2, localAwakeInfo);
                         } else {
-                            AwakeUploadHelper.uploadData(context2, str, 1008, "A receive a incorrect message with unknown type " + helpType);
+                            AwakeUploadHelper.uploadData(context2, str, ErrorCode.MAX_DURATION_REACHED, "A receive a incorrect message with unknown type " + helpType);
                         }
                     }
                 } catch (Throwable e) {
                     MyLog.e(e);
-                    AwakeUploadHelper.uploadData(context2, str, 1008, "A meet a exception when receive the message");
+                    AwakeUploadHelper.uploadData(context2, str, ErrorCode.MAX_DURATION_REACHED, "A meet a exception when receive the message");
                 }
             }
         });
@@ -138,7 +139,7 @@ public final class AwakeManager {
         if (helpType != null) {
             ((IAwakeModule) this.mModuleMap.get(helpType)).doSendAwakeResult(context, intent, uri);
         } else {
-            AwakeUploadHelper.uploadData(context, "null", 1008, "A receive a incorrect message with empty type");
+            AwakeUploadHelper.uploadData(context, "null", ErrorCode.MAX_DURATION_REACHED, "A receive a incorrect message with empty type");
         }
     }
 

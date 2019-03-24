@@ -3,6 +3,7 @@ package com.xiaomi.mistatistic.sdk.controller;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
+import com.miui.internal.vip.VipConstants;
 import com.xiaomi.mistatistic.sdk.b;
 import com.xiaomi.mistatistic.sdk.controller.e.a;
 import com.xiaomi.mistatistic.sdk.data.StatEventPojo;
@@ -202,7 +203,7 @@ public class s {
     }
 
     public void a(long j, long j2) {
-        if (j <= 0 || j2 <= 0 || j < j2 || j > 3600000) {
+        if (j <= 0 || j2 <= 0 || j < j2 || j > VipConstants.HOUR) {
             j.d("UPE", "basicInterval or minInterval is wrong");
             return;
         }

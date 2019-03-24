@@ -1,5 +1,6 @@
 package com.meicam.sdk;
 
+import com.miui.internal.vip.utils.AuthHttpRequest;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -33,7 +34,7 @@ public class NvsHttpsRequest {
             }
         }
         HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str2).openConnection();
-        httpURLConnection.setRequestMethod("GET");
+        httpURLConnection.setRequestMethod(AuthHttpRequest.METHOD_GET);
         httpURLConnection.setUseCaches(false);
         httpURLConnection.setConnectTimeout(5000);
         httpURLConnection.connect();

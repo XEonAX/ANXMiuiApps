@@ -42,6 +42,7 @@ import com.miui.gallery.util.SafeDBUtil.QueryHandler;
 import com.miui.gallery.util.UriUtil;
 import com.miui.gallery.util.assistant.FlagUtil;
 import com.miui.gallery.util.assistant.ImageUtil;
+import com.miui.internal.vip.VipConstants;
 import com.miui.os.Rom;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -52,6 +53,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import miui.hybrid.Response;
 
 public class ImageFeatureManger {
     private static boolean sIsSupportImageFeatureSelection;
@@ -222,8 +224,8 @@ public class ImageFeatureManger {
                     }
                 }
             };
-            Log.d("ImageFeatureManger", "Start process recent %d images for image selection", Integer.valueOf(200));
-            List<MediaFeatureItem> recentImages = (List) SafeDBUtil.safeQuery(GalleryApp.sGetAndroidContext(), UriUtil.appendLimit(Cloud.CLOUD_URI, 200), MediaFeatureItem.PROJECTION, ScenarioConstants.ALL_IMAGE_BASE_SELECTION, null, "mixedDateTime DESC", new QueryHandler<List<MediaFeatureItem>>() {
+            Log.d("ImageFeatureManger", "Start process recent %d images for image selection", Integer.valueOf(Response.CODE_GENERIC_ERROR));
+            List<MediaFeatureItem> recentImages = (List) SafeDBUtil.safeQuery(GalleryApp.sGetAndroidContext(), UriUtil.appendLimit(Cloud.CLOUD_URI, Response.CODE_GENERIC_ERROR), MediaFeatureItem.PROJECTION, ScenarioConstants.ALL_IMAGE_BASE_SELECTION, null, "mixedDateTime DESC", new QueryHandler<List<MediaFeatureItem>>() {
                 public List<MediaFeatureItem> handle(Cursor cursor) {
                     if (cursor == null || !cursor.moveToFirst()) {
                         return null;
@@ -262,7 +264,7 @@ public class ImageFeatureManger {
                 MediaFeatureItem mediaFeatureItem = (MediaFeatureItem) recentImages.get(i);
                 if (i < recentImages.size() - 1 && mediaFeatureItem.isSelectionFeatureDone() && !((MediaFeatureItem) recentImages.get(i + 1)).isSelectionFeatureDone()) {
                     toProcessedImages.add(mediaFeatureItem);
-                } else if (!mediaFeatureItem.isSelectionFeatureDone() || (!toProcessedImages.isEmpty() && DateUtils.withinTime(((MediaFeatureItem) toProcessedImages.get(toProcessedImages.size() - 1)).getDateTime(), mediaFeatureItem.getDateTime(), 3600000))) {
+                } else if (!mediaFeatureItem.isSelectionFeatureDone() || (!toProcessedImages.isEmpty() && DateUtils.withinTime(((MediaFeatureItem) toProcessedImages.get(toProcessedImages.size() - 1)).getDateTime(), mediaFeatureItem.getDateTime(), VipConstants.HOUR))) {
                     toProcessedImages.add(mediaFeatureItem);
                 }
                 if (toProcessedImages.size() >= imageCountOnce) {
@@ -328,7 +330,7 @@ public class ImageFeatureManger {
     }
 
     public static List<MediaFeatureItem> queryNearByMediaItems(long time) {
-        return (List) SafeDBUtil.safeQuery(GalleryApp.sGetAndroidContext(), Cloud.CLOUD_URI, MediaFeatureItem.PROJECTION, String.format("%s < %s AND %s > %s", new Object[]{"mixedDateTime", Long.valueOf(time), "mixedDateTime", Long.valueOf(time - 3600000)}), null, "mixedDateTime DESC", new QueryHandler<List<MediaFeatureItem>>() {
+        return (List) SafeDBUtil.safeQuery(GalleryApp.sGetAndroidContext(), Cloud.CLOUD_URI, MediaFeatureItem.PROJECTION, String.format("%s < %s AND %s > %s", new Object[]{"mixedDateTime", Long.valueOf(time), "mixedDateTime", Long.valueOf(time - VipConstants.HOUR)}), null, "mixedDateTime DESC", new QueryHandler<List<MediaFeatureItem>>() {
             public List<MediaFeatureItem> handle(Cursor cursor) {
                 return MediaFeatureItem.getMediaFeatureItemsFromCursor(cursor);
             }

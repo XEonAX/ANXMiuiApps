@@ -7,6 +7,7 @@ import android.os.Build.VERSION;
 import com.xiaomi.channel.commonutils.misc.CollectionUtils;
 import com.xiaomi.xmpush.thrift.ClientCollectionType;
 import java.util.Set;
+import miui.provider.ExtraContacts.ConferenceCalls;
 
 public class BluetoothCollectionJob extends CollectionJob {
     public BluetoothCollectionJob(Context context, int period) {
@@ -24,7 +25,7 @@ public class BluetoothCollectionJob extends CollectionJob {
                         break;
                     }
                     if (builder.length() > 0) {
-                        builder.append(";");
+                        builder.append(ConferenceCalls.SPLIT_EXPRESSION);
                     }
                     builder.append(device.getName()).append(",").append(device.getAddress()).append(",");
                     if (VERSION.SDK_INT >= 18) {

@@ -2,7 +2,6 @@ package com.xiaomi.slim;
 
 import android.os.Build;
 import android.os.Build.VERSION;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import com.xiaomi.channel.commonutils.logger.MyLog;
 import com.xiaomi.push.protobuf.ChannelMessage.PushServiceConfigMsg;
 import com.xiaomi.push.protobuf.ChannelMessage.XMMsgConn;
@@ -15,6 +14,7 @@ import java.nio.ByteBuffer;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.zip.Adler32;
+import miui.date.Calendar;
 
 public class BlobWriter {
     ByteBuffer mBuffer = ByteBuffer.allocate(2048);
@@ -30,7 +30,7 @@ public class BlobWriter {
         this.mOut = new BufferedOutputStream(out);
         this.mConnection = conn;
         TimeZone tz = TimeZone.getDefault();
-        this.mTimeZone = tz.getRawOffset() / 3600000;
+        this.mTimeZone = tz.getRawOffset() / Calendar.MILLISECOND_OF_HOUR;
         this.mDSTSavings = tz.useDaylightTime() ? 1 : 0;
     }
 
@@ -68,7 +68,7 @@ public class BlobWriter {
 
     public void openStream() throws IOException {
         XMMsgConn msgConn = new XMMsgConn();
-        msgConn.setVersion(BaiduSceneResult.PALACE);
+        msgConn.setVersion(106);
         msgConn.setModel(Build.MODEL);
         msgConn.setOs(VERSION.INCREMENTAL);
         msgConn.setUdid(ServiceConfig.getDeviceUUID());

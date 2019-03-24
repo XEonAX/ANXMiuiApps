@@ -15,6 +15,7 @@ import com.miui.gallery.stat.BaseSamplingStatHelper;
 import com.miui.gallery.ui.AIAlbumStatusHelper;
 import com.miui.gallery.util.GalleryIntent.CloudGuideSource;
 import com.miui.gallery.util.IntentUtil;
+import miui.yellowpage.YellowPageContract.Search;
 
 public class StatusHandleHelper {
     private int mBaseStatus = -1;
@@ -187,7 +188,7 @@ public class StatusHandleHelper {
                         public void onClick(View v) {
                             AIAlbumStatusHelper.setLocalSearchStatus(AbstractErrorViewAdapter.this.mContext, true);
                             AbstractErrorViewAdapter.this.requestRetry();
-                            BaseSamplingStatHelper.recordCountEvent("search", "search_open_switch");
+                            BaseSamplingStatHelper.recordCountEvent(Search.DIRECTORY, "search_open_switch");
                         }
                     });
                     return;

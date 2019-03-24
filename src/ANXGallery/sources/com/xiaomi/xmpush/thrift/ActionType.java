@@ -1,6 +1,7 @@
 package com.xiaomi.xmpush.thrift;
 
 import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
+import miui.hybrid.Response;
 
 public enum ActionType {
     Registration(1),
@@ -27,19 +28,19 @@ public enum ActionType {
     DeleteInvalidMessage(24),
     BadAction(99),
     Presence(100),
-    FetchOfflineMessage(BaiduSceneResult.SHOOTING),
-    SaveJob(BaiduSceneResult.TAEKWONDO),
-    Broadcast(BaiduSceneResult.MOUNTAINEERING),
-    BatchPresence(BaiduSceneResult.SPORTS_OTHER),
-    BatchMessage(BaiduSceneResult.TEMPLE),
-    StatCounter(BaiduSceneResult.GARDEN),
-    FetchTopicMessage(BaiduSceneResult.ANCIENT_CHINESE_ARCHITECTURE),
+    FetchOfflineMessage(101),
+    SaveJob(102),
+    Broadcast(103),
+    BatchPresence(104),
+    BatchMessage(105),
+    StatCounter(107),
+    FetchTopicMessage(108),
     DeleteAliasCache(BaiduSceneResult.CHURCH),
     UpdateRegistration(BaiduSceneResult.CASTLE),
     BatchMessageNew(BaiduSceneResult.STREET_VIEW),
     PublicWelfareMessage(BaiduSceneResult.FOUNTAIN),
     RevokeMessage(BaiduSceneResult.BRIDGE),
-    SimulatorJob(200);
+    SimulatorJob(Response.CODE_GENERIC_ERROR);
     
     private final int value;
 
@@ -101,19 +102,19 @@ public enum ActionType {
                 return BadAction;
             case 100:
                 return Presence;
-            case BaiduSceneResult.SHOOTING /*101*/:
+            case 101:
                 return FetchOfflineMessage;
-            case BaiduSceneResult.TAEKWONDO /*102*/:
+            case 102:
                 return SaveJob;
-            case BaiduSceneResult.MOUNTAINEERING /*103*/:
+            case 103:
                 return Broadcast;
-            case BaiduSceneResult.SPORTS_OTHER /*104*/:
+            case 104:
                 return BatchPresence;
-            case BaiduSceneResult.TEMPLE /*105*/:
+            case 105:
                 return BatchMessage;
-            case BaiduSceneResult.GARDEN /*107*/:
+            case 107:
                 return StatCounter;
-            case BaiduSceneResult.ANCIENT_CHINESE_ARCHITECTURE /*108*/:
+            case 108:
                 return FetchTopicMessage;
             case BaiduSceneResult.CHURCH /*109*/:
                 return DeleteAliasCache;
@@ -125,7 +126,7 @@ public enum ActionType {
                 return PublicWelfareMessage;
             case BaiduSceneResult.BRIDGE /*114*/:
                 return RevokeMessage;
-            case 200:
+            case Response.CODE_GENERIC_ERROR /*200*/:
                 return SimulatorJob;
             default:
                 return null;

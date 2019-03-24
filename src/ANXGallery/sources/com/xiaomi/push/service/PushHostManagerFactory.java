@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.net.Uri.Builder;
 import android.os.Build;
 import android.os.Build.VERSION;
+import com.miui.internal.vip.VipConstants;
 import com.xiaomi.channel.commonutils.android.SystemUtils;
 import com.xiaomi.channel.commonutils.logger.MyLog;
 import com.xiaomi.channel.commonutils.network.Network;
@@ -25,6 +26,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
+import miui.content.ExtraIntent;
 
 public class PushHostManagerFactory extends Listener implements HostManagerFactory {
     private long lastFetchTime;
@@ -85,7 +87,7 @@ public class PushHostManagerFactory extends Listener implements HostManagerFacto
         ServiceConfig.getInstance().addListener(factory);
         synchronized (HostManager.class) {
             HostManager.setHostManagerFactory(factory);
-            HostManager.init(pushService, null, new GslbHttpGet(), "0", "push", "2.2");
+            HostManager.init(pushService, null, new GslbHttpGet(), "0", ExtraIntent.EXTRA_FIND_DEVICE_V2_COMMAND_TYPE_PUSH, "2.2");
         }
     }
 
@@ -94,7 +96,7 @@ public class PushHostManagerFactory extends Listener implements HostManagerFacto
     }
 
     public void onConfigMsgReceive(PushServiceConfigMsg config) {
-        if (config.hasFetchBucket() && config.getFetchBucket() && System.currentTimeMillis() - this.lastFetchTime > 3600000) {
+        if (config.hasFetchBucket() && config.getFetchBucket() && System.currentTimeMillis() - this.lastFetchTime > VipConstants.HOUR) {
             MyLog.w("fetch bucket :" + config.getFetchBucket());
             this.lastFetchTime = System.currentTimeMillis();
             HostManager hostManager = HostManager.getInstance();

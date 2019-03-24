@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import com.xiaomi.xmpush.thrift.PushMetaInfo;
 import com.xiaomi.xmpush.thrift.XmPushActionSendMessage;
 import java.util.List;
+import miui.mipub.MipubStat;
 
 public class PushMessageHelper {
     private static int pushMode = 0;
@@ -47,7 +48,7 @@ public class PushMessageHelper {
     public static void sendCommandMessageBroadcast(Context context, MiPushCommandMessage commandMessage) {
         Intent intent = new Intent("com.xiaomi.mipush.RECEIVE_MESSAGE");
         intent.setPackage(context.getPackageName());
-        intent.putExtra("message_type", 3);
+        intent.putExtra(MipubStat.STAT_MSG_TYPE, 3);
         intent.putExtra("key_command", commandMessage);
         new PushServiceReceiver().onReceive(context, intent);
     }

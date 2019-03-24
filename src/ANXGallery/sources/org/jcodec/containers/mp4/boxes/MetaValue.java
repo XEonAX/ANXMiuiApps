@@ -1,5 +1,6 @@
 package org.jcodec.containers.mp4.boxes;
 
+import com.miui.internal.view.menu.MenuBuilder;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import org.jcodec.platform.Platform;
@@ -111,7 +112,7 @@ public class MetaValue {
     private int toInt24(byte[] data) {
         ByteBuffer bb = ByteBuffer.wrap(data);
         bb.order(ByteOrder.BIG_ENDIAN);
-        return ((bb.getShort() & 65535) << 8) | (bb.get() & 255);
+        return ((bb.getShort() & MenuBuilder.USER_MASK) << 8) | (bb.get() & 255);
     }
 
     private int toInt32(byte[] data) {

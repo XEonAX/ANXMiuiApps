@@ -1,6 +1,5 @@
 package com.miui.gallery.card.scenario;
 
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import com.miui.gallery.cloud.CloudTableUtils;
 
 public class ScenarioConstants {
@@ -13,5 +12,5 @@ public class ScenarioConstants {
     public static final Integer[] TAGS_FOODS = new Integer[]{Integer.valueOf(4), Integer.valueOf(5), Integer.valueOf(6), Integer.valueOf(7), Integer.valueOf(8), Integer.valueOf(9), Integer.valueOf(10), Integer.valueOf(11), Integer.valueOf(12), Integer.valueOf(13), Integer.valueOf(14), Integer.valueOf(15), Integer.valueOf(16), Integer.valueOf(17), Integer.valueOf(18), Integer.valueOf(19), Integer.valueOf(20), Integer.valueOf(21), Integer.valueOf(22)};
     public static final Integer[] TAGS_PARTY = new Integer[]{Integer.valueOf(2), Integer.valueOf(51)};
     public static final Integer[] TAGS_PETS = new Integer[]{Integer.valueOf(40), Integer.valueOf(41)};
-    public static final Integer[] TAGS_SPORTS = new Integer[]{Integer.valueOf(80), Integer.valueOf(81), Integer.valueOf(82), Integer.valueOf(84), Integer.valueOf(85), Integer.valueOf(86), Integer.valueOf(87), Integer.valueOf(88), Integer.valueOf(BaiduSceneResult.MOUNTAINEERING), Integer.valueOf(90), Integer.valueOf(92), Integer.valueOf(99)};
+    public static final Integer[] TAGS_SPORTS = new Integer[]{Integer.valueOf(80), Integer.valueOf(81), Integer.valueOf(82), Integer.valueOf(84), Integer.valueOf(85), Integer.valueOf(86), Integer.valueOf(87), Integer.valueOf(88), Integer.valueOf(103), Integer.valueOf(90), Integer.valueOf(92), Integer.valueOf(99)};
 }

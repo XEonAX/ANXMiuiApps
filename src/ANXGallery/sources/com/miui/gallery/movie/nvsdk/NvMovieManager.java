@@ -32,6 +32,7 @@ import com.miui.gallery.util.ScreenUtils;
 import com.miui.os.Rom;
 import java.util.ArrayList;
 import java.util.List;
+import miui.media.Mp3Encoder;
 
 public class NvMovieManager extends MovieManager {
     private static final String[] sCompileRateBlackList = new String[]{"grus"};
@@ -74,7 +75,7 @@ public class NvMovieManager extends MovieManager {
         videoEditRes.imagePAR = new NvsRational(1, 1);
         NvsRational videoFps = new NvsRational(25, 1);
         NvsAudioResolution audioEditRes = new NvsAudioResolution();
-        audioEditRes.sampleRate = 44100;
+        audioEditRes.sampleRate = Mp3Encoder.DEFAULT_SAMPLE_RATE;
         audioEditRes.channelCount = 2;
         this.mTimeline = this.mStreamingContext.createTimeline(videoEditRes, videoFps, audioEditRes);
         if (this.mTimeline == null) {

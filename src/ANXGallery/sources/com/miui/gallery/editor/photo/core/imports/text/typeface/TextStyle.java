@@ -9,6 +9,7 @@ import com.miui.gallery.editor.photo.core.imports.text.TextFontConfig;
 import com.miui.gallery.editor.photo.core.imports.text.model.FontBean;
 import java.io.File;
 import java.text.DecimalFormat;
+import miui.yellowpage.YellowPageContract.Search;
 
 public class TextStyle extends FontBean implements Parcelable, Comparable<TextStyle> {
     public static final Creator<TextStyle> CREATOR = new Creator<TextStyle>() {
@@ -32,7 +33,7 @@ public class TextStyle extends FontBean implements Parcelable, Comparable<TextSt
     public static TextStyle getLocalTextStyle() {
         TextStyle fontResource = new TextStyle();
         fontResource.state = 17;
-        fontResource.type = "local";
+        fontResource.type = Search.LOCAL_SEARCH;
         fontResource.defaultNameResId = R.string.photo_editor_font_default;
         fontResource.typeFace = Typeface.DEFAULT;
         return fontResource;
@@ -71,7 +72,7 @@ public class TextStyle extends FontBean implements Parcelable, Comparable<TextSt
     }
 
     public boolean isLocal() {
-        return "local".equals(this.type);
+        return Search.LOCAL_SEARCH.equals(this.type);
     }
 
     public int getState() {

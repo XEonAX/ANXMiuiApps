@@ -3,6 +3,7 @@ package com.miui.gallery.receiver;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SystemIntent;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -80,8 +81,8 @@ public class MiuiCameraCaptureReceiver extends BroadcastReceiver {
 
     public void onReceive(Context context, Intent intent) {
         String broadcastAction = intent.getAction();
-        if ("com.miui.gallery.SAVE_TO_CLOUD".equals(broadcastAction)) {
-            final String filePath = intent.getStringExtra("extra_file_path");
+        if (SystemIntent.ACTION_SAVE_TO_CLOUD_GALLERY.equals(broadcastAction)) {
+            final String filePath = intent.getStringExtra(SystemIntent.EXTRA_FILE_PATH);
             long mediaStoreId = intent.getLongExtra("extra_media_store_id", -1);
             boolean isTempFile = intent.getBooleanExtra("extra_is_temp_file", false);
             LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
@@ -121,7 +122,7 @@ public class MiuiCameraCaptureReceiver extends BroadcastReceiver {
                 mainHandler.postDelayed(sPreloadBigPhotoRunnable, delayTime);
             }
         } else if ("com.miui.gallery.DELETE_FROM_CLOUD".equals(broadcastAction)) {
-            final Object filePath2 = intent.getStringExtra("extra_file_path");
+            final Object filePath2 = intent.getStringExtra(SystemIntent.EXTRA_FILE_PATH);
             if (!TextUtils.isEmpty(filePath2)) {
                 Log.d("MiuiCameraCaptureReceiver", "ACTION_DELETE_FROM_CLOUD start %s", filePath2);
                 final Context context3 = context;

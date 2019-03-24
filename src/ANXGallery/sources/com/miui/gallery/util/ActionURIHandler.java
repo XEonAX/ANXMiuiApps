@@ -12,18 +12,20 @@ import com.miui.gallery.search.statistics.SearchStatUtils;
 import com.miui.gallery.ui.JumpDialogFragment;
 import com.miui.gallery.util.GalleryIntent.CloudGuideSource;
 import java.util.Map;
+import miui.util.PlayerActions.Out;
+import miui.yellowpage.YellowPageContract.Search;
 
 public class ActionURIHandler {
     protected static final UriMatcher sURIMatcher = new UriMatcher(-1);
 
     static {
         sURIMatcher.addURI("gallery.i.mi.com", "people", 1);
-        sURIMatcher.addURI("gallery.i.mi.com", "album", 2);
+        sURIMatcher.addURI("gallery.i.mi.com", Out.KEY_ALBUM, 2);
         sURIMatcher.addURI("gallery.i.mi.com", "trash_bin", 3);
         sURIMatcher.addURI("gallery.i.mi.com", "secret_album", 4);
         sURIMatcher.addURI("gallery.i.mi.com", "peoples", 5);
         sURIMatcher.addURI("gallery.i.mi.com", "result", 6);
-        sURIMatcher.addURI("gallery.i.mi.com", "search", 7);
+        sURIMatcher.addURI("gallery.i.mi.com", Search.DIRECTORY, 7);
         sURIMatcher.addURI("gallery.i.mi.com", "cloud_guide", 8);
         sURIMatcher.addURI("gallery.i.mi.com", "sync_switch", 9);
         sURIMatcher.addURI("gallery.i.mi.com", "photo_movie", 10);
@@ -112,7 +114,7 @@ public class ActionURIHandler {
                     return;
                 case 12:
                     String type = uri.getQueryParameter("actionType");
-                    if ("album".equals(type)) {
+                    if (Out.KEY_ALBUM.equals(type)) {
                         if (extras != null) {
                             IntentUtil.gotoStoryAlbum(activity, extras.getLong("card_id"));
                             return;

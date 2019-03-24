@@ -6,6 +6,7 @@ import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
+import miui.util.CoderUtils;
 import org.keyczar.Keyczar;
 
 public class AESCoder implements CryptCoder {
@@ -39,7 +40,7 @@ public class AESCoder implements CryptCoder {
 
     public byte[] decrypt(byte[] cipherData) throws CipherException {
         try {
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            Cipher cipher = Cipher.getInstance(CoderUtils.AES_ALGORITHM);
             cipher.init(2, this.keySpec, new IvParameterSpec(getInitalVector()));
             if (cipherData != null) {
                 return cipher.doFinal(cipherData);
@@ -64,7 +65,7 @@ public class AESCoder implements CryptCoder {
 
     public byte[] encrypt(byte[] rawData) throws CipherException {
         try {
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            Cipher cipher = Cipher.getInstance(CoderUtils.AES_ALGORITHM);
             cipher.init(1, this.keySpec, new IvParameterSpec(getInitalVector()));
             return cipher.doFinal(rawData);
         } catch (Exception e) {

@@ -13,6 +13,7 @@ import com.miui.gallery.share.AlbumShareUIManager.OnCompletionListener;
 import com.miui.gallery.share.DBCache.OnDBCacheChangedListener;
 import com.miui.gallery.share.GridPreferenceBase.OnItemClickListener;
 import com.miui.gallery.stat.BaseSamplingStatHelper;
+import com.miui.internal.analytics.NormalPolicy;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import java.util.Comparator;
 import java.util.List;
@@ -170,6 +171,6 @@ public abstract class ShareAlbumBaseActivity extends PreferenceActivity implemen
         if (babyInfo == null) {
             return new CloudUserCacheEntry(this.mAlbumId, ownerId, 0, null, null, null, null);
         }
-        return new CloudUserCacheEntry(this.mAlbumId, ownerId, 0, babyInfo.mRelation, babyInfo.mRelationText, "normal", null);
+        return new CloudUserCacheEntry(this.mAlbumId, ownerId, 0, babyInfo.mRelation, babyInfo.mRelationText, NormalPolicy.TAG, null);
     }
 }

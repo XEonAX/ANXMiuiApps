@@ -33,6 +33,7 @@ import com.miui.gallery.collage.render.CollageRender.ImageLocationProcessor;
 import com.miui.gallery.editor.photo.app.MatrixEvaluator;
 import com.miui.gallery.editor.photo.core.imports.obsoletes.RectFEvaluator;
 import com.miui.gallery.util.Log;
+import miui.hybrid.Response;
 import miui.view.animation.CubicEaseInOutInterpolator;
 import miui.view.animation.CubicEaseOutInterpolator;
 
@@ -229,7 +230,7 @@ public class CollageLayout extends ViewGroup {
         void show(AnimatorUpdateListener animatorUpdateListener) {
             r0 = new PropertyValuesHolder[2];
             r0[0] = PropertyValuesHolder.ofFloat("scale", new float[]{this.mScale, 1.1f});
-            r0[1] = PropertyValuesHolder.ofInt("alpha", new int[]{this.mBitmapPaint.getAlpha(), 200});
+            r0[1] = PropertyValuesHolder.ofInt("alpha", new int[]{this.mBitmapPaint.getAlpha(), Response.CODE_GENERIC_ERROR});
             this.mShowAnimator = ObjectAnimator.ofPropertyValuesHolder(this, r0);
             this.mShowAnimator.setDuration(380);
             this.mShowAnimator.setInterpolator(new CubicEaseInOutInterpolator());

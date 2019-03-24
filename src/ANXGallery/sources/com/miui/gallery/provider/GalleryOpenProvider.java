@@ -29,10 +29,14 @@ import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
+import miui.provider.Notes.Data;
+import miui.util.PlayerActions.Out;
+import miui.yellowpage.YellowPageContract.ImageLookup;
+import miui.yellowpage.YellowPageStatistic.Display;
 
 public class GalleryOpenProvider extends ContentProvider {
     private static final String[] CLOUD_COLUMNS = new String[]{"_id", "serverType", "exifGPSLatitude", "exifGPSLatitudeRef", "exifGPSLongitude", "exifGPSLongitudeRef", "dateTaken", "exifOrientation", "localGroupId", "microthumbfile", "thumbnailFile", "localFile", "size", "fileName", "title", "dateModified", "mimeType", "exifImageWidth", "exifImageLength", "duration"};
-    private static final String[] MEDIA_COLUMNS = new String[]{"_id", "_data", "_size", "_display_name", "title", "date_added", "date_modified", "mime_type", nexExportFormat.TAG_FORMAT_WIDTH, nexExportFormat.TAG_FORMAT_HEIGHT, "description", "picasa_id", "isprivate", "latitude", "longitude", "datetaken", "orientation", "mini_thumb_magic", "bucket_id", "bucket_display_name", "bookmark", "album", "artist", "category", "duration", "language", "resolution", "tags", "mini_thumb_data", "media_type"};
+    private static final String[] MEDIA_COLUMNS = new String[]{"_id", "_data", "_size", "_display_name", "title", "date_added", "date_modified", Data.MIME_TYPE, "width", nexExportFormat.TAG_FORMAT_HEIGHT, "description", "picasa_id", "isprivate", "latitude", "longitude", "datetaken", "orientation", "mini_thumb_magic", "bucket_id", "bucket_display_name", "bookmark", Out.KEY_ALBUM, Out.KEY_ARTIST, Display.CATEGORY, "duration", "language", "resolution", "tags", "mini_thumb_data", "media_type"};
     private static final String[] NEED_RETURN_CONTENT_URI_SYSTEM_APPS = new String[]{"com.android.bluetooth"};
     private static final String[] PRIVACY_COLUMNS = new String[]{"latitude", "longitude"};
     private static final String TAG = GalleryOpenProvider.class.getSimpleName();
@@ -329,7 +333,7 @@ public class GalleryOpenProvider extends ContentProvider {
             String table;
             Log.d(TAG, "insert cache success: %d", Long.valueOf(id));
             if (info.mType == 1) {
-                table = "image";
+                table = ImageLookup.DIRECTORY_IMAGE;
             } else {
                 table = "video";
             }

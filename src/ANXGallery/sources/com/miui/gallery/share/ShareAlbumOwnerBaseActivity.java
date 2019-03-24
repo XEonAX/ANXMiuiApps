@@ -20,6 +20,7 @@ import com.miui.gallery.share.AlbumShareUIManager.OnCompletionListener;
 import com.miui.gallery.share.ShareAlbumBaseActivity.UserCacheDescComparator;
 import com.miui.gallery.threadpool.Future;
 import com.miui.gallery.threadpool.ThreadManager;
+import com.miui.internal.analytics.NormalPolicy;
 import java.util.Collections;
 import java.util.List;
 
@@ -190,7 +191,7 @@ public abstract class ShareAlbumOwnerBaseActivity extends ShareAlbumBaseActivity
             CloudUserCacheEntry entry = this.mShareUserGridAdapter.getItem(position);
             if (entry == null || (TextUtils.isEmpty(entry.mUserId) && TextUtils.isEmpty(entry.mServerStatus))) {
                 showAddSharerDialog(entry);
-            } else if (!TextUtils.equals(entry.mServerStatus, "normal")) {
+            } else if (!TextUtils.equals(entry.mServerStatus, NormalPolicy.TAG)) {
             } else {
                 if (TextUtils.equals(this.mCreatorId, entry.mUserId)) {
                     UIHelper.toast((int) R.string.cannot_remove_creator);

@@ -38,9 +38,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
+import miui.hybrid.Response;
 
 public final class BatchDownloadManager implements Callback {
-    private static final int[] COUNT_STAGE = new int[]{20, 50, 100, 200, 500, 1000, 3000, 5000, 10000};
+    private static final int[] COUNT_STAGE = new int[]{20, 50, 100, Response.CODE_GENERIC_ERROR, 500, 1000, 3000, 5000, 10000};
     private static volatile boolean sHasDownloaded = false;
     private List<OnBatchDownloadListener> mBatchDownloadListeners;
     private final Object mCollectionLock;

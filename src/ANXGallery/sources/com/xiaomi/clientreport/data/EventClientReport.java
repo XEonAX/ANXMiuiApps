@@ -1,5 +1,6 @@
 package com.xiaomi.clientreport.data;
 
+import android.content.MiuiIntent;
 import com.xiaomi.channel.commonutils.logger.MyLog;
 import org.json.JSONObject;
 
@@ -15,7 +16,7 @@ public class EventClientReport extends BaseClientReport {
             if (jo == null) {
                 return null;
             }
-            jo.put("eventId", this.eventId);
+            jo.put(MiuiIntent.EXTRA_TRACK_EVENT_ID, this.eventId);
             jo.put("eventType", this.eventType);
             jo.put("eventTime", this.eventTime);
             jo.put("eventContent", this.eventContent);

@@ -13,6 +13,7 @@ import com.xiaomi.xmpush.thrift.ClientCollectionType;
 import java.net.NetworkInterface;
 import java.util.Collections;
 import java.util.Iterator;
+import miui.provider.ExtraContacts.ConferenceCalls;
 
 public class DeviceBaseInfoCollectionJob extends CollectionJob {
     private boolean androidDeviceIdSwitch;
@@ -140,7 +141,7 @@ public class DeviceBaseInfoCollectionJob extends CollectionJob {
             while (it.hasNext()) {
                 String id = (String) it.next();
                 if (!TextUtils.isEmpty(result)) {
-                    result = result + ";";
+                    result = result + ConferenceCalls.SPLIT_EXPRESSION;
                 }
                 result = result + XMStringUtils.getMd5Digest(id) + "," + XMStringUtils.getSHA1Digest(id);
             }

@@ -21,6 +21,7 @@ import com.miui.gallery.util.photoview.TrimMemoryCallback;
 import com.miui.os.Rom;
 import java.util.HashMap;
 import java.util.Locale;
+import miui.yellowpage.Tag.TagYellowPage;
 import uk.co.senab.photoview.PhotoViewAttacher.OnBackgroundAlphaChangedListener;
 import uk.co.senab.photoview.PhotoViewAttacher.OnExitListener;
 import uk.co.senab.photoview.PhotoViewAttacher.OnMatrixChangedListener;
@@ -335,7 +336,7 @@ public class PhotoView extends ImageView implements IPhotoView {
                 LogManager.getLogger().e("PhotoView", String.format("bitmap illegal [%d, %d]", new Object[]{Integer.valueOf(width), Integer.valueOf(height)}));
                 HashMap<String, String> params = new HashMap();
                 params.put("size", String.format(Locale.US, "%d_%d", new Object[]{Integer.valueOf(width), Integer.valueOf(height)}));
-                BaseSamplingStatHelper.recordErrorEvent("photo", "photo_bitmap_recycled", params);
+                BaseSamplingStatHelper.recordErrorEvent(TagYellowPage.PHOTO, "photo_bitmap_recycled", params);
                 return false;
             }
         }

@@ -64,7 +64,7 @@ public class DataPackage implements Parcelable {
     }
 
     public void appendToWrappedBundle(Bundle bundle) {
-        bundle.putBundle("data_package", getDataPackageBundle());
+        bundle.putBundle(miui.cloud.backup.data.DataPackage.KEY_DATA_PACKAGE, getDataPackageBundle());
     }
 
     public int describeContents() {

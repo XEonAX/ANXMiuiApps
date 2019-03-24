@@ -34,7 +34,9 @@ import com.miui.gallery.util.DocumentProviderUtils;
 import com.miui.gallery.util.Log;
 import com.miui.gallery.util.ReceiverUtils;
 import miui.app.ActionBar.FragmentViewPagerChangeListener;
+import miui.util.PlayerActions.Out;
 import miui.view.ViewPager;
+import miui.yellowpage.YellowPageStatistic.Display;
 
 public class HomePageActivity extends BaseActivity implements Attacher, OnAppFocusedListener {
     private AppFocusedCheckHelper mAppFocusedCheckHelper;
@@ -217,10 +219,10 @@ public class HomePageActivity extends BaseActivity implements Attacher, OnAppFoc
 
     private String getPageName(int position) {
         if (position == 0) {
-            return "home";
+            return Display.HOME;
         }
         if (position == 1) {
-            return "album";
+            return Out.KEY_ALBUM;
         }
         if (position == 2) {
             return "assistant";

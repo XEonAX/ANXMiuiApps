@@ -13,7 +13,6 @@ import android.content.SyncResult;
 import android.content.SyncStats;
 import android.os.Bundle;
 import android.util.Log;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import com.xiaomi.micloudsdk.data.ExtendedAuthToken;
 import com.xiaomi.micloudsdk.exception.CloudServerException;
 import com.xiaomi.micloudsdk.provider.GdprUtils;
@@ -135,7 +134,7 @@ public abstract class SyncAdapterBase extends AbstractThreadedSyncAdapter {
                 account2 = account;
                 str = authority;
                 syncResult2 = syncResult;
-                MiCloudExceptionHandler.handleException(this.mContext, account2, str, syncResult2, new CloudServerException(-10001, (int) BaiduSceneResult.SHOOTING), this.mAuthType, this.mExtTokenStr, extras);
+                MiCloudExceptionHandler.handleException(this.mContext, account2, str, syncResult2, new CloudServerException(-10001, 101), this.mAuthType, this.mExtTokenStr, extras);
                 return;
             }
         }

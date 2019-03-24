@@ -398,7 +398,7 @@ public class JsonReader implements Closeable {
                     last = 3;
                     continue;
                 case 'E':
-                case BaiduSceneResult.SHOOTING /*101*/:
+                case 'e':
                     if (last != 2 && last != 4) {
                         return 0;
                     }
@@ -1116,7 +1116,7 @@ public class JsonReader implements Closeable {
                     break;
                 case BaiduSceneResult.GOLF /*98*/:
                     return 8;
-                case BaiduSceneResult.TAEKWONDO /*102*/:
+                case 'f':
                     return 12;
                 case BaiduSceneResult.CASTLE /*110*/:
                     return 10;

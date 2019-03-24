@@ -39,6 +39,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import miui.util.PlayerActions;
 
 public class AudioFragment extends MenuFragment {
     private AudioRecyclerViewAdapter mAdapter;
@@ -69,7 +70,7 @@ public class AudioFragment extends MenuFragment {
                         Intent intent = new Intent();
                         intent.setType("audio/*");
                         intent.setAction("android.intent.action.GET_CONTENT");
-                        intent.setPackage("com.miui.player");
+                        intent.setPackage(PlayerActions.BROADCAST_PREFIX);
                         try {
                             AudioFragment.this.startActivityForResult(intent, 1000);
                         } catch (ActivityNotFoundException e) {

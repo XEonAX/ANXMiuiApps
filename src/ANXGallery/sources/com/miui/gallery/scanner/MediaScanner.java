@@ -66,6 +66,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
+import miui.provider.ExtraTelephony.DeletableSyncColumns;
 
 public class MediaScanner {
     private static final String[] ALBUM_NAME_CONFLICT_PROJECTION = new String[]{"count(*)"};
@@ -97,7 +98,7 @@ public class MediaScanner {
         }
 
         public static boolean shouldScan(AlbumEntry entry) {
-            return (entry == null || entry.mLocalFlag == 2 || TextUtils.equals(entry.mServerStatus, "deleted") || TextUtils.equals(entry.mServerStatus, "purged")) ? false : true;
+            return (entry == null || entry.mLocalFlag == 2 || TextUtils.equals(entry.mServerStatus, DeletableSyncColumns.DELETED) || TextUtils.equals(entry.mServerStatus, "purged")) ? false : true;
         }
 
         public static boolean isSyncable(int attributes) {

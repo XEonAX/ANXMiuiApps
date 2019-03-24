@@ -1,6 +1,7 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
+import android.content.SystemIntent;
 import com.xiaomi.metoknlp.geofencing.GeoFencingServiceWrapper;
 import com.xiaomi.xmpush.thrift.GeoFencing;
 import com.xiaomi.xmpush.thrift.Location;
@@ -26,12 +27,12 @@ public class GeoFenceRegister {
         }
         if (geoFencing.getCircleCenter() != null && geoFencing.getCircleRadius() > 0.0d) {
             Location locationCenter = geoFencing.getCircleCenter();
-            this.mGeoFencingServiceWrapper.registerFenceListener(this.mContext, locationCenter.getLatitude(), locationCenter.getLongitude(), (float) geoFencing.getCircleRadius(), -1, "com.xiaomi.xmsf", geoFencing.getId(), geoFencing.getCoordinateProvider().name());
+            this.mGeoFencingServiceWrapper.registerFenceListener(this.mContext, locationCenter.getLatitude(), locationCenter.getLongitude(), (float) geoFencing.getCircleRadius(), -1, SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE, geoFencing.getId(), geoFencing.getCoordinateProvider().name());
         }
         return true;
     }
 
     public void unRegisterGeoFencer(String describe) {
-        this.mGeoFencingServiceWrapper.unregisterFenceListener(this.mContext, "com.xiaomi.xmsf", describe);
+        this.mGeoFencingServiceWrapper.unregisterFenceListener(this.mContext, SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE, describe);
     }
 }

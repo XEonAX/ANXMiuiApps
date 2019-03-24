@@ -19,6 +19,8 @@ import com.nostra13.universalimageloader.core.assist.ImageSize;
 import com.nostra13.universalimageloader.core.download.ImageDownloader.Scheme;
 import com.nostra13.universalimageloader.core.imageaware.ImageViewAware;
 import java.lang.ref.WeakReference;
+import miui.yellowpage.YellowPageContract.ImageLookup;
+import miui.yellowpage.YellowPageStatistic.Display;
 
 public class IconImageLoader {
     private static IconImageLoader sLoader;
@@ -97,7 +99,7 @@ public class IconImageLoader {
     }
 
     static {
-        sURIMatcher.addURI("web", null, 1);
+        sURIMatcher.addURI(Display.WEB, null, 1);
     }
 
     public static IconImageLoader getInstance() {
@@ -115,7 +117,7 @@ public class IconImageLoader {
         boolean isImageLoaderSupportedUri = false;
         boolean isGalleryImage = false;
         if (uri != null) {
-            if ("image".equals(uri.getScheme())) {
+            if (ImageLookup.DIRECTORY_IMAGE.equals(uri.getScheme())) {
                 isGalleryImage = true;
             } else if (Scheme.ofUri(uri.toString()) != Scheme.UNKNOWN) {
                 isImageLoaderSupportedUri = true;

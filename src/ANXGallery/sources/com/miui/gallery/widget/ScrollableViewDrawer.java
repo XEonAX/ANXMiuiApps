@@ -17,6 +17,7 @@ import android.widget.ScrollView;
 import android.widget.Scroller;
 import com.miui.gallery.R;
 import com.miui.gallery.util.Log;
+import com.miui.internal.widget.ActionBarMovableLayout;
 import miui.util.AttributeResolver;
 
 public class ScrollableViewDrawer extends FrameLayout {
@@ -460,7 +461,7 @@ public class ScrollableViewDrawer extends FrameLayout {
     private void internalOpenDrawer(boolean withAnimation, DrawerAnimEndListener listener) {
         this.mAnimEndListener = listener;
         if (withAnimation) {
-            this.mScroller.startScroll(0, this.mYOffset, 0, getVerticalRange() - this.mYOffset, 800);
+            this.mScroller.startScroll(0, this.mYOffset, 0, getVerticalRange() - this.mYOffset, ActionBarMovableLayout.DEFAULT_SPRING_BACK_DURATION);
         } else {
             this.mScroller.forceFinished(true);
             this.mYOffset = getVerticalRange();

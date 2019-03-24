@@ -20,6 +20,7 @@ import android.graphics.drawable.NinePatchDrawable;
 import android.util.AttributeSet;
 import android.view.animation.LinearInterpolator;
 import android.widget.ProgressBar;
+import com.miui.internal.widget.ActionModeView;
 
 public class CircleProgressBar extends ProgressBar {
     private Path mArcPath;
@@ -54,7 +55,7 @@ public class CircleProgressBar extends ProgressBar {
     public CircleProgressBar(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         this.mArcPath = new Path();
-        this.mRotateVelocity = 300;
+        this.mRotateVelocity = ActionModeView.ANIMATION_DURATION;
         setIndeterminate(false);
         this.mPaint = new Paint(1);
         this.mPaint.setColor(-16777216);

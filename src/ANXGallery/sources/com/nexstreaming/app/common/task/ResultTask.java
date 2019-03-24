@@ -12,6 +12,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import miui.text.ExtraTextUtils;
 
 public class ResultTask<T> extends Task {
     private T mResult = null;
@@ -53,7 +54,7 @@ public class ResultTask<T> extends Task {
 
     public long getTimeSinceResult() {
         if (didSignalEvent(Event.RESULT_AVAILABLE)) {
-            return (System.nanoTime() - this.mResultTime) / 1000000;
+            return (System.nanoTime() - this.mResultTime) / ExtraTextUtils.MB;
         }
         return -1;
     }

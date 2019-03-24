@@ -1,5 +1,6 @@
 package cn.kuaipan.android.kss.upload;
 
+import android.content.res.MiuiConfiguration;
 import android.util.Log;
 import cn.kuaipan.android.kss.IKssUploadRequestResult;
 import cn.kuaipan.android.kss.KssDef;
@@ -23,7 +24,7 @@ public class KssUploadInfo implements KssDef {
 
     public KssUploadInfo(UploadFileInfo fileInfo, IKssUploadRequestResult requestResult, long generateTime) {
         this.mBroken = false;
-        this.mMaxChunkSize = 4194304;
+        this.mMaxChunkSize = MiuiConfiguration.THEME_FLAG_FREE_HOME;
         this.mExpectInfo = null;
         this.mFileInfo = fileInfo;
         this.mRequestResult = requestResult;

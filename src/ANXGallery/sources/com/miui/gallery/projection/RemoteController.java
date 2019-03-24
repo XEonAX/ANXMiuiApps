@@ -1,6 +1,7 @@
 package com.miui.gallery.projection;
 
 import android.content.Context;
+import android.content.MiuiIntent;
 import android.provider.Settings.System;
 import android.text.TextUtils;
 import com.miui.gallery.projection.RemoteControlReceiver.RemoteControlListener;
@@ -67,7 +68,7 @@ public class RemoteController {
     }
 
     private void enableRemoteControl(Context context) {
-        ReceiverUtils.registerReceiver(context, this.mRemoteControlReceiver, "miui.intent.action.REMOTE_CONTROL");
+        ReceiverUtils.registerReceiver(context, this.mRemoteControlReceiver, MiuiIntent.ACTION_REMOTE_CONTROL);
         System.putString(context.getContentResolver(), "remote_control_pkg_name", context.getPackageName());
         System.putString(context.getContentResolver(), "remote_control_proc_name", context.getPackageName());
         this.mRemoteControlReceiver.setListener(this.mListener);

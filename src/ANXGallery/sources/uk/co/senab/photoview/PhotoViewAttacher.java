@@ -38,12 +38,15 @@ import com.miui.gallery.util.photoview.ItemViewInfo;
 import com.miui.gallery.util.photoview.TileBitProvider;
 import com.miui.gallery.util.photoview.TileView;
 import com.miui.gallery.util.photoview.TrimMemoryCallback;
+import com.miui.internal.widget.ActionModeView;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
+import miui.hybrid.Response;
 import miui.view.animation.CubicEaseOutInterpolator;
+import miui.yellowpage.Tag.TagYellowPage;
 import uk.co.senab.photoview.gestures.OnGestureListener;
 import uk.co.senab.photoview.gestures.RotateGestureDetector;
 import uk.co.senab.photoview.gestures.RotateGestureDetector.OnRotationGestureListener;
@@ -557,11 +560,11 @@ public class PhotoViewAttacher implements OnTouchListener, OnGlobalLayoutListene
         }
 
         private int calculateRotateDuration(float degreesDelta, float velocity) {
-            return 300;
+            return ActionModeView.ANIMATION_DURATION;
         }
 
         private int calculateScaleDuration(float scaleDelta, float velocity) {
-            return 300;
+            return ActionModeView.ANIMATION_DURATION;
         }
 
         public void onRotateEnd(RotateGestureDetector detector, boolean clockwise, float velocity) {
@@ -898,7 +901,7 @@ public class PhotoViewAttacher implements OnTouchListener, OnGlobalLayoutListene
     }
 
     public PhotoViewAttacher(ImageView imageView, boolean zoomable) {
-        this.ZOOM_DURATION = 200;
+        this.ZOOM_DURATION = Response.CODE_GENERIC_ERROR;
         this.EXIT_SCALE_RATIO = 0.8f;
         this.mExitScale = 0.8f;
         this.mDownScale = 1.0f;
@@ -1592,7 +1595,7 @@ public class PhotoViewAttacher implements OnTouchListener, OnGlobalLayoutListene
 
     public void setZoomTransitionDuration(int milliseconds) {
         if (milliseconds < 0) {
-            milliseconds = 200;
+            milliseconds = Response.CODE_GENERIC_ERROR;
         }
         this.ZOOM_DURATION = milliseconds;
     }
@@ -1995,7 +1998,7 @@ public class PhotoViewAttacher implements OnTouchListener, OnGlobalLayoutListene
                     LogManager.getLogger().e("PhotoViewAttacher", String.format("drawable w[%s], h[%s] not equal to tile w[%s], h[%s]; tile rotation[%s]", new Object[]{Integer.valueOf(drawableWidth), Integer.valueOf(drawableHeight), Integer.valueOf(tileWidth), Integer.valueOf(tileHeight), Integer.valueOf(this.mTileView.getTileProviderRotation())}));
                     HashMap<String, String> params = new HashMap();
                     params.put("tile_rotation", String.valueOf(this.mTileView.getTileProviderRotation()));
-                    BaseSamplingStatHelper.recordErrorEvent("photo", "photo_tile_orientation_error", params);
+                    BaseSamplingStatHelper.recordErrorEvent(TagYellowPage.PHOTO, "photo_tile_orientation_error", params);
                 }
             }
         }

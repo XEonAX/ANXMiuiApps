@@ -9,10 +9,12 @@ import com.adobe.xmp.impl.xpath.XMPPathParser;
 import com.adobe.xmp.options.ParseOptions;
 import com.adobe.xmp.options.PropertyOptions;
 import com.adobe.xmp.properties.XMPAliasInfo;
+import com.miui.internal.vip.utils.JsonParser;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import miui.hybrid.Response;
 
 public class XMPNormalizer {
     private static Map dcArrayForms;
@@ -86,7 +88,7 @@ public class XMPNormalizer {
             if (arrayForm != null) {
                 if (currProp.getOptions().isSimple()) {
                     XMPNode newArray = new XMPNode(currProp.getName(), arrayForm);
-                    currProp.setName("[]");
+                    currProp.setName(JsonParser.EMPTY_ARRAY);
                     newArray.addChild(currProp);
                     dcSchema.replaceChild(i, newArray);
                     if (arrayForm.isArrayAltText() && !currProp.getOptions().getHasLanguage()) {
@@ -185,12 +187,12 @@ public class XMPNormalizer {
     private static void transplantArrayItemAlias(Iterator propertyIt, XMPNode childNode, XMPNode baseArray) throws XMPException {
         if (baseArray.getOptions().isArrayAltText()) {
             if (childNode.getOptions().getHasLanguage()) {
-                throw new XMPException("Alias to x-default already has a language qualifier", 203);
+                throw new XMPException("Alias to x-default already has a language qualifier", Response.CODE_PERMISSION_ERROR);
             }
             childNode.addQualifier(new XMPNode("xml:lang", "x-default", null));
         }
         propertyIt.remove();
-        childNode.setName("[]");
+        childNode.setName(JsonParser.EMPTY_ARRAY);
         baseArray.addChild(childNode);
     }
 
@@ -227,7 +229,7 @@ public class XMPNormalizer {
 
     private static void compareAliasedSubtrees(XMPNode aliasNode, XMPNode baseNode, boolean outerCall) throws XMPException {
         if (!aliasNode.getValue().equals(baseNode.getValue()) || aliasNode.getChildrenLength() != baseNode.getChildrenLength()) {
-            throw new XMPException("Mismatch between alias and base nodes", 203);
+            throw new XMPException("Mismatch between alias and base nodes", Response.CODE_PERMISSION_ERROR);
         } else if (outerCall || (aliasNode.getName().equals(baseNode.getName()) && aliasNode.getOptions().equals(baseNode.getOptions()) && aliasNode.getQualifierLength() == baseNode.getQualifierLength())) {
             Iterator an = aliasNode.iterateChildren();
             Iterator bn = baseNode.iterateChildren();
@@ -240,7 +242,7 @@ public class XMPNormalizer {
                 compareAliasedSubtrees((XMPNode) an.next(), (XMPNode) bn.next(), false);
             }
         } else {
-            throw new XMPException("Mismatch between alias and base nodes", 203);
+            throw new XMPException("Mismatch between alias and base nodes", Response.CODE_PERMISSION_ERROR);
         }
     }
 

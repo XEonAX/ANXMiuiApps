@@ -8,6 +8,7 @@ import android.content.Intent;
 import com.miui.gallery.GalleryApp;
 import com.miui.gallery.discovery.AbstractJob;
 import com.miui.gallery.util.BackgroundServiceHelper;
+import com.miui.internal.vip.VipConstants;
 
 public class SearchStatReportJob extends AbstractJob {
     public Object execJob() {
@@ -19,6 +20,6 @@ public class SearchStatReportJob extends AbstractJob {
     }
 
     public JobInfo getJobInfo(Context context, ComponentName cn) {
-        return new Builder(this.mJobId, cn).setRequiredNetworkType(2).setRequiresCharging(true).setRequiresDeviceIdle(true).setPeriodic(86400000).build();
+        return new Builder(this.mJobId, cn).setRequiredNetworkType(2).setRequiresCharging(true).setRequiresDeviceIdle(true).setPeriodic(VipConstants.DAY).build();
     }
 }

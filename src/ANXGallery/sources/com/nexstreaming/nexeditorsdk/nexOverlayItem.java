@@ -29,6 +29,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import miui.hybrid.Response;
 import org.xmlpull.v1.XmlPullParserException;
 
 public final class nexOverlayItem implements Cloneable {
@@ -1179,7 +1180,7 @@ public final class nexOverlayItem implements Cloneable {
     }
 
     private int speedControlTab(int i) {
-        int[] iArr = new int[]{13, 25, 50, 75, 100, BaiduSceneResult.TRAVEL_OTHER, 150, 175, 200, 400};
+        int[] iArr = new int[]{13, 25, 50, 75, 100, BaiduSceneResult.TRAVEL_OTHER, 150, 175, Response.CODE_GENERIC_ERROR, 400};
         for (int i2 = 0; i2 < iArr.length; i2++) {
             if (iArr[i2] >= i) {
                 return iArr[i2];

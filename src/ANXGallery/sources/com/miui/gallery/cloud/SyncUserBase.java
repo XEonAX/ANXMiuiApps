@@ -8,7 +8,7 @@ import com.miui.gallery.cloud.GalleryCloudSyncTagUtils.SyncTagItem;
 import com.miui.gallery.data.DBShareUser;
 import com.miui.gallery.util.GalleryUtils;
 import com.miui.gallery.util.SyncLog;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
+import com.miui.internal.analytics.NormalPolicy;
 import java.util.ArrayList;
 import java.util.Locale;
 import org.json.JSONArray;
@@ -26,7 +26,7 @@ public abstract class SyncUserBase extends SyncFromServer {
     protected boolean handleUser(JSONObject schemaJson) throws JSONException {
         String status = schemaJson.getString("status");
         String userId = schemaJson.getString("userId");
-        long serverTag = CloudUtils.getLongAttributeFromJson(schemaJson, nexExportFormat.TAG_FORMAT_TAG);
+        long serverTag = CloudUtils.getLongAttributeFromJson(schemaJson, "tag");
         synchronized (getBaseUri()) {
             DBShareUser shareUser = getShareUserById(this.mContext, userId);
             if (shareUser == null) {
@@ -44,7 +44,7 @@ public abstract class SyncUserBase extends SyncFromServer {
                         return handleUserInvited;
                     }
                 }
-                if (status.equals("normal")) {
+                if (status.equals(NormalPolicy.TAG)) {
                     ContentValues values = DBShareUser.getContentValues(schemaJson);
                     values.put("albumId", this.mAlbumId);
                     GalleryUtils.safeInsert(getBaseUri(), values);
@@ -56,7 +56,7 @@ public abstract class SyncUserBase extends SyncFromServer {
             if (shareUser.getServerTag() >= serverTag) {
                 SyncLog.d("SyncUserBase", "shareUser:" + shareUser.getId() + " local tag:" + shareUser.getServerTag() + " >= server tag:" + serverTag + ", don't update local.");
                 return false;
-            } else if (status.equals("normal")) {
+            } else if (status.equals(NormalPolicy.TAG)) {
                 GalleryUtils.safeUpdate(getBaseUri(), DBShareUser.getContentValues(schemaJson), "_id = ? ", new String[]{shareUser.getId()});
                 return false;
             } else {
@@ -69,7 +69,7 @@ public abstract class SyncUserBase extends SyncFromServer {
 
     private boolean handleUserInvited(JSONObject schemaJson, DBShareUser shareUser, String status) throws JSONException {
         if (shareUser != null) {
-            if (status.equals("normal") || status.equals("invited")) {
+            if (status.equals(NormalPolicy.TAG) || status.equals("invited")) {
                 GalleryUtils.safeUpdate(getBaseUri(), DBShareUser.getContentValues(schemaJson), "_id = ? ", new String[]{shareUser.getId()});
                 return true;
             }
@@ -102,7 +102,7 @@ public abstract class SyncUserBase extends SyncFromServer {
     }
 
     protected final boolean updateSyncTagAndShouldContinue(JSONObject dataJson, ArrayList<SyncTagItem> syncTagList) throws JSONException {
-        long toUpdateSyncTag = CloudUtils.getLongAttributeFromJson(dataJson, nexExportFormat.TAG_FORMAT_TAG);
+        long toUpdateSyncTag = CloudUtils.getLongAttributeFromJson(dataJson, "tag");
         if (toUpdateSyncTag > ((SyncTagItem) syncTagList.get(0)).currentValue) {
             SyncLog.d("SyncUserBase", "update the syncTag:" + toUpdateSyncTag);
             ((SyncTagItem) syncTagList.get(0)).serverValue = toUpdateSyncTag;

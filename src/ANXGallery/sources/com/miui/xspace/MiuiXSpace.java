@@ -6,6 +6,7 @@ import android.util.Log;
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import miui.media.Recorder.ErrorCode;
 
 class MiuiXSpace implements IXSpaceWrapper {
     MiuiXSpace() {
@@ -22,7 +23,7 @@ class MiuiXSpace implements IXSpaceWrapper {
 
     public File getXSpacePath() {
         try {
-            return (File) invokeSafely(Class.forName("android.os.Environment$UserEnvironment").getDeclaredConstructor(new Class[]{Integer.TYPE}).newInstance(new Object[]{Integer.valueOf(999)}), "getExternalStorageDirectory", null, new Object[0]);
+            return (File) invokeSafely(Class.forName("android.os.Environment$UserEnvironment").getDeclaredConstructor(new Class[]{Integer.TYPE}).newInstance(new Object[]{Integer.valueOf(ErrorCode.UNKNOWN)}), "getExternalStorageDirectory", null, new Object[0]);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

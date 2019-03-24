@@ -19,7 +19,7 @@ import java.io.File;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import miui.os.FileUtils;
+import miui.os.C0002FileUtils;
 
 public class ThumbnailMetaWriter {
     private final String mDateTime;
@@ -68,7 +68,7 @@ public class ThumbnailMetaWriter {
             } else {
                 exif = (ExifInterface) ExifUtil.sMediaExifCreator.create(filePath);
             }
-            ExifUtil.setUserCommentData(exif, new UserCommentData(this.mSha1, FileUtils.getExtension(this.mOriginalFileName)));
+            ExifUtil.setUserCommentData(exif, new UserCommentData(this.mSha1, C0002FileUtils.getExtension(this.mOriginalFileName)));
             long time = -1;
             if (!(TextUtils.isEmpty(this.mGPSDateStamp) || TextUtils.isEmpty(this.mGPSTimeStamp))) {
                 exif.setAttribute("GPSDateStamp", this.mGPSDateStamp);

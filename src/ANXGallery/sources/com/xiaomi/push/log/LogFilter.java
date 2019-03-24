@@ -2,6 +2,7 @@ package com.xiaomi.push.log;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.SystemIntent;
 import android.os.Build;
 import android.os.Build.VERSION;
 import com.nexstreaming.nexeditorsdk.nexEngine;
@@ -203,7 +204,7 @@ class LogFilter {
 
     File filter(Context ctx, Date from, Date to, File destDir) {
         File dir;
-        if ("com.xiaomi.xmsf".equalsIgnoreCase(ctx.getPackageName())) {
+        if (SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equalsIgnoreCase(ctx.getPackageName())) {
             dir = ctx.getFilesDir();
             addFile(new File(dir, "xmsf.log.1"));
             addFile(new File(dir, "xmsf.log"));

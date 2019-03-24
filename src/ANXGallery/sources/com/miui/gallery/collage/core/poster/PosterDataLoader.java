@@ -12,11 +12,12 @@ import com.miui.gallery.util.Log;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import miui.provider.ExtraTelephony.FirewallLog;
 
 class PosterDataLoader implements IDataLoader {
     private static final String PATH_POSTER = ("collage" + SEPARATOR + "poster");
     public static final String PATH_POSTER_LAYOUT = (PATH_POSTER + SEPARATOR + "layout");
-    public static final String PATH_POSTER_MODE = (PATH_POSTER + SEPARATOR + "mode");
+    public static final String PATH_POSTER_MODE = (PATH_POSTER + SEPARATOR + FirewallLog.MODE);
     private static final String SEPARATOR = File.separator;
     private AssetManager mAssetManager;
     private DataLoadListener mDataLoadListener;

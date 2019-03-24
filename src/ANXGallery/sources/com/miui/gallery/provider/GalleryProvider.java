@@ -38,6 +38,7 @@ import com.miui.gallery.util.UriUtil;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import miui.util.PlayerActions.Out;
 
 public class GalleryProvider extends GalleryCloudProvider {
     private ContentResolver mContentResolver;
@@ -115,7 +116,7 @@ public class GalleryProvider extends GalleryCloudProvider {
     }
 
     static {
-        sUriMatcher.addURI("com.miui.gallery.cloud.provider", "album", 50);
+        sUriMatcher.addURI("com.miui.gallery.cloud.provider", Out.KEY_ALBUM, 50);
         sUriMatcher.addURI("com.miui.gallery.cloud.provider", "media", 51);
         sUriMatcher.addURI("com.miui.gallery.cloud.provider", "media/#", 52);
         sUriMatcher.addURI("com.miui.gallery.cloud.provider", "album_media", 53);

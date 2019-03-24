@@ -1,7 +1,6 @@
 package com.adobe.xmp.options;
 
 import com.adobe.xmp.XMPException;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import java.util.Map;
 
 public abstract class Options {
@@ -53,6 +52,6 @@ public abstract class Options {
             assertConsistency(options);
             return;
         }
-        throw new XMPException("The option bit(s) 0x" + Integer.toHexString(invalidOptions) + " are invalid!", BaiduSceneResult.MOUNTAINEERING);
+        throw new XMPException("The option bit(s) 0x" + Integer.toHexString(invalidOptions) + " are invalid!", 103);
     }
 }

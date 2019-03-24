@@ -1,5 +1,6 @@
 package com.miui.gallery.picker.uri;
 
+import android.content.MiuiIntent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import com.miui.gallery.cloud.AccountCache;
@@ -136,7 +137,7 @@ public class OriginUrlRequestor {
                             MiCloudFileRequestor requestor = dbImage.isShareItem() ? task.mMediaType == 1 ? sharerRequestor : sharerVideoRequestor : task.mMediaType == 1 ? ownerRequestor : ownerVideoRequestor;
                             try {
                                 JSONObject requestResult = requestor.requestDownload(requestItem);
-                                if (requestResult != null && requestResult.optString("result").equals("ok")) {
+                                if (requestResult != null && requestResult.optString("result").equals(MiuiIntent.COMMAND_ICON_PANEL_OK)) {
                                     ((OriginInfo) originRequestResults.get(task.mPosition)).setOriginDownloadInfo(requestResult.getJSONObject("data"), task.mOriginHeight, task.mOriginWidth);
                                 }
                             } catch (Exception e) {

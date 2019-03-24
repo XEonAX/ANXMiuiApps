@@ -1,12 +1,13 @@
 package com.xiaomi.mistatistic.sdk.data;
 
 import android.text.TextUtils;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import com.xiaomi.mistatistic.sdk.BuildSetting;
 import com.xiaomi.mistatistic.sdk.controller.j;
 import com.xiaomi.mistatistic.sdk.controller.t;
 import java.util.HashMap;
 import java.util.Map;
+import miui.yellowpage.YellowPageContract.HttpRequest;
+import miui.yellowpage.YellowPageStatistic.Display;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -47,12 +48,12 @@ public abstract class e extends AbstractEvent {
 
     public JSONObject valueToJSon() throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("category", this.b);
+        jSONObject.put(Display.CATEGORY, this.b);
         jSONObject.put("key", this.c);
-        jSONObject.put(nexExportFormat.TAG_FORMAT_TYPE, a());
+        jSONObject.put("type", a());
         jSONObject.put("value", this.a);
         if (this.d != null) {
-            jSONObject.put("params", new JSONObject(this.d));
+            jSONObject.put(HttpRequest.PARAMS, new JSONObject(this.d));
         }
         return jSONObject;
     }

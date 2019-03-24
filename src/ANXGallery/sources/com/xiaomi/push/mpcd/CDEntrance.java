@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
+import com.miui.internal.analytics.EventUtils;
 import com.xiaomi.channel.commonutils.logger.MyLog;
 import com.xiaomi.channel.commonutils.misc.JobMutualExclusor;
 import com.xiaomi.channel.commonutils.misc.ScheduledJobManager;
@@ -106,7 +107,7 @@ public class CDEntrance {
         filter.addAction("android.intent.action.PACKAGE_REPLACED");
         filter.addAction("android.intent.action.PACKAGE_RESTARTED");
         filter.addAction("android.intent.action.PACKAGE_REMOVED");
-        filter.addDataScheme("package");
+        filter.addDataScheme(EventUtils.COLUMN_PACKAGE_NAME);
         return filter;
     }
 }

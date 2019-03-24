@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import miui.hybrid.Response;
+import miui.provider.ExtraTelephony.Mx;
+import miui.telephony.phonenumber.CountryCodeConverter;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,7 +41,7 @@ final class nexCollage {
     private List<nexCollageTitleInfo> q = new ArrayList();
     private float r;
     private float s;
-    private int t = 200;
+    private int t = Response.CODE_GENERIC_ERROR;
     private int u = 1000;
     private nexProject v;
     private nexEngine w;
@@ -189,7 +192,7 @@ final class nexCollage {
         nexproject.setTemplateApplyMode(3);
         nexDrawInfo nexdrawinfo = new nexDrawInfo();
         nexdrawinfo.setID(1);
-        nexdrawinfo.setSubEffectID(65537);
+        nexdrawinfo.setSubEffectID(Mx.TYPE_INCOMING);
         nexdrawinfo.setEffectID(this.n);
         nexdrawinfo.setStartTime(0);
         nexdrawinfo.setEndTime(i);
@@ -361,7 +364,7 @@ final class nexCollage {
         }
         nexproject.setProjectAudioFadeInTime(this.t);
         nexproject.setProjectAudioFadeOutTime(this.u);
-        nexengine.setProperty("PreviewFPS", "30");
+        nexengine.setProperty("PreviewFPS", CountryCodeConverter.GR);
         nexengine.setProject(nexproject);
         nexengine.updateProject();
         this.v = nexproject;

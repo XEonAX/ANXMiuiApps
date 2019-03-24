@@ -1,5 +1,6 @@
 package cn.kuaipan.android.kss.upload;
 
+import android.content.res.MiuiConfiguration;
 import android.net.Uri;
 import android.net.Uri.Builder;
 import android.text.TextUtils;
@@ -35,13 +36,14 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.zip.CRC32;
+import miui.hybrid.Response;
 import org.apache.http.HttpEntity;
 
 public class KssUploader implements KssDef {
     public static volatile boolean sBreakForUT;
     private final CRC32 CRC32 = new CRC32();
     private final byte[] CRC_BUF = new byte[8192];
-    private long mChunkSize = 65536;
+    private long mChunkSize = MiuiConfiguration.THEME_FLAG_CLOCK;
     private final UploadTaskStore mTaskStore;
     private final KscHttpTransmitter mTransmitter;
 
@@ -79,7 +81,7 @@ public class KssUploader implements KssDef {
         } else if (!block.isComplete()) {
             uploadBlock(taskHash, file, listener, info, blockIndex);
         } else if (listener != null) {
-            listener.setSendPos(Math.min(((long) (blockIndex + 1)) * 4194304, file.length()));
+            listener.setSendPos(Math.min(((long) (blockIndex + 1)) * MiuiConfiguration.THEME_FLAG_FREE_HOME, file.length()));
         }
     }
 
@@ -105,11 +107,11 @@ public class KssUploader implements KssDef {
                 pos = uploadChunkInfoP.pos;
             }
         }
-        pos -= pos % 65536;
-        if (pos >= ((long) (blockIndex + 1)) * 4194304 || pos < ((long) blockIndex) * 4194304) {
-            pos = ((long) blockIndex) * 4194304;
+        pos -= pos % MiuiConfiguration.THEME_FLAG_CLOCK;
+        if (pos >= ((long) (blockIndex + 1)) * MiuiConfiguration.THEME_FLAG_FREE_HOME || pos < ((long) blockIndex) * MiuiConfiguration.THEME_FLAG_FREE_HOME) {
+            pos = ((long) blockIndex) * MiuiConfiguration.THEME_FLAG_FREE_HOME;
         }
-        long blockEnd = Math.min(file.length(), ((long) (blockIndex + 1)) * 4194304);
+        long blockEnd = Math.min(file.length(), ((long) (blockIndex + 1)) * MiuiConfiguration.THEME_FLAG_FREE_HOME);
         IKssUploadRequestResult request = info.getRequestResult();
         Log.d("KssUploader", "RC4 key:" + Arrays.toString(request.getSecureKey()));
         RandomFileInputStream in = null;
@@ -131,7 +133,7 @@ public class KssUploader implements KssDef {
                     if (listenerGroup != null) {
                         listenerGroup.setSendPos(pos);
                     }
-                    chunkInfo = new UploadChunkInfo(pos % 4194304, blockEnd - pos, upload_id);
+                    chunkInfo = new UploadChunkInfo(pos % MiuiConfiguration.THEME_FLAG_FREE_HOME, blockEnd - pos, upload_id);
                     while (chunkInfo.next_pos < blockEnd && chunkInfo.left_bytes > 0) {
                         if (Thread.interrupted()) {
                             throw new InterruptedException();
@@ -148,7 +150,7 @@ public class KssUploader implements KssDef {
                             throw new KscRuntimeException(500008, "Return chunkInfo is null");
                         } else if (chunkInfo.isContinue()) {
                             uploadChunkInfoPersist = new UploadChunkInfoPersist();
-                            uploadChunkInfoPersist.pos = (((long) blockIndex) * 4194304) + chunkInfo.next_pos;
+                            uploadChunkInfoPersist.pos = (((long) blockIndex) * MiuiConfiguration.THEME_FLAG_FREE_HOME) + chunkInfo.next_pos;
                             uploadChunkInfoPersist.upload_id = chunkInfo.upload_id;
                             updateUploadInfo(taskHash, info, uploadChunkInfoPersist);
                             if (sBreakForUT) {
@@ -157,7 +159,7 @@ public class KssUploader implements KssDef {
                             }
                         } else if (chunkInfo.isComplete()) {
                             uploadChunkInfoPersist = new UploadChunkInfoPersist();
-                            uploadChunkInfoPersist.pos = Math.min(((long) (blockIndex + 1)) * 4194304, file.length());
+                            uploadChunkInfoPersist.pos = Math.min(((long) (blockIndex + 1)) * MiuiConfiguration.THEME_FLAG_FREE_HOME, file.length());
                             uploadChunkInfoPersist.upload_id = "";
                             Block block = request.getBlock(blockIndex);
                             block.meta = chunkInfo.commit_meta;
@@ -167,7 +169,7 @@ public class KssUploader implements KssDef {
                     }
                     if (!chunkInfo.isComplete()) {
                         if (!chunkInfo.needBlockRetry() || atomicInteger.decrementAndGet() <= 0) {
-                            serverMsgException = new ServerMsgException(200, chunkInfo.stat);
+                            serverMsgException = new ServerMsgException(Response.CODE_GENERIC_ERROR, chunkInfo.stat);
                             Log.w("KssUploader", "Exception in uploadBlock", serverMsgException);
                             info.markBroken();
                             deleteUploadInfo(taskHash);
@@ -184,7 +186,7 @@ public class KssUploader implements KssDef {
                     throw th;
                 }
             }
-            serverMsgException = new ServerMsgException(200, chunkInfo.stat);
+            serverMsgException = new ServerMsgException(Response.CODE_GENERIC_ERROR, chunkInfo.stat);
             Log.w("KssUploader", "Exception in uploadBlock", serverMsgException);
             info.markBroken();
             deleteUploadInfo(taskHash);
@@ -206,7 +208,7 @@ public class KssUploader implements KssDef {
                 throw new InterruptedException();
             }
             try {
-                in.moveToPos((4194304 * ((long) blockIndex)) + chunkInfo.next_pos);
+                in.moveToPos((MiuiConfiguration.THEME_FLAG_FREE_HOME * ((long) blockIndex)) + chunkInfo.next_pos);
                 in.mark(nexEngine.ExportHEVCMainTierLevel61);
                 Builder builder = Uri.parse(urls[i] + "/upload_block_chunk").buildUpon();
                 builder.appendQueryParameter("chunk_pos", String.valueOf(chunkInfo.next_pos));
@@ -235,10 +237,10 @@ public class KssUploader implements KssDef {
         AtomicInteger atomicInteger = new AtomicInteger(3);
         while (atomicInteger.get() >= 0) {
             in.reset();
-            long blockSize = Math.min(4194304, ((long) in.available()) + pos);
+            long blockSize = Math.min(MiuiConfiguration.THEME_FLAG_FREE_HOME, ((long) in.available()) + pos);
             if (blockSize < 0) {
                 Log.d("KssUploader", "blockSize<0, adjust blockSize to 4M");
-                blockSize = 4194304;
+                blockSize = MiuiConfiguration.THEME_FLAG_FREE_HOME;
             }
             long len = Math.min(Math.min(this.mChunkSize, blockSize - pos), info.getMaxChunkSize());
             ServerExpect expectInfo = info.mExpectInfo;
@@ -263,7 +265,7 @@ public class KssUploader implements KssDef {
                     if (!ErrorHelper.isNetworkException(e) || atomicInteger.decrementAndGet() < 0) {
                         throw e;
                     }
-                    this.mChunkSize = Math.max(65536, this.mChunkSize >> 1);
+                    this.mChunkSize = Math.max(MiuiConfiguration.THEME_FLAG_CLOCK, this.mChunkSize >> 1);
                     result = null;
                     if (Thread.interrupted()) {
                         throw new InterruptedException();
@@ -309,7 +311,7 @@ public class KssUploader implements KssDef {
             }
             MiCloudStatManager.getInstance().addHttpEvent(uri.toString(), timeCost, size, statusCode, exceptionName);
             ErrorHelper.throwError(resp);
-            if (statusCode != 200) {
+            if (statusCode != Response.CODE_GENERIC_ERROR) {
                 ServerException e = new ServerException(statusCode, resp.dump());
                 Log.w("KssUploader", "Exception in doUpload", e);
                 throw e;
@@ -348,11 +350,11 @@ public class KssUploader implements KssDef {
         IOException e;
         Throwable th;
         BlockInfo info = request.getBlockInfo(blockIndex);
-        int size = (int) Math.min(file.length() - (((long) blockIndex) * 4194304), 4194304);
+        int size = (int) Math.min(file.length() - (((long) blockIndex) * MiuiConfiguration.THEME_FLAG_FREE_HOME), MiuiConfiguration.THEME_FLAG_FREE_HOME);
         if (size != info.size) {
             throw new KscException(403002, "Block size has changed.");
         }
-        long start = ((long) blockIndex) * 4194304;
+        long start = ((long) blockIndex) * MiuiConfiguration.THEME_FLAG_FREE_HOME;
         InputStream in = null;
         try {
             InputStream in2 = new FileInputStream(file);

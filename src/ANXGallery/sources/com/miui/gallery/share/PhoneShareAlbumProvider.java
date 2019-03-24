@@ -14,6 +14,8 @@ import com.miui.gallery.util.BuildUtil;
 import com.miui.gallery.util.Log;
 import java.util.HashMap;
 import java.util.Map;
+import miui.provider.ExtraTelephony.FirewallLog;
+import miui.util.PlayerActions.Out;
 
 public class PhoneShareAlbumProvider {
     private static PhoneShareAlbumProvider sInstance;
@@ -84,7 +86,7 @@ public class PhoneShareAlbumProvider {
                     return;
                 case 2:
                     shareByOther(activity, mAlbumName, result);
-                    recordAddSharerCountEvent("other");
+                    recordAddSharerCountEvent(Out.KEY_OTHER);
                     return;
                 default:
                     throw new UnsupportedOperationException("Bad category, which=" + clickWhich);
@@ -94,8 +96,8 @@ public class PhoneShareAlbumProvider {
 
     private void recordAddSharerCountEvent(String mode) {
         Map<String, String> params = new HashMap();
-        params.put("mode", mode);
-        BaseSamplingStatHelper.recordCountEvent("album", "add_sharer", params);
+        params.put(FirewallLog.MODE, mode);
+        BaseSamplingStatHelper.recordCountEvent(Out.KEY_ALBUM, "add_sharer", params);
     }
 
     public void shareBySms(String url, Activity activity) {

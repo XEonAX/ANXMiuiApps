@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.NetworkInfo;
 import android.net.NetworkInfo.State;
+import miui.hybrid.Response;
 
 /* compiled from: ConnectivityMonitor */
 class e extends BroadcastReceiver {
@@ -23,9 +24,9 @@ class e extends BroadcastReceiver {
                     return;
                 }
                 if (networkInfo.isConnected()) {
-                    this.af.mHandler.obtainMessage(200, networkInfo).sendToTarget();
+                    this.af.mHandler.obtainMessage(Response.CODE_GENERIC_ERROR, networkInfo).sendToTarget();
                 } else if (networkInfo.getState() == State.DISCONNECTED) {
-                    this.af.mHandler.obtainMessage(201, networkInfo).sendToTarget();
+                    this.af.mHandler.obtainMessage(Response.CODE_CONFIG_ERROR, networkInfo).sendToTarget();
                 }
             }
         }

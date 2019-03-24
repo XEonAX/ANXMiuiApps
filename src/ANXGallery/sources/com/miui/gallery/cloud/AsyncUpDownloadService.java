@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
+import miui.extension.target.ActivityTarget;
 
 public class AsyncUpDownloadService extends ServiceBase {
     private static final boolean WAKELOCK_ONLY_CHARGING = SyncConditionManager.sGetSyncConfig().isOnlyChargingAcquireWakelock();
@@ -374,7 +375,7 @@ public class AsyncUpDownloadService extends ServiceBase {
 
     public void onCreate() {
         super.onCreate();
-        SyncLog.d("AsyncUpDownloadService", "onCreate");
+        SyncLog.d("AsyncUpDownloadService", ActivityTarget.ACTION_ON_CREATE);
         this.mStartTime = SystemClock.uptimeMillis();
         this.mForegroundRef = new ForegroundRef("AsyncUpDownloadService#Foreground");
         this.mWakeLockRef = new WakeLockRef("AsyncUpDownloadService#WakeLock");

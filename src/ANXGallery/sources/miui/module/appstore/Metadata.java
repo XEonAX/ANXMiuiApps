@@ -1,5 +1,6 @@
 package miui.module.appstore;
 
+import miui.yellowpage.YellowPageContract.Permission;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -16,7 +17,7 @@ class Metadata {
         Metadata data = new Metadata();
         try {
             data.mResourceId = rootObject.getString("resourceId");
-            data.mHost = rootObject.getString("host");
+            data.mHost = rootObject.getString(Permission.HOST);
             data.mUrl = rootObject.getString("url");
             data.mFileHash = rootObject.getString("fileHash");
             return data;

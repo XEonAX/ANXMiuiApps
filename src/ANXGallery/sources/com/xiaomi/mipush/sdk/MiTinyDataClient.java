@@ -1,9 +1,9 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
+import android.content.SystemIntent;
 import android.content.pm.PackageInfo;
 import android.text.TextUtils;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import com.xiaomi.channel.commonutils.logger.MyLog;
 import com.xiaomi.push.service.PacketHelper;
 import com.xiaomi.push.service.TinyDataHelper;
@@ -105,11 +105,11 @@ public class MiTinyDataClient {
                 return true;
             }
             try {
-                PackageInfo pkgInfo = context.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4);
+                PackageInfo pkgInfo = context.getPackageManager().getPackageInfo(SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE, 4);
                 if (pkgInfo == null) {
                     return false;
                 }
-                if (pkgInfo.versionCode < BaiduSceneResult.ANCIENT_CHINESE_ARCHITECTURE) {
+                if (pkgInfo.versionCode < 108) {
                     return false;
                 }
                 return true;

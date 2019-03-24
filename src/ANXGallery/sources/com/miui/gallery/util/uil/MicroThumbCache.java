@@ -14,20 +14,20 @@ import com.miui.gallery.util.uil.BlobCache.LookupRequest;
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import miui.util.Pools;
-import miui.util.Pools.Manager;
-import miui.util.Pools.SoftReferencePool;
+import miui.util.C0014Pools;
+import miui.util.Pools.C0000Manager;
+import miui.util.Pools.C0013SoftReferencePool;
 
 public class MicroThumbCache {
     private static final int MICRO_THUMBNAIL_SIZE = ThumbConfig.get().sMicroTargetSize.getWidth();
     private static final int THUMB_CONFIG_ORDINAL = ThumbConfig.getThumbConfig().ordinal();
     private static MicroThumbCache sCache;
-    private SoftReferencePool<Bitmap> mBitmapPool;
+    private C0013SoftReferencePool<Bitmap> mBitmapPool;
     private BlobCache mBlobCache;
     private Object mBlobLock = new Object();
     private final File mCacheDir;
     private final int mCacheMaxSize;
-    private SoftReferencePool<LookupRequest> mLookupRequestPool;
+    private C0013SoftReferencePool<LookupRequest> mLookupRequestPool;
     private final int mMaxEntries;
 
     public static MicroThumbCache getInstance() {
@@ -53,12 +53,12 @@ public class MicroThumbCache {
             }
             try {
                 this.mBlobCache = new BlobCache(this.mCacheDir + "/" + "micro_thumbnail_blob", this.mMaxEntries, this.mCacheMaxSize, false, 7);
-                this.mLookupRequestPool = Pools.createSoftReferencePool(new Manager<LookupRequest>() {
+                this.mLookupRequestPool = C0014Pools.createSoftReferencePool(new C0000Manager<LookupRequest>() {
                     public LookupRequest createInstance() {
                         return new LookupRequest();
                     }
                 }, 32);
-                this.mBitmapPool = Pools.createSoftReferencePool(new Manager<Bitmap>() {
+                this.mBitmapPool = C0014Pools.createSoftReferencePool(new C0000Manager<Bitmap>() {
                     public Bitmap createInstance() {
                         return Bitmap.createBitmap(MicroThumbCache.MICRO_THUMBNAIL_SIZE, MicroThumbCache.MICRO_THUMBNAIL_SIZE, ThumbConfig.getThumbConfig());
                     }

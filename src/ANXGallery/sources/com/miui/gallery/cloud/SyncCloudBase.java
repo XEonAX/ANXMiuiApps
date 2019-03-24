@@ -22,7 +22,6 @@ import com.miui.gallery.util.GalleryUtils;
 import com.miui.gallery.util.SyncLog;
 import com.miui.gallery.util.UriUtil;
 import com.miui.gallery.util.deviceprovider.ApplicationHelper;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import com.xiaomi.micloudsdk.request.utils.Request;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -33,6 +32,7 @@ import java.util.Map;
 import java.util.Set;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
+import miui.provider.ExtraTelephony.DeletableSyncColumns;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
@@ -58,7 +58,7 @@ public abstract class SyncCloudBase extends SyncFromServer {
 
     protected final boolean handleItem(JSONObject schemaJson) throws JSONException {
         boolean z = false;
-        String type = schemaJson.getString(nexExportFormat.TAG_FORMAT_TYPE);
+        String type = schemaJson.getString("type");
         String status = schemaJson.getString("status");
         String serverId = schemaJson.getString("id");
         synchronized (getBaseUri()) {
@@ -75,13 +75,13 @@ public abstract class SyncCloudBase extends SyncFromServer {
                     }
                     z = true;
                 }
-            } else if (cloud.getServerTag() >= CloudUtils.getLongAttributeFromJson(schemaJson, nexExportFormat.TAG_FORMAT_TAG)) {
-                SyncLog.d("SyncCloudBase", "cloud:" + cloud.getFileName() + " local tag:" + cloud.getServerTag() + " >= server tag:" + CloudUtils.getLongAttributeFromJson(schemaJson, nexExportFormat.TAG_FORMAT_TAG) + ", don't update local.");
+            } else if (cloud.getServerTag() >= CloudUtils.getLongAttributeFromJson(schemaJson, "tag")) {
+                SyncLog.d("SyncCloudBase", "cloud:" + cloud.getFileName() + " local tag:" + cloud.getServerTag() + " >= server tag:" + CloudUtils.getLongAttributeFromJson(schemaJson, "tag") + ", don't update local.");
             } else {
                 if (status.equals("custom")) {
                     handleCustom(cloud, schemaJson);
                     handleUbiSubImage(schemaJson, null);
-                } else if (status.equals("deleted")) {
+                } else if (status.equals(DeletableSyncColumns.DELETED)) {
                     handleDelete(cloud, schemaJson);
                 } else if (status.equals("purged")) {
                     handlePurged(cloud, schemaJson);
@@ -357,7 +357,7 @@ public abstract class SyncCloudBase extends SyncFromServer {
             if (handleItem(schemaJson)) {
                 hasNewItem = true;
             }
-            String type = schemaJson.getString(nexExportFormat.TAG_FORMAT_TYPE);
+            String type = schemaJson.getString("type");
             String status = schemaJson.getString("status");
             if (type.equals("group") && status.equals("custom") && schemaJson.has("isPublic") && schemaJson.getBoolean("isPublic")) {
                 AlbumShareOperations.requestPublicUrl(schemaJson.getString("id"), false);

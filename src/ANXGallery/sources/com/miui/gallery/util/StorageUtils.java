@@ -15,7 +15,7 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import miui.os.Environment;
+import miui.os.C0001Environment;
 
 public class StorageUtils {
     public static final String KEY_FOR_EMPTY_RELATIVE_PATH = String.valueOf("GallerySDCardRoot".hashCode());
@@ -84,7 +84,7 @@ public class StorageUtils {
     }
 
     public static boolean isPrimaryStorageWritable(Context context) {
-        if ("mounted".equals(Environment.getExternalStorageState())) {
+        if ("mounted".equals(C0001Environment.getExternalStorageState())) {
             return canWriteThroughFileSystem(context, getPrimaryStoragePath());
         }
         return false;
@@ -253,7 +253,7 @@ public class StorageUtils {
 
     public static File getNetworkCacheDirectory() {
         File cache = null;
-        if ("mounted".equals(Environment.getExternalStorageState())) {
+        if ("mounted".equals(C0001Environment.getExternalStorageState())) {
             cache = new File(StaticContext.sGetAndroidContext().getExternalCacheDir(), "request");
         }
         if (cache == null) {

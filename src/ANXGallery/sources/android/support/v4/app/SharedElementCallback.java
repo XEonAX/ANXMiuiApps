@@ -14,12 +14,11 @@ import android.os.Parcelable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
-import com.nexstreaming.nexeditorsdk.nexEngine;
 import java.util.List;
 import java.util.Map;
 
 public abstract class SharedElementCallback {
-    private static int MAX_IMAGE_SIZE = nexEngine.ExportHEVCMainTierLevel6;
+    private static int MAX_IMAGE_SIZE = 1048576;
     private Matrix mTempMatrix;
 
     public interface OnSharedElementsReadyListener {

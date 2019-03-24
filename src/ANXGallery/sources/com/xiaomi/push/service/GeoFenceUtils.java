@@ -2,10 +2,10 @@ package com.xiaomi.push.service;
 
 import android.content.Context;
 import android.content.SharedPreferences.Editor;
+import android.content.SystemIntent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.text.TextUtils;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import com.xiaomi.channel.commonutils.android.SharedPrefsCompat;
 
 public class GeoFenceUtils {
@@ -27,11 +27,11 @@ public class GeoFenceUtils {
     }
 
     public static boolean isXMSFGeoWork(Context context) {
-        return checkPackageVersionAbove(context, "com.xiaomi.xmsf", BaiduSceneResult.PALACE) && (checkPackageVersionAbove(context, "com.xiaomi.metok", 20) || checkPackageVersionAbove(context, "com.xiaomi.metoknlp", 6));
+        return checkPackageVersionAbove(context, SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE, 106) && (checkPackageVersionAbove(context, "com.xiaomi.metok", 20) || checkPackageVersionAbove(context, "com.xiaomi.metoknlp", 6));
     }
 
     public static boolean verifyGeoChannel(Context context) {
-        if (TextUtils.equals(context.getPackageName(), "com.xiaomi.xmsf")) {
+        if (TextUtils.equals(context.getPackageName(), SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE)) {
             return true;
         }
         return false;

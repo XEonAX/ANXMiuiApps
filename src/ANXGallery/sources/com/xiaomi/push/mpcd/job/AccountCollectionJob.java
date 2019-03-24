@@ -4,6 +4,7 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.Context;
 import com.xiaomi.xmpush.thrift.ClientCollectionType;
+import miui.provider.ExtraContacts.ConferenceCalls;
 
 public class AccountCollectionJob extends CollectionJob {
     public AccountCollectionJob(Context context, int period) {
@@ -17,7 +18,7 @@ public class AccountCollectionJob extends CollectionJob {
             for (int i = 0; i < Math.min(accounts.length, 10); i++) {
                 Account account = accounts[i];
                 if (i > 0) {
-                    builder.append(";");
+                    builder.append(ConferenceCalls.SPLIT_EXPRESSION);
                 }
                 builder.append(account.name).append(",").append(account.type);
             }

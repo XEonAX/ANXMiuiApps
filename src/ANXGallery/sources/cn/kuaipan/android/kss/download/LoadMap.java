@@ -1,5 +1,6 @@
 package cn.kuaipan.android.kss.download;
 
+import android.content.res.MiuiConfiguration;
 import android.os.Bundle;
 import android.util.Log;
 import cn.kuaipan.android.http.IKscTransferListener;
@@ -178,8 +179,8 @@ public class LoadMap {
 
         private Space halve() {
             long newStart = this.start + ((this.end - this.start) / 2);
-            if (newStart % 1024 > 0) {
-                newStart = ((newStart / 1024) + 1) * 1024;
+            if (newStart % MiuiConfiguration.THEME_FLAG_ALARM > 0) {
+                newStart = ((newStart / MiuiConfiguration.THEME_FLAG_ALARM) + 1) * MiuiConfiguration.THEME_FLAG_ALARM;
             }
             Space result = new Space(this.block, newStart, this.end);
             this.block.spaces.add(this);
@@ -255,7 +256,7 @@ public class LoadMap {
             this.mRecorders.put(space, recorder);
         } else {
             space = findMaxInUsedSpace();
-            if (space == null || space.size() <= 65536) {
+            if (space == null || space.size() <= MiuiConfiguration.THEME_FLAG_CLOCK) {
                 recorder = null;
             } else {
                 space = space.halve();

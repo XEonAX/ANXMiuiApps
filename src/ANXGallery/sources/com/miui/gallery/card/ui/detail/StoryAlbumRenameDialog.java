@@ -71,7 +71,7 @@ public class StoryAlbumRenameDialog extends GalleryDialogFragment {
     }
 
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        this.mDialog = new Builder(getActivity()).setView(this.mInputView).setTitle(R.string.rename_dialog_title).setPositiveButton(17039370, null).setNegativeButton(17039360, null).create();
+        this.mDialog = new Builder(getActivity()).setView(this.mInputView).setTitle((int) R.string.rename_dialog_title).setPositiveButton(17039370, null).setNegativeButton(17039360, null).create();
         if (this.mDialog.getWindow() != null) {
             this.mDialog.getWindow().setSoftInputMode(4);
         }

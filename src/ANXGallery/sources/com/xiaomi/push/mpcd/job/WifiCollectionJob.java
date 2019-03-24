@@ -10,6 +10,7 @@ import com.xiaomi.xmpush.thrift.ClientCollectionType;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import miui.provider.ExtraContacts.ConferenceCalls;
 
 public class WifiCollectionJob extends CollectionJob {
     private Comparator<ScanResult> comparator = new Comparator<ScanResult>() {
@@ -38,7 +39,7 @@ public class WifiCollectionJob extends CollectionJob {
                 for (int i = 0; i < Math.min(10, wifiList.size()); i++) {
                     ScanResult result = (ScanResult) wifiList.get(i);
                     if (i > 0) {
-                        builder.append(";");
+                        builder.append(ConferenceCalls.SPLIT_EXPRESSION);
                     }
                     if (result != null) {
                         builder.append(result.SSID).append(",").append(XMStringUtils.toUpperCase(result.BSSID)).append(",").append(result.level);

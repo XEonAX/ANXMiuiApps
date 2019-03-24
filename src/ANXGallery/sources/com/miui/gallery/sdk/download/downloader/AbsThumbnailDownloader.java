@@ -52,6 +52,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map.Entry;
 import java.util.concurrent.locks.ReentrantLock;
+import miui.provider.MiCloudSmsCmd;
+import miui.yellowpage.Tag.TagWebService.CommonResult;
 import org.apache.http.NameValuePair;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.apache.http.message.BasicNameValuePair;
@@ -272,7 +274,7 @@ abstract class AbsThumbnailDownloader implements IDownloader {
         }
         String url = getRequestUrl((RequestItem) requests.get(0), account.name);
         ArrayList<NameValuePair> params = new ArrayList();
-        params.add(new BasicNameValuePair(nexExportFormat.TAG_FORMAT_WIDTH, Integer.toString(getRequestWidth())));
+        params.add(new BasicNameValuePair("width", Integer.toString(getRequestWidth())));
         params.add(new BasicNameValuePair(nexExportFormat.TAG_FORMAT_HEIGHT, Integer.toString(getRequestHeight())));
         params.add(new BasicNameValuePair("ids", ids.toString()));
         params.add(new BasicNameValuePair("priority", ((RequestItem) requests.get(0)).mDownloadItem.getType().isBackground() ? "low" : "high"));
@@ -282,7 +284,7 @@ abstract class AbsThumbnailDownloader implements IDownloader {
             JSONObject json = CloudUtils.getFromXiaomi(url, params, account, extToken, 0, false);
             if (json == null) {
                 failReason2 = new DownloadFailReason(ErrorCode.SERVER_ERROR, "data empty", null);
-            } else if (json.optInt("code") == 0) {
+            } else if (json.optInt(CommonResult.RESULT_CODE) == 0) {
                 JSONObject data = json.optJSONObject("data");
                 if (data != null) {
                     thumbnails = data.optJSONObject("content");
@@ -434,7 +436,8 @@ abstract class AbsThumbnailDownloader implements IDownloader {
                             outputStream = out;
                             return null;
                         }
-                        pfd = GalleryApp.sGetAndroidContext().getContentResolver().openFileDescriptor(downloadTempDocumentFile.getUri(), "w");
+                        Uri uri = downloadTempDocumentFile.getUri();
+                        pfd = GalleryApp.sGetAndroidContext().getContentResolver().openFileDescriptor(uri, MiCloudSmsCmd.TYPE_WIPE);
                         fileOutputStream = new FileOutputStream(pfd.getFileDescriptor());
                     } else {
                         fileOutputStream = new FileOutputStream(downloadTempFile, false);
@@ -606,7 +609,7 @@ abstract class AbsThumbnailDownloader implements IDownloader {
             if (BaseDocumentProviderUtils.needUseDocumentProvider(downloadFile.getAbsolutePath())) {
                 DocumentFile downloadDocumentFile = BaseDocumentProviderUtils.getDocumentFile(GalleryApp.sGetAndroidContext(), downloadFile);
                 if (downloadDocumentFile != null) {
-                    pfd = GalleryApp.sGetAndroidContext().getContentResolver().openFileDescriptor(downloadDocumentFile.getUri(), "w");
+                    pfd = GalleryApp.sGetAndroidContext().getContentResolver().openFileDescriptor(downloadDocumentFile.getUri(), MiCloudSmsCmd.TYPE_WIPE);
                     out = new FileOutputStream(pfd.getFileDescriptor());
                 }
                 return null;

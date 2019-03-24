@@ -7,6 +7,7 @@ import android.os.RemoteException;
 import com.miui.gallery.editor.photo.app.DraftManager;
 import com.miui.gallery.editor.photo.origin.EditorOriginFunc.Stub;
 import com.miui.gallery.util.Log;
+import miui.extension.target.ActivityTarget;
 
 public class EditorOriginHandlerService extends Service {
     private Stub mBinder = new Stub() {
@@ -23,7 +24,7 @@ public class EditorOriginHandlerService extends Service {
 
     public void onCreate() {
         super.onCreate();
-        Log.d("EditorOriginHandlerService", "onCreate");
+        Log.d("EditorOriginHandlerService", ActivityTarget.ACTION_ON_CREATE);
     }
 
     public IBinder onBind(Intent intent) {

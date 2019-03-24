@@ -37,7 +37,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
-import miui.util.Pools;
+import miui.util.C0014Pools;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -529,7 +529,7 @@ public class LocationManager {
     }
 
     public String subToCity(String location) {
-        StringBuilder builder = (StringBuilder) Pools.getStringBuilderPool().acquire();
+        StringBuilder builder = (StringBuilder) C0014Pools.getStringBuilderPool().acquire();
         String[] segments = segmentLocation(location);
         if (segments != null) {
             if (segments.length == 1) {
@@ -542,7 +542,7 @@ public class LocationManager {
             }
         }
         String result = builder.length() == 0 ? null : builder.toString();
-        Pools.getStringBuilderPool().release(builder);
+        C0014Pools.getStringBuilderPool().release(builder);
         return result;
     }
 

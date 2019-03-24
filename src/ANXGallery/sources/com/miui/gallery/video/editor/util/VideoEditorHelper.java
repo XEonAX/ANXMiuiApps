@@ -45,6 +45,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import miui.hybrid.Response;
 
 public class VideoEditorHelper {
     private Activity mActivity;
@@ -328,7 +329,7 @@ public class VideoEditorHelper {
             int state = this.mVideoEditor.getState();
             if (state == 2 || state == 0) {
                 this.mDisplayWrapperView.showPlayBtn(true);
-            } else if (isTrimEditMenu() && (state == 3 || state == 200)) {
+            } else if (isTrimEditMenu() && (state == 3 || state == Response.CODE_GENERIC_ERROR)) {
                 this.mDisplayWrapperView.showPlayBtn(true);
             } else {
                 this.mDisplayWrapperView.showPlayBtn(false);

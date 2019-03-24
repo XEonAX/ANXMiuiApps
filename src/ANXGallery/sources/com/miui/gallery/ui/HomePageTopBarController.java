@@ -12,6 +12,7 @@ import com.miui.gallery.widget.PanelManager;
 import com.miui.gallery.widget.TwoStageDrawer;
 import com.miui.gallery.widget.TwoStageDrawer.DrawerAnimEndListener;
 import com.miui.gallery.widget.TwoStageDrawer.DrawerListener;
+import com.miui.internal.widget.ActionModeView;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -126,7 +127,7 @@ public class HomePageTopBarController implements OnAppFocusedListener, DrawerLis
                     if (oldItem != this.mCurrentItem) {
                         this.mPanelBar.replaceItem(this.mCurrentItem, HomePageTopBarController.this.isPanelBarAniming());
                     }
-                    HomePageTopBarController.this.delayShowPanelBar(oldItem == null ? 600 : 300);
+                    HomePageTopBarController.this.delayShowPanelBar(oldItem == null ? 600 : ActionModeView.ANIMATION_DURATION);
                 } else {
                     HomePageTopBarController.this.closePanelBar(true, new DrawerAnimEndListener() {
                         public void onDrawerAnimEnd(boolean opened) {

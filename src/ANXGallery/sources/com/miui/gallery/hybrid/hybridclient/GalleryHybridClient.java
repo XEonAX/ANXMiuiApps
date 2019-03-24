@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 import miui.webkit.WebViewClient;
+import miui.yellowpage.YellowPageContract.Cache;
 
 public class GalleryHybridClient implements HybridClient {
     private static Set<String> sSchemes = new HashSet();
@@ -194,7 +195,7 @@ public class GalleryHybridClient implements HybridClient {
 
     private void setAppCache(WebSettings settings) {
         settings.setAppCacheEnabled(true);
-        String cacheDir = this.mContext.getDir("cache", 0).getPath();
+        String cacheDir = this.mContext.getDir(Cache.DIRECTORY, 0).getPath();
         ensureExistence(cacheDir);
         settings.setAppCachePath(cacheDir);
     }

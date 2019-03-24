@@ -21,6 +21,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
+import miui.yellowpage.Tag.TagWebService.CommonResult;
 import org.apache.http.Header;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -185,7 +186,7 @@ public class Request {
 
     private static boolean isPrivacyError(String response) {
         try {
-            if (new JSONObject(response).optInt("code", 0) == 52003) {
+            if (new JSONObject(response).optInt(CommonResult.RESULT_CODE, 0) == 52003) {
                 return true;
             }
             return false;

@@ -5,11 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import com.miui.utils.SafeContentResolver;
 import com.miui.utils.SafeContentResolver.Callback;
 import java.util.Locale;
 import miui.cloud.AppConstants;
+import miui.content.ExtraIntent;
+import miui.yellowpage.Tag.TagWebService.CommonResult;
 
 public class SyncContentUtils {
     private static final Uri PAUSE_EXCEPT_URI = Uri.parse("content://com.miui.micloud/sync_pause_except");
@@ -22,7 +23,7 @@ public class SyncContentUtils {
         NETWORK_DISALLOWED(1000, 1000),
         AUTH_TOKEN_ERROR(1001, 100),
         ACTIVATED_FAIL(1002, 1001),
-        TIME_UNAVAILABLE(1003, BaiduSceneResult.SHOOTING),
+        TIME_UNAVAILABLE(1003, 101),
         PERMISSION_LIMIT(-1, 1002),
         SECURE_SPACE_LIMIT(-1, 1003),
         SYNC_SOFT_ERROR(-1, 1),
@@ -41,7 +42,7 @@ public class SyncContentUtils {
     public static void savePauseTime(Context context, String authority, long time) {
         Log.d("SyncContentUtils", "savePauseTime: authority: " + authority + ", time: " + time);
         ContentValues values = new ContentValues();
-        values.put("authority", authority);
+        values.put(ExtraIntent.EXTRA_AUTHORITY, authority);
         values.put("resume_time", Long.valueOf(System.currentTimeMillis() + time));
         if (SafeContentResolver.update(context, PAUSE_URI, values, "authority='" + authority + "'", null) == 0) {
             SafeContentResolver.insert(context, PAUSE_URI, values);
@@ -66,7 +67,7 @@ public class SyncContentUtils {
     public static void insertPauseExceptAuthority(Context context, String authority) {
         Log.d("SyncContentUtils", "insertPauseExceptAuthority: authority: " + authority);
         ContentValues values = new ContentValues();
-        values.put("authority", authority);
+        values.put(ExtraIntent.EXTRA_AUTHORITY, authority);
         SafeContentResolver.insert(context, PAUSE_EXCEPT_URI, values);
     }
 
@@ -91,8 +92,8 @@ public class SyncContentUtils {
         Log.d("SyncContentUtils", "recordSyncResult: authority: " + authority + ", code: " + code);
         if (code != -1) {
             ContentValues values = new ContentValues();
-            values.put("authority", authority);
-            values.put("code", Integer.valueOf(code));
+            values.put(ExtraIntent.EXTRA_AUTHORITY, authority);
+            values.put(CommonResult.RESULT_CODE, Integer.valueOf(code));
             SafeContentResolver.update(context, SYNC_RESULT_URI, values, "authority='" + authority + "'", null);
         }
     }

@@ -6,6 +6,7 @@ import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import com.miui.internal.view.menu.MenuBuilder;
 
 public class ThumbDrawable extends Drawable {
     private String TAG = "ThumbDrawable";
@@ -19,7 +20,7 @@ public class ThumbDrawable extends Drawable {
 
     public ThumbDrawable(Drawable mDrawable) {
         this.mDrawable = mDrawable;
-        this.mPaint.setColor(-65536);
+        this.mPaint.setColor(MenuBuilder.CATEGORY_MASK);
         this.mPaint.setTextSize(50.0f);
     }
 

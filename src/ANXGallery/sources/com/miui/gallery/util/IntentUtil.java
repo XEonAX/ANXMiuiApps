@@ -9,6 +9,8 @@ import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.MiuiIntent;
+import android.content.res.MiuiConfiguration;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -71,10 +73,13 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
+import miui.cloud.backup.SettingsBackupConsts;
+import miui.hybrid.HybridActivity;
+import miui.provider.ExtraNetwork;
 
 public class IntentUtil {
     private static final String[] CONTACT_PHOTO_CLASS = new String[]{"com.jeejen.contact.ui.AttachPhotoActivity", "com.android.contacts.activities.AttachPhotoActivity"};
-    private static final String[] CONTACT_PHOTO_PACKAGE = new String[]{"com.jeejen.family.miui", "com.android.contacts"};
+    private static final String[] CONTACT_PHOTO_PACKAGE = new String[]{"com.jeejen.family.miui", MiuiConfiguration.CONTACTS_PKG_NAME};
     private static final String[] PLAY_VIDEO_CLASS = new String[]{"com.miui.videoplayer.VideoPlayerActivity", "com.miui.videoplayer.VideoPlayerActivity"};
     private static final String[] PLAY_VIDEO_PACKAGE = new String[]{"com.miui.videoplayer", "com.miui.video"};
 
@@ -191,7 +196,7 @@ public class IntentUtil {
         Intent intent = new Intent(context, PhotoDetailActivity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("photo_detail_target", dataItem);
-        bundle.putBoolean("StartActivityWhenLocked", isFromLocked);
+        bundle.putBoolean(MiuiIntent.EXTRA_START_ACTIVITY_WHEN_LOCKED, isFromLocked);
         intent.putExtras(bundle);
         context.startActivityForResult(intent, 38);
     }
@@ -234,7 +239,7 @@ public class IntentUtil {
             } else {
                 setDataAndType(i, uri, null);
             }
-            i.putExtra("StartActivityWhenLocked", showGalleryWhenLocked);
+            i.putExtra(MiuiIntent.EXTRA_START_ACTIVITY_WHEN_LOCKED, showGalleryWhenLocked);
             i.putExtra("com.miui.video.extra.play_video_request_orientation", requestOrientation);
             if (context instanceof Activity) {
                 Activity activity = (Activity) context;
@@ -394,7 +399,7 @@ public class IntentUtil {
 
     public static void removeShortCutForBabyAlbumByName(Context context, String albumName) {
         Intent shortcutintent = new Intent("com.miui.home.launcher.action.UNINSTALL_SHORTCUT");
-        shortcutintent.setPackage(SystemPropertiesCompat.get("ro.miui.product.home", "com.miui.home"));
+        shortcutintent.setPackage(SystemPropertiesCompat.get("ro.miui.product.home", MiuiConfiguration.LAUNCHER_PKG_NAME));
         if (VERSION.SDK_INT < 26) {
             shortcutintent.putExtra("android.intent.extra.shortcut.NAME", albumName);
         } else {
@@ -520,7 +525,7 @@ public class IntentUtil {
             intent.setPackage("com.miui.extraphoto");
             setDataAndType(intent, Uri.fromFile(new File(mediaItem.getOriginalPath())), mediaItem.getMimeType());
             Bundle bundle = new Bundle();
-            bundle.putBoolean("StartActivityWhenLocked", isFromLocked);
+            bundle.putBoolean(MiuiIntent.EXTRA_START_ACTIVITY_WHEN_LOCKED, isFromLocked);
             intent.putExtras(bundle);
             try {
                 fragment.startActivityForResult(intent, 37);
@@ -568,7 +573,7 @@ public class IntentUtil {
         try {
             Intent intent = new Intent("android.intent.action.VIEW");
             intent.setComponent(new ComponentName("com.miui.cloudservice", "com.miui.cloudservice.ui.MiCloudHybridActivity"));
-            intent.putExtra("com.miui.sdk.hybrid.extra.URL", "https://i.mi.com/vip?source=miui_gallery&ext=miui_gallery");
+            intent.putExtra(HybridActivity.EXTRA_URL, "https://i.mi.com/vip?source=miui_gallery&ext=miui_gallery");
             context.startActivity(intent);
         } catch (Object e) {
             Log.e("IntentUtil", "can't goto micloud vip page", e);
@@ -586,7 +591,7 @@ public class IntentUtil {
     public static boolean gotoAppDetailTraffic(Context context) {
         Intent intent = new Intent("miui.intent.action.NETWORKASSISTANT_APP_DETAIL");
         Bundle bundle = new Bundle();
-        bundle.putString("package_name", context.getPackageName());
+        bundle.putString(ExtraNetwork.FIREWALL_PACKAGE_NAME, context.getPackageName());
         bundle.putInt("title_type", 2);
         bundle.putInt("sort_type", 0);
         intent.putExtras(bundle);
@@ -613,7 +618,7 @@ public class IntentUtil {
         Intent i;
         try {
             i = new Intent("miui.intent.action.BUGREPORT");
-            i.putExtra("packageName", "com.miui.gallery");
+            i.putExtra(SettingsBackupConsts.EXTRA_PACKAGE_NAME, "com.miui.gallery");
             i.addFlags(268435456);
             context.startActivity(i);
             return true;

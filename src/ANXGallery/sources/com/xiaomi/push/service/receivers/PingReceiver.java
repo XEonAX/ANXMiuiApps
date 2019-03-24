@@ -9,6 +9,7 @@ import com.xiaomi.push.service.PushConstants;
 import com.xiaomi.push.service.ServiceClient;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.timers.Alarm;
+import miui.util.PlayerActions.Out;
 
 public class PingReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
@@ -20,7 +21,7 @@ public class PingReceiver extends BroadcastReceiver {
             MyLog.v("Ping XMChannelService on timer");
             try {
                 Intent serviceIntent = new Intent(context, XMPushService.class);
-                serviceIntent.putExtra("time_stamp", System.currentTimeMillis());
+                serviceIntent.putExtra(Out.KEY_TIME_STAMP, System.currentTimeMillis());
                 serviceIntent.setAction("com.xiaomi.push.timer");
                 ServiceClient.getInstance(context).startServiceSafely(serviceIntent);
             } catch (Throwable e) {

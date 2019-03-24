@@ -8,10 +8,10 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
+import miui.yellowpage.YellowPageStatistic.Display;
 
 public final class LocalBroadcastManager {
     private static LocalBroadcastManager mInstance;
@@ -176,7 +176,7 @@ public final class LocalBroadcastManager {
                             String reason;
                             switch (match) {
                                 case -4:
-                                    reason = "category";
+                                    reason = Display.CATEGORY;
                                     break;
                                 case -3:
                                     reason = "action";
@@ -185,7 +185,7 @@ public final class LocalBroadcastManager {
                                     reason = "data";
                                     break;
                                 case -1:
-                                    reason = nexExportFormat.TAG_FORMAT_TYPE;
+                                    reason = "type";
                                     break;
                                 default:
                                     reason = "unknown reason";

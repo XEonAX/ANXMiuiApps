@@ -4,12 +4,13 @@ import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import com.xiaomi.channel.commonutils.logger.MyLog;
 import java.util.concurrent.atomic.AtomicInteger;
+import miui.mipub.MipubStat;
+import miui.provider.ExtraNetwork;
 
 public class GeoFenceDatabaseHelper extends SQLiteOpenHelper {
-    private static final String[] GEOFENCING_Columns = new String[]{"name", "TEXT NOT NULL", "appId", "INTEGER NOT NULL", "package_name", "TEXT NOT NULL", "create_time", "INTEGER NOT NULL", nexExportFormat.TAG_FORMAT_TYPE, "TEXT NOT NULL", "center_longtitude", "TEXT", "center_lantitude", "TEXT", "circle_radius", "REAL", "polygon_point", "TEXT", "coordinate_provider", "TEXT NOT NULL", "current_status", "TEXT NOT NULL"};
+    private static final String[] GEOFENCING_Columns = new String[]{"name", "TEXT NOT NULL", "appId", "INTEGER NOT NULL", ExtraNetwork.FIREWALL_PACKAGE_NAME, "TEXT NOT NULL", MipubStat.STAT_CREATE_TIME, "INTEGER NOT NULL", "type", "TEXT NOT NULL", "center_longtitude", "TEXT", "center_lantitude", "TEXT", "circle_radius", "REAL", "polygon_point", "TEXT", "coordinate_provider", "TEXT NOT NULL", "current_status", "TEXT NOT NULL"};
     private static final String[] GEOFENCING_MESSAGE_Columns = new String[]{"message_id", "TEXT NOT NULL", "geo_id", "TEXT NOT NULL", "content", "BLOB NOT NULL", "action", "INTEGER NOT NULL", "deadline", "INTEGER NOT NULL"};
     private static GeoFenceDatabaseHelper sInstance;
     private final String TAG = "GeoFenceDatabaseHelper.";

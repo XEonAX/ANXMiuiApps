@@ -1,6 +1,7 @@
 package com.google.zxing.aztec.encoder;
 
 import com.google.zxing.common.BitArray;
+import com.miui.internal.view.menu.MenuBuilder;
 import java.util.Deque;
 import java.util.LinkedList;
 
@@ -35,7 +36,7 @@ final class State {
         Token token = this.token;
         if (mode != this.mode) {
             int latch = HighLevelEncoder.LATCH_TABLE[this.mode][mode];
-            token = token.add(65535 & latch, latch >> 16);
+            token = token.add(MenuBuilder.USER_MASK & latch, latch >> 16);
             bitCount += latch >> 16;
         }
         int latchModeBitCount = mode == 2 ? 4 : 5;
@@ -59,7 +60,7 @@ final class State {
         int bitCount = this.bitCount;
         if (this.mode == 4 || this.mode == 2) {
             int latch = HighLevelEncoder.LATCH_TABLE[mode][0];
-            token = token.add(65535 & latch, latch >> 16);
+            token = token.add(MenuBuilder.USER_MASK & latch, latch >> 16);
             bitCount += latch >> 16;
             mode = 0;
         }

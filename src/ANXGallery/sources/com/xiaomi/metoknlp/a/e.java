@@ -4,6 +4,7 @@ import com.xiaomi.metoknlp.MetokApplication;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import miui.telephony.TelephonyConstants;
 
 /* compiled from: Utils */
 public final class e {
@@ -37,7 +38,7 @@ public final class e {
         }
         String o = o(d.getImei());
         if (o == null) {
-            return o(c.get("ro.ril.miui.imei", ""));
+            return o(c.get(TelephonyConstants.PROPERTY_DEVICE_ID, ""));
         }
         ag = o;
         return ag;

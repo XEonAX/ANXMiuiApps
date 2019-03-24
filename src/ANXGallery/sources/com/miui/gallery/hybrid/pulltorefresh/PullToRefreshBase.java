@@ -16,6 +16,7 @@ import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import com.miui.gallery.R;
+import miui.hybrid.Response;
 
 public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     private Mode mCurrentMode;
@@ -618,7 +619,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     protected int getPullToRefreshScrollDuration() {
-        return 200;
+        return Response.CODE_GENERIC_ERROR;
     }
 
     protected int getPullToRefreshScrollDurationLonger() {

@@ -35,13 +35,14 @@ import com.miui.gallery.util.SafeDBUtil;
 import com.miui.gallery.util.SafeDBUtil.QueryHandler;
 import com.miui.gallery.util.StorageUtils;
 import com.miui.gallery.util.uil.CloudUriAdapter;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import miui.os.C0002FileUtils;
+import miui.yellowpage.Tag.TagWebService.CommonResult;
 
 public class DownloadUtil {
     private static final int[] DOWNLOAD_FILE_PRIORITY = new int[]{9, 10, 11};
@@ -175,7 +176,7 @@ public class DownloadUtil {
         if ((!isThumbnail(downloadType) && !isOrigin(downloadType)) || !new File(filePath).exists() || isOriginalFileValid(filePath, dbImage) || isThumbnailFileValid(filePath, dbImage)) {
             return filePath;
         }
-        fileName = String.format("%s_%s.%s", new Object[]{FileUtils.getFileNameWithoutExtension(fileName), Long.valueOf(System.currentTimeMillis()), miui.os.FileUtils.getExtension(fileName)});
+        fileName = String.format("%s_%s.%s", new Object[]{FileUtils.getFileNameWithoutExtension(fileName), Long.valueOf(System.currentTimeMillis()), C0002FileUtils.getExtension(fileName)});
         filePath = BaseFileUtils.concat(getDownloadFolderPath(dbImage, downloadType), fileName);
         Log.d("DownloadUtil", "There exist a file with same name that doesn't belong to image [%s], so we rename current to %s", dbImage, fileName);
         return filePath;
@@ -443,7 +444,7 @@ public class DownloadUtil {
         if (!TextUtils.isEmpty(url)) {
             params.put("url", url);
         }
-        params.put("code", String.valueOf(reason.getCode()));
+        params.put(CommonResult.RESULT_CODE, String.valueOf(reason.getCode()));
         params.put("desc", String.valueOf(reason.getDesc()));
         if (reason.getCause() != null) {
             params.put("throwable", reason.getCause().getMessage());
@@ -472,6 +473,6 @@ public class DownloadUtil {
         if (uri == null || type == null) {
             return null;
         }
-        return uri.buildUpon().appendQueryParameter(nexExportFormat.TAG_FORMAT_TYPE, type.name()).build().toString();
+        return uri.buildUpon().appendQueryParameter("type", type.name()).build().toString();
     }
 }

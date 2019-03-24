@@ -3,6 +3,7 @@ package com.android.volley.toolbox;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Header;
 import com.android.volley.Request;
+import com.miui.internal.vip.utils.AuthHttpRequest;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,6 +16,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSocketFactory;
+import miui.hybrid.Response;
 
 public class HurlStack extends BaseHttpStack {
     private final SSLSocketFactory mSslSocketFactory;
@@ -77,7 +79,7 @@ public class HurlStack extends BaseHttpStack {
     }
 
     private static boolean hasResponseBody(int requestMethod, int responseCode) {
-        return (requestMethod == 4 || ((100 <= responseCode && responseCode < 200) || responseCode == 204 || responseCode == 304)) ? false : true;
+        return (requestMethod == 4 || ((100 <= responseCode && responseCode < Response.CODE_GENERIC_ERROR) || responseCode == Response.CODE_FEATURE_ERROR || responseCode == 304)) ? false : true;
     }
 
     private static InputStream inputStreamFromConnection(HttpURLConnection connection) {
@@ -112,16 +114,16 @@ public class HurlStack extends BaseHttpStack {
             case -1:
                 byte[] postBody = request.getPostBody();
                 if (postBody != null) {
-                    connection.setRequestMethod("POST");
+                    connection.setRequestMethod(AuthHttpRequest.METHOD_POST);
                     addBody(connection, request, postBody);
                     return;
                 }
                 return;
             case 0:
-                connection.setRequestMethod("GET");
+                connection.setRequestMethod(AuthHttpRequest.METHOD_GET);
                 return;
             case 1:
-                connection.setRequestMethod("POST");
+                connection.setRequestMethod(AuthHttpRequest.METHOD_POST);
                 addBodyIfExists(connection, request);
                 return;
             case 2:

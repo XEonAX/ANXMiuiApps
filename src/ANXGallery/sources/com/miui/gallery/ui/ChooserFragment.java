@@ -46,6 +46,7 @@ import java.util.Map;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import miui.cloud.backup.data.KeyStringSettingItem;
 
 public class ChooserFragment extends Fragment implements OnPageChangeListener {
     private ResolverAdapter mAdapter;
@@ -346,7 +347,7 @@ public class ChooserFragment extends Fragment implements OnPageChangeListener {
                     }
                     try {
                         Resources res = context.getResources();
-                        int id = res.getIdentifier(ri.activityInfo.packageName + "_" + ri.activityInfo.name, "string", context.getPackageName());
+                        int id = res.getIdentifier(ri.activityInfo.packageName + "_" + ri.activityInfo.name, KeyStringSettingItem.TYPE, context.getPackageName());
                         if (id != 0) {
                             return res.getString(id);
                         }

@@ -2,6 +2,7 @@ package com.miui.gallery3d.exif;
 
 import android.util.SparseIntArray;
 import com.miui.gallery.stat.BaseSamplingStatHelper;
+import com.miui.internal.view.menu.MenuBuilder;
 import com.nexstreaming.nexeditorsdk.nexClip;
 import com.nexstreaming.nexeditorsdk.nexEngine;
 import java.io.BufferedInputStream;
@@ -166,7 +167,7 @@ public class ExifInterface {
     }
 
     public static int defineTag(int ifdId, short tagId) {
-        return (65535 & tagId) | (ifdId << 16);
+        return (MenuBuilder.USER_MASK & tagId) | (ifdId << 16);
     }
 
     public static short getTrueTagKey(int tag) {
@@ -321,7 +322,7 @@ public class ExifInterface {
 
     public ExifTag setTag(ExifTag tag) {
         if (tag != null) {
-            if (tag.getDataSize() < 65535) {
+            if (tag.getDataSize() < MenuBuilder.USER_MASK) {
                 return this.mData.addTag(tag);
             }
             HashMap<String, String> params = new HashMap();
@@ -565,6 +566,6 @@ public class ExifInterface {
     }
 
     protected static int getComponentCountFromInfo(int info) {
-        return 65535 & info;
+        return MenuBuilder.USER_MASK & info;
     }
 }

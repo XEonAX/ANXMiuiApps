@@ -36,7 +36,7 @@ public class CopyOrMoveDialog extends GalleryDialogFragment {
 
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Builder builder = new Builder(getActivity());
-        builder.setTitle(R.string.select_image_operation).setItems(R.array.menu_copy_or_move, this.mItemClickListener);
+        builder.setTitle((int) R.string.select_image_operation).setItems((int) R.array.menu_copy_or_move, this.mItemClickListener);
         this.mDialog = builder.create();
         this.mDialog.setCanceledOnTouchOutside(false);
         return this.mDialog;

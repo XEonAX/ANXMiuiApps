@@ -24,7 +24,7 @@ public class FeedbackPolicyNoticeFragment extends GalleryDialogFragment {
     }
 
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        return new Builder(getActivity()).setTitle(R.string.user_notice_title).setMessage(buildUserNotice(getActivity(), R.string.search_feedback_user_notice, R.string.search_feedback_user_policy)).setPositiveButton(R.string.user_agree, new OnClickListener() {
+        return new Builder(getActivity()).setTitle((int) R.string.user_notice_title).setMessage(buildUserNotice(getActivity(), R.string.search_feedback_user_notice, R.string.search_feedback_user_policy)).setPositiveButton((int) R.string.user_agree, new OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 Search.setShouldShowFeedbackPolicy(!((AlertDialog) FeedbackPolicyNoticeFragment.this.getDialog()).isChecked());
                 if (FeedbackPolicyNoticeFragment.this.mPositiveClickListener != null) {

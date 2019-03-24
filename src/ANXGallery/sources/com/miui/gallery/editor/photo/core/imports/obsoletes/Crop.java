@@ -39,6 +39,7 @@ import com.miui.gallery.util.Log;
 import com.miui.gallery.util.ScreenUtils;
 import java.util.ArrayList;
 import java.util.List;
+import miui.hybrid.Response;
 
 public class Crop extends Plugin {
     private float mAdjustDegree;
@@ -1031,7 +1032,7 @@ public class Crop extends Plugin {
         }
 
         private int calculateMinSize() {
-            return Math.max((int) (Crop.this.getImageMatrix().mapRadius(Crop.this.calculateMinPixels()) + 0.5f), 200);
+            return Math.max((int) (Crop.this.getImageMatrix().mapRadius(Crop.this.calculateMinPixels()) + 0.5f), Response.CODE_GENERIC_ERROR);
         }
 
         private float constraint(float origin, float reserve) {

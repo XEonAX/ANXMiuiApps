@@ -5,6 +5,7 @@ import com.miui.gallery.card.Card;
 import com.miui.gallery.card.scenario.DateUtils;
 import com.miui.gallery.card.scenario.Record;
 import com.miui.gallery.card.scenario.time.TimeScenario;
+import com.miui.internal.vip.VipConstants;
 import java.util.List;
 
 public abstract class YesterdayScenario extends TimeScenario {
@@ -18,13 +19,13 @@ public abstract class YesterdayScenario extends TimeScenario {
     public boolean onPrepare(List<Record> records, List<Card> cards) {
         long currentTime = DateUtils.getCurrentTimeMillis();
         List<Long> recordTargets = getRecordTargetTimesFromRecordAndCards(records, cards);
-        long dayStartTime = DateUtils.getDateTime(currentTime - 86400000);
+        long dayStartTime = DateUtils.getDateTime(currentTime - VipConstants.DAY);
         if (recordTargets.contains(Long.valueOf(dayStartTime))) {
             return false;
         }
         setTargetTime(dayStartTime);
         setStartTime(dayStartTime);
-        setEndTime(dayStartTime + 86400000);
+        setEndTime(dayStartTime + VipConstants.DAY);
         return true;
     }
 

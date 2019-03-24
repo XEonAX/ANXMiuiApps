@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
+import miui.provider.Notes.Data;
 
 public class SyncMonitor {
     private static final Object LOCK = new Object();
@@ -393,7 +394,7 @@ public class SyncMonitor {
             long[] size = SyncStateUtil.getDirtySize(GalleryApp.sGetAndroidContext());
             long totalSize = size[0] + size[1];
             HashMap<String, String> params = new HashMap();
-            params.put("dirty", String.valueOf(totalSize));
+            params.put(Data.DIRTY, String.valueOf(totalSize));
             BaseSamplingStatHelper.recordCountEvent("sync_monitor", "monitor_sync_policy_changed_dirty", params);
         }
     }

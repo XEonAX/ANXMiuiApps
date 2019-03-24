@@ -1,7 +1,6 @@
 package com.xiaomi.smack.util;
 
 import android.text.TextUtils;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import com.xiaomi.channel.commonutils.logger.MyLog;
 import com.xiaomi.push.service.CommonPacketExtensionProvider;
 import com.xiaomi.push.service.PushClientsManager;
@@ -26,6 +25,10 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import miui.provider.ExtraTelephony.FirewallLog;
+import miui.provider.ExtraTelephony.Phonelist;
+import miui.provider.Notes.Note;
+import miui.yellowpage.Tag.TagWebService.CommonResult;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -42,7 +45,7 @@ public class PacketParserUtils {
             String pktId = parser.getAttributeValue("", "id");
             String from = parser.getAttributeValue("", "from");
             String to = parser.getAttributeValue("", "to");
-            String type = parser.getAttributeValue("", nexExportFormat.TAG_FORMAT_TYPE);
+            String type = parser.getAttributeValue("", "type");
             ClientLoginInfo info = PushClientsManager.getInstance().getClientLoginInfoByChidAndUserId(chid, to);
             if (info == null) {
                 info = PushClientsManager.getInstance().getClientLoginInfoByChidAndUserId(chid, from);
@@ -61,7 +64,7 @@ public class PacketParserUtils {
                         throw new XMPPException("error while receiving a encrypted message with wrong format");
                     } else {
                         String encryptedContent = parser.getText();
-                        if ("5".equals(chid) || "6".equals(chid)) {
+                        if (Phonelist.TYPE_CLOUDS_WHITE.equals(chid) || Phonelist.TYPE_STRONG_CLOUDS_BLACK.equals(chid)) {
                             message = new Message();
                             message.setChannelId(chid);
                             message.setEncrypted(true);
@@ -133,7 +136,7 @@ public class PacketParserUtils {
         }
         boolean z = !TextUtils.isEmpty(isTransient) && isTransient.equalsIgnoreCase("true");
         message.setIsTransient(z);
-        message.setType(parser.getAttributeValue("", nexExportFormat.TAG_FORMAT_TYPE));
+        message.setType(parser.getAttributeValue("", "type"));
         String language = getLanguageAttribute(parser);
         if (language == null || "".equals(language.trim())) {
             defaultLanguage = Packet.getDefaultLanguage();
@@ -151,7 +154,7 @@ public class PacketParserUtils {
                 if (TextUtils.isEmpty(namespace)) {
                     namespace = "xm";
                 }
-                if (elementName.equals("subject")) {
+                if (elementName.equals(Note.SUBJECT)) {
                     if (getLanguageAttribute(parser) == null) {
                         String xmlLang = defaultLanguage;
                     }
@@ -206,7 +209,7 @@ public class PacketParserUtils {
 
     public static Presence parsePresence(XmlPullParser parser) throws Exception {
         Type type = Type.available;
-        String typeString = parser.getAttributeValue("", nexExportFormat.TAG_FORMAT_TYPE);
+        String typeString = parser.getAttributeValue("", "type");
         if (!(typeString == null || typeString.equals(""))) {
             try {
                 type = Type.valueOf(typeString);
@@ -263,7 +266,7 @@ public class PacketParserUtils {
         String to = parser.getAttributeValue("", "to");
         String from = parser.getAttributeValue("", "from");
         String channelId = parser.getAttributeValue("", "chid");
-        IQ.Type type = IQ.Type.fromString(parser.getAttributeValue("", nexExportFormat.TAG_FORMAT_TYPE));
+        IQ.Type type = IQ.Type.fromString(parser.getAttributeValue("", "type"));
         HashMap<String, String> attributes = new HashMap();
         for (int i = 0; i < parser.getAttributeCount(); i++) {
             String key = parser.getAttributeName(i);
@@ -343,14 +346,14 @@ public class PacketParserUtils {
         String reason = null;
         List<CommonPacketExtension> extensions = new ArrayList();
         for (int i = 0; i < parser.getAttributeCount(); i++) {
-            if (parser.getAttributeName(i).equals("code")) {
-                errorCode = parser.getAttributeValue("", "code");
+            if (parser.getAttributeName(i).equals(CommonResult.RESULT_CODE)) {
+                errorCode = parser.getAttributeValue("", CommonResult.RESULT_CODE);
             }
-            if (parser.getAttributeName(i).equals(nexExportFormat.TAG_FORMAT_TYPE)) {
-                type = parser.getAttributeValue("", nexExportFormat.TAG_FORMAT_TYPE);
+            if (parser.getAttributeName(i).equals("type")) {
+                type = parser.getAttributeValue("", "type");
             }
-            if (parser.getAttributeName(i).equals("reason")) {
-                reason = parser.getAttributeValue("", "reason");
+            if (parser.getAttributeName(i).equals(FirewallLog.REASON)) {
+                reason = parser.getAttributeValue("", FirewallLog.REASON);
             }
         }
         boolean done = false;

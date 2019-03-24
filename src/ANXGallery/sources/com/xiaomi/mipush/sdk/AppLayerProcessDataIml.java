@@ -10,6 +10,7 @@ import com.xiaomi.xmpush.thrift.ActionType;
 import com.xiaomi.xmpush.thrift.NotificationType;
 import com.xiaomi.xmpush.thrift.XmPushActionNotification;
 import java.util.HashMap;
+import miui.media.Recorder.ErrorCode;
 
 public class AppLayerProcessDataIml implements IProcessData {
     public void sendDirectly(Context context, HashMap<String, String> extra) {
@@ -31,7 +32,7 @@ public class AppLayerProcessDataIml implements IProcessData {
     public void shouldDoLast(Context context, HashMap<String, String> extra) {
         MyLog.w("MoleInfo：　" + AwakeDataHelper.obfuscateLogContent(extra));
         String awakeInfo = (String) extra.get("awake_info");
-        if (String.valueOf(1007).equals((String) extra.get("event_type"))) {
+        if (String.valueOf(ErrorCode.MAX_SIZE_REACHED).equals((String) extra.get("event_type"))) {
             AwakeHelper.sendPingByWakeUpApp(context, awakeInfo);
         }
     }

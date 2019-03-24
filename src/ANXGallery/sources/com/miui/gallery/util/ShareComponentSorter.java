@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.ResolveInfo;
 import android.os.AsyncTask;
 import android.text.TextUtils;
+import com.miui.internal.analytics.EventUtils;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -152,7 +153,7 @@ public class ShareComponentSorter {
 
         static ComponentRecord fromJson(JSONObject object) {
             try {
-                return new ComponentRecord(object.getString("package"), object.getString("component"), object.optLong("recent"), readHistory(object.getJSONObject("history")));
+                return new ComponentRecord(object.getString(EventUtils.COLUMN_PACKAGE_NAME), object.getString("component"), object.optLong("recent"), readHistory(object.getJSONObject("history")));
             } catch (Throwable e) {
                 Log.w("ShareComponentSorter", e);
                 return null;
@@ -162,7 +163,7 @@ public class ShareComponentSorter {
         static JSONObject toJson(ComponentRecord info) {
             JSONObject json = new JSONObject();
             try {
-                json.put("package", info.mPackage);
+                json.put(EventUtils.COLUMN_PACKAGE_NAME, info.mPackage);
                 json.put("component", info.mComponent);
                 json.put("recent", info.mRecent);
                 json.put("history", writeHistory(info.mHistory));

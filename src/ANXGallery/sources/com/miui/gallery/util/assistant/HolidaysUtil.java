@@ -3,11 +3,13 @@ package com.miui.gallery.util.assistant;
 import com.miui.gallery.GalleryApp;
 import com.miui.gallery.R;
 import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
+import com.miui.internal.vip.VipConstants;
 import miui.date.Calendar;
+import miui.hybrid.Response;
 
 public class HolidaysUtil {
-    private static final int[][] CHINESE_CALENDAR_HOLIDAYS = new int[][]{new int[]{-1, 100}, new int[]{BaiduSceneResult.SHOOTING, BaiduSceneResult.SHOOTING}, new int[]{BaiduSceneResult.BUILDING_OTHER, BaiduSceneResult.TAEKWONDO}, new int[]{505, BaiduSceneResult.MOUNTAINEERING}, new int[]{707, BaiduSceneResult.SPORTS_OTHER}, new int[]{815, BaiduSceneResult.TEMPLE}};
-    private static final int[][] HOLIDAYS = new int[][]{new int[]{BaiduSceneResult.SHOOTING, 200}, new int[]{214, 201}, new int[]{501, 202}, new int[]{601, 203}, new int[]{1001, 204}, new int[]{1225, 205}};
+    private static final int[][] CHINESE_CALENDAR_HOLIDAYS = new int[][]{new int[]{-1, 100}, new int[]{101, 101}, new int[]{BaiduSceneResult.BUILDING_OTHER, 102}, new int[]{505, 103}, new int[]{707, 104}, new int[]{815, 105}};
+    private static final int[][] HOLIDAYS = new int[][]{new int[]{101, Response.CODE_GENERIC_ERROR}, new int[]{214, Response.CODE_CONFIG_ERROR}, new int[]{501, Response.CODE_SIGNATURE_ERROR}, new int[]{601, Response.CODE_PERMISSION_ERROR}, new int[]{1001, Response.CODE_FEATURE_ERROR}, new int[]{1225, Response.CODE_ACTION_ERROR}};
 
     public static int getHoliday(Calendar cal) {
         int key = ((cal.get(5) + 1) * 100) + cal.get(9);
@@ -56,7 +58,7 @@ public class HolidaysUtil {
         calendar.set(2, cal.get(2) + 1);
         calendar.set(6, 0);
         calendar.set(10, 1);
-        calendar.setTimeInMillis(calendar.getTimeInMillis() - 86400000);
+        calendar.setTimeInMillis(calendar.getTimeInMillis() - VipConstants.DAY);
         return calendar.get(13);
     }
 

@@ -5,6 +5,7 @@ import android.app.job.JobInfo.Builder;
 import android.content.ComponentName;
 import android.content.Context;
 import com.miui.gallery.provider.RecentDiscoveryMediaManager;
+import com.miui.internal.vip.VipConstants;
 
 public class RecentMediaCleanupJob extends AbstractJob {
     public Object execJob() {
@@ -13,6 +14,6 @@ public class RecentMediaCleanupJob extends AbstractJob {
     }
 
     public JobInfo getJobInfo(Context context, ComponentName cn) {
-        return new Builder(this.mJobId, cn).setRequiredNetworkType(0).setRequiresCharging(false).setRequiresDeviceIdle(true).setPeriodic(86400000).build();
+        return new Builder(this.mJobId, cn).setRequiredNetworkType(0).setRequiresCharging(false).setRequiresDeviceIdle(true).setPeriodic(VipConstants.DAY).build();
     }
 }

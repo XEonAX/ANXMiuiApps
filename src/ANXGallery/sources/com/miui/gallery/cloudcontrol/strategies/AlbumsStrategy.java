@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.regex.Pattern;
+import miui.cloud.backup.data.KeyStringSettingItem;
 
 public class AlbumsStrategy extends BaseStrategy {
     @SerializedName("patterns")
@@ -54,7 +55,7 @@ public class AlbumsStrategy extends BaseStrategy {
             Resources resources = GalleryApp.sGetAndroidContext().getResources();
             String ret = null;
             if (!TextUtils.isEmpty(this.mNameStringRes)) {
-                int nameResId = resources.getIdentifier(this.mNameStringRes, "string", "com.miui.gallery");
+                int nameResId = resources.getIdentifier(this.mNameStringRes, KeyStringSettingItem.TYPE, "com.miui.gallery");
                 if (nameResId != 0) {
                     try {
                         ret = resources.getString(nameResId);

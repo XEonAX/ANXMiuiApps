@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Build.VERSION;
 import android.text.TextUtils;
 import android.util.Log;
+import com.miui.internal.vip.VipConstants;
 import com.xiaomi.mistatistic.sdk.controller.LocalEventRecorder;
 import com.xiaomi.mistatistic.sdk.controller.b;
 import com.xiaomi.mistatistic.sdk.controller.d;
@@ -79,8 +80,8 @@ public abstract class MiStatInterface {
         } else {
             if (i != 0 && i != 1) {
                 Log.e(j.b(), String.format("setUploadPolicy: Policy(%d) is invalid.", new Object[]{Integer.valueOf(i)}));
-            } else if (i == 0 && (j > 86400000 || j < 90000)) {
-                Log.e(j.b(), String.format("setUploadPolicy: value(interval of UPLOAD_POLICY_INTERVAL) should be set between %d and %d.", new Object[]{Long.valueOf(90000), Long.valueOf(86400000)}));
+            } else if (i == 0 && (j > VipConstants.DAY || j < 90000)) {
+                Log.e(j.b(), String.format("setUploadPolicy: value(interval of UPLOAD_POLICY_INTERVAL) should be set between %d and %d.", new Object[]{Long.valueOf(90000), Long.valueOf(VipConstants.DAY)}));
             } else if (i != 1 || (j <= 30720 && j >= 3072)) {
                 s.a().a(i, j);
             } else {

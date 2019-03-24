@@ -1,5 +1,6 @@
 package com.xiaomi.opensdk.file.model;
 
+import android.content.res.MiuiConfiguration;
 import java.io.File;
 
 public class UploadContext {
@@ -14,7 +15,7 @@ public class UploadContext {
     private UploadParameter mUploadParam;
 
     public UploadContext(File localFile, MiCloudFileListener listener) {
-        this(localFile, listener, 4194304);
+        this(localFile, listener, MiuiConfiguration.THEME_FLAG_FREE_HOME);
     }
 
     public UploadContext(File localFile, MiCloudFileListener listener, long size) {

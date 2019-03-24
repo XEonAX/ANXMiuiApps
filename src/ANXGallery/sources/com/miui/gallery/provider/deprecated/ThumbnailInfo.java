@@ -23,6 +23,7 @@ import com.miui.gallery.provider.GalleryDBHelper;
 import com.miui.gallery.util.GalleryUtils;
 import com.miui.gallery.util.Utils;
 import com.miui.gallery.util.face.FaceRegionRectF;
+import com.miui.internal.vip.VipConstants;
 import java.util.ArrayList;
 import java.util.Locale;
 import org.apache.http.NameValuePair;
@@ -319,7 +320,7 @@ public class ThumbnailInfo {
     }
 
     private boolean thumbnailInfoTimeout() {
-        return System.currentTimeMillis() - this.mLastTimeRequest > 86400000;
+        return System.currentTimeMillis() - this.mLastTimeRequest > VipConstants.DAY;
     }
 
     private void getThumbnailInfoFromServer() {

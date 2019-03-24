@@ -9,6 +9,7 @@ import com.xiaomi.mistatistic.sdk.controller.d;
 import com.xiaomi.mistatistic.sdk.controller.j;
 import com.xiaomi.mistatistic.sdk.controller.t;
 import java.lang.reflect.Method;
+import miui.reflect.Field;
 
 public class BuildSetting {
     private static boolean a = false;
@@ -187,10 +188,10 @@ public class BuildSetting {
             return "";
         }
         if (c()) {
-            return "S";
+            return Field.SHORT_SIGNATURE_PRIMITIVE;
         }
         if (b()) {
-            return "D";
+            return Field.DOUBLE_SIGNATURE_PRIMITIVE;
         }
         if (a()) {
             return "A";

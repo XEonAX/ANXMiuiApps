@@ -52,6 +52,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
+import miui.provider.ExtraTelephony.DeletableSyncColumns;
+import miui.provider.Weather.AQIInfo;
+import miui.provider.Weather.AlertInfo;
+import miui.yellowpage.YellowPageContract.MipubPhoneEvent;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -447,8 +451,8 @@ public class CloudManager {
                     } else {
                         Log.e("CloudManager", "Failed to move name conflict item %s to %s", localPath, tarName);
                         params = new HashMap();
-                        params.put("detail", "local file rename conflict file");
-                        params.put("src", localPath);
+                        params.put(AlertInfo.DETAIL, "local file rename conflict file");
+                        params.put(AQIInfo.SRC, localPath);
                         params.put("des", rename.getAbsolutePath());
                         BaseSamplingStatHelper.recordErrorEvent("operation_abnormal", "add_secret_failed_bc_file_operation_failed", params);
                         return -113;
@@ -456,8 +460,8 @@ public class CloudManager {
                 }
                 if (BaseFileUtils.contains(secretAlbumPath, localPath2)) {
                     params = new HashMap();
-                    params.put("detail", "local file already exist in secret folder");
-                    params.put("src", localPath2);
+                    params.put(AlertInfo.DETAIL, "local file already exist in secret folder");
+                    params.put(AQIInfo.SRC, localPath2);
                     params.put("des", secretAlbumPath);
                     BaseSamplingStatHelper.recordErrorEvent("operation_abnormal", "add_secret_abnormal", params);
                 } else {
@@ -467,8 +471,8 @@ public class CloudManager {
                     } else {
                         Log.e("CloudManager", "Failed to move item %s to secret folder", (Object) localPath2);
                         params = new HashMap();
-                        params.put("detail", "local file move failed to secret folder");
-                        params.put("src", localPath2);
+                        params.put(AlertInfo.DETAIL, "local file move failed to secret folder");
+                        params.put(AQIInfo.SRC, localPath2);
                         params.put("des", secretAlbumPath);
                         BaseSamplingStatHelper.recordErrorEvent("operation_abnormal", "add_secret_failed_bc_file_operation_failed", params);
                         return -113;
@@ -478,8 +482,8 @@ public class CloudManager {
                 localPath = this.mCursor.getString(7);
                 if (FileUtils.isFileExist(localPath)) {
                     params = new HashMap();
-                    params.put("detail", "local file still exist after move to secret");
-                    params.put("src", localPath);
+                    params.put(AlertInfo.DETAIL, "local file still exist after move to secret");
+                    params.put(AQIInfo.SRC, localPath);
                     BaseSamplingStatHelper.recordErrorEvent("operation_abnormal", "add_secret_abnormal", params);
                 } else {
                     MediaFileUtils.deleteFileType(FileType.NORMAL, localPath);
@@ -490,7 +494,7 @@ public class CloudManager {
             if (FileUtils.isFileExist(thumbPath)) {
                 if (localFileMoved) {
                     params = new HashMap();
-                    params.put("detail", "local & thumbnail both exist");
+                    params.put(AlertInfo.DETAIL, "local & thumbnail both exist");
                     params.put("localFile", localPath);
                     params.put("thumbnailFile", thumbPath);
                     BaseSamplingStatHelper.recordErrorEvent("operation_abnormal", "add_secret_abnormal", params);
@@ -504,8 +508,8 @@ public class CloudManager {
                         } else {
                             Log.e("CloudManager", "Failed to move name conflict item %s to %s", thumbPath, tarName);
                             params = new HashMap();
-                            params.put("detail", "thumbnail rename conflict file");
-                            params.put("src", thumbPath);
+                            params.put(AlertInfo.DETAIL, "thumbnail rename conflict file");
+                            params.put(AQIInfo.SRC, thumbPath);
                             params.put("des", rename.getAbsolutePath());
                             BaseSamplingStatHelper.recordErrorEvent("operation_abnormal", "add_secret_failed_bc_file_operation_failed", params);
                             return -113;
@@ -513,8 +517,8 @@ public class CloudManager {
                     }
                     if (BaseFileUtils.contains(secretAlbumPath, thumbPath)) {
                         params = new HashMap();
-                        params.put("detail", "thumbnail file already exist in secret folder");
-                        params.put("src", thumbPath);
+                        params.put(AlertInfo.DETAIL, "thumbnail file already exist in secret folder");
+                        params.put(AQIInfo.SRC, thumbPath);
                         params.put("des", secretAlbumPath);
                         BaseSamplingStatHelper.recordErrorEvent("operation_abnormal", "add_secret_abnormal", params);
                     } else {
@@ -522,8 +526,8 @@ public class CloudManager {
                         if (!BaseFileUtils.contains(secretAlbumPath, thumbPath)) {
                             Log.e("CloudManager", "Failed to move item %s to secret folder", localPath);
                             params = new HashMap();
-                            params.put("detail", "thumbnail file move failed to secret folder");
-                            params.put("src", thumbPath);
+                            params.put(AlertInfo.DETAIL, "thumbnail file move failed to secret folder");
+                            params.put(AQIInfo.SRC, thumbPath);
                             params.put("des", secretAlbumPath);
                             BaseSamplingStatHelper.recordErrorEvent("operation_abnormal", "add_secret_failed_bc_file_operation_failed", params);
                             return -113;
@@ -533,8 +537,8 @@ public class CloudManager {
                     thumbPath = this.mCursor.getString(8);
                     if (FileUtils.isFileExist(thumbPath)) {
                         params = new HashMap();
-                        params.put("detail", "thumbnail file still exist after move to secret");
-                        params.put("src", thumbPath);
+                        params.put(AlertInfo.DETAIL, "thumbnail file still exist after move to secret");
+                        params.put(AQIInfo.SRC, thumbPath);
                         BaseSamplingStatHelper.recordErrorEvent("operation_abnormal", "add_secret_abnormal", params);
                     } else {
                         MediaFileUtils.deleteFileType(FileType.NORMAL, thumbPath);
@@ -577,7 +581,7 @@ public class CloudManager {
                 if (cursor == null || !cursor.moveToFirst()) {
                     params = new HashMap();
                     params.put("result", String.valueOf(succeed));
-                    params.put("detail", "failed to retrieve record again");
+                    params.put(AlertInfo.DETAIL, "failed to retrieve record again");
                     BaseSamplingStatHelper.recordErrorEvent("operation_abnormal", "add_secret_abnormal", params);
                     return;
                 }
@@ -588,25 +592,25 @@ public class CloudManager {
                     if (!FileUtils.isFileExist(localFile)) {
                         params = new HashMap();
                         params.put("result", String.valueOf(succeed));
-                        params.put("detail", "local file not exist with unsynced item");
+                        params.put(AlertInfo.DETAIL, "local file not exist with unsynced item");
                         params.put("localFile", localFile);
                         BaseSamplingStatHelper.recordErrorEvent("operation_abnormal", "add_secret_abnormal", params);
                     } else if (succeed && !localFile.contains("MIUI/Gallery/cloud/.secretAlbum")) {
                         params = new HashMap();
                         params.put("result", "true");
-                        params.put("detail", "local file not in secret folder");
+                        params.put(AlertInfo.DETAIL, "local file not in secret folder");
                         params.put("localFile", localFile);
                         BaseSamplingStatHelper.recordErrorEvent("operation_abnormal", "add_secret_abnormal", params);
                     }
                 } else if (localFlag == 2 || localFlag == -1 || localFlag == 11) {
                     params = new HashMap();
                     params.put("result", String.valueOf(succeed));
-                    params.put("detail", "record in invalid local state " + localFlag);
+                    params.put(AlertInfo.DETAIL, "record in invalid local state " + localFlag);
                     BaseSamplingStatHelper.recordErrorEvent("operation_abnormal", "add_secret_abnormal", params);
-                } else if (TextUtils.equals("deleted", serverStatus) || TextUtils.equals("purged", serverStatus)) {
+                } else if (TextUtils.equals(DeletableSyncColumns.DELETED, serverStatus) || TextUtils.equals("purged", serverStatus)) {
                     params = new HashMap();
                     params.put("result", String.valueOf(succeed));
-                    params.put("detail", "record in invalid server state " + serverStatus);
+                    params.put(AlertInfo.DETAIL, "record in invalid server state " + serverStatus);
                     BaseSamplingStatHelper.recordErrorEvent("operation_abnormal", "add_secret_abnormal", params);
                 }
             } catch (Throwable e) {
@@ -1949,7 +1953,7 @@ public class CloudManager {
         if ("add_to_album".equals(method)) {
             albumId = Numbers.parse(arg, Long.valueOf(-1)).longValue();
             int srcType = extras.getInt("extra_src_type", 0);
-            int operationType = extras.getInt("extra_type", 0);
+            int operationType = extras.getInt(MipubPhoneEvent.URI_PARAM_TYPE, 0);
             if (srcType == 1) {
                 uris = extras.getParcelableArrayList("extra_src_uris");
                 if (uris == null || isVirtualAlbum(albumId)) {

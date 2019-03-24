@@ -3,14 +3,15 @@ package com.miui.gallery.util;
 import android.net.Uri;
 import android.net.Uri.Builder;
 import android.text.TextUtils;
+import miui.provider.ExtraContacts.ConferenceCalls;
 
 public class UriUtil {
     public static Uri appendLimit(Uri uri, int limit) {
-        return uri != null ? appendParameter(uri.buildUpon(), "limit", String.valueOf(limit)).build() : uri;
+        return uri != null ? appendParameter(uri.buildUpon(), ConferenceCalls.LIMIT_PARAM_KEY, String.valueOf(limit)).build() : uri;
     }
 
     public static Uri appendLimit(Uri uri, int limit, int offset) {
-        return uri != null ? appendParameter(uri.buildUpon(), "limit", offset + " , " + limit).build() : uri;
+        return uri != null ? appendParameter(uri.buildUpon(), ConferenceCalls.LIMIT_PARAM_KEY, offset + " , " + limit).build() : uri;
     }
 
     public static Uri appendGroupBy(Uri uri, String groupBy, String having) {
@@ -29,7 +30,7 @@ public class UriUtil {
     }
 
     public static String getLimit(Uri uri) {
-        return uri != null ? uri.getQueryParameter("limit") : null;
+        return uri != null ? uri.getQueryParameter(ConferenceCalls.LIMIT_PARAM_KEY) : null;
     }
 
     public static String getGroupBy(Uri uri) {

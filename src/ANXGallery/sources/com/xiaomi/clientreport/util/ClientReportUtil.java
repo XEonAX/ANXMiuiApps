@@ -3,10 +3,10 @@ package com.xiaomi.clientreport.util;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SystemIntent;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Build.VERSION;
 import android.text.TextUtils;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import com.xiaomi.channel.commonutils.file.IOUtils;
 import com.xiaomi.channel.commonutils.logger.MyLog;
 import com.xiaomi.channel.commonutils.string.Base64Coder;
@@ -19,6 +19,7 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.Arrays;
 import java.util.List;
+import miui.yellowpage.YellowPageStatistic.Display;
 
 public class ClientReportUtil {
     public static String getOs() {
@@ -45,7 +46,7 @@ public class ClientReportUtil {
 
     public static boolean isSupportXMSFUpload(Context context) {
         try {
-            if (context.getApplicationContext().getPackageManager().getPackageInfo("com.xiaomi.xmsf", 0).versionCode >= BaiduSceneResult.ANCIENT_CHINESE_ARCHITECTURE) {
+            if (context.getApplicationContext().getPackageManager().getPackageInfo(SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE, 0).versionCode >= 108) {
                 return true;
             }
             return false;
@@ -58,7 +59,7 @@ public class ClientReportUtil {
     public static void sendData(Context context, String eventData) {
         Intent intent = new Intent("com.xiaomi.xmsf.push.XMSF_UPLOAD_ACTIVE");
         intent.putExtra("pkgname", context.getPackageName());
-        intent.putExtra("category", "category_client_report_data");
+        intent.putExtra(Display.CATEGORY, "category_client_report_data");
         intent.putExtra("name", "quality_support");
         intent.putExtra("data", eventData);
         context.sendBroadcast(intent, "com.xiaomi.xmsf.permission.USE_XMSF_UPLOAD");

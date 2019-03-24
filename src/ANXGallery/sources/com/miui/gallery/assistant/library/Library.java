@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
+import miui.mipub.MipubStat;
 import org.json.JSONException;
 
 public class Library extends Entity {
@@ -41,7 +42,7 @@ public class Library extends Entity {
     }
 
     boolean isOverDue() {
-        return System.currentTimeMillis() > this.mRefreshTime + 604800000;
+        return System.currentTimeMillis() > this.mRefreshTime + MipubStat.STAT_EXPIRY_DATA;
     }
 
     public void setLibraryStatus(LibraryStatus status) {

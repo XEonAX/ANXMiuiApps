@@ -14,6 +14,7 @@ import java.net.HttpURLConnection;
 import java.security.MessageDigest;
 import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
+import miui.hybrid.Response;
 
 public class DownloadTask {
     private static final long RETRY_INTERVAL_MILLI = TimeUnit.SECONDS.toMillis(10);
@@ -353,7 +354,7 @@ public class DownloadTask {
     }
 
     private static int translateResponseCode(int code) {
-        if (code != 200) {
+        if (code != Response.CODE_GENERIC_ERROR) {
             Log.d("DownloadTask", "processing http code %d", Integer.valueOf(code));
             int cat = code / 100;
             if (cat == 3) {

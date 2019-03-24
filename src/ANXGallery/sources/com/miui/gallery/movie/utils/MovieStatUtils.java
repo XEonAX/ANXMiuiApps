@@ -3,7 +3,6 @@ package com.miui.gallery.movie.utils;
 import com.miui.gallery.movie.entity.MovieInfo;
 import com.miui.gallery.movie.entity.MovieResource;
 import com.miui.gallery.stat.BaseSamplingStatHelper;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.util.HashMap;
 
 public class MovieStatUtils {
@@ -16,14 +15,14 @@ public class MovieStatUtils {
 
     public static void statDownload(MovieResource resource) {
         HashMap<String, String> params = new HashMap();
-        params.put(nexExportFormat.TAG_FORMAT_TYPE, resource.getStatTypeString());
+        params.put("type", resource.getStatTypeString());
         params.put("name", resource.getStatNameString());
         BaseSamplingStatHelper.recordCountEvent("movie", "movie_download", params);
     }
 
     public static void statDownloadResult(MovieResource resource, boolean success) {
         HashMap<String, String> params = new HashMap();
-        params.put(nexExportFormat.TAG_FORMAT_TYPE, resource.getStatTypeString());
+        params.put("type", resource.getStatTypeString());
         params.put("name", resource.getStatNameString());
         params.put("success", success ? "0" : "-1");
         BaseSamplingStatHelper.recordCountEvent("movie", "movie_download_result", params);
@@ -31,7 +30,7 @@ public class MovieStatUtils {
 
     public static void statItemChoose(MovieResource resource) {
         HashMap<String, String> params = new HashMap();
-        params.put(nexExportFormat.TAG_FORMAT_TYPE, resource.getStatTypeString());
+        params.put("type", resource.getStatTypeString());
         params.put("name", resource.getStatNameString());
         BaseSamplingStatHelper.recordCountEvent("movie", "movie_item_choose", params);
     }

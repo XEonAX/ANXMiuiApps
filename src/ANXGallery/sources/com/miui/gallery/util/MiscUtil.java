@@ -26,7 +26,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import miui.content.res.ThemeResources;
 import miui.net.ConnectivityHelper;
+import miui.util.HashUtils;
 
 public class MiscUtil extends BaseMiscUtil {
     private static String sHashedDeviceId;
@@ -55,7 +57,7 @@ public class MiscUtil extends BaseMiscUtil {
             return null;
         }
         try {
-            return Base64.encodeToString(MessageDigest.getInstance("SHA1").digest(plain.getBytes()), 8).substring(0, 16);
+            return Base64.encodeToString(MessageDigest.getInstance(HashUtils.SHA1).digest(plain.getBytes()), 8).substring(0, 16);
         } catch (NoSuchAlgorithmException e) {
             throw new IllegalStateException("failed to init SHA1 digest");
         }
@@ -161,7 +163,7 @@ public class MiscUtil extends BaseMiscUtil {
     }
 
     public static int getStatusBarHeight(Context context) {
-        return getDimensionPixelOffset(context.getResources(), "status_bar_height", "dimen", "android");
+        return getDimensionPixelOffset(context.getResources(), "status_bar_height", "dimen", ThemeResources.FRAMEWORK_PACKAGE);
     }
 
     public static int getDefaultSplitActionBarHeight(Context context) {

@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import miui.provider.ExtraContacts.DefaultAccount;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -542,7 +543,7 @@ class a implements nexCollageInfo, nexCollageInfoDraw {
                 this.c.DrawInfoChanged(nexdrawinfo);
             }
             return true;
-        } else if (str.compareTo("default") == 0) {
+        } else if (str.compareTo(DefaultAccount.NAME) == 0) {
             nexdrawinfo.setUserLUT(null);
             if (e() == null || e().compareTo("none") == 0) {
                 nexdrawinfo.setLUT(0);

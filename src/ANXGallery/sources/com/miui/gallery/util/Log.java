@@ -1,6 +1,7 @@
 package com.miui.gallery.util;
 
 import android.util.Patterns;
+import com.miui.internal.vip.utils.JsonParser;
 import java.util.Arrays;
 import java.util.Locale;
 
@@ -201,7 +202,7 @@ public class Log {
 
     private static String prettyArray(String[] array) {
         if (array.length == 0) {
-            return "[]";
+            return JsonParser.EMPTY_ARRAY;
         }
         StringBuilder sb = new StringBuilder("[");
         int len = array.length - 1;

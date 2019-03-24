@@ -13,7 +13,6 @@ import android.graphics.RectF;
 import android.media.FaceDetector;
 import android.media.FaceDetector.Face;
 import android.util.Log;
-import com.miui.gallery.assistant.jni.filter.BaiduSceneResult;
 import com.nexstreaming.kminternal.kinemaster.utils.facedetect.a;
 import com.nexstreaming.nexeditorsdk.nexSaveDataFormat.nexCropOf;
 import java.io.File;
@@ -22,7 +21,7 @@ public final class nexCrop implements Cloneable {
     public static final int ABSTRACT_DIMENSION = 100000;
     static final String TAG = "nexCrop";
     private int clip_druation = 0;
-    private int facedetect_speed = BaiduSceneResult.SHOOTING;
+    private int facedetect_speed = 101;
     private boolean m_endLock = false;
     private float[] m_endMatrix;
     int m_endPositionBottom = 0;
@@ -796,7 +795,7 @@ public final class nexCrop implements Cloneable {
             rect2.offset((int) ((((double) i) * Math.random()) / 3.0d), (int) ((((double) i2) * Math.random()) / 3.0d));
         }
         int i5 = (int) (((double) i3) * ((((double) ((float) i4)) * 0.5d) / 1000.0d));
-        if (i3 < BaiduSceneResult.SHOOTING) {
+        if (i3 < 101) {
             rect.set(rect2.left - ((i * i5) / 1000), rect2.top - ((i2 * i5) / 1000), rect2.right + ((i * i5) / 1000), (((i5 * i2) / 1000) * 3) + rect2.bottom);
         } else {
             rect.set(rect2.left - (i / 4), rect2.top - (i2 / 4), rect2.right + (i / 4), rect2.bottom + (i2 / 4));

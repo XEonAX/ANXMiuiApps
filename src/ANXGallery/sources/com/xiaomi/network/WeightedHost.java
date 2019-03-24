@@ -2,6 +2,7 @@ package com.xiaomi.network;
 
 import java.util.Iterator;
 import java.util.LinkedList;
+import miui.yellowpage.YellowPageContract.Permission;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -64,7 +65,7 @@ class WeightedHost implements Comparable<WeightedHost> {
         jsonObject = new JSONObject();
         jsonObject.put("tt", this.touchedTime);
         jsonObject.put("wt", this.weight);
-        jsonObject.put("host", this.host);
+        jsonObject.put(Permission.HOST, this.host);
         JSONArray jsonArray = new JSONArray();
         Iterator it = this.accessHistories.iterator();
         while (it.hasNext()) {
@@ -77,7 +78,7 @@ class WeightedHost implements Comparable<WeightedHost> {
     public synchronized WeightedHost fromJSON(JSONObject jsonObject) throws JSONException {
         this.touchedTime = jsonObject.getLong("tt");
         this.weight = jsonObject.getInt("wt");
-        this.host = jsonObject.getString("host");
+        this.host = jsonObject.getString(Permission.HOST);
         JSONArray ah = jsonObject.getJSONArray("ah");
         for (int i = 0; i < ah.length(); i++) {
             this.accessHistories.add(new AccessHistory().fromJSON(ah.getJSONObject(i)));

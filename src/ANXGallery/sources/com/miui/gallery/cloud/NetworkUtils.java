@@ -7,12 +7,14 @@ import com.miui.gallery.util.GalleryStatHelper;
 import com.miui.gallery.util.StreamUtils;
 import com.miui.gallery.util.SyncLog;
 import com.miui.gallery.util.deviceprovider.ApplicationHelper;
+import com.miui.internal.vip.utils.AuthHttpRequest;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
+import miui.hybrid.Response;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -37,9 +39,9 @@ public class NetworkUtils {
     private static String getHttpMethod(RequestType type) {
         switch (type) {
             case GET:
-                return "GET";
+                return AuthHttpRequest.METHOD_GET;
             case POST:
-                return "POST";
+                return AuthHttpRequest.METHOD_POST;
             default:
                 return "";
         }
@@ -70,7 +72,7 @@ public class NetworkUtils {
 
     private static InputStream handleResult(HttpRequestBase httpRequest, HttpResponse resp, String url, boolean canRetry) throws IllegalStateException, IOException {
         int statusCode = resp.getStatusLine().getStatusCode();
-        if (statusCode == 200) {
+        if (statusCode == Response.CODE_GENERIC_ERROR) {
             return decodeGZip(resp);
         }
         SyncLog.d("NetworkUtils", "Server error: " + statusCode + " " + resp.getStatusLine());

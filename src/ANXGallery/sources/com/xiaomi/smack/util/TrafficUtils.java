@@ -2,6 +2,8 @@ package com.xiaomi.smack.util;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SystemIntent;
+import android.content.res.MiuiConfiguration;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -16,6 +18,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import miui.provider.ExtraNetwork;
 import org.keyczar.Keyczar;
 
 public class TrafficUtils {
@@ -109,7 +112,7 @@ public class TrafficUtils {
     }
 
     private static void saveTraffic(final Context context, String packageName, long bytesLength, boolean isRx, long ts) {
-        if (context != null && !TextUtils.isEmpty(packageName) && "com.xiaomi.xmsf".equals(context.getPackageName()) && !"com.xiaomi.xmsf".equals(packageName)) {
+        if (context != null && !TextUtils.isEmpty(packageName) && SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(context.getPackageName()) && !SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(packageName)) {
             int type = getNetworkType(context);
             if (-1 != type) {
                 boolean listEmpty;
@@ -148,7 +151,7 @@ public class TrafficUtils {
         if (isRx && isSlim) {
             long last = lastRxTs;
             lastRxTs = ts;
-            if (ts - last > 30000 && byteLength > 1024) {
+            if (ts - last > 30000 && byteLength > MiuiConfiguration.THEME_FLAG_ALARM) {
                 return 2 * byteLength;
             }
         }
@@ -163,7 +166,7 @@ public class TrafficUtils {
                 try {
                     for (TrafficInfo trafficInfo : infoList) {
                         ContentValues values = new ContentValues();
-                        values.put("package_name", trafficInfo.packageName);
+                        values.put(ExtraNetwork.FIREWALL_PACKAGE_NAME, trafficInfo.packageName);
                         values.put("message_ts", Long.valueOf(trafficInfo.messageTs));
                         values.put("network_type", Integer.valueOf(trafficInfo.networkType));
                         values.put("bytes", Long.valueOf(trafficInfo.bytes));

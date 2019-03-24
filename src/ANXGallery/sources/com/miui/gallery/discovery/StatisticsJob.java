@@ -29,12 +29,14 @@ import com.miui.gallery.util.BaseMiscUtil;
 import com.miui.gallery.util.StorageUtils;
 import java.util.List;
 import java.util.Locale;
+import miui.mipub.MipubStat;
+import miui.yellowpage.YellowPageContract.Settings;
 
 public class StatisticsJob extends AbstractJob {
     private void recordGallerySettings() {
         Account account = AccountHelper.getXiaomiAccount(GalleryApp.sGetAndroidContext());
         boolean hasXiaomiAccount = account != null;
-        BaseSamplingStatHelper.recordStringPropertyEvent("settings", "has_xiaomi_account", String.valueOf(hasXiaomiAccount));
+        BaseSamplingStatHelper.recordStringPropertyEvent(Settings.DIRECTORY, "has_xiaomi_account", String.valueOf(hasXiaomiAccount));
         if (hasXiaomiAccount) {
             boolean isCloudBackupOn = ContentResolver.getSyncAutomatically(account, "com.miui.gallery.cloud.provider");
             boolean isLocalModeOn = LocalMode.isOnlyShowLocalPhoto();
@@ -46,19 +48,19 @@ public class StatisticsJob extends AbstractJob {
             boolean isSearchAIAlbumEnabled = AIAlbumStatusHelper.isCloudControlSearchAIAlbumOpen();
             boolean isAutoDownload = Sync.isAutoDownload();
             DownloadType downloadType = Sync.getDownloadType();
-            BaseSamplingStatHelper.recordStringPropertyEvent("settings", "is_cloud_backup_on_c", String.valueOf(isCloudBackupOn));
-            BaseSamplingStatHelper.recordStringPropertyEvent("settings", "is_local_mode_on_c", String.valueOf(isLocalModeOn));
-            BaseSamplingStatHelper.recordStringPropertyEvent("settings", "is_face_album_on_c", String.valueOf(isFaceAlbumOn));
-            BaseSamplingStatHelper.recordStringPropertyEvent("settings", "is_backup_only_wifi_on_c", String.valueOf(isBackupOnlyWifi));
-            BaseSamplingStatHelper.recordStringPropertyEvent("settings", "is_ai_album_on_c", String.valueOf(isAIAlbumOn));
-            BaseSamplingStatHelper.recordStringPropertyEvent("settings", "is_search_ai_album_enabled_c", String.valueOf(isSearchAIAlbumEnabled));
-            BaseSamplingStatHelper.recordStringPropertyEvent("settings", "is_search_bar_enabled_c", String.valueOf(isSearchBarEnabled));
+            BaseSamplingStatHelper.recordStringPropertyEvent(Settings.DIRECTORY, "is_cloud_backup_on_c", String.valueOf(isCloudBackupOn));
+            BaseSamplingStatHelper.recordStringPropertyEvent(Settings.DIRECTORY, "is_local_mode_on_c", String.valueOf(isLocalModeOn));
+            BaseSamplingStatHelper.recordStringPropertyEvent(Settings.DIRECTORY, "is_face_album_on_c", String.valueOf(isFaceAlbumOn));
+            BaseSamplingStatHelper.recordStringPropertyEvent(Settings.DIRECTORY, "is_backup_only_wifi_on_c", String.valueOf(isBackupOnlyWifi));
+            BaseSamplingStatHelper.recordStringPropertyEvent(Settings.DIRECTORY, "is_ai_album_on_c", String.valueOf(isAIAlbumOn));
+            BaseSamplingStatHelper.recordStringPropertyEvent(Settings.DIRECTORY, "is_search_ai_album_enabled_c", String.valueOf(isSearchAIAlbumEnabled));
+            BaseSamplingStatHelper.recordStringPropertyEvent(Settings.DIRECTORY, "is_search_bar_enabled_c", String.valueOf(isSearchBarEnabled));
             if (isSearchAIAlbumEnabled) {
-                BaseSamplingStatHelper.recordStringPropertyEvent("settings", "is_search_user_switch_on_c", String.valueOf(isSearchUserSwitchOn));
+                BaseSamplingStatHelper.recordStringPropertyEvent(Settings.DIRECTORY, "is_search_user_switch_on_c", String.valueOf(isSearchUserSwitchOn));
             }
-            BaseSamplingStatHelper.recordStringPropertyEvent("settings", "auto_download_on_c", String.valueOf(isAutoDownload));
+            BaseSamplingStatHelper.recordStringPropertyEvent(Settings.DIRECTORY, "auto_download_on_c", String.valueOf(isAutoDownload));
             if (isAutoDownload) {
-                BaseSamplingStatHelper.recordStringPropertyEvent("settings", "download_type_c", String.valueOf(downloadType));
+                BaseSamplingStatHelper.recordStringPropertyEvent(Settings.DIRECTORY, "download_type_c", String.valueOf(downloadType));
             }
         }
     }
@@ -371,6 +373,6 @@ public class StatisticsJob extends AbstractJob {
     }
 
     public JobInfo getJobInfo(Context context, ComponentName cn) {
-        return new Builder(this.mJobId, cn).setRequiredNetworkType(2).setPeriodic(604800000).setRequiresDeviceIdle(true).setRequiresCharging(true).build();
+        return new Builder(this.mJobId, cn).setRequiredNetworkType(2).setPeriodic(MipubStat.STAT_EXPIRY_DATA).setRequiresDeviceIdle(true).setRequiresCharging(true).build();
     }
 }

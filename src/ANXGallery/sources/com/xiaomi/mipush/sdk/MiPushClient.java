@@ -4,9 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences.Editor;
+import android.content.SystemIntent;
 import android.os.Build;
 import android.os.Build.VERSION;
 import android.text.TextUtils;
+import com.miui.internal.vip.VipConstants;
 import com.xiaomi.channel.commonutils.android.AppInfoUtils;
 import com.xiaomi.channel.commonutils.android.DeviceInfo;
 import com.xiaomi.channel.commonutils.android.MIUIUtils;
@@ -48,6 +50,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import miui.mipub.MipubStat;
+import miui.provider.ExtraTelephony.Mms;
 
 public abstract class MiPushClient {
     private static boolean isCrashHandlerSuggested = false;
@@ -117,8 +121,8 @@ public abstract class MiPushClient {
                     Intent intent = new Intent();
                     intent.setAction("com.xiaomi.mipush.ERROR");
                     intent.setPackage(context.getPackageName());
-                    intent.putExtra("message_type", 5);
-                    intent.putExtra("error_type", "error_lack_of_permission");
+                    intent.putExtra(MipubStat.STAT_MSG_TYPE, 5);
+                    intent.putExtra(Mms.ERROR_TYPE, "error_lack_of_permission");
                     intent.putExtra("error_message", array);
                     context.sendBroadcast(intent);
                 }
@@ -130,7 +134,7 @@ public abstract class MiPushClient {
         if (context == null) {
             return false;
         }
-        if (MIUIUtils.isMIUI() || "com.xiaomi.xmsf".equals(context.getPackageName())) {
+        if (MIUIUtils.isMIUI() || SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE.equals(context.getPackageName())) {
             return true;
         }
         if (context.getApplicationInfo().targetSdkVersion < 23 || VERSION.SDK_INT < 23) {
@@ -279,7 +283,7 @@ public abstract class MiPushClient {
             initEventPerfLogic(context);
             SyncInfoHelper.tryToSyncInfo(sContext);
             forceHandleCrash();
-            if (!sContext.getPackageName().equals("com.xiaomi.xmsf")) {
+            if (!sContext.getPackageName().equals(SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE)) {
                 Logger.setLogger(sContext, Logger.getUserLogger());
                 MyLog.setLogLevel(2);
             }
@@ -321,7 +325,7 @@ public abstract class MiPushClient {
     }
 
     private static void scheduleGeoFenceLocUploadJobs() {
-        if (GeoFenceUtils.getGeoEnableSwitch(sContext) && !TextUtils.equals("com.xiaomi.xmsf", sContext.getPackageName()) && OnlineConfig.getInstance(sContext).getBooleanValue(ConfigKey.UploadGeoAppLocSwitch.getValue(), true) && !SystemUtils.isGlobalVersion()) {
+        if (GeoFenceUtils.getGeoEnableSwitch(sContext) && !TextUtils.equals(SystemIntent.ACTIVATE_SERVICE_HOST_PACKAGE, sContext.getPackageName()) && OnlineConfig.getInstance(sContext).getBooleanValue(ConfigKey.UploadGeoAppLocSwitch.getValue(), true) && !SystemUtils.isGlobalVersion()) {
             GeoFenceNetInfoUploadJob.reportLocInfo(sContext, true);
             int frequency = Math.max(60, OnlineConfig.getInstance(sContext).getIntValue(ConfigKey.UploadWIFIGeoLocFrequency.getValue(), 900));
             ScheduledJobManager.getInstance(sContext).addRepeatJob(new GeoFenceNetInfoUploadJob(sContext, frequency), frequency, frequency);
@@ -535,7 +539,7 @@ public abstract class MiPushClient {
 
     public static void subscribe(Context context, String topic, String category) {
         if (!TextUtils.isEmpty(AppInfoHolder.getInstance(context).getAppID()) && !TextUtils.isEmpty(topic)) {
-            if (Math.abs(System.currentTimeMillis() - topicSubscribedTime(context, topic)) > 86400000) {
+            if (Math.abs(System.currentTimeMillis() - topicSubscribedTime(context, topic)) > VipConstants.DAY) {
                 XmPushActionSubscription subscribeMessage = new XmPushActionSubscription();
                 subscribeMessage.setId(PacketHelper.generatePacketID());
                 subscribeMessage.setAppId(AppInfoHolder.getInstance(context).getAppID());
@@ -594,10 +598,10 @@ public abstract class MiPushClient {
         if (!TextUtils.isEmpty(argument)) {
             arguments.add(argument);
         }
-        if (!Command.COMMAND_SET_ALIAS.value.equalsIgnoreCase(command) || Math.abs(System.currentTimeMillis() - aliasSetTime(context, argument)) >= 3600000) {
+        if (!Command.COMMAND_SET_ALIAS.value.equalsIgnoreCase(command) || Math.abs(System.currentTimeMillis() - aliasSetTime(context, argument)) >= VipConstants.HOUR) {
             if (Command.COMMAND_UNSET_ALIAS.value.equalsIgnoreCase(command) && aliasSetTime(context, argument) < 0) {
                 MyLog.w("Don't cancel alias for " + XMStringUtils.obfuscateString(arguments.toString(), 3) + " is unseted");
-            } else if (!Command.COMMAND_SET_ACCOUNT.value.equalsIgnoreCase(command) || Math.abs(System.currentTimeMillis() - accountSetTime(context, argument)) >= 3600000) {
+            } else if (!Command.COMMAND_SET_ACCOUNT.value.equalsIgnoreCase(command) || Math.abs(System.currentTimeMillis() - accountSetTime(context, argument)) >= VipConstants.HOUR) {
                 if (!Command.COMMAND_UNSET_ACCOUNT.value.equalsIgnoreCase(command) || accountSetTime(context, argument) >= 0) {
                     setCommand(context, command, arguments, category);
                 } else {

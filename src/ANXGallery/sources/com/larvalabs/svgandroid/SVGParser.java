@@ -28,6 +28,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import javax.xml.parsers.SAXParserFactory;
+import miui.provider.ExtraContacts.ConferenceCalls;
+import miui.provider.MiCloudSmsCmd;
+import miui.yellowpage.Tag.TagServicesData;
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -173,7 +176,7 @@ public class SVGParser {
             this.a = null;
             this.c = null;
             this.b = attributes;
-            String a = SVGParser.e("style", attributes);
+            String a = SVGParser.e(TagServicesData.GROUP_STYLE, attributes);
             if (a != null) {
                 this.a = new g(a);
             }
@@ -485,7 +488,7 @@ public class SVGParser {
                     if (b2 == null) {
                         b2 = Float.valueOf(0.0f);
                     }
-                    b3 = SVGParser.f(nexExportFormat.TAG_FORMAT_WIDTH, attributes);
+                    b3 = SVGParser.f("width", attributes);
                     SVGParser.f(nexExportFormat.TAG_FORMAT_HEIGHT, attributes);
                     this.e = new RectF(b.floatValue(), b2.floatValue(), b.floatValue() + b3.floatValue(), b2.floatValue() + b3.floatValue());
                     return;
@@ -498,7 +501,7 @@ public class SVGParser {
             int i2;
             if (str2.equals("svg")) {
                 float f2;
-                b = SVGParser.f(nexExportFormat.TAG_FORMAT_WIDTH, attributes);
+                b = SVGParser.f("width", attributes);
                 b4 = SVGParser.f(nexExportFormat.TAG_FORMAT_HEIGHT, attributes);
                 if (b == null || b4 == null) {
                     String a = SVGParser.e("viewBox", attributes);
@@ -618,7 +621,7 @@ public class SVGParser {
                                 valueOf3 = b;
                                 f3 = b2;
                             }
-                            Float b6 = SVGParser.f(nexExportFormat.TAG_FORMAT_WIDTH, attributes);
+                            Float b6 = SVGParser.f("width", attributes);
                             Float b7 = SVGParser.f(nexExportFormat.TAG_FORMAT_HEIGHT, attributes);
                             a(attributes);
                             dVar = new d(attributes);
@@ -759,7 +762,7 @@ public class SVGParser {
                     }
                     if (!this.m) {
                         if (str2.equals(nexExportFormat.TAG_FORMAT_PATH)) {
-                            Path c2 = SVGParser.f(SVGParser.e("d", attributes));
+                            Path c2 = SVGParser.f(SVGParser.e(MiCloudSmsCmd.TYPE_DISCARD_TOKEN, attributes));
                             a(attributes);
                             dVar2 = new d(attributes);
                             f fVar6 = new f((f) this.g.peek());
@@ -781,8 +784,8 @@ public class SVGParser {
                         Log.w("SVGAndroid", "UNRECOGNIZED SVG COMMAND: " + str2);
                     }
                 } else if (this.l != null) {
-                    f = SVGParser.f("offset", attributes).floatValue();
-                    SVGParser.e("style", attributes);
+                    f = SVGParser.f(ConferenceCalls.OFFSET_PARAM_KEY, attributes).floatValue();
+                    SVGParser.e(TagServicesData.GROUP_STYLE, attributes);
                     dVar = new d(attributes);
                     String b8 = dVar.b("stop-color");
                     i = -16777216;
@@ -982,7 +985,7 @@ public class SVGParser {
 
         private g(String str) {
             this.a = new HashMap();
-            for (String split : str.split(";")) {
+            for (String split : str.split(ConferenceCalls.SPLIT_EXPRESSION)) {
                 String[] split2 = split.split(":");
                 if (split2.length == 2) {
                     this.a.put(split2[0], split2[1]);
@@ -1106,8 +1109,8 @@ public class SVGParser {
                     case 'Z':
                     case BaiduSceneResult.SKATEBOARD /*97*/:
                     case BaiduSceneResult.VOLLEYBALL /*99*/:
-                    case BaiduSceneResult.SPORTS_OTHER /*104*/:
-                    case BaiduSceneResult.ANCIENT_CHINESE_ARCHITECTURE /*108*/:
+                    case 'h':
+                    case 'l':
                     case BaiduSceneResult.CHURCH /*109*/:
                     case BaiduSceneResult.FOUNTAIN /*113*/:
                     case BaiduSceneResult.BUILDING_OTHER /*115*/:
@@ -1252,7 +1255,7 @@ public class SVGParser {
                 case '9':
                     if (c != BaiduSceneResult.CHURCH && c != 'M') {
                         if (c != 'c' && c != 'C') {
-                            if (c == BaiduSceneResult.ANCIENT_CHINESE_ARCHITECTURE || c == 'L') {
+                            if (c == 'l' || c == 'L') {
                                 c2 = c;
                                 c3 = c;
                                 break;
@@ -1326,7 +1329,7 @@ public class SVGParser {
                     e = f8;
                     break;
                 case 'H':
-                case BaiduSceneResult.SPORTS_OTHER /*104*/:
+                case 'h':
                     e = aVar.e();
                     if (c2 != 'h') {
                         path.lineTo(e, f5);
@@ -1350,7 +1353,7 @@ public class SVGParser {
                     f5 = f2;
                     break;
                 case 'L':
-                case BaiduSceneResult.ANCIENT_CHINESE_ARCHITECTURE /*108*/:
+                case 'l':
                     e = aVar.e();
                     e2 = aVar.e();
                     if (c2 != 'l') {

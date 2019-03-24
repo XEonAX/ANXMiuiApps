@@ -21,6 +21,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
+import miui.yellowpage.Tag.TagWebService.CommonResult;
 import org.apache.http.client.ClientProtocolException;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -58,15 +59,15 @@ public class CloudUtils {
         }
         try {
             JSONObject responseJSON = new JSONObject(response);
-            if (responseJSON.getInt("code") == 308) {
+            if (responseJSON.getInt(CommonResult.RESULT_CODE) == 308) {
                 if (responseJSON.getJSONObject("data").optBoolean("isPermanent")) {
                     sNeedUpdateHosts = true;
                 }
                 return responseJSON.getJSONObject("data").getString("redirectUrl");
-            } else if (responseJSON.getInt("code") == 503) {
+            } else if (responseJSON.getInt(CommonResult.RESULT_CODE) == 503) {
                 throw new CloudServerException(503, 503, responseJSON.getJSONObject("data").getInt("retryAfter"));
             } else {
-                if (responseJSON.getInt("code") == 10034) {
+                if (responseJSON.getInt(CommonResult.RESULT_CODE) == 10034) {
                     throw new CloudServerException(503, 10034, responseJSON.getJSONObject("data").getInt("retryAfter"));
                 }
                 return null;
@@ -106,7 +107,7 @@ public class CloudUtils {
     }
 
     /* JADX WARNING: Removed duplicated region for block: B:163:0x0313 A:{SYNTHETIC} */
-    /* JADX WARNING: Removed duplicated region for block: B:130:0x02e0 A:{LOOP_END, Catch:{ all -> 0x0152, InterruptedException -> 0x0163 }, LOOP:1: B:37:0x0141->B:130:0x02e0} */
+    /* JADX WARNING: Removed duplicated region for block: B:130:0x02e0 A:{LOOP_END, LOOP:1: B:37:0x0141->B:130:0x02e0, Catch:{ all -> 0x0152, InterruptedException -> 0x0163 }} */
     /* JADX WARNING: Missing block: B:23:0x00af, code:
             if (r9 == false) goto L_0x00b5;
      */
@@ -239,7 +240,7 @@ public class CloudUtils {
                             }
                             responseJSON = new JSONObject(Request.securePost(URL_RELOCATION_QUERY, params));
                             try {
-                                if (responseJSON.getInt("code") == 0) {
+                                if (responseJSON.getInt(CommonResult.RESULT_CODE) == 0) {
                                     break;
                                 }
                             } catch (JSONException e3) {

@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.text.TextUtils;
 import com.miui.gallery.cloud.CloudUtils;
 import com.miui.gallery.provider.GalleryDBHelper;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -51,7 +50,7 @@ public class DBShareUser {
         ContentValues values = new ContentValues();
         values.put("userId", schemaJson.getString("userId"));
         values.put("serverStatus", schemaJson.getString("status"));
-        values.put("serverTag", Long.valueOf(CloudUtils.getLongAttributeFromJson(schemaJson, nexExportFormat.TAG_FORMAT_TAG)));
+        values.put("serverTag", Long.valueOf(CloudUtils.getLongAttributeFromJson(schemaJson, "tag")));
         values.put("createTime", schemaJson.getString("createTime"));
         values.put("requestType", schemaJson.getString("requestType"));
         values.put("requestValue", schemaJson.getString("requestValue"));

@@ -2,9 +2,9 @@ package com.miui.gallery.util;
 
 import android.text.TextUtils;
 import java.io.File;
-import miui.os.FileUtils;
+import miui.os.C0002FileUtils;
 
-public class BaseFileUtils extends FileUtils {
+public class BaseFileUtils extends C0002FileUtils {
     public static String concat(String folder, String leaf) {
         String separator = "";
         if (!(TextUtils.isEmpty(leaf) || leaf.startsWith(File.separator))) {

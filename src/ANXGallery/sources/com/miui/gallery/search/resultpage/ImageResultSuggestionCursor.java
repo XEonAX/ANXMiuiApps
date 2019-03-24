@@ -9,6 +9,7 @@ import com.miui.gallery.search.core.suggestion.Suggestion;
 import com.miui.gallery.search.core.suggestion.SuggestionSection;
 import java.util.ArrayList;
 import java.util.List;
+import miui.mipub.MipubStat;
 
 class ImageResultSuggestionCursor extends GroupedSuggestionCursor<SuggestionSection> implements ExpandableGroupList<SuggestionSection, Suggestion> {
     private SparseArray<Integer[]> mGroupCollapsedItemArray;
@@ -33,7 +34,7 @@ class ImageResultSuggestionCursor extends GroupedSuggestionCursor<SuggestionSect
     }
 
     public long getGroupCreateTime(int groupIndex) {
-        return getGroupExtra(groupIndex, "create_time") != null ? Long.valueOf(getGroupExtra(groupIndex, "create_time")).longValue() : -1;
+        return getGroupExtra(groupIndex, MipubStat.STAT_CREATE_TIME) != null ? Long.valueOf(getGroupExtra(groupIndex, MipubStat.STAT_CREATE_TIME)).longValue() : -1;
     }
 
     public int getGroupCreateDate(int groupIndex) {

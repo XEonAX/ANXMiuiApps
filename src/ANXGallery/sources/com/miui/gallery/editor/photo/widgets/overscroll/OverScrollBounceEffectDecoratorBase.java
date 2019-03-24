@@ -13,6 +13,7 @@ import android.view.View.OnTouchListener;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import com.miui.gallery.editor.photo.widgets.overscroll.IOverScrollInterface.IOverScrollDecoratorAdapter;
+import miui.hybrid.Response;
 
 public abstract class OverScrollBounceEffectDecoratorBase implements OnTouchListener {
     protected final BounceBackState mBounceBackState;
@@ -124,7 +125,7 @@ public abstract class OverScrollBounceEffectDecoratorBase implements OnTouchList
         protected ObjectAnimator createBounceBackAnimator(float startOffset) {
             float bounceBackDuration = (Math.abs(startOffset) / this.mAnimAttributes.mMaxOffset) * 800.0f;
             ObjectAnimator bounceBackAnim = ObjectAnimator.ofFloat(OverScrollBounceEffectDecoratorBase.this.mViewAdapter.getView(), this.mAnimAttributes.mProperty, new float[]{OverScrollBounceEffectDecoratorBase.this.mStartAttr.mAbsOffset});
-            bounceBackAnim.setDuration((long) Math.max((int) bounceBackDuration, 200));
+            bounceBackAnim.setDuration((long) Math.max((int) bounceBackDuration, Response.CODE_GENERIC_ERROR));
             bounceBackAnim.setInterpolator(this.mBounceBackInterpolator);
             bounceBackAnim.addUpdateListener(this);
             return bounceBackAnim;

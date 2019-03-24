@@ -47,7 +47,7 @@ public class a {
             if (this.b != null) {
                 switch (((Integer) this.b.get("command")).intValue()) {
                     case 1:
-                        this.a.d.a(this.a, this.a.b(((Integer) this.b.get(nexExportFormat.TAG_FORMAT_WIDTH)).intValue(), ((Integer) this.b.get(nexExportFormat.TAG_FORMAT_HEIGHT)).intValue()));
+                        this.a.d.a(this.a, this.a.b(((Integer) this.b.get("width")).intValue(), ((Integer) this.b.get(nexExportFormat.TAG_FORMAT_HEIGHT)).intValue()));
                         return;
                     default:
                         return;
@@ -163,7 +163,7 @@ public class a {
     public void a(int i, int i2) {
         AbstractMap hashMap = new HashMap();
         hashMap.put("command", Integer.valueOf(1));
-        hashMap.put(nexExportFormat.TAG_FORMAT_WIDTH, Integer.valueOf(i));
+        hashMap.put("width", Integer.valueOf(i));
         hashMap.put(nexExportFormat.TAG_FORMAT_HEIGHT, Integer.valueOf(i2));
         b.a(this, hashMap);
     }

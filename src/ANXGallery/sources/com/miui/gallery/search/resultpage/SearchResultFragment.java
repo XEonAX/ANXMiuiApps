@@ -21,7 +21,6 @@ import com.miui.gallery.search.core.display.OnActionClickListener;
 import com.miui.gallery.search.core.suggestion.SuggestionCursor;
 import com.miui.gallery.threadpool.ThreadManager;
 import com.miui.gallery.widget.recyclerview.GridLayoutInnerPaddingItemDecoration;
-import com.nexstreaming.nexeditorsdk.nexExportFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,11 +94,11 @@ public class SearchResultFragment extends SearchResultFragmentBase {
     protected void onInflateView(View view, Bundle savedInstanceState, Uri intentUri) {
         this.mResultView = (RecyclerView) view.findViewById(R.id.result_view);
         this.mResultView.setItemAnimator(null);
-        if ("locationList".equals(intentUri.getQueryParameter(nexExportFormat.TAG_FORMAT_TYPE))) {
+        if ("locationList".equals(intentUri.getQueryParameter("type"))) {
             this.mFrom = "from_location_list";
             this.mDefaultTitle = getString(R.string.search_title_location);
             this.mPageName = "search_location_list";
-        } else if ("tagList".equals(intentUri.getQueryParameter(nexExportFormat.TAG_FORMAT_TYPE))) {
+        } else if ("tagList".equals(intentUri.getQueryParameter("type"))) {
             this.mFrom = "from_tag_list";
             this.mDefaultTitle = getString(R.string.search_title_tag);
             this.mPageName = "search_tag_list";

@@ -23,7 +23,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.xiaomi.micloudsdk.request.utils.CloudUtils;
-import org.jcodec.containers.mp4.boxes.Box;
+import miui.app.constants.ThemeManagerConstants;
 import org.json.JSONObject;
 
 public class StoryNotificationMessageHandler extends MessageHandler {
@@ -46,7 +46,7 @@ public class StoryNotificationMessageHandler extends MessageHandler {
             JSONObject notificationJSON = new JSONObject(message.getData());
             final int id = getPushNotificationId(notificationJSON.optInt("id", 0));
             if (notificationJSON.optBoolean("isCancel", false)) {
-                NotificationManager nm = (NotificationManager) context.getSystemService("notification");
+                NotificationManager nm = (NotificationManager) context.getSystemService(ThemeManagerConstants.COMPONENT_CODE_NOTIFICATION);
                 if (nm != null) {
                     nm.cancel(id);
                     Log.d("StoryNotificationMessageHandler", "is cancel message");
@@ -119,14 +119,14 @@ public class StoryNotificationMessageHandler extends MessageHandler {
     }
 
     private void publishStoryNotificationInternal(Context context, int notificationId, String title, String description, Bitmap icon) {
-        NotificationManager nm = (NotificationManager) context.getSystemService("notification");
+        NotificationManager nm = (NotificationManager) context.getSystemService(ThemeManagerConstants.COMPONENT_CODE_NOTIFICATION);
         if (nm == null) {
             Log.d("StoryNotificationMessageHandler", "notification manager is null");
             return;
         }
         Intent notificationIntent = new Intent("com.miui.gallery.action.VIEW_ALBUM");
         notificationIntent.putExtra("extra_start_page", 2);
-        PendingIntent pi = PendingIntent.getActivity(context, 0, notificationIntent, Box.MAX_BOX_SIZE);
+        PendingIntent pi = PendingIntent.getActivity(context, 0, notificationIntent, 134217728);
         Builder builder = new Builder(context);
         builder.setTicker(title);
         builder.setContentTitle(title);
