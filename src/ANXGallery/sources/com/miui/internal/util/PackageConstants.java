@@ -2,10 +2,7 @@ package com.miui.internal.util;
 
 import android.app.Application;
 import android.content.Context;
-import android.util.Log;
 import java.io.File;
-import miui.core.Manifest;
-import miui.core.ManifestParser;
 import miui.util.AppConstants;
 
 public class PackageConstants extends AppConstants {
@@ -23,25 +20,11 @@ public class PackageConstants extends AppConstants {
     public static Application sInitializingApplication;
     public static int sSdkStatus = 0;
 
-    private PackageConstants() {
+    private static int ag() {
+        return 7;
     }
 
-    private static int ag() {
-        String[] strArr = new String[1];
-        int i = 0;
-        strArr[0] = RESOURCE_PATH;
-        Manifest parse = ManifestParser.createFromResources(ResourcesUtils.createResources(strArr), "miui", null).parse(null);
-        if (parse != null) {
-            i = parse.getModule().getLevel();
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append("current sdk level is ");
-            stringBuilder.append(i);
-            Log.d("miuisdk", stringBuilder.toString());
-        }
-        if (i != 0) {
-            return i;
-        }
-        throw new IllegalStateException("cannot retrieve sdk level");
+    private PackageConstants() {
     }
 
     public static File getSdkBaseFolder(Context context) {

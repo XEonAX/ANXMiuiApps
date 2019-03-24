@@ -26,17 +26,17 @@ class a implements Queue<Task<?>> {
     /* renamed from: b */
     public boolean put(Task<?> task) {
         boolean put;
-        switch (task.getPriority()) {
-            case Low:
+        switch (TaskQueue$1.Kj[task.getPriority().ordinal()]) {
+            case 1:
                 put = this.Lc.put(task);
                 break;
-            case Normal:
+            case 2:
                 put = this.Lb.put(task);
                 break;
-            case High:
+            case 3:
                 put = this.La.put(task);
                 break;
-            case RealTime:
+            case 4:
                 Log.e("async", "Realtime task must NOT be put in Queue");
                 break;
         }

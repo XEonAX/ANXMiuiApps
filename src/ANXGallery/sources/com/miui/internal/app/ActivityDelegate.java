@@ -175,7 +175,6 @@ public class ActivityDelegate extends ActionBarDelegateImpl implements Callback,
                 return;
             }
             obtainStyledAttributes.recycle();
-            throw new IllegalStateException("You need to use a miui theme (or descendant) with this activity.");
         }
     }
 

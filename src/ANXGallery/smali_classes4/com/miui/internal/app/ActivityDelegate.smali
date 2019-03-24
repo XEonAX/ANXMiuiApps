@@ -825,14 +825,15 @@
     :cond_d
     invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 175
-    new-instance v0, Ljava/lang/IllegalStateException;
+    return-void
+    # .line 175
+    # new-instance v0, Ljava/lang/IllegalStateException;
 
-    const-string v1, "You need to use a miui theme (or descendant) with this activity."
+    # const-string v1, "You need to use a miui theme (or descendant) with this activity."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    # invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    # throw v0
 .end method
 
 .method public invalidateOptionsMenu()V

@@ -74,86 +74,90 @@
 .end method
 
 .method private static ag()I
-    .locals 4
+    # .locals 4
 
-    .line 48
-    nop
+    # .line 48
+    # nop
 
-    .line 49
-    const/4 v0, 0x1
+    # .line 49
+    # const/4 v0, 0x1
 
-    new-array v0, v0, [Ljava/lang/String;
+    # new-array v0, v0, [Ljava/lang/String;
 
-    sget-object v1, Lcom/miui/internal/util/PackageConstants;->RESOURCE_PATH:Ljava/lang/String;
+    # sget-object v1, Lcom/miui/internal/util/PackageConstants;->RESOURCE_PATH:Ljava/lang/String;
 
-    const/4 v2, 0x0
+    # const/4 v2, 0x0
 
-    aput-object v1, v0, v2
+    # aput-object v1, v0, v2
 
-    invoke-static {v0}, Lcom/miui/internal/util/ResourcesUtils;->createResources([Ljava/lang/String;)Landroid/content/res/Resources;
+    # invoke-static {v0}, Lcom/miui/internal/util/ResourcesUtils;->createResources([Ljava/lang/String;)Landroid/content/res/Resources;
 
-    move-result-object v0
+    # move-result-object v0
 
-    .line 50
-    const-string v1, "miui"
+    # .line 50
+    # const-string v1, "miui"
 
-    const/4 v3, 0x0
+    # const/4 v3, 0x0
 
-    invoke-static {v0, v1, v3}, Lmiui/core/ManifestParser;->createFromResources(Landroid/content/res/Resources;Ljava/lang/String;Landroid/os/Bundle;)Lmiui/core/ManifestParser;
+    # invoke-static {v0, v1, v3}, Lmiui/core/ManifestParser;->createFromResources(Landroid/content/res/Resources;Ljava/lang/String;Landroid/os/Bundle;)Lmiui/core/ManifestParser;
 
-    move-result-object v0
+    # move-result-object v0
 
-    invoke-virtual {v0, v3}, Lmiui/core/ManifestParser;->parse(Ljava/util/Map;)Lmiui/core/Manifest;
+    # invoke-virtual {v0, v3}, Lmiui/core/ManifestParser;->parse(Ljava/util/Map;)Lmiui/core/Manifest;
 
-    move-result-object v0
+    # move-result-object v0
 
-    .line 51
-    if-eqz v0, :cond_0
+    # .line 51
+    # if-eqz v0, :cond_0
 
-    .line 52
-    invoke-virtual {v0}, Lmiui/core/Manifest;->getModule()Lmiui/module/Module;
+    # .line 52
+    # invoke-virtual {v0}, Lmiui/core/Manifest;->getModule()Lmiui/module/Module;
 
-    move-result-object v0
+    # move-result-object v0
 
-    invoke-virtual {v0}, Lmiui/module/Module;->getLevel()I
+    # invoke-virtual {v0}, Lmiui/module/Module;->getLevel()I
 
-    move-result v2
+    # move-result v2
 
-    .line 53
-    const-string v0, "miuisdk"
+    # .line 53
+    # const-string v0, "miuisdk"
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    # new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    # invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "current sdk level is "
+    # const-string v3, "current sdk level is "
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    # invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    # invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    # invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    # move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    # invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 55
-    :cond_0
-    if-eqz v2, :cond_1
+    # .line 55
+    # :cond_0
+    # if-eqz v2, :cond_1
 
-    .line 58
-    return v2
+    # .line 58
+    # return v2
 
-    .line 56
-    :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
+    # .line 56
+    # :cond_1
+    # new-instance v0, Ljava/lang/IllegalStateException;
 
-    const-string v1, "cannot retrieve sdk level"
+    # const-string v1, "cannot retrieve sdk level"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    # invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    # throw v0
+    
+    .locals 1
+    const/4 v0, 0x7
+    return v0
 .end method
 
 .method public static getSdkBaseFolder(Landroid/content/Context;)Ljava/io/File;
