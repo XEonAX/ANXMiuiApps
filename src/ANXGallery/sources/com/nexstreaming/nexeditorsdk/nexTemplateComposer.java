@@ -381,7 +381,7 @@ public final class nexTemplateComposer {
         return false;
     }
 
-    /* JADX WARNING: Removed duplicated region for block: B:50:0x014a A:{Splitter: B:2:0x000c, ExcHandler: java.lang.Exception (e java.lang.Exception)} */
+    /* JADX WARNING: Removed duplicated region for block: B:50:0x014a A:{ExcHandler: java.lang.Exception (e java.lang.Exception), Splitter: B:2:0x000c} */
     /* JADX WARNING: Failed to process nested try/catch */
     /* JADX WARNING: Missing block: B:40:?, code:
             android.util.Log.d(TAG, "Info(name: (" + r5 + "))");
@@ -462,7 +462,7 @@ public final class nexTemplateComposer {
     }
 
     /* JADX WARNING: Removed duplicated region for block: B:41:0x017b A:{Catch:{ JSONException -> 0x01ab, Exception -> 0x01b1 }} */
-    /* JADX WARNING: Removed duplicated region for block: B:49:0x01b1 A:{Splitter: B:4:0x000e, ExcHandler: java.lang.Exception (r0_57 'e' java.lang.Exception)} */
+    /* JADX WARNING: Removed duplicated region for block: B:49:0x01b1 A:{ExcHandler: java.lang.Exception (r0_57 'e' java.lang.Exception), Splitter: B:4:0x000e} */
     /* JADX WARNING: Failed to process nested try/catch */
     /* JADX WARNING: Missing block: B:38:?, code:
             android.util.Log.d(TAG, "Info(name: (" + r4 + "))");

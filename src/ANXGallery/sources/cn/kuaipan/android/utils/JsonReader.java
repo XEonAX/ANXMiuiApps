@@ -339,7 +339,7 @@ public final class JsonReader implements Closeable {
             case 39:
                 checkLenient();
                 break;
-            case BaiduSceneResult.RIDING /*91*/:
+            case 91:
                 push(JsonScope.EMPTY_ARRAY);
                 jsonToken = JsonToken.BEGIN_ARRAY;
                 this.token = jsonToken;
@@ -551,7 +551,7 @@ public final class JsonReader implements Closeable {
                     case ' ':
                     case ',':
                     case ':':
-                    case BaiduSceneResult.RIDING /*91*/:
+                    case '[':
                     case BaiduSceneResult.SNORKELING_DIVE /*93*/:
                     case BaiduSceneResult.TRAIN /*123*/:
                     case BaiduSceneResult.TRAVEL_OTHER /*125*/:

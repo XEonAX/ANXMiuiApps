@@ -1,13 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.miui.gallery" platformBuildVersionCode="26" platformBuildVersionName="8.0.0">
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" 
+    package="com.miui.gallery" 
+    platformBuildVersionCode="26" 
+    platformBuildVersionName="8.0.0">
     <uses-feature android:glEsVersion="0x00020000"/>
-    <permission android:name="com.miui.gallery.permission.SCAN" android:protectionLevel="signature"/>
-    <permission android:name="com.miui.gallery.permission.CAMERA_CAPTURE" android:protectionLevel="signature"/>
-    <permission android:name="com.xiaomi.gallery.permission.CLOUD" android:protectionLevel="signatureOrSystem"/>
-    <permission android:name="com.miui.gallery.permission.DELETE_IMAGE" android:protectionLevel="signatureOrSystem"/>
-    <permission android:name="com.miui.gallery.permission.SEND_STAT" android:protectionLevel="signatureOrSystem"/>
-    <permission android:name="com.miui.gallery.permission.USE_API" android:protectionLevel="normal"/>
-    <permission android:name="com.miui.gallery.permission.BIND_SERVICE" android:protectionLevel="signature"/>
-    <permission android:name="com.miui.gallery.permission.MIPUSH_RECEIVE" android:protectionLevel="signature"/>
+    <permission android:name="com.miui.gallery.permission.SCAN" 
+        android:protectionLevel="signature"/>
+    <permission android:name="com.miui.gallery.permission.CAMERA_CAPTURE" 
+        android:protectionLevel="signature"/>
+    <permission android:name="com.xiaomi.gallery.permission.CLOUD" 
+        android:protectionLevel="signatureOrSystem"/>
+    <permission android:name="com.miui.gallery.permission.DELETE_IMAGE" 
+        android:protectionLevel="signatureOrSystem"/>
+    <permission android:name="com.miui.gallery.permission.SEND_STAT" 
+        android:protectionLevel="signatureOrSystem"/>
+    <permission android:name="com.miui.gallery.permission.USE_API" 
+        android:protectionLevel="normal"/>
+    <permission android:name="com.miui.gallery.permission.BIND_SERVICE" 
+        android:protectionLevel="signature"/>
+    <permission android:name="com.miui.gallery.permission.MIPUSH_RECEIVE" 
+        android:protectionLevel="signature"/>
     <protected-broadcast android:name="com.miui.gallery.intent.action.SEND_STAT"/>
     <uses-permission android:name="com.miui.gallery.permission.SCAN"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -46,11 +58,24 @@
     <uses-permission android:name="android.permission.GET_TASKS"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
     <compatible-screens/>
-    <application android:allowClearUserData="false" android:icon="@mipmap/ic_launcher_gallery" android:label="@string/app_name" android:largeHeap="true" android:name="com.miui.gallery.GalleryApp" android:supportsRtl="true">
-        <uses-library android:name="com.miui.core" android:required="false"/>
-        <meta-data android:name="android.max_aspect" android:value="2.2"/>
-        <meta-data android:name="notch.config" android:value="portrait"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.miui.gallery.activity.HomePageActivity" android:taskAffinity="com.miui.gallery.home" android:theme="@style/GalleryTheme.HomePage" android:windowSoftInputMode="adjustPan">
+    <application android:allowClearUserData="false" 
+        android:icon="@mipmap/ic_launcher_gallery" 
+        android:label="@string/app_name" 
+        android:largeHeap="true" 
+        android:name="com.miui.gallery.GalleryApp" 
+        android:supportsRtl="true">
+        <uses-library android:name="com.miui.core" 
+            android:required="false"/>
+        <meta-data android:name="android.max_aspect" 
+            android:value="2.2"/>
+        <meta-data android:name="notch.config" 
+            android:value="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:label="@string/app_name" 
+            android:name="com.miui.gallery.activity.HomePageActivity" 
+            android:taskAffinity="com.miui.gallery.home" 
+            android:theme="@style/GalleryTheme.HomePage" 
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -74,9 +99,21 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.miui.gallery.activity.PhotoPreviewSelectActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:label="@string/app_name" android:launchMode="singleTop" android:name="com.miui.gallery.activity.InternalPhotoPageActivity" android:theme="@style/GalleryTheme.InternalPhotoPageActivity"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.miui.gallery.activity.ExternalPhotoPageActivity" android:screenOrientation="sensor" android:theme="@style/GalleryTheme.ExternalPhotoPageActivity">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:label="@string/app_name" 
+            android:name="com.miui.gallery.activity.PhotoPreviewSelectActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" 
+            android:label="@string/app_name" 
+            android:launchMode="singleTop" 
+            android:name="com.miui.gallery.activity.InternalPhotoPageActivity" 
+            android:theme="@style/GalleryTheme.InternalPhotoPageActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:label="@string/app_name" 
+            android:name="com.miui.gallery.activity.ExternalPhotoPageActivity" 
+            android:screenOrientation="sensor" 
+            android:theme="@style/GalleryTheme.ExternalPhotoPageActivity">
             <intent-filter android:label="@string/app_name_view_picture">
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -110,8 +147,22 @@
                 <data android:mimeType="application/sdp"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:label="@string/photo_editor_label" android:name="com.miui.gallery.editor.photo.app.PhotoEditor" android:screenOrientation="portrait" android:theme="@style/Gallery.Theme.PhotoEditor" android:windowSoftInputMode="adjustNothing"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:hardwareAccelerated="true" android:label="@string/photo_editor_label" android:name="com.miui.gallery.editor.photo.app.ExternalPhotoEditor" android:process=":photo_editor" android:screenOrientation="portrait" android:theme="@style/Gallery.Theme.PhotoEditor" android:windowSoftInputMode="adjustNothing">
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" 
+            android:hardwareAccelerated="true" 
+            android:label="@string/photo_editor_label" 
+            android:name="com.miui.gallery.editor.photo.app.PhotoEditor" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/Gallery.Theme.PhotoEditor" 
+            android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:exported="true" 
+            android:hardwareAccelerated="true" 
+            android:label="@string/photo_editor_label" 
+            android:name="com.miui.gallery.editor.photo.app.ExternalPhotoEditor" 
+            android:process=":photo_editor" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/Gallery.Theme.PhotoEditor" 
+            android:windowSoftInputMode="adjustNothing">
             <intent-filter>
                 <action android:name="android.intent.action.EDIT"/>
                 <data android:mimeType="image/*"/>
@@ -123,19 +174,30 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:hardwareAccelerated="true" android:name="com.miui.gallery.video.editor.activity.VideoEditorActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme.VideoEditor" android:windowSoftInputMode="adjustNothing">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:exported="true" 
+            android:hardwareAccelerated="true" 
+            android:name="com.miui.gallery.video.editor.activity.VideoEditorActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme.VideoEditor" 
+            android:windowSoftInputMode="adjustNothing">
             <intent-filter>
                 <action android:name="android.intent.action.EDIT"/>
-                <data android:mimeType="video/*" android:scheme="file"/>
+                <data android:mimeType="video/*" 
+                    android:scheme="file"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
             <intent-filter>
                 <action android:name="com.miui.gallery.intent.action.EDIT"/>
-                <data android:mimeType="video/*" android:scheme="file"/>
+                <data android:mimeType="video/*" 
+                    android:scheme="file"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.miui.gallery.activity.AlbumDetailActivity" android:theme="@style/GalleryTheme">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:label="@string/app_name" 
+            android:name="com.miui.gallery.activity.AlbumDetailActivity" 
+            android:theme="@style/GalleryTheme">
             <intent-filter>
                 <action android:name="com.miui.gallery.action.VIEW_ALBUM_DETAIL"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -145,7 +207,10 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/album_name_recent_discovery" android:name="com.miui.gallery.activity.RecentDiscoveryActivity" android:theme="@style/GalleryTheme">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:label="@string/album_name_recent_discovery" 
+            android:name="com.miui.gallery.activity.RecentDiscoveryActivity" 
+            android:theme="@style/GalleryTheme">
             <intent-filter>
                 <action android:name="com.miui.gallery.action.VIEW_RECENT"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -154,17 +219,30 @@
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:host="gallery.i.mi.com" android:pathPattern="/recent-album/.*" android:scheme="https"/>
+                <data android:host="gallery.i.mi.com" 
+                    android:pathPattern="/recent-album/.*" 
+                    android:scheme="https"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/detail_title" android:name="com.miui.gallery.activity.PhotoDetailActivity" android:theme="@style/GalleryTheme.PhotoDetail"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.miui.gallery.activity.AlbumLocalPageActivity" android:theme="@style/GalleryTheme"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/backup_detail_page_title" android:name="com.miui.gallery.activity.BackupDetailActivity" android:theme="@style/GalleryTheme">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:label="@string/detail_title" 
+            android:name="com.miui.gallery.activity.PhotoDetailActivity" 
+            android:theme="@style/GalleryTheme.PhotoDetail"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:label="@string/app_name" 
+            android:name="com.miui.gallery.activity.AlbumLocalPageActivity" 
+            android:theme="@style/GalleryTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:label="@string/backup_detail_page_title" 
+            android:name="com.miui.gallery.activity.BackupDetailActivity" 
+            android:theme="@style/GalleryTheme">
             <intent-filter>
                 <action android:name="com.miui.gallery.action.VIEW_BACKUP_DETAIL"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.miui.gallery.activity.CloudSpaceStatusActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme.DarkActionBar.Transparent.NoTitle">
+        <activity android:name="com.miui.gallery.activity.CloudSpaceStatusActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme.DarkActionBar.Transparent.NoTitle">
             <intent-filter>
                 <action android:name="com.miui.gallery.action.VIEW_CLOUD_SPACE"/>
             </intent-filter>
@@ -172,30 +250,53 @@
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:host="gallery.i.mi.com" android:pathPattern="/cloud-space" android:scheme="https"/>
+                <data android:host="gallery.i.mi.com" 
+                    android:pathPattern="/cloud-space" 
+                    android:scheme="https"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.miui.gallery.activity.AlbumNewPhotoDetailActivity" android:theme="@style/GalleryTheme">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:label="@string/app_name" 
+            android:name="com.miui.gallery.activity.AlbumNewPhotoDetailActivity" 
+            android:theme="@style/GalleryTheme">
             <intent-filter>
                 <action android:name="com.miui.gallery.action.VIEW_ALBUM_NEW_PHOTO"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.miui.gallery.activity.facebaby.BabyAlbumDetailActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme.OverlayActionBar">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:name="com.miui.gallery.activity.facebaby.BabyAlbumDetailActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme.OverlayActionBar">
             <intent-filter>
                 <action android:name="com.miui.gallery.action.VIEW_SHARED_BABY_ALBUM"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.miui.gallery.activity.TrashActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:label="@string/app_name" 
+            android:name="com.miui.gallery.activity.TrashActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme">
             <intent-filter>
                 <action android:name="com.miui.gallery.action.VIEW_TRASH"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.miui.gallery.activity.facebaby.FacePageActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/blank_app_name" android:name="com.miui.gallery.activity.facebaby.RecommendFacePageActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/people_page_label" android:name="com.miui.gallery.activity.PeoplePageActivity" android:theme="@style/GalleryTheme">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:label="@string/app_name" 
+            android:name="com.miui.gallery.activity.facebaby.FacePageActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:label="@string/blank_app_name" 
+            android:name="com.miui.gallery.activity.facebaby.RecommendFacePageActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:label="@string/people_page_label" 
+            android:name="com.miui.gallery.activity.PeoplePageActivity" 
+            android:theme="@style/GalleryTheme">
             <intent-filter>
                 <action android:name="com.miui.gallery.action.VIEW_PEOPLE"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -204,11 +305,20 @@
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:host="gallery.i.mi.com" android:pathPattern="/peoples" android:scheme="https"/>
+                <data android:host="gallery.i.mi.com" 
+                    android:pathPattern="/peoples" 
+                    android:scheme="https"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.miui.gallery.activity.facebaby.IgnorePeoplePageActivity" android:theme="@style/GalleryTheme"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:label="" android:name="com.miui.gallery.hybrid.GalleryHybridActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:name="com.miui.gallery.activity.facebaby.IgnorePeoplePageActivity" 
+            android:theme="@style/GalleryTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:hardwareAccelerated="true" 
+            android:label="" 
+            android:name="com.miui.gallery.hybrid.GalleryHybridActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme">
             <intent-filter>
                 <action android:name="com.miui.gallery.action.VIEW_WEB"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -221,13 +331,19 @@
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:host="i.mi.com" android:pathPattern="/mobile/gallery/.*" android:scheme="https"/>
-                <data android:host="daily.i.mi.com" android:pathPattern="/mobile/gallery/.*" android:scheme="https"/>
+                <data android:host="i.mi.com" 
+                    android:pathPattern="/mobile/gallery/.*" 
+                    android:scheme="https"/>
+                <data android:host="daily.i.mi.com" 
+                    android:pathPattern="/mobile/gallery/.*" 
+                    android:scheme="https"/>
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
-                <data android:host="gallery.i.mi.com" android:pathPattern="/hybrid.*" android:scheme="https"/>
+                <data android:host="gallery.i.mi.com" 
+                    android:pathPattern="/hybrid.*" 
+                    android:scheme="https"/>
             </intent-filter>
             <intent-filter>
                 <action android:name="com.miui.gallery.action.VIEW_WEB_LOGIN"/>
@@ -238,33 +354,71 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="orientation|screenSize" android:label="" android:launchMode="singleTop" android:name="com.miui.gallery.search.SearchActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme.SearchActivity" android:windowSoftInputMode="adjustPan">
+        <activity android:configChanges="orientation|screenSize" 
+            android:label="" 
+            android:launchMode="singleTop" 
+            android:name="com.miui.gallery.search.SearchActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme.SearchActivity" 
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:host="gallery.i.mi.com" android:pathPattern="/search" android:scheme="https"/>
-                <data android:host="gallery.i.mi.com" android:pathPattern="/search/.*" android:scheme="https"/>
-                <data android:host="gallery.i.mi.com" android:pathPattern="/picker/search" android:scheme="https"/>
-                <data android:host="gallery.i.mi.com" android:pathPattern="/picker/search/.*" android:scheme="https"/>
+                <data android:host="gallery.i.mi.com" 
+                    android:pathPattern="/search" 
+                    android:scheme="https"/>
+                <data android:host="gallery.i.mi.com" 
+                    android:pathPattern="/search/.*" 
+                    android:scheme="https"/>
+                <data android:host="gallery.i.mi.com" 
+                    android:pathPattern="/picker/search" 
+                    android:scheme="https"/>
+                <data android:host="gallery.i.mi.com" 
+                    android:pathPattern="/picker/search/.*" 
+                    android:scheme="https"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.miui.gallery.search.resultpage.SearchResultActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme" android:windowSoftInputMode="stateHidden">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:name="com.miui.gallery.search.resultpage.SearchResultActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme" 
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:host="gallery.i.mi.com" android:pathPattern="/result" android:scheme="https"/>
-                <data android:host="gallery.i.mi.com" android:pathPattern="/picker/result" android:scheme="https"/>
-                <data android:host="gallery.i.mi.com" android:pathPattern="/images" android:scheme="https"/>
-                <data android:host="gallery.i.mi.com" android:pathPattern="/tags" android:scheme="https"/>
-                <data android:host="gallery.i.mi.com" android:pathPattern="/picker/tags" android:scheme="https"/>
-                <data android:host="gallery.i.mi.com" android:pathPattern="/locations" android:scheme="https"/>
-                <data android:host="gallery.i.mi.com" android:pathPattern="/picker/locations" android:scheme="https"/>
-                <data android:host="gallery.i.mi.com" android:pathPattern="/likelyResults" android:scheme="https"/>
+                <data android:host="gallery.i.mi.com" 
+                    android:pathPattern="/result" 
+                    android:scheme="https"/>
+                <data android:host="gallery.i.mi.com" 
+                    android:pathPattern="/picker/result" 
+                    android:scheme="https"/>
+                <data android:host="gallery.i.mi.com" 
+                    android:pathPattern="/images" 
+                    android:scheme="https"/>
+                <data android:host="gallery.i.mi.com" 
+                    android:pathPattern="/tags" 
+                    android:scheme="https"/>
+                <data android:host="gallery.i.mi.com" 
+                    android:pathPattern="/picker/tags" 
+                    android:scheme="https"/>
+                <data android:host="gallery.i.mi.com" 
+                    android:pathPattern="/locations" 
+                    android:scheme="https"/>
+                <data android:host="gallery.i.mi.com" 
+                    android:pathPattern="/picker/locations" 
+                    android:scheme="https"/>
+                <data android:host="gallery.i.mi.com" 
+                    android:pathPattern="/likelyResults" 
+                    android:scheme="https"/>
             </intent-filter>
         </activity>
-        <activity android:label="@string/search_setting_title" android:launchMode="singleTop" android:name="com.miui.gallery.search.GallerySearchSettingsActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme.DarkActionBar.Transparent">
+        <activity android:label="@string/search_setting_title" 
+            android:launchMode="singleTop" 
+            android:name="com.miui.gallery.search.GallerySearchSettingsActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme.DarkActionBar.Transparent">
             <intent-filter>
                 <action android:name="com.miui.gallery.action.VIEW_SEARCH_SETTINGS"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -272,7 +426,10 @@
         </activity>
         <service android:name="com.miui.gallery.search.statistics.SearchStatReportService"/>
         <service android:name="com.miui.gallery.search.history.SearchHistoryService"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.miui.gallery.picker.PickGalleryActivity" android:theme="@style/GalleryTheme">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:label="@string/app_name" 
+            android:name="com.miui.gallery.picker.PickGalleryActivity" 
+            android:theme="@style/GalleryTheme">
             <intent-filter>
                 <action android:name="android.intent.action.GET_CONTENT"/>
                 <category android:name="android.intent.category.OPENABLE"/>
@@ -300,7 +457,11 @@
                 <data android:mimeType="vnd.android.cursor.dir/video"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/crop_label" android:name="com.miui.gallery.editor.photo.app.CropperActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme.Dark.ActionBar.NoTitle">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:label="@string/crop_label" 
+            android:name="com.miui.gallery.editor.photo.app.CropperActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme.Dark.ActionBar.NoTitle">
             <intent-filter android:label="@string/crop_label">
                 <action android:name="com.android.camera.action.CROP"/>
                 <data android:scheme="http"/>
@@ -313,122 +474,252 @@
                 <category android:name="android.intent.category.SELECTED_ALTERNATIVE"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.miui.gallery.picker.PickAlbumDetailActivity" android:theme="@style/GalleryTheme"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.miui.gallery.picker.PickFaceAlbumActivity" android:theme="@style/GalleryTheme">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:name="com.miui.gallery.picker.PickAlbumDetailActivity" 
+            android:theme="@style/GalleryTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:name="com.miui.gallery.picker.PickFaceAlbumActivity" 
+            android:theme="@style/GalleryTheme">
             <intent-filter>
                 <action android:name="com.miui.gallery.action.PICK_FACE"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.miui.gallery.picker.PickPeopleActivity" android:theme="@style/GalleryTheme">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:name="com.miui.gallery.picker.PickPeopleActivity" 
+            android:theme="@style/GalleryTheme">
             <intent-filter>
                 <action android:name="com.miui.gallery.action.PICK_PEOPLE"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.miui.gallery.picker.PickRecentDiscoveryActivity" android:theme="@style/GalleryTheme"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/baby_album_sharers_page_title" android:name="com.miui.gallery.share.baby.BabyShareAlbumOwnerActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme.Settings"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/baby_album_sharers_page_title" android:name="com.miui.gallery.share.baby.BabyShareAlbumSharerActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme.Settings"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.miui.gallery.activity.CleanerActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme.DarkActionBar.Transparent.NoTitle">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:name="com.miui.gallery.picker.PickRecentDiscoveryActivity" 
+            android:theme="@style/GalleryTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:label="@string/baby_album_sharers_page_title" 
+            android:name="com.miui.gallery.share.baby.BabyShareAlbumOwnerActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme.Settings"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:label="@string/baby_album_sharers_page_title" 
+            android:name="com.miui.gallery.share.baby.BabyShareAlbumSharerActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme.Settings"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:label="@string/app_name" 
+            android:name="com.miui.gallery.activity.CleanerActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme.DarkActionBar.Transparent.NoTitle">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:host="gallery.i.mi.com" android:pathPattern="/cleaner" android:scheme="https"/>
+                <data android:host="gallery.i.mi.com" 
+                    android:pathPattern="/cleaner" 
+                    android:scheme="https"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.miui.gallery.activity.CleanerPhotoPickActivity" android:theme="@style/GalleryTheme"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.miui.gallery.activity.PhotoSlimActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme.DarkActionBar.Transparent.NoTitle"/>
-        <provider android:authorities="com.miui.gallery.cloud.provider" android:exported="true" android:label="@string/app_name" android:name="com.miui.gallery.provider.GalleryProvider" android:permission="com.xiaomi.gallery.permission.CLOUD"/>
-        <provider android:authorities="com.miui.gallery.open_api" android:exported="true" android:label="@string/app_name" android:multiprocess="true" android:name="com.miui.gallery.provider.GalleryOpenApiProvider" android:permission="com.miui.gallery.permission.USE_API"/>
-        <provider android:authorities="com.miui.gallery.open" android:exported="false" android:grantUriPermissions="true" android:name="com.miui.gallery.provider.GalleryOpenProvider"/>
-        <provider android:authorities="com.miui.gallery.search" android:label="@string/app_name" android:name="com.miui.gallery.provider.SearchProvider" android:permission="com.miui.gallery.permission.CLOUD"/>
-        <receiver android:enabled="true" android:name="com.miui.gallery.receiver.MiuiCameraCaptureReceiver">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:name="com.miui.gallery.activity.CleanerPhotoPickActivity" 
+            android:theme="@style/GalleryTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:label="@string/app_name" 
+            android:name="com.miui.gallery.activity.PhotoSlimActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme.DarkActionBar.Transparent.NoTitle"/>
+        <provider android:authorities="com.miui.gallery.cloud.provider" 
+            android:exported="true" 
+            android:label="@string/app_name" 
+            android:name="com.miui.gallery.provider.GalleryProvider" 
+            android:permission="com.xiaomi.gallery.permission.CLOUD"/>
+        <provider android:authorities="com.miui.gallery.open_api" 
+            android:exported="true" 
+            android:label="@string/app_name" 
+            android:multiprocess="true" 
+            android:name="com.miui.gallery.provider.GalleryOpenApiProvider" 
+            android:permission="com.miui.gallery.permission.USE_API"/>
+        <provider android:authorities="com.miui.gallery.open" 
+            android:exported="false" 
+            android:grantUriPermissions="true" 
+            android:name="com.miui.gallery.provider.GalleryOpenProvider"/>
+        <provider android:authorities="com.miui.gallery.search" 
+            android:label="@string/app_name" 
+            android:name="com.miui.gallery.provider.SearchProvider" 
+            android:permission="com.miui.gallery.permission.CLOUD"/>
+        <receiver android:enabled="true" 
+            android:name="com.miui.gallery.receiver.MiuiCameraCaptureReceiver">
             <intent-filter>
                 <action android:name="com.miui.gallery.SAVE_TO_CLOUD"/>
                 <action android:name="com.miui.gallery.DELETE_FROM_CLOUD"/>
             </intent-filter>
         </receiver>
-        <service android:name="com.miui.gallery.scanner.MediaScannerService" android:permission="com.miui.gallery.permission.SCAN">
+        <service android:name="com.miui.gallery.scanner.MediaScannerService" 
+            android:permission="com.miui.gallery.permission.SCAN">
             <intent-filter>
                 <action android:name="com.miui.gallery.action.SCAN"/>
             </intent-filter>
         </service>
-        <service android:exported="true" android:name="com.miui.gallery.discovery.GalleryJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
-        <service android:exported="true" android:name="com.miui.gallery.module.ModuleManagerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.miui.gallery.activity.facebaby.InputFaceNameActivity" android:theme="@style/GalleryTheme"/>
-        <activity android:launchMode="singleTop" android:name="com.miui.gallery.activity.GallerySettingsActivity" android:theme="@style/GalleryTheme.Settings">
+        <service android:exported="true" 
+            android:name="com.miui.gallery.discovery.GalleryJobService" 
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="true" 
+            android:name="com.miui.gallery.module.ModuleManagerService" 
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:name="com.miui.gallery.activity.facebaby.InputFaceNameActivity" 
+            android:theme="@style/GalleryTheme"/>
+        <activity android:launchMode="singleTop" 
+            android:name="com.miui.gallery.activity.GallerySettingsActivity" 
+            android:theme="@style/GalleryTheme.Settings">
             <intent-filter android:priority="70">
                 <action android:name="miui.intent.action.APP_SETTINGS"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/auto_update_face" android:name="com.miui.gallery.activity.facebaby.BabyAlbumAutoupdateSettingActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme.Settings"/>
-        <activity android:label="@string/cloud_settings" android:launchMode="singleTop" android:name="com.miui.gallery.activity.CloudSettingsActivity" android:theme="@style/GalleryTheme.Settings">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:label="@string/auto_update_face" 
+            android:name="com.miui.gallery.activity.facebaby.BabyAlbumAutoupdateSettingActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme.Settings"/>
+        <activity android:label="@string/cloud_settings" 
+            android:launchMode="singleTop" 
+            android:name="com.miui.gallery.activity.CloudSettingsActivity" 
+            android:theme="@style/GalleryTheme.Settings">
             <intent-filter>
                 <action android:name="com.miui.gallery.cloud.provider.SYNC_SETTINGS"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:label="@string/cloud_guide_welcome_title" android:name="com.miui.gallery.activity.CloudGuideWelcomeActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme.Settings"/>
-        <activity android:label="@string/cloud_guide_auto_backup_title" android:name="com.miui.gallery.activity.CloudGuideAutoBackupActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme.Settings"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/baby_album_setting_title" android:name="com.miui.gallery.activity.facebaby.OwnerBabyAlbumSettingActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme.Settings"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/baby_album_setting_title" android:name="com.miui.gallery.activity.facebaby.SharerBabyAlbumSettingActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme.Settings"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/share_album" android:name="com.miui.gallery.share.NormalShareAlbumOwnerActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme.Settings"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/share_album" android:name="com.miui.gallery.share.NormalShareAlbumSharerActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme.Settings"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.miui.gallery.card.ui.detail.StoryAlbumActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme.OverlayActionBar" android:windowSoftInputMode="adjustNothing"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.miui.gallery.movie.ui.activity.MovieStoryPickActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme"/>
-        <activity android:excludeFromRecents="true" android:name="com.miui.gallery.share.AlbumShareInvitationPopupActivity" android:screenOrientation="portrait" android:taskAffinity="" android:theme="@style/GalleryTheme.Dialog"/>
-        <activity android:excludeFromRecents="true" android:exported="true" android:name="com.miui.gallery.share.AlbumShareInvitationAcceptActivity" android:screenOrientation="portrait" android:taskAffinity="" android:theme="@style/GalleryTheme.NoDisplay"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.miui.gallery.share.LoginAndSyncForInvitationActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme.Dark.ActionBar.NoTitle.Transparent"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:name="com.miui.gallery.collage.CollageActivity" android:screenOrientation="portrait" android:theme="@style/CollageTheme" android:windowSoftInputMode="adjustNothing"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:name="com.miui.gallery.movie.ui.activity.MovieActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme.MovieThemeStarter"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.miui.gallery.push.messagehandler.PushLandingActivity" android:screenOrientation="portrait" android:theme="@style/GalleryTheme.Dark.ActionBar.NoTitle.Transparent">
+        <activity android:label="@string/cloud_guide_welcome_title" 
+            android:name="com.miui.gallery.activity.CloudGuideWelcomeActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme.Settings"/>
+        <activity android:label="@string/cloud_guide_auto_backup_title" 
+            android:name="com.miui.gallery.activity.CloudGuideAutoBackupActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme.Settings"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:label="@string/baby_album_setting_title" 
+            android:name="com.miui.gallery.activity.facebaby.OwnerBabyAlbumSettingActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme.Settings"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:label="@string/baby_album_setting_title" 
+            android:name="com.miui.gallery.activity.facebaby.SharerBabyAlbumSettingActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme.Settings"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:label="@string/share_album" 
+            android:name="com.miui.gallery.share.NormalShareAlbumOwnerActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme.Settings"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:label="@string/share_album" 
+            android:name="com.miui.gallery.share.NormalShareAlbumSharerActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme.Settings"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:hardwareAccelerated="true" 
+            android:name="com.miui.gallery.card.ui.detail.StoryAlbumActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme.OverlayActionBar" 
+            android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:name="com.miui.gallery.movie.ui.activity.MovieStoryPickActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme"/>
+        <activity android:excludeFromRecents="true" 
+            android:name="com.miui.gallery.share.AlbumShareInvitationPopupActivity" 
+            android:screenOrientation="portrait" 
+            android:taskAffinity="" 
+            android:theme="@style/GalleryTheme.Dialog"/>
+        <activity android:excludeFromRecents="true" 
+            android:exported="true" 
+            android:name="com.miui.gallery.share.AlbumShareInvitationAcceptActivity" 
+            android:screenOrientation="portrait" 
+            android:taskAffinity="" 
+            android:theme="@style/GalleryTheme.NoDisplay"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:name="com.miui.gallery.share.LoginAndSyncForInvitationActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme.Dark.ActionBar.NoTitle.Transparent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" 
+            android:hardwareAccelerated="true" 
+            android:name="com.miui.gallery.collage.CollageActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/CollageTheme" 
+            android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" 
+            android:name="com.miui.gallery.movie.ui.activity.MovieActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme.MovieThemeStarter"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:name="com.miui.gallery.push.messagehandler.PushLandingActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/GalleryTheme.Dark.ActionBar.NoTitle.Transparent">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:host="gallery.i.mi.com" android:pathPattern="/push_landing" android:scheme="https"/>
+                <data android:host="gallery.i.mi.com" 
+                    android:pathPattern="/push_landing" 
+                    android:scheme="https"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.miui.gallery.refocus.RefocusActivity" android:screenOrientation="portrait" android:theme="@style/Gallery.Theme.PhotoEditor"/>
-        <receiver android:enabled="true" android:exported="true" android:name="com.miui.gallery.share.AlbumShareInvitationReceiver">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:name="com.miui.gallery.refocus.RefocusActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/Gallery.Theme.PhotoEditor"/>
+        <receiver android:enabled="true" 
+            android:exported="true" 
+            android:name="com.miui.gallery.share.AlbumShareInvitationReceiver">
             <intent-filter>
                 <action android:name="com.miui.gallery.ACTION_ALBUM_SHARE_INVITATION"/>
             </intent-filter>
         </receiver>
-        <receiver android:enabled="true" android:exported="true" android:name="com.miui.gallery.share.AlbumShareOpenInvitationReceiver">
+        <receiver android:enabled="true" 
+            android:exported="true" 
+            android:name="com.miui.gallery.share.AlbumShareOpenInvitationReceiver">
             <intent-filter>
                 <action android:name="com.miui.gallery.intent.action.OPEN_INVIATAION"/>
             </intent-filter>
         </receiver>
-        <receiver android:enabled="@bool/priority_storage" android:name="com.miui.gallery.util.PriorityStorageBroadcastReceiver">
+        <receiver android:enabled="@bool/priority_storage" 
+            android:name="com.miui.gallery.util.PriorityStorageBroadcastReceiver">
             <intent-filter>
                 <action android:name="miui.intent.action.PRIORITY_STORAGE"/>
             </intent-filter>
-            <meta-data android:name="miui.intent.extra.SET_PRIORITY_DEFAULT" android:value="@bool/priority_storage"/>
-            <meta-data android:name="miui.intent.extra.PRIORITY_STORAGE_KILL_APP" android:value="1"/>
+            <meta-data android:name="miui.intent.extra.SET_PRIORITY_DEFAULT" 
+                android:value="@bool/priority_storage"/>
+            <meta-data android:name="miui.intent.extra.PRIORITY_STORAGE_KILL_APP" 
+                android:value="1"/>
         </receiver>
-        <service android:exported="false" android:name="com.miui.gallery.cloud.AsyncUpDownloadService">
+        <service android:exported="false" 
+            android:name="com.miui.gallery.cloud.AsyncUpDownloadService">
             <intent-filter>
                 <action android:name="com.miui.gallery.ACTION_SYNC_IN_BACKGROUND"/>
             </intent-filter>
         </service>
-        <service android:exported="true" android:name="com.miui.gallery.cloud.GallerySyncService">
+        <service android:exported="true" 
+            android:name="com.miui.gallery.cloud.GallerySyncService">
             <intent-filter>
                 <action android:name="android.content.SyncAdapter"/>
             </intent-filter>
-            <meta-data android:name="android.content.SyncAdapter" android:resource="@xml/syncadapter_gallery"/>
+            <meta-data android:name="android.content.SyncAdapter" 
+                android:resource="@xml/syncadapter_gallery"/>
         </service>
         <service android:name="com.miui.gallery.provider.cloudmanager.FileHandleService"/>
-        <receiver android:enabled="true" android:name="com.miui.gallery.cloud.AccountBroadcastReceiver">
+        <receiver android:enabled="true" 
+            android:name="com.miui.gallery.cloud.AccountBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.accounts.LOGIN_ACCOUNTS_PRE_CHANGED"/>
                 <action android:name="android.accounts.LOGIN_ACCOUNTS_POST_CHANGED"/>
             </intent-filter>
         </receiver>
         <service android:name="com.miui.gallery.cloud.AccountChangeService"/>
-        <receiver android:enabled="true" android:name="com.miui.gallery.cloud.TimeSetReceiver"/>
+        <receiver android:enabled="true" 
+            android:name="com.miui.gallery.cloud.TimeSetReceiver"/>
         <receiver android:name="com.miui.gallery.cloud.GalleryResumeSyncReceiver">
             <intent-filter>
                 <action android:name="com.miui.gallery.RESUME_SYNC"/>
@@ -440,50 +731,66 @@
             </intent-filter>
         </receiver>
         <service android:name="com.miui.gallery.data.BackgroundJobService"/>
-        <service android:exported="true" android:name="com.miui.gallery.data.ExternalSettingSecretService" android:permission="com.xiaomi.gallery.permission.CLOUD">
+        <service android:exported="true" 
+            android:name="com.miui.gallery.data.ExternalSettingSecretService" 
+            android:permission="com.xiaomi.gallery.permission.CLOUD">
             <intent-filter>
                 <action android:name="com.miui.gallery.ACTION_PRE_SETTING_SECRET"/>
             </intent-filter>
         </service>
-        <service android:name="com.miui.gallery.editor.photo.sdk.CleanService" android:permission="android.permission.BIND_JOB_SERVICE"/>
-        <receiver android:name="com.miui.gallery.receiver.DeleteImageReceiver" android:permission="com.miui.gallery.permission.DELETE_IMAGE">
+        <service android:name="com.miui.gallery.editor.photo.sdk.CleanService" 
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:name="com.miui.gallery.receiver.DeleteImageReceiver" 
+            android:permission="com.miui.gallery.permission.DELETE_IMAGE">
             <intent-filter>
                 <action android:name="com.miui.gallery.intent.action.DELETE_IMAGE_BY_SHA1"/>
                 <action android:name="com.miui.gallery.intent.action.DELETE_IMAGE_BY_PATH"/>
             </intent-filter>
         </receiver>
-        <receiver android:name="com.miui.gallery.receiver.StatReceiver" android:permission="com.miui.gallery.permission.SEND_STAT">
+        <receiver android:name="com.miui.gallery.receiver.StatReceiver" 
+            android:permission="com.miui.gallery.permission.SEND_STAT">
             <intent-filter>
                 <action android:name="com.miui.gallery.intent.action.SEND_STAT"/>
             </intent-filter>
         </receiver>
-        <receiver android:name="com.miui.gallery.receiver.VoiceAssistantReceiver" android:permission="com.miui.voiceassist.perm.VOICE_COMMAND">
+        <receiver android:name="com.miui.gallery.receiver.VoiceAssistantReceiver" 
+            android:permission="com.miui.voiceassist.perm.VOICE_COMMAND">
             <intent-filter>
                 <action android:name="com.miui.gallery.action.VOICE_ASSISTANT_SHARE"/>
                 <action android:name="com.miui.gallery.action.VOICE_ASSISTANT_SELECT_SHARE"/>
             </intent-filter>
         </receiver>
-        <service android:exported="true" android:name="com.miui.gallery.settingsbackup.GallerySettingsBackupService" android:permission="com.xiaomi.permission.CLOUD_MANAGER">
+        <service android:exported="true" 
+            android:name="com.miui.gallery.settingsbackup.GallerySettingsBackupService" 
+            android:permission="com.xiaomi.permission.CLOUD_MANAGER">
             <intent-filter>
                 <action android:name="miui.action.CLOUD_BACKUP_SETTINGS"/>
                 <action android:name="miui.action.CLOUD_RESTORE_SETTINGS"/>
             </intent-filter>
         </service>
-        <service android:exported="true" android:name="com.miui.gallery.cloud.service.GallerySyncCommandService" android:permission="com.xiaomi.permission.CLOUD_MANAGER">
+        <service android:exported="true" 
+            android:name="com.miui.gallery.cloud.service.GallerySyncCommandService" 
+            android:permission="com.xiaomi.permission.CLOUD_MANAGER">
             <intent-filter>
                 <action android:name="com.xiaomi.micloud.action.SYNC_COMMAND"/>
             </intent-filter>
         </service>
-        <service android:name="com.miui.gallery.pendingtask.base.PendingTaskService" android:permission="android.permission.BIND_JOB_SERVICE"/>
-        <service android:name="com.miui.gallery.cloud.jobs.SyncJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.miui.gallery.pendingtask.base.PendingTaskService" 
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.miui.gallery.cloud.jobs.SyncJobService" 
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
         <service android:name="com.miui.gallery.provider.MediaOperationService"/>
-        <service android:name="com.miui.gallery.util.GalleryBackgroundService" android:permission="com.miui.gallery.permission.BIND_SERVICE">
+        <service android:name="com.miui.gallery.util.GalleryBackgroundService" 
+            android:permission="com.miui.gallery.permission.BIND_SERVICE">
             <intent-filter>
                 <action android:name="com.miui.gallery.action.BIND_SERVICE"/>
             </intent-filter>
         </service>
-        <service android:name="com.miui.gallery.editor.photo.origin.EditorOriginHandlerService" android:process=":photo_editor"/>
-        <receiver android:enabled="true" android:exported="true" android:name="com.miui.gallery.receiver.GalleryTestReceiver">
+        <service android:name="com.miui.gallery.editor.photo.origin.EditorOriginHandlerService" 
+            android:process=":photo_editor"/>
+        <receiver android:enabled="true" 
+            android:exported="true" 
+            android:name="com.miui.gallery.receiver.GalleryTestReceiver">
             <intent-filter>
                 <action android:name="com.miui.gallery.action.REQUEST_CLOUD_CONTROL_DATA"/>
             </intent-filter>
@@ -491,22 +798,35 @@
                 <action android:name="com.miui.gallery.action.REQUEST_SYNC_SETTINGS"/>
             </intent-filter>
         </receiver>
-        <service android:enabled="true" android:name="com.xiaomi.push.service.XMPushService" android:process=":pushservice"/>
-        <service android:enabled="true" android:exported="false" android:name="com.xiaomi.push.service.XMJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:process=":pushservice"/>
-        <service android:enabled="true" android:exported="true" android:name="com.xiaomi.mipush.sdk.PushMessageHandler"/>
-        <service android:enabled="true" android:name="com.xiaomi.mipush.sdk.MessageHandleService"/>
-        <receiver android:exported="true" android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver">
+        <service android:enabled="true" 
+            android:name="com.xiaomi.push.service.XMPushService" 
+            android:process=":pushservice"/>
+        <service android:enabled="true" 
+            android:exported="false" 
+            android:name="com.xiaomi.push.service.XMJobService" 
+            android:permission="android.permission.BIND_JOB_SERVICE" 
+            android:process=":pushservice"/>
+        <service android:enabled="true" 
+            android:exported="true" 
+            android:name="com.xiaomi.mipush.sdk.PushMessageHandler"/>
+        <service android:enabled="true" 
+            android:name="com.xiaomi.mipush.sdk.MessageHandleService"/>
+        <receiver android:exported="true" 
+            android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </receiver>
-        <receiver android:exported="false" android:name="com.xiaomi.push.service.receivers.PingReceiver" android:process=":pushservice">
+        <receiver android:exported="false" 
+            android:name="com.xiaomi.push.service.receivers.PingReceiver" 
+            android:process=":pushservice">
             <intent-filter>
                 <action android:name="com.xiaomi.push.PING_TIMER"/>
             </intent-filter>
         </receiver>
-        <receiver android:exported="true" android:name="com.miui.gallery.push.GalleryPushReceiver">
+        <receiver android:exported="true" 
+            android:name="com.miui.gallery.push.GalleryPushReceiver">
             <intent-filter>
                 <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE"/>
             </intent-filter>
@@ -517,11 +837,16 @@
                 <action android:name="com.xiaomi.mipush.ERROR"/>
             </intent-filter>
         </receiver>
-        <receiver android:exported="true" android:name="com.miui.gallery.cloud.receiver.CloudPrivacyAgreementDeniedReceiver" android:permission="com.xiaomi.permission.CLOUD_MANAGER">
+        <receiver android:exported="true" 
+            android:name="com.miui.gallery.cloud.receiver.CloudPrivacyAgreementDeniedReceiver" 
+            android:permission="com.xiaomi.permission.CLOUD_MANAGER">
             <intent-filter>
                 <action android:name="com.xiaomi.action.MICLOUD_PRIVACY_DENIED"/>
             </intent-filter>
         </receiver>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.miui.gallery.permission.core.PermissionDeniedActivity" android:screenOrientation="portrait" android:theme="@style/Theme.NoTitle.Transparent.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:name="com.miui.gallery.permission.core.PermissionDeniedActivity" 
+            android:screenOrientation="portrait" 
+            android:theme="@style/Theme.NoTitle.Transparent.Fullscreen"/>
     </application>
 </manifest>

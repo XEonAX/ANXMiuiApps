@@ -23,7 +23,6 @@ import com.edmodo.cropper.CropImageView;
 import com.miui.gallery.R;
 import com.miui.gallery.activity.BaseActivity;
 import com.miui.gallery.util.ExifUtil;
-import com.miui.gallery.util.FileUtils;
 import com.miui.gallery.util.GalleryUtils;
 import com.miui.gallery.util.Log;
 import com.miui.gallery.widget.GalleryDialogFragment;
@@ -33,6 +32,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.ref.WeakReference;
+import miui.os.FileUtils;
 
 public class CropperActivity extends BaseActivity {
     private LoaderCallbacks<DecodeResult> mCallbacks = new LoaderCallbacks<DecodeResult>() {

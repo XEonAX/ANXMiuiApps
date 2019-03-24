@@ -120,7 +120,7 @@ public class DownloadPathHelper {
 
     public static String addPostfixToFileName(String fileName, String postfix) {
         String fileNameWithoutExt = FileUtils.getFileNameWithoutExtension(fileName) + "_" + postfix;
-        String ext = FileUtils.getExtension(fileName);
+        String ext = miui.os.FileUtils.getExtension(fileName);
         return TextUtils.isEmpty(ext) ? fileNameWithoutExt : fileNameWithoutExt + "." + ext;
     }
 

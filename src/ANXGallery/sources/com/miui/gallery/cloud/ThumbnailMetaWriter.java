@@ -12,7 +12,6 @@ import com.miui.gallery.util.BaseDocumentProviderUtils;
 import com.miui.gallery.util.BaseMiscUtil;
 import com.miui.gallery.util.ExifUtil;
 import com.miui.gallery.util.ExifUtil.UserCommentData;
-import com.miui.gallery.util.FileUtils;
 import com.miui.gallery.util.GalleryTimeUtils;
 import com.miui.gallery.util.Log;
 import com.nexstreaming.nexeditorsdk.nexExportFormat;
@@ -20,6 +19,7 @@ import java.io.File;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import miui.os.FileUtils;
 
 public class ThumbnailMetaWriter {
     private final String mDateTime;

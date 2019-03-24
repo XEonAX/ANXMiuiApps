@@ -1,8 +1,8 @@
 package com.miui.gallery.movie;
 
 import android.content.Context;
-import com.miui.gallery.util.FileUtils;
 import java.io.File;
+import miui.os.FileUtils;
 
 public class MovieConfig {
     public static String sAssetInstallRootPath;

@@ -34,7 +34,7 @@ public class LocalEventRecorder {
             LocalEventRecorder.a = com.xiaomi.xmsf.push.service.b.a.a(iBinder);
             if (LocalEventRecorder.a != null) {
                 r.b.execute(new Runnable() {
-                    /* JADX WARNING: Removed duplicated region for block: B:27:0x00c7 A:{Splitter: B:3:0x0006, ExcHandler: android.os.RemoteException (r0_17 'e' java.lang.Throwable)} */
+                    /* JADX WARNING: Removed duplicated region for block: B:27:0x00c7 A:{ExcHandler: android.os.RemoteException (r0_17 'e' java.lang.Throwable), Splitter: B:3:0x0006} */
                     /* JADX WARNING: Failed to process nested try/catch */
                     /* JADX WARNING: Missing block: B:27:0x00c7, code:
             r0 = move-exception;

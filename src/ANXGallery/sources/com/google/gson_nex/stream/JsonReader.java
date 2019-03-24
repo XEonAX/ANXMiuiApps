@@ -293,7 +293,7 @@ public class JsonReader implements Closeable {
             case 44:
             case 59:
                 break;
-            case BaiduSceneResult.RIDING /*91*/:
+            case 91:
                 this.peeked = 3;
                 return 3;
             case BaiduSceneResult.SNORKELING_DIVE /*93*/:
@@ -517,7 +517,7 @@ public class JsonReader implements Closeable {
             case ' ':
             case ',':
             case ':':
-            case BaiduSceneResult.RIDING /*91*/:
+            case '[':
             case BaiduSceneResult.SNORKELING_DIVE /*93*/:
             case BaiduSceneResult.TRAIN /*123*/:
             case BaiduSceneResult.TRAVEL_OTHER /*125*/:
@@ -721,7 +721,7 @@ public class JsonReader implements Closeable {
                     case ' ':
                     case ',':
                     case ':':
-                    case BaiduSceneResult.RIDING /*91*/:
+                    case '[':
                     case BaiduSceneResult.SNORKELING_DIVE /*93*/:
                     case BaiduSceneResult.TRAIN /*123*/:
                     case BaiduSceneResult.TRAVEL_OTHER /*125*/:
@@ -802,7 +802,7 @@ public class JsonReader implements Closeable {
                     case ' ':
                     case ',':
                     case ':':
-                    case BaiduSceneResult.RIDING /*91*/:
+                    case '[':
                     case BaiduSceneResult.SNORKELING_DIVE /*93*/:
                     case BaiduSceneResult.TRAIN /*123*/:
                     case BaiduSceneResult.TRAVEL_OTHER /*125*/:

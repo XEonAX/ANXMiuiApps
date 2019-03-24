@@ -467,7 +467,7 @@ public class Network {
         return httpRequest(context, url, "POST", null, fromParamsMapToString(paramsMap));
     }
 
-    /* JADX WARNING: Removed duplicated region for block: B:40:0x014b A:{Splitter: B:1:0x0008, PHI: r10 r11 , ExcHandler: all (r5_2 'e' java.lang.Throwable)} */
+    /* JADX WARNING: Removed duplicated region for block: B:40:0x014b A:{ExcHandler: all (r5_2 'e' java.lang.Throwable), PHI: r10 r11 , Splitter: B:1:0x0008} */
     /* JADX WARNING: Missing block: B:40:0x014b, code:
             r5 = move-exception;
      */

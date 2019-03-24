@@ -129,7 +129,7 @@ public class SaveUriDialogFragment extends GalleryDialogFragment {
                 }
                 FileInputStream inputStream2 = new FileInputStream(fd);
                 try {
-                    if (FileUtils.copyToFile(inputStream2, saveFile)) {
+                    if (miui.os.FileUtils.copyToFile(inputStream2, saveFile)) {
                         String savePath = saveFile.getAbsolutePath();
                         MediaScannerUtil.scanSingleFile(getActivity().getApplicationContext(), savePath, 0);
                         MediaFileUtils.triggerMediaScan(true, saveFile);
