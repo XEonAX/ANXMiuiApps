@@ -1793,4 +1793,6 @@ to personalize Gallery"</string>
     <string name="photo_editor_transition_image_view">photo_view</string>
     <string name="provider_authority">com.xiaomi.camera.parallelservice.provider.SpecialTypesProvider</string>
     <string name="recipient_editor_count_format">%d</string>
+    <string name="actionbar_immersion_button_more_description">More</string>
+    <string name="actionbar_button_up_description">Back</string>
 </resources>

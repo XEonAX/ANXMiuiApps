@@ -955,4 +955,8 @@
     <dimen name="welcome_margin_top_large">137.0dip</dimen>
     <dimen name="welcome_text_margin">5.0dip</dimen>
     <dimen name="welcome_text_margin_bottom">58.0dip</dimen>
+    <dimen name="action_mode_immersion_more_margin_right">0.0dip</dimen>
+    <dimen name="action_bar_tab_layout_width">-2.0dip</dimen>
+    <dimen name="action_bar_subtitle_top_margin">-3.0dip</dimen>
+    <dimen name="action_bar_subtitle_bottom_margin">0.0dip</dimen>
 </resources>

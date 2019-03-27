@@ -3347,6 +3347,20 @@ public final class R {
         public static final int video_editor_trim_edit_menu = 2130968958;
         /* added by JADX */
         public static final int video_editor_water_mark_bottom_bar = 2130968959;
+        /* added by JADX */
+        public static final int action_bar_home = 2130968960;
+        /* added by JADX */
+        public static final int action_bar_immersion = 2130968961;
+        /* added by JADX */
+        public static final int action_bar_tab = 2130968962;
+        /* added by JADX */
+        public static final int action_bar_tabbar = 2130968963;
+        /* added by JADX */
+        public static final int action_bar_title_item = 2130968964;
+        /* added by JADX */
+        public static final int action_bar_title_up = 2130968965;
+        /* added by JADX */
+        public static final int action_bar_view_list_nav_layout = 2130968966;
     }
 
     /* added by JADX */
@@ -5627,6 +5641,14 @@ public final class R {
         public static final int welcome_text_margin = 2131428285;
         /* added by JADX */
         public static final int welcome_text_margin_bottom = 2131428286;
+        /* added by JADX */
+        public static final int action_mode_immersion_more_margin_right = 2131428287;
+        /* added by JADX */
+        public static final int action_bar_tab_layout_width = 2131428288;
+        /* added by JADX */
+        public static final int action_bar_subtitle_top_margin = 2131428289;
+        /* added by JADX */
+        public static final int action_bar_subtitle_bottom_margin = 2131428290;
     }
 
     /* added by JADX */
@@ -9342,6 +9364,10 @@ public final class R {
         public static final int provider_authority = 2131494715;
         /* added by JADX */
         public static final int recipient_editor_count_format = 2131494716;
+        /* added by JADX */
+        public static final int actionbar_immersion_button_more_description = 2131494717;
+        /* added by JADX */
+        public static final int actionbar_button_up_description = 2131494718;
     }
 
     /* added by JADX */
@@ -12561,6 +12587,14 @@ public final class R {
         public static final int action_share = 2131886870;
         /* added by JADX */
         public static final int action_remove = 2131886871;
+        /* added by JADX */
+        public static final int up = 2131886872;
+        /* added by JADX */
+        public static final int home = 2131886873;
+        /* added by JADX */
+        public static final int action_bar_title = 2131886874;
+        /* added by JADX */
+        public static final int action_bar_subtitle = 2131886875;
     }
 
     /* added by JADX */
